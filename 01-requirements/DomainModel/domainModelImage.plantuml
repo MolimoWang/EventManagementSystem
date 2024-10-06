@@ -1,0 +1,100 @@
+@startuml
+class Account {
+    - name: String
+    - email: String
+    - password: String
+}
+
+class Administrator {
+    + manageAccounts()
+    + manageEvents()
+    + manageVenues()
+
+    + deleteEvents()
+    + deleteVenues()
+
+    + modifyOrganiserAccounts()
+    + modifyUserAccounts()
+    + viewAllAccounts()
+}
+
+class Organiser {
+    - address: String
+    - company_name: String
+    - phone_number: String
+    + createAccount()
+        + viewAccount()
+        + updateAccount()
+        + listVenues()
+        + viewVenueDetails()
+        + addVenue()
+        + editVenue()
+        + listEvents()
+        + viewEventDetails()
+        + createEvent()
+}
+
+class User {
+     - purchasedEvents: List<Event>
+        + createAccount()
+        + viewAccount()
+        + updateAccount()
+        + listUpcomingEvents()
+        + viewEventDetails()
+        + purchaseTicket()
+        + listPurchasedTickets()
+}
+
+class Venue {
+     - name: String
+     - address: String
+        - contact_name: String
+        - contact_phone: String
+        - contact_email: String
+        - capacity: int
+
+}
+
+
+class Event {
+    - name: String
+    - description: String
+    - date: Date
+    - time: Time
+    - organiser: Organiser
+    ' Event can only be deleted by Administrator
+}
+
+
+class Ticket {
+    - type: String
+    - price: double
+    - available_number: int
+    - sold_number: int
+
+}
+
+Account <|-- Administrator
+Account <|-- Organiser
+Account <|-- User
+
+Administrator "1" --> "0..*" Account : Manages
+Administrator "1" --> "0..*" Venue : Deletes
+Administrator "1" --> "0..*" Event : Deletes
+Administrator "1" --> "0..*" Organiser : Modifies
+Administrator "1" --> "0..*" User : Modifies
+
+Organiser "1" --> "0..*" Event : Organises
+Organiser "1" --> "0..*" Venue : Manages
+Organiser "1" --> "0..*" Account : Creates
+
+User "1" --> "0..*" Ticket : Purchases
+User "1" --> "0..*" Event : Views
+
+Venue o-- Event : Hosts
+Event *-- Ticket : Contains
+
+note right of Event
+Event can only be deleted by Administrator
+end note
+@enduml
