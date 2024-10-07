@@ -1,60 +1,65 @@
 @startuml
+skinparam monochrome true
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam linetype ortho
+skinparam lineThickness 3   ' 线条的厚度
+skinparam noteMargin 30     ' 注释的边距
+skinparam ranksep 100        ' 控制垂直间距
+skinparam nodesep 200        ' 控制水平间距
+skinparam classFontSize 12
+skinparam ArrowFontSize 12
+skinparam classBorderThickness 1
+skinparam classAttributeIconSize 0
+
+hide class circle
+hide empty members
+hide methods
+hide stereotypes
+
+skinparam class {
+    BorderColor black
+    ArrowColor black
+    FontColor black
+    FontName Arial
+    FontSize 12
+}
+
+
+' Using direction to control layout
+together{
+   class User
+   class Ticket
+}
+
 class Account {
     - name: String
     - email: String
     - password: String
 }
 
+class User {
+    - purchasedTicketsList: List<Event>
+}
 class Administrator {
-    + manageAccounts()
-    + manageEvents()
-    + manageVenues()
 
-    + deleteEvents()
-    + deleteVenues()
-
-    + modifyOrganiserAccounts()
-    + modifyUserAccounts()
-    + viewAllAccounts()
 }
 
 class Organiser {
     - address: String
-    - company_name: String
-    - phone_number: String
-    + createAccount()
-        + viewAccount()
-        + updateAccount()
-        + listVenues()
-        + viewVenueDetails()
-        + addVenue()
-        + editVenue()
-        + listEvents()
-        + viewEventDetails()
-        + createEvent()
-}
-
-class User {
-     - purchasedEvents: List<Event>
-        + createAccount()
-        + viewAccount()
-        + updateAccount()
-        + listUpcomingEvents()
-        + viewEventDetails()
-        + purchaseTicket()
-        + listPurchasedTickets()
+    - companyName: String
+    - phoneNumber: String
 }
 
 class Venue {
-     - name: String
-     - address: String
-        - contact_name: String
-        - contact_phone: String
-        - contact_email: String
-        - capacity: int
+    - name: String
+    - address: String
+    - contactName: String
+    - contactPhoneNumber: String
+    - contactEmail: String
+    - capacity: int
 
 }
-
 
 class Event {
     - name: String
@@ -74,27 +79,62 @@ class Ticket {
 
 }
 
-Account <|-- Administrator
-Account <|-- Organiser
-Account <|-- User
+' -------------------Inheritance relations-------------------
+Administrator --|> Account
+Organiser --|> Account
+User --|> Account
 
+' -------------------Note Here-------------------------
+
+note right of Administrator
+Administrator can view, edit all accounts,
+and create accounts for organizer or other
+administrator.
+end note
+
+
+
+' -------------------Multiplicities & Associations -------------------
+' admin can create, modify. but that creates too much lines, so simplify to "manage"
 Administrator "1" --> "0..*" Account : Manages
 Administrator "1" --> "0..*" Venue : Deletes
 Administrator "1" --> "0..*" Event : Deletes
 Administrator "1" --> "0..*" Organiser : Modifies
 Administrator "1" --> "0..*" User : Modifies
 
-Organiser "1" --> "0..*" Event : Organises
-Organiser "1" --> "0..*" Venue : Manages
-Organiser "1" --> "0..*" Account : Creates
 
+
+' -------------------Organiser Section ------------------
+Organiser "1" o--> "0..*" Event : Organises
+Organiser "1" o--> "0..*" Venue : Manages
+note "Organiser can view and\nupdate their accounts." as organiserNote
+organiserNote -left- Organiser
+
+' Organiser should not be allowed for creating/deleting account, they can only view or edit.
+
+
+' -------------------User Section -----------------------
 User "1" --> "0..*" Ticket : Purchases
 User "1" --> "0..*" Event : Views
 
+note "User can register and\ncreate their own account" as userNote
+userNote -left- User
+
+
+' -------------------Aggregation & Composition-------------
+
+' Logic:Venues can stand on their own, events need a venue to take place, but venues are not deleted with the deletion of events.
 Venue o-- Event : Hosts
-Event *-- Ticket : Contains
+' Logic: each event has tickets, but tickets are managed separately, deleting an event does not affect the ticket record.
+Event o-- Ticket : Contains
+' Logic: Users can have many tickets, and ticket information is stored independently. Ticket records are not lost due to deletion of user account.
+User o-- Ticket : Purchases
+
+
 
 note right of Event
-Event can only be deleted by Administrator
+Events may not take place
+in the same venue
+at the same data and time.
 end note
 @enduml
