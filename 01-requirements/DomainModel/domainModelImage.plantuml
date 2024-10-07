@@ -3,10 +3,10 @@ skinparam monochrome true
 skinparam backgroundColor white
 skinparam shadowing false
 skinparam linetype ortho
-skinparam lineThickness 3   ' 线条的厚度
-skinparam noteMargin 30     ' 注释的边距
-skinparam ranksep 100        ' 控制垂直间距
-skinparam nodesep 200        ' 控制水平间距
+skinparam lineThickness 3   ' Thickness of line
+skinparam noteMargin 30     ' Margins for comments
+skinparam ranksep 100        ' Control vertical spacing
+skinparam nodesep 200        ' Control horizontal spacing
 skinparam classFontSize 12
 skinparam ArrowFontSize 12
 skinparam classBorderThickness 1
