@@ -93,7 +93,7 @@ User --|> Account
 
 
 ' -------------------Organiser Section ------------------
-Organiser "1" o--> "0..* -organises" Event
+Organiser "1..*" o--> "0..* -organises" Event
 
 
 ' -------------------User Section -----------------------
