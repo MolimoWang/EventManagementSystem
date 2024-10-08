@@ -26,115 +26,86 @@ skinparam class {
 }
 
 
-' Using direction to control layout
+
 together{
-   class User
-   class Ticket
+    class User
+    class Ticket
 }
 
-class Account {
-    - name: String
-    - email: String
-    - password: String
+' Define user roles in the second row
+
+    class Administrator {
+    }
+
+    class Organiser {
+        - address: String
+        - companyName: String
+        - phoneNumber: String
+    }
+
+    class User {
+
+    }
+
+    ' Using direction to control layout
+    class Account {
+        - name: String
+        - email: String
+        - password: String
+    }
+
+together{
+class Venue
+class Event
 }
 
-class User {
-    - purchasedTicketsList: List<Event>
-}
-class Administrator {
+' Define the entities in the third row
 
-}
+    class Venue {
+        - name: String
+        - address: String
+        - contactName: String
+        - contactPhoneNumber: String
+        - contactEmail: String
+        - capacity: int
+    }
 
-class Organiser {
-    - address: String
-    - companyName: String
-    - phoneNumber: String
-}
+    class Event {
+        - name: String
+        - description: String
+        - date: Date
+        - time: Time
+        ' Event can only be deleted by Administrator
+    }
 
-class Venue {
-    - name: String
-    - address: String
-    - contactName: String
-    - contactPhoneNumber: String
-    - contactEmail: String
-    - capacity: int
+    class Ticket {
+        - type: String
+        - price: double
+        - available_number: int
+        - sold_number: int
+    }
 
-}
-
-class Event {
-    - name: String
-    - description: String
-    - date: Date
-    - time: Time
-    - organiser: Organiser
-    ' Event can only be deleted by Administrator
-}
-
-
-class Ticket {
-    - type: String
-    - price: double
-    - available_number: int
-    - sold_number: int
-
-}
 
 ' -------------------Inheritance relations-------------------
 Administrator --|> Account
 Organiser --|> Account
 User --|> Account
 
-' -------------------Note Here-------------------------
-
-note right of Administrator
-Administrator can view, edit all accounts,
-and create accounts for organizer or other
-administrator.
-end note
-
-
-
-' -------------------Multiplicities & Associations -------------------
-' admin can create, modify. but that creates too much lines, so simplify to "manage"
-Administrator "1" --> "0..*" Account : Manages
-Administrator "1" --> "0..*" Venue : Deletes
-Administrator "1" --> "0..*" Event : Deletes
-Administrator "1" --> "0..*" Organiser : Modifies
-Administrator "1" --> "0..*" User : Modifies
-
-
 
 ' -------------------Organiser Section ------------------
-Organiser "1" o--> "0..*" Event : Organises
-Organiser "1" o--> "0..*" Venue : Manages
-note "Organiser can view and\nupdate their accounts." as organiserNote
-organiserNote -left- Organiser
-
-' Organiser should not be allowed for creating/deleting account, they can only view or edit.
+Organiser "1" o--> "0..* -organises" Event
 
 
 ' -------------------User Section -----------------------
-User "1" --> "0..*" Ticket : Purchases
-User "1" --> "0..*" Event : Views
-
-note "User can register and\ncreate their own account" as userNote
-userNote -left- User
+User "1" o--> "-tickets 0..*" Ticket
 
 
 ' -------------------Aggregation & Composition-------------
+Venue "1 -venue" <--   Event
+Venue  -->  "0..* -events" Event
 
-' Logic:Venues can stand on their own, events need a venue to take place, but venues are not deleted with the deletion of events.
-Venue o-- Event : Hosts
-' Logic: each event has tickets, but tickets are managed separately, deleting an event does not affect the ticket record.
-Event o-- Ticket : Contains
-' Logic: Users can have many tickets, and ticket information is stored independently. Ticket records are not lost due to deletion of user account.
-User o-- Ticket : Purchases
+Event  --> "0..* -tickets" Ticket
+Event "1 -event" <-- Ticket
 
 
-
-note right of Event
-Events may not take place
-in the same venue
-at the same data and time.
-end note
 @enduml
