@@ -31,3 +31,6 @@ None
 
 ### **Data Outcomes**
 **READ** - The system retrieves the details of the existing events for the specified date.
+
+### **Related UI Prototypes**
+|![2](../../UI/organizer/display_date.png)|

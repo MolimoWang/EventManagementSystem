@@ -32,3 +32,4 @@ The organizer wants to see the registration details for a specific event they ha
 - **System Error**: If a system error occurs while retrieving the registration details, the system displays an error message and prompts the organizer to try again later.
 
 ### **Related UI Prototypes**
+|![2](../../UI/organizer/view_event_regitrations.png)|

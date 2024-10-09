@@ -1,1 +1,0 @@
-Hi, I initialized the domain map^^

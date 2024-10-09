@@ -27,3 +27,4 @@ The organizer wants to review the events they have scheduled.
 - **System Error**: If a system error occurs while retrieving the events, the system displays an error message and prompts the organizer to try again later.
 
 ### **Related UI Prototypes**
+|![2](../../UI/organizer/list_event.png)|
