@@ -36,3 +36,4 @@ The organizer wants to move an event to a different venue due to availability is
 - **System Error**: If a system error occurs while updating the venue, the system displays an error message and prompts the organizer to try again later.
 
 ### **Related UI Prototypes**
+|![2](../../UI/organizer/edit_venue.png)|

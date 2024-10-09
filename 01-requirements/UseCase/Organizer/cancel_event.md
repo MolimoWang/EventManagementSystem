@@ -33,3 +33,5 @@ The organizer decides to cancel a scheduled event, either due to unforeseen circ
 - **No Permission to Cancel**: If the organizer attempts to cancel an event created by another organizer, the system displays an error message and prevents the cancellation.
 - **System Error**: If a system error occurs while canceling the event, the system displays an error message and prompts the organizer to try again later.
 
+### **Related UI Prototypes**
+|![2](../../UI/organizer/cancel_event.png)|

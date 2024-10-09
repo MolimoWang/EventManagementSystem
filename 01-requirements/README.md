@@ -1,16 +1,16 @@
-# Team Project: *Group XX*
+# Team Project: *Group 05*
 
 ## Team Members
-| Number | Name | Email(s) | CSGitLab Username |
-|--------|------|----------|-------------------|
-| TM1    | Team Member 1 | tm1@ucdconnect.ie | @22201001 |
-| TM2    | Team Member 2 | tm2@ucdconnect.ie | @22201002 |     
-| TM3    | Team Member 3 | tm3@ucdconnect.ie, personal@qq.com | @22201003 |     
-| TM4    | Team Member 4 | tm4@ucdconnect.ie | @22201004 |     
-| TM5    | Team Member 5 | tm5@ucdconnect.ie | @22201005 |     
-| TM6    | Team Member 6 | tm6@ucdconnect.ie | @22201006 |     
-| TM7    | Team Member 7 | tm7@ucdconnect.ie | @22201007 |     
-| TM8    | Team Member 8 | tm8@ucdconnect.ie | @22201008 |
+| Number | Name          | Email(s)                           | CSGitLab Username |
+|--------|---------------|------------------------------------|-------------------|
+| TM1    | Wang Shuhan   | shuhan.wang@ucdconnect.ie          | @WangShuhan       |
+| TM2    | Team Member 2 | tm2@ucdconnect.ie                  | @22201002         |     
+| TM3    | Team Member 3 | tm3@ucdconnect.ie, personal@qq.com | @22201003         |     
+| TM4    | Team Member 4 | tm4@ucdconnect.ie                  | @22201004         |     
+| TM5    | Team Member 5 | tm5@ucdconnect.ie                  | @22201005         |     
+| TM6    | Team Member 6 | tm6@ucdconnect.ie                  | @22201006         |     
+| TM7    | Team Member 7 | tm7@ucdconnect.ie                  | @22201007         |     
+| TM8    | Team Member 8 | tm8@ucdconnect.ie                  | @22201008         |
 
 # Requirements Analysis
 
@@ -38,9 +38,16 @@ The use cases are shown in this diagram
 
 ## System Glossary
 
-| Term        | Description                                                  |
-| ----------- | ------------------------------------------------------------ |
-| Term 1      | Description of term 1                                        |
+
+| Term        | Description                                                                                   |
+|-------------|-----------------------------------------------------------------------------------------------|
+| Administrator | A user role responsible for managing the entire system including user accounts and events.   |
+| Organiser   | A user role that manages events, including creating and editing them and managing venues.     |
+| User        | A regular user who can purchase tickets and manage their own account details.                 |
+| Account     | Stores personal or organizational information of users, organizers, and administrators, <br/>including names, email addresses, passwords, and more. |
+| Venue       | A location where events are held, with specific attributes like name, address, and capacity.  |
+| Event       | An occurrence that has a specific date, time, and place, with ticketing details associated.    |
+| Ticket      | A reservation for an event that includes details about the seat type and price.                |
 
 ## UI Prototypes/Sketches
 | Page Name   | Image                                                  |

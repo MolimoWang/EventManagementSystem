@@ -28,3 +28,4 @@ The organizer wants to review the available venues to select one for an event on
 - **System Error**: If a system error occurs while retrieving the venues, the system displays an error message and prompts the organizer to try again later.
 
 ### **Related UI Prototypes**
+|![2](../../UI/organizer/list_venues.png)|

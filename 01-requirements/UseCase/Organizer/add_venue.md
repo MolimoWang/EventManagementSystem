@@ -34,6 +34,7 @@ None
 ### **Exceptions**
 - **System Error**: If a system error occurs while saving the venue, the system displays an error message and prompts the organizer to try again later.
 
-### **Related UI Prototypes**
 
+### **Related UI Prototypes**
+|![2](../../UI/organizer/add_venue.png)|
 
