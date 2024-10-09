@@ -3,7 +3,7 @@ left to right direction
 
 :Administrator: -up->(Remove Account)
 :Administrator: -->(Update Account)
-:Administrator: -->(List Accounts)
+:Administrator: -left->(List Accounts)
 :Administrator: -->(Create Account)
 :Administrator: -->(Remove Venues)
 
