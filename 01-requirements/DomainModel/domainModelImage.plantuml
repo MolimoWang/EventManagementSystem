@@ -1,100 +1,111 @@
 @startuml
-class Account {
-    - name: String
-    - email: String
-    - password: String
+skinparam monochrome true
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam linetype ortho
+skinparam lineThickness 3   ' Thickness of line
+skinparam noteMargin 30     ' Margins for comments
+skinparam ranksep 100        ' Control vertical spacing
+skinparam nodesep 200        ' Control horizontal spacing
+skinparam classFontSize 12
+skinparam ArrowFontSize 12
+skinparam classBorderThickness 1
+skinparam classAttributeIconSize 0
+
+hide class circle
+hide empty members
+hide methods
+hide stereotypes
+
+skinparam class {
+    BorderColor black
+    ArrowColor black
+    FontColor black
+    FontName Arial
+    FontSize 12
 }
 
-class Administrator {
-    + manageAccounts()
-    + manageEvents()
-    + manageVenues()
 
-    + deleteEvents()
-    + deleteVenues()
 
-    + modifyOrganiserAccounts()
-    + modifyUserAccounts()
-    + viewAllAccounts()
+together{
+    class User
+    class Ticket
 }
 
-class Organiser {
-    - address: String
-    - company_name: String
-    - phone_number: String
-    + createAccount()
-        + viewAccount()
-        + updateAccount()
-        + listVenues()
-        + viewVenueDetails()
-        + addVenue()
-        + editVenue()
-        + listEvents()
-        + viewEventDetails()
-        + createEvent()
+' Define user roles in the second row
+
+    class Administrator {
+    }
+
+    class Organiser {
+        - address: String
+        - companyName: String
+        - phoneNumber: String
+    }
+
+    class User {
+
+    }
+
+    ' Using direction to control layout
+    class Account {
+        - name: String
+        - email: String
+        - password: String
+    }
+
+together{
+class Venue
+class Event
 }
 
-class User {
-     - purchasedEvents: List<Event>
-        + createAccount()
-        + viewAccount()
-        + updateAccount()
-        + listUpcomingEvents()
-        + viewEventDetails()
-        + purchaseTicket()
-        + listPurchasedTickets()
-}
+' Define the entities in the third row
 
-class Venue {
-     - name: String
-     - address: String
-        - contact_name: String
-        - contact_phone: String
-        - contact_email: String
+    class Venue {
+        - name: String
+        - address: String
+        - contactName: String
+        - contactPhoneNumber: String
+        - contactEmail: String
         - capacity: int
+    }
 
-}
+    class Event {
+        - name: String
+        - description: String
+        - date: Date
+        - time: Time
+        ' Event can only be deleted by Administrator
+    }
+
+    class Ticket {
+        - type: String
+        - price: double
+        - available_number: int
+        - sold_number: int
+    }
 
 
-class Event {
-    - name: String
-    - description: String
-    - date: Date
-    - time: Time
-    - organiser: Organiser
-    ' Event can only be deleted by Administrator
-}
+' -------------------Inheritance relations-------------------
+Administrator --|> Account
+Organiser --|> Account
+User --|> Account
 
 
-class Ticket {
-    - type: String
-    - price: double
-    - available_number: int
-    - sold_number: int
+' -------------------Organiser Section ------------------
+Organiser "1..*" o--> "0..* -organises" Event
 
-}
 
-Account <|-- Administrator
-Account <|-- Organiser
-Account <|-- User
+' -------------------User Section -----------------------
+User "1" o--> "-tickets 0..*" Ticket
 
-Administrator "1" --> "0..*" Account : Manages
-Administrator "1" --> "0..*" Venue : Deletes
-Administrator "1" --> "0..*" Event : Deletes
-Administrator "1" --> "0..*" Organiser : Modifies
-Administrator "1" --> "0..*" User : Modifies
 
-Organiser "1" --> "0..*" Event : Organises
-Organiser "1" --> "0..*" Venue : Manages
-Organiser "1" --> "0..*" Account : Creates
+' -------------------Aggregation & Composition-------------
+Venue "1 -venue" <--   Event
+Venue  -->  "0..* -events" Event
 
-User "1" --> "0..*" Ticket : Purchases
-User "1" --> "0..*" Event : Views
+Event  --> "0..* -tickets" Ticket
+Event "1 -event" <-- Ticket
 
-Venue o-- Event : Hosts
-Event *-- Ticket : Contains
 
-note right of Event
-Event can only be deleted by Administrator
-end note
 @enduml
