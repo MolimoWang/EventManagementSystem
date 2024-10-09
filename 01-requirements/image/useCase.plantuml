@@ -1,0 +1,33 @@
+@startuml
+left to right direction
+
+:Administrator: -up->(Create Account)
+:Administrator: -->(Update Account)
+:Administrator: -->(List Accounts)
+:Administrator: -->(Remove Account)
+:Administrator: -->(Remove Venues)
+
+:User:--->(Update Account)
+:User:--->(View Account)
+:User:--->(Register Account)
+:User:--->(List Venues)
+:User:--->(View Venue)
+:User:--->(List Events)
+:User:--->(View Event)
+:User:--left-->(Buy Tickets)
+:User:--right-->(View Tickets)
+
+:Organiser:
+
+(Add Venue) <-up- :Organiser:
+(Edit Venue) <- :Organiser:
+(Create Event) <-left-:Organiser:
+(View Event) <--- :Organiser:
+(List Events) <--- :Organiser:
+(List Venues) <--- :Organiser:
+(Register Account) <--- :Organiser:
+(View Account) <--- :Organiser:
+(View Venue) <--- :Organiser:
+(Update Account) <--- :Organiser:
+
+@enduml
