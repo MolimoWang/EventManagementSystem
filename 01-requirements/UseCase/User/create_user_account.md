@@ -50,3 +50,6 @@
 
 ## Exceptions
 - **System Error** : If there occur some unknown errors while creating account, the system will prompt user to try again.
+
+### **Related UI Prototypes**
+|![2](../../UI/user/create_user_account.png)|

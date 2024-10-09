@@ -38,3 +38,6 @@
 
 ## Exceptions
 - **System Error** : If there occur some unknown errors while searching events, the system will prompt user to try again.
+
+### **Related UI Prototypes**
+|![2](../../UI/user/search_filter_events.png)|

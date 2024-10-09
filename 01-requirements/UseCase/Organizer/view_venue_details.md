@@ -30,6 +30,6 @@ The organizer wants to see the details of a specific venue to assess its suitabi
 ### **Exceptions**
 - **System Error**: If a system error occurs while retrieving the venue details, the system displays an error message and prompts the organizer to try again later.
 
-### **Related UI Prototypes**
+
 ### **Related UI Prototypes**
 |![2](../../UI/organizer/view_venue_details.png)|

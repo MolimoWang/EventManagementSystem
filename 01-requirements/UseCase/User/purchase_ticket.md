@@ -58,3 +58,6 @@
 
 ## Exceptions
 - **System Error** : If there occur some unknown errors while cancelling tickets, the system will prompt user to try again.
+
+### **Related UI Prototypes**
+|![2](../../UI/user/purchase_ticket.jpg)|
