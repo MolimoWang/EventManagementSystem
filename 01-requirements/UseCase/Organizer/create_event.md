@@ -37,3 +37,4 @@ The organizer wants to create a new event to be hosted at a specific venue.
 - **System Error**: If a system error occurs while saving the event, the system displays an error message and prompts the organizer to try again later.
 
 ### **Related UI Prototypes**
+|![2](../../UI/organizer/create_event.png)|
