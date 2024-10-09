@@ -1,12 +1,13 @@
 @startuml
 left to right direction
 
-:Administrator: -up->(Create Account)
+:Administrator: -up->(Remove Account)
 :Administrator: -->(Update Account)
 :Administrator: -->(List Accounts)
-:Administrator: -->(Remove Account)
+:Administrator: -->(Create Account)
 :Administrator: -->(Remove Venues)
 
+:User:--->(Create Account)
 :User:--->(Update Account)
 :User:--->(View Account)
 :User:--->(Register Account)
