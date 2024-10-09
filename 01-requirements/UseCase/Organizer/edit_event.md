@@ -34,3 +34,4 @@ The organizer wants to update information about an event due to changes in sched
 - **System Error**: If a system error occurs while saving the updated event, the system displays an error message and prompts the organizer to try again later.
 
 ### **Related UI Prototypes**
+|![2](../../UI/organizer/edit_event.png)|
