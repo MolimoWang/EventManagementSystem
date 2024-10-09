@@ -1,51 +1,58 @@
-# Cancel Ticket
+# Purchase Ticket
 
 ## Description
-This use case allows a user to cancel a ticket that has been scheduled in the ticket management.
+- This use case allows a user to purchase tickets.
 
 ## Actors
-User
+- User
 
 ## Triggers
-The user decides to cancel a ticket because of some reasons.
+- A user wants to participant in some venues and needs to purchase the target ticket.
 
 ## Preconditions
 - The user must be logged into the system.
-- The user must cancel before the deadline of the ticket.
-- The user has at least one unused ticket.
+- The user select one event to purchase its ticket.
+- The user can only buy tickets for events that have not yet started.
 
 ## Postconditions:
-- The ticket is cancelled from the user's account.
-- The remaining number of tickets for the corresponding venue will plus one.
+- The number of the remaining tickets for the corresponding event minus one.
+- The user can see the purchased ticket and its details.
+- The user successfully purchased a ticket, which includes the following information:
+    1. Event details.
+    2. Venue details.
+    3. The price.
+    4. The type of seat.
 
 ## Courses of Events
 
-### 01 - Basic course of events
+### 01 - Basic course of events -
 
 #### Course of Events
-- The user selects 'Cancel Ticket' option from the ticket management menu.
-- The system displays a collections of tickets that can be cancelled.
-- The user selects a ticket to cancel.
+- The user select one event from the list of events.
+- The user select 'Purchase' from the button of the target event interface.
 - The system asks the user to confirm.
 - The user select **Yes**.
-- The ticket is removed from the user's account.
-- The remaining number of tickets for the corresponding venue will plus one.
+- The user successfully purchased the ticket and the remaining number of the event minus one.
+- The user can see the ticket details in the ticket system.
 
-#### Related UI Prototypes 
+#### Related UI Prototypes
 
+### 02 - Alternate course of events - 
 
-### 02 - Alternate course of events
-
-#### Do not cancel
-- The user selects 'Cancel Ticket' option from the ticket management menu.
-- The system displays a collections of tickets that can be cancelled.
-- The user selects a ticket to cancel.
+#### Do Not Purchase
+- The user select one event from the list of events.
+- The user select 'Purchase' from the button of the target event interface.
 - The system asks the user to confirm.
 - The user select **No**.
-- No tickets will be cancelled and the system returns to the previous interface.
+- No tickets will be purchased and the system returns to the previous interface.
 
-#### Do not have tickets to be cancelled.
-- The system shows that there are no tickets that can be cancelled.
+#### No Tickets.
+- The user select one event from the list of events.
+- The user select 'Purchase' from the button of the target event interface.
+- The system asks the user to confirm.
+- The user select **Yes**.
+- But there is no tickets for sale.
+- The system will prompt that the tickets have already been sold out. **(Synchronization issue of processes)**
 
 #### Related UI Prototypes
 

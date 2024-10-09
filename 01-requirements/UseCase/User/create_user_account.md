@@ -1,53 +1,52 @@
-# Cancel Ticket
+# Create User Account
 
 ## Description
-This use case allows a user to cancel a ticket that has been scheduled in the ticket management.
+- This use case allows a user to create user account in the account management.
 
 ## Actors
-User
+- User
 
 ## Triggers
-The user decides to cancel a ticket because of some reasons.
+- The user wants to create an account.
 
 ## Preconditions
-- The user must be logged into the system.
-- The user must cancel before the deadline of the ticket.
-- The user has at least one unused ticket.
+- The user's name and email cannot be duplicated.
 
 ## Postconditions:
-- The ticket is cancelled from the user's account.
-- The remaining number of tickets for the corresponding venue will plus one.
+- The user is created into the account system.
+- This user can perform normal operations such as editing information, buying tickets, etc.
 
 ## Courses of Events
 
-### 01 - Basic course of events
+### 01 - Basic course of events -
 
 #### Course of Events
-- The user selects 'Cancel Ticket' option from the ticket management menu.
-- The system displays a collections of tickets that can be cancelled.
-- The user selects a ticket to cancel.
+- A new user select 'Create User Account' in the account management.
+- The user fill in necessary information to create a user, including:
+  1. name
+  2. email
+  3. password
+- The user selects the 'Create'.
 - The system asks the user to confirm.
-- The user select **Yes**.
-- The ticket is removed from the user's account.
-- The remaining number of tickets for the corresponding venue will plus one.
+- The user select **Create**.
+- The account is created and the information will be stored in the account management.
 
-#### Related UI Prototypes 
+#### Related UI Prototypes
 
+### 02 - Alternate course of events -
 
-### 02 - Alternate course of events
-
-#### Do not cancel
-- The user selects 'Cancel Ticket' option from the ticket management menu.
-- The system displays a collections of tickets that can be cancelled.
-- The user selects a ticket to cancel.
+#### Do not Create
+- A new user select 'Create User Account' in the account management.
+- The user fill in necessary information to create a user, including:
+    1. name
+    2. email
+    3. password
+- The user selects the 'Create'.
 - The system asks the user to confirm.
-- The user select **No**.
-- No tickets will be cancelled and the system returns to the previous interface.
-
-#### Do not have tickets to be cancelled.
-- The system shows that there are no tickets that can be cancelled.
+- The user select **Cancel**.
+- No account will be created and the system returns to the previous interface.
 
 #### Related UI Prototypes
 
 ## Exceptions
-- **System Error** : If there occur some unknown errors while cancelling tickets, the system will prompt user to try again.
+- **System Error** : If there occur some unknown errors while creating account, the system will prompt user to try again.

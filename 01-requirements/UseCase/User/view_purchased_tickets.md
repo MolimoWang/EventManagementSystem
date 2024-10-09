@@ -1,53 +1,44 @@
-# Cancel Ticket
+# View Purchased Tickets
 
 ## Description
-This use case allows a user to cancel a ticket that has been scheduled in the ticket management.
+- This use case allows a user to view purchased tickets in the ticket management.
 
 ## Actors
-User
+- User
 
 ## Triggers
-The user decides to cancel a ticket because of some reasons.
+- The user wants to view his/her purchased tickets.
 
 ## Preconditions
 - The user must be logged into the system.
-- The user must cancel before the deadline of the ticket.
-- The user has at least one unused ticket.
+- The user must have purchased tickets before.
 
 ## Postconditions:
-- The ticket is cancelled from the user's account.
-- The remaining number of tickets for the corresponding venue will plus one.
+- The system displays a list of the tickets purchased by the user.
 
 ## Courses of Events
 
-### 01 - Basic course of events
+### 01 - Basic course of events -
 
 #### Course of Events
-- The user selects 'Cancel Ticket' option from the ticket management menu.
-- The system displays a collections of tickets that can be cancelled.
-- The user selects a ticket to cancel.
-- The system asks the user to confirm.
-- The user select **Yes**.
-- The ticket is removed from the user's account.
-- The remaining number of tickets for the corresponding venue will plus one.
+- The user click 'Purchased' in the account management.
+- The system displays all the tickets purchased by the user.
+- The user can select a ticket from the list of purchased tickets to view.
+- The user can also view the following information:
+    1. Event details.
+    2. Venue details.
+    3. The price.
+    4. The type of seat.
 
-#### Related UI Prototypes 
+#### Related UI Prototypes
 
+### 02 - Alternate course of events - 
 
-### 02 - Alternate course of events
-
-#### Do not cancel
-- The user selects 'Cancel Ticket' option from the ticket management menu.
-- The system displays a collections of tickets that can be cancelled.
-- The user selects a ticket to cancel.
-- The system asks the user to confirm.
-- The user select **No**.
-- No tickets will be cancelled and the system returns to the previous interface.
-
-#### Do not have tickets to be cancelled.
-- The system shows that there are no tickets that can be cancelled.
+#### No Purchased Tickets
+- The user click 'Purchased' in the account management.
+- The system prompts that there are no purchased tickets.
 
 #### Related UI Prototypes
 
 ## Exceptions
-- **System Error** : If there occur some unknown errors while cancelling tickets, the system will prompt user to try again.
+- **System Error** : If there occur some unknown errors while viewing purchased tickets, the system will prompt user to try again.
