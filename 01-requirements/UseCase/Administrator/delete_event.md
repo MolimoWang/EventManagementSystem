@@ -1,32 +1,48 @@
 # Use Case: Delete Event
 
-**Description**  
-This use case involves an administrator deleting an event from the system.
+## Description
+- This use case allows an administrator to delete an existing event from the system.
 
-**Actors**  
-Administrator
+## Actors
+- Administrator
 
-**Triggers**  
-The need to remove an event from the system.
+## Triggers
+- The administrator decides to remove an event from the system.
 
-**Preconditions**
-- Administrator must be logged into the system.
-- The event must exist in the system.
+## Preconditions
+- The administrator must be logged into the system.
+- The event must exist.
 
-**Course of Events**  
-**Basic course of events:**
-1. Administrator navigates to the “Event Management” section.
-2. Administrator selects “Delete Event.”
-3. The system displays a list of events.
-4. Administrator selects the event to delete.
-5. The system removes the event from the system.
-6. A confirmation message is shown to the administrator.
+## Postconditions
+- The event is permanently removed from the system.
 
-**Alternative Course of Events:**
-- **Event not found**: If the event is not found, the system displays an error message.
+## Courses of Events
 
-**Inclusion**  
-None
+### 01 - Basic course of events -
 
-**Data Outcomes**
-- **DELETE**: The event is removed from the system.
+#### Course of Events
+- The administrator selects 'Delete Event' from the event management menu.
+- The system displays a list of existing events.
+- The administrator selects the event to delete.
+- The system asks the administrator to confirm.
+- The administrator selects **Yes**.
+- The event is deleted.
+- A confirmation message is shown to the administrator.
+
+#### Related UI Prototypes
+- Event deletion confirmation dialog
+
+### 02 - Alternate course of events -
+
+#### Do Not Delete
+- The administrator selects an event to delete.
+- The system asks the administrator to confirm.
+- The administrator selects **No**.
+- The system returns to the previous interface, and no event is deleted.
+
+#### Event Not Found
+- The administrator tries to delete an event that no longer exists.
+- The system displays an error message.
+
+#### Related UI Prototypes
+- Error message for event not found
