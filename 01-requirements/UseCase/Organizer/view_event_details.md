@@ -32,3 +32,4 @@ The organizer wants to see more details about a specific event they have created
 - **System Error**: If a system error occurs while retrieving the event details, the system displays an error message and prompts the organizer to try again later.
 
 ### **Related UI Prototypes**
+|![2](../../UI/organizer/view_event_details.png)|
