@@ -1,0 +1,47 @@
+# View All Events Use Case
+
+## Description
+This use case allows an organizer to view all events scheduled in the event management system. The events are displayed in a tabular format, showing event names and time slots for a selected date. The organizer can use navigation buttons to view events for different dates.
+
+## Actors
+- Organizer
+
+## Triggers
+- The organizer wants to see a complete overview of all events scheduled on a specific date.
+
+## Preconditions
+- The organizer must be logged into the system.
+- The organizer has appropriate privileges to view the events.
+
+## Postconditions
+- The system displays all events in a tabular format for the selected date, showing time slots and event names.
+
+## Courses of Events
+
+### 01 - Basic course of events
+
+#### Course of Events
+1. The organizer selects the "View All Events" option from the event management menu.
+2. The system displays a table showing all events scheduled for the current date.
+3. The organizer can see the following details in the table:
+    - Event Name
+    - Time Slots (e.g., 2:00, 4:00, 6:00, etc.)
+    - Available Slots for Each Event
+4. The organizer can use the navigation buttons (left, right) or date picker to change the date and view events scheduled on different dates.
+5. If there are no events for the selected date, the system displays an empty table or a "No Events Scheduled" message.
+
+### 02 - Alternate course of events
+
+#### No Events Scheduled
+- If there are no events scheduled for the selected date, the system displays an empty table and shows a message such as "No Events Scheduled" to the organizer.
+
+#### Invalid Date Selection
+- If the selected date is invalid or out of range (e.g., a past date where the events have been deleted), the system displays an error message and prompts the organizer to select a valid date.
+
+## Exceptions
+- **System Error**: If a system error occurs while loading the events, the system displays an error message and prompts the organizer to try again later.
+
+## Related UI Prototypes
+| View All Events Page |
+| --- |
+| ![View All Events](../../UI/organizer/view_all_events.png) |
