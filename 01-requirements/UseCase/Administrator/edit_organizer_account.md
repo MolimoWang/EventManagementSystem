@@ -21,7 +21,7 @@
 ### 01 - Basic course of events -
 
 #### Course of Events
-- The administrator selects 'Edit Organizer Account' from the account management menu.
+- The administrator selects 'Edit Organizer Account' from the 'View All Accounts' page.
 - The system displays a list of existing organizer accounts.
 - The administrator selects the organizer account to edit.
 - The system displays the current details of the organizer.

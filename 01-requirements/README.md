@@ -4,7 +4,7 @@
 | Number | Name          | Email(s)                           | CSGitLab Username |
 |--------|---------------|------------------------------------|-------------------|
 | TM1    | Wang Shuhan   | shuhan.wang@ucdconnect.ie          | @WangShuhan       |
-| TM2    | Team Member 2 | tm2@ucdconnect.ie                  | @22201002         |     
+| TM2    | Gu   Ruixin   | ruixin.gu@ucdconnect.ie            | @RuixinGu         |     
 | TM3    | Team Member 3 | tm3@ucdconnect.ie, personal@qq.com | @22201003         |     
 | TM4    | Team Member 4 | tm4@ucdconnect.ie                  | @22201004         |     
 | TM5    | Team Member 5 | tm5@ucdconnect.ie                  | @22201005         |     
@@ -30,11 +30,11 @@ This includes the following use cases:
 
 The use cases are shown in this diagram
 
-![use case diagram](images/usecase-diagram.svg)
+![use case diagram](image/use case.svg)
 
 ## Domain Model
-
-![domain model](images/domain.svg)
+A Introduction to Domain model:[Click](./DomainModel/DomainModelIntroduction.md)
+![domain model](DomainModel/Domain_Model.svg)
 
 ## System Glossary
 
@@ -50,9 +50,12 @@ The use cases are shown in this diagram
 | Ticket      | A reservation for an event that includes details about the seat type and price.                |
 
 ## UI Prototypes/Sketches
-| Page Name   | Image                                                  |
-| ----------- | ------------------------------------------------------------ |
-| Name/description of page      | ![UI Sketch](uisketches/somepage.pn)                                        |
+1.Administrator Page
+
+| Page Name                     | Image                                            |
+|-------------------------------|--------------------------------------------------|
+| Create Organizer Account Page | ![UI Sketch](admin/create_organizer_account.png) |
+
 
 ## Milestone 1 Requirements Analysis
 

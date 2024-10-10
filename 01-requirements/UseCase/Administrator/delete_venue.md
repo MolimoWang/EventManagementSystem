@@ -21,7 +21,7 @@
 ### 01 - Basic course of events -
 
 #### Course of Events
-- The administrator selects 'Delete Venue' from the venue management menu.
+- The administrator selects 'Delete Venue' from the 'View All Venues' page.
 - The system displays a list of existing venues.
 - The administrator selects the venue to delete.
 - The system asks the administrator to confirm.

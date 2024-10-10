@@ -1,7 +1,7 @@
 # Use Case: View Venue Usage History
 
 ## Description
-- This use case allows the administrator to view the history of venue usage in the system.
+- This use case allows the administrator to view the history of a venue usage in the system.
 
 ## Actors
 - Administrator
@@ -21,8 +21,9 @@
 ### 01 - Basic course of events -
 
 #### Course of Events
-- The administrator selects 'View Venue Usage History' from the venue management menu.
-- The system retrieves and displays a list of events that have been hosted at each venue.
+- The administrator navigates to the 'View All Venues' page, which displaying all existing venues in the system.
+- In the venue list, the administrator clicks the 'View History' link next to the specific venue.
+- The system retrieves and displays a list of events that have been hosted at that venue.
 
 #### Related UI Prototypes
 - Venue usage history view

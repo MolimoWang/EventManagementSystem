@@ -1,5 +1,6 @@
 @startuml
 left to right direction
+skinparam backgroundColor white
 
 :Administrator: -up->(Remove Account)
 :Administrator: -->(Update Account)

@@ -21,7 +21,7 @@
 ### 01 - Basic course of events -
 
 #### Course of Events
-- The administrator selects 'Disable Account' from the account management menu.
+- The administrator selects 'Disable Account' from the 'View All Accounts' page.
 - The system displays a list of existing accounts.
 - The administrator selects the account to disable.
 - The system asks the administrator to confirm.

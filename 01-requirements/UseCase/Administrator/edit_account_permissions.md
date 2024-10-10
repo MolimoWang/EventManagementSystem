@@ -21,7 +21,7 @@
 ### 01 - Basic course of events -
 
 #### Course of Events
-- The administrator selects 'Edit Account Permission' from the account management menu.
+- The administrator selects 'Edit Account Permission' from the 'View All Accounts' page.
 - The system displays a list of existing accounts.
 - The administrator selects the account to modify.
 - The system displays the account’s current permission level.

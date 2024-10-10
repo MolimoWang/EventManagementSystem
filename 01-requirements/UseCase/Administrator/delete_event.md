@@ -21,7 +21,7 @@
 ### 01 - Basic course of events -
 
 #### Course of Events
-- The administrator selects 'Delete Event' from the event management menu.
+- The administrator selects 'Delete Event' from the 'View All Events' page.
 - The system displays a list of existing events.
 - The administrator selects the event to delete.
 - The system asks the administrator to confirm.
