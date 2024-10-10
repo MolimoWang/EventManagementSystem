@@ -33,13 +33,6 @@ This use case allows an organizer to cancel an event that has been scheduled in 
 
 
 
-### 02 - Alternate course of events
-
-#### Event Not Found
-- If the selected event does not exist, the system displays an error message and prompts the organizer to select a valid event.
-
-#### Tickets Sold
-- If tickets have already been sold, the system warns the organizer that users will be notified of the cancellation and proceeds only after the organizer confirms.
 
 ## Exceptions
 - **No Permission to Cancel**: If the organizer attempts to cancel an event created by another organizer, the system displays an error message and prevents the cancellation.
