@@ -21,7 +21,7 @@ This use case allows an organizer to view all events scheduled in the event mana
 ### 01 - Basic course of events
 
 #### Course of Events
-1. The organizer selects the "View All Events" option from the event management menu.
+1. After logging in, the organizer is presented with the 'View All Events' page, displaying a table of all scheduled events for the current date
 2. The system displays a table showing all events scheduled for the current date.
 3. The organizer can see the following details in the table:
     - Event Name
