@@ -5,7 +5,7 @@
 |--------|---------------|------------------------------------|-------------------|
 | TM1    | Wang Shuhan   | shuhan.wang@ucdconnect.ie          | @WangShuhan       |
 | TM2    | Gu   Ruixin   | ruixin.gu@ucdconnect.ie            | @RuixinGu         |     
-| TM3    | Team Member 3 | tm3@ucdconnect.ie, personal@qq.com | @22201003         |     
+| TM3    | Team Member   | tm3@ucdconnect.ie, personal@qq.com | @22201003         |     
 | TM4    | Team Member 4 | tm4@ucdconnect.ie                  | @22201004         |     
 | TM5    | Team Member 5 | tm5@ucdconnect.ie                  | @22201005         |     
 | TM6    | Team Member 6 | tm6@ucdconnect.ie                  | @22201006         |     
