@@ -1,4 +1,4 @@
-# Add Venue Use Case
+# Create Venue Use Case
 
 ## Description
 This use case allows an organizer to add a new venue to the event management system. Organizers can provide details like the name, address, and capacity of the venue.
