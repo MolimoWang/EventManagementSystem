@@ -45,6 +45,8 @@ This use case allows an organizer to edit the details of an existing event in th
 - **System Error**: If a system error occurs while saving the updated event, the system displays an error message and prompts the organizer to try again later.
 
 #### Related UI Prototypes
-| Edit Event Page |
-| --- |
-| ![Edit Event](../../UI/organizer/edit_event.png) |
+| Edit Event Page                                             |
+|-------------------------------------------------------------|
+| ![Edit Event](../../UI/organizer/20-edit_event.png)         |
+| Error: Venue Unavaliable                                    |
+| ![Add Venue](../../UI/organizer/Alternative/edit_event.png) |  

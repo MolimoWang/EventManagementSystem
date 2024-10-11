@@ -30,8 +30,6 @@
 4. The administrator can use the navigation buttons (left, right) or date picker to change the date and view events scheduled on different dates.
 5. If there are no events for the selected date, the system displays an empty table or a "No Events Scheduled" message.
 
-#### Related UI Prototypes
-- Event list view
 
 ### 02 - Alternate course of events -
 
@@ -39,4 +37,5 @@
 - The system shows that no events exist in the system.
 
 #### Related UI Prototypes
-- Message indicating no events found
+![View All Events](../../UI/admin/01-view_all_events.png)
+

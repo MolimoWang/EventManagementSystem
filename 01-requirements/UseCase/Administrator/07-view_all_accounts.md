@@ -23,8 +23,6 @@
 - The administrator selects 'View All Accounts' from the event management menu.
 - The system retrieves and displays a list of all existing accounts (administrators, organizers, users).
 
-#### Related UI Prototypes
-- Account list view
 
 ### 02 - Alternate course of events -
 
@@ -32,4 +30,4 @@
 - The system shows that no accounts exist in the system.
 
 #### Related UI Prototypes
-- Message indicating no accounts found
+![View All Accounts](../../UI/admin/07-view_all_accounts.png)

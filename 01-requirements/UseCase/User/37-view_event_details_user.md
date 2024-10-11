@@ -33,7 +33,7 @@
 - The user selects an event from the list of events.
 - The system displays the details about the target event.
 
-#### Related UI Prototypes
+
 
 ### 02 - Alternate course of events - 
 
@@ -41,10 +41,11 @@
 - The user select 'Events' option from the event management.
 - The system prompts that there are no events.
 
-#### Related UI Prototypes
 
 ## Exceptions
 - **System Error** : If there occur some unknown errors while viewing event details, the system will prompt user to try again.
 
 ### **Related UI Prototypes**
-|![2](../../UI/user/37-view_event_details_user.jpg)|
+| View Event Details User                                |
+|----------------------------------------------------------|
+|![View Event Details User](../../UI/user/37-view_event_details_user.jpg)|

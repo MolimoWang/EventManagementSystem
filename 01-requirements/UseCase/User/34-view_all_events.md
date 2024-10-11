@@ -44,6 +44,6 @@ This use case allows a user to view all events scheduled in the event management
 - **System Error**: If a system error occurs while loading the events, the system displays an error message and prompts the user to try again later.
 
 ## Related UI Prototypes
-| View All Events Page                                  |
-|-------------------------------------------------------|
-| ![View All Events](../../UI/user/34-view_all_events.jpg) |
+| View All Events Page                                     |
+|----------------------------------------------------------|
+| ![View All Events](../../UI/user/34-view_all_events.png) |

@@ -37,6 +37,6 @@ This use case allows an organizer to view a list of venues available in the even
 - **System Error**: If a system error occurs while retrieving the venues, the system displays an error message and prompts the organizer to try again later.
 
 #### Related UI Prototypes
-| List Venues Page |
-| --- |
-| ![List Venues](../../UI/organizer/list_venues.png) |
+| List Venues Page                                      |
+|-------------------------------------------------------|
+| ![List Venues](../../UI/organizer/25-list_venues.png) |

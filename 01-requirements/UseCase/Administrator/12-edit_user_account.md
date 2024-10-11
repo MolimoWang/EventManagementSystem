@@ -29,8 +29,6 @@
 - The system validates the changes and updates the account.
 - A confirmation message is shown to the administrator.
 
-#### Related UI Prototypes
-- User account edit form
 
 ### 02 - Alternate course of events -
 
@@ -49,5 +47,5 @@
 - The system displays an error message indicating a conflict.
 - The administrator is prompted to resolve the conflict or cancel the changes.
 
-#### Related UI Prototypes
-- Error message for invalid data
+### Related UI Prototypes
+![Edit User Account](../../UI/admin/12-edit_user_account.png)

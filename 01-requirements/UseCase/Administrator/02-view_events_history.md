@@ -24,13 +24,11 @@
 - The administrator selects 'View Event History' from the event management menu.
 - The system retrieves and displays a list of all events histories.
 
-#### Related UI Prototypes
-- Event history view
 
 ### 02 - Alternate course of events -
 
 #### No Events Found
 - The system shows that there are no past events in the system.
 
-#### Related UI Prototypes
-- Message indicating no events found
+### Related UI Prototypes
+![View Events History](../../UI/admin/02-view_events_history.png)

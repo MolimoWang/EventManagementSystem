@@ -37,17 +37,22 @@ This use case allows an organizer to edit the details of an existing venue in th
 8. If validation passes, the system updates the venue details and displays a confirmation message.
 
 ### 02 - Alternate course of events
+#### Invalid Ticket Capacity
+- If the total capacity is set to a value lower than the total tickets already sold for events at this venue, the system displays an error message and prompts the organizer to adjust the capacity or cancel certain tickets.
+
 
 #### Missing Required Fields
 - If the organizer submits the form with missing required fields (e.g., venue name or capacity), the system highlights the missing fields and prompts the organizer to provide the necessary information.
 
-#### Invalid Ticket Capacity
-- If the total capacity is set to a value lower than the total tickets already sold for events at this venue, the system displays an error message and prompts the organizer to adjust the capacity or cancel certain tickets.
 
 ## Exceptions
 - **System Error**: If a system error occurs while saving the updated venue details, the system displays an error message and prompts the organizer to try again later.
 
 ## Related UI Prototypes
-| Edit Venue Page |
-| --- |
-| ![Edit Venue](../../UI/organizer/edit_venue.png) |
+| Edit Venue Page                                                                                   |
+|---------------------------------------------------------------------------------------------------|
+| ![Edit Venue](../../UI/organizer/27-edit_venue.png)                                               |
+| Error: Invalid Ticket Capacity                                                                    |
+| ![Invalid Ticket Capacity](../../UI/organizer/Alternative/edit_venue_Invalid Ticket Capacity.png) |  
+| Error: Missing Required Fields                                                                         |
+| ![Missing Required Fields](../../UI/organizer/Alternative/edit_venue_Missing Required Fields.png) |  

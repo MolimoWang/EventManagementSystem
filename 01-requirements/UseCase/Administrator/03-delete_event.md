@@ -29,8 +29,7 @@
 - The event is deleted.
 - A confirmation message is shown to the administrator.
 
-#### Related UI Prototypes
-- Event deletion confirmation dialog
+
 
 ### 02 - Alternate course of events -
 
@@ -44,5 +43,5 @@
 - The administrator tries to delete an event that no longer exists.
 - The system displays an error message.
 
-#### Related UI Prototypes
-- Error message for event not found
+### Related UI Prototypes
+![Delete Event](../../UI/admin/03-delete_event.png)

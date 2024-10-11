@@ -36,6 +36,6 @@ This use case allows an organizer to view a list of events that they have create
 - **System Error**: If a system error occurs while retrieving the events, the system displays an error message and prompts the organizer to try again later.
 
 #### Related UI Prototypes
-| List Events Page |
-| --- |
-| ![List Events](../../UI/organizer/list_event.png) |
+| List Events Page                                     |
+|------------------------------------------------------|
+| ![List Events](../../UI/organizer/18-list_event.png) |

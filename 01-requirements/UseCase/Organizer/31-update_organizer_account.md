@@ -48,6 +48,10 @@ This use case allows an organizer to update their account information in the eve
 - **System Error**: If a system error occurs while saving the updated account details, the system displays an error message and prompts the organizer to try again later.
 
 ## Related UI Prototypes
-| Update Organizer Account Page                                                |
-|------------------------------------------------------------------------------|
-| ![Update Organizer Account](../../UI/organizer/31-update_organizer_account.png) |
+| Update Organizer Account Page                                                                       |
+|-----------------------------------------------------------------------------------------------------|
+| ![Update Organizer Account](../../UI/organizer/31-update_organizer_account.png)                     |
+| Missing Required Fields                                                                             |
+| ![Add Venue](../../UI/organizer/Alternative/update_organizer_account_Missing Required Fields.png)   |
+| Invalid Email or Password                                                                           |
+| ![Add Venue](../../UI/organizer/Alternative/update_organizer_account_Invalid Email or Password.png) |

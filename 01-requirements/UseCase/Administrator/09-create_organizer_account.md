@@ -38,12 +38,16 @@
 - The administrator submits the form using an email that already exists in the system.
 - The system displays an error message indicating that the email is already associated with another account.
 - The system prompts the administrator to use a different email or to edit the existing account instead.
-
 #### Invalid Input
 - The administrator submits the form with invalid data (e.g., improper email format, password not meeting security requirements).
 - The system displays an error message explaining the issue (e.g., "Invalid email format" or "Password must contain at least 8 characters").
 - The system prompts the administrator to correct the input and resubmit.
+  
 
+### Related UI Prototypes
+![Create Organizer Account](../../UI/admin/09-create_organizer_account.png)
+#### Duplicate Email Error
+![Duplicate Email Error](../../UI/admin/Alternative/create_account_duplicate_email.png)
+#### Invalide Input Error
+![Invalide Input Error](../../UI/admin/Alternative/create_account_invalid_input.png)
 
-#### Related UI Prototypes
-- 

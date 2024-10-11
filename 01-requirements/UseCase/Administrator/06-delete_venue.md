@@ -29,8 +29,7 @@
 - The venue is deleted from the system.
 - A confirmation message is shown to the administrator.
 
-#### Related UI Prototypes
-- Venue deletion confirmation dialog
+
 
 ### 02 - Alternate course of events -
 
@@ -48,6 +47,5 @@
 - The administrator attempts to delete a venue that is still associated with upcoming events.
 - The system displays a warning indicating that the venue is still in use and cannot be deleted.
 
-#### Related UI Prototypes
-- Error message for venue not found
-- Warning for venue in use
+### Related UI Prototypes
+![Delete Venue](../../UI/admin/06-delete_venue.png)

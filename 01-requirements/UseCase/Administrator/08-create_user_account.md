@@ -29,8 +29,6 @@
 - The system validates the change and updates this new user account.
 - A confirmation message is shown to the administrator.
 
-#### Related UI Prototypes
-- Account permission edit form
 
 ### 02 - Alternate course of events -
 
@@ -45,5 +43,12 @@
 - The system prompts the administrator to correct the input and resubmit.
 
 
-#### Related UI Prototypes
-- 
+
+
+### Related UI Prototypes
+![Create User Account](../../UI/admin/08-create_user_account.png)
+#### Duplicate Email Error
+![Duplicate Email Error](../../UI/admin/Alternative/create_account_duplicate_email.png)
+#### Invalide Input Error
+![Invalide Input Error](../../UI/admin/Alternative/create_account_invalid_input.png)
+

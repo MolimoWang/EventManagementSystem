@@ -29,8 +29,6 @@
 - The system validates the changes and updates the administrator account.
 - A confirmation message is shown to the administrator.
 
-#### Related UI Prototypes
--  Account edit form
 
 ### 02 - Alternate course of events -
 
@@ -44,10 +42,10 @@
 - The administrator tries to select an administrator account that does not exist.
 - The system displays an error message.
 
-#### Conflict in Changes
+### Conflict in Changes
 - The administrator modifies an email or phone number, but it conflicts with another existing account’s data.
 - The system displays an error message indicating a conflict.
 - The administrator is prompted to resolve the conflict or cancel the changes.
 
 #### Related UI Prototypes
-- Error message for invalid data
+![Edit Administrator](../../UI/admin/14-edit_administrator_account.png)

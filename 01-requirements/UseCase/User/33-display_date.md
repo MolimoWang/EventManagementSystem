@@ -26,7 +26,6 @@ This use case allows a user to navigate to a specific date to view the current e
 1. The user enters the date they want to view.
 2. The system displays the events scheduled for that date, including details such as event name, time, and venue.
 
-#### Related UI Prototypes
 
 
 ## Inclusions
@@ -36,6 +35,6 @@ None
 **READ** - The system retrieves the details of the existing events for the specified date.
 
 ### **Related UI Prototypes**
-| Display Events for Date Page |
-| --- |
-| ![Display Events for Date](../../UI/user/display_date.png) |
+| Display Events for Date Page                                  |
+|---------------------------------------------------------------|
+| ![Display Events for Date](../../UI/user/33-display_date.png) |

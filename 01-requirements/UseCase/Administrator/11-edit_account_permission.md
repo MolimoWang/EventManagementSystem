@@ -29,8 +29,6 @@
 - The system validates the change and updates the account.
 - A confirmation message is shown to the administrator.
 
-#### Related UI Prototypes
-- Account permission edit form
 
 ### 02 - Alternate course of events -
 
@@ -46,5 +44,5 @@
 - The administrator attempts to assign a permission level that the account already has.
 - The system displays a message indicating no changes are needed.
 
-#### Related UI Prototypes
-- Error message for invalid permission level
+### Related UI Prototypes
+![Edit Account Permission](../../UI/admin/11-edit_account_permission.png)

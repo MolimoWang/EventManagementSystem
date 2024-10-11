@@ -35,29 +35,35 @@
 - The user successfully purchased the ticket and the remaining number of the event minus one.
 - The user can see the ticket details in the ticket system.
 
-#### Related UI Prototypes
+
 
 ### 02 - Alternate course of events - 
 
-#### Do Not Purchase
-- The user select one event from the list of events.
-- The user select 'Purchase' from the button of the target event interface.
-- The system asks the user to confirm.
-- The user select **No**.
-- No tickets will be purchased and the system returns to the previous interface.
 
-#### No Tickets.
+#### Insufficient Tickets.
 - The user select one event from the list of events.
 - The user select 'Purchase' from the button of the target event interface.
 - The system asks the user to confirm.
 - The user select **Yes**.
 - But there is no tickets for sale.
 - The system will prompt that the tickets have already been sold out. **(Synchronization issue of processes)**
+#### Purchase Timeout
+- The user select one event from the list of events.
+- The user select 'Purchase' from the button of the target event interface.
+- The system asks the user to confirm.
+- The user select **No**.
+- No tickets will be purchased and the system returns to the previous interface.
 
-#### Related UI Prototypes
+
 
 ## Exceptions
 - **System Error** : If there occur some unknown errors while purchasing tickets, the system will prompt user to try again.
 
 ### **Related UI Prototypes**
-|![2](../../UI/user/purchase_ticket.jpg)|
+| Purchase Ticket                                                    |
+|--------------------------------------------------------------------|
+| ![Purchase Ticket](../../UI/user/39-purchase_ticket.jpg)           |
+| Insufficient Tickets                                               |
+| ![Add Venue](../../UI/user/Alternative/purchase_ticket_error1.png) |
+| Purchase Timeout                                                   |
+| ![Add Venue](../../UI/user/Alternative/purchase_ticket_error2.png) |

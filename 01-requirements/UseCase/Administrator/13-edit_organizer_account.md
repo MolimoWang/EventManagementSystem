@@ -29,8 +29,7 @@
 - The system validates the changes and updates the account.
 - A confirmation message is shown to the administrator.
 
-#### Related UI Prototypes
-- Organizer account edit form
+
 
 ### 02 - Alternate course of events -
 
@@ -49,6 +48,5 @@
 - The system displays an error message indicating a conflict.
 - The administrator is prompted to resolve the conflict or cancel the changes.
 
-#### Related UI Prototypes
-- Error message for invalid data
-- Conflict resolution screen
+### Related UI Prototypes
+![Edit Organizer](../../UI/admin/13-edit_organizer_account.png)

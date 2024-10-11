@@ -31,7 +31,6 @@
 - The ticket is removed from the user's account.
 - The remaining number of tickets for the corresponding venue will plus one.
 
-#### Related UI Prototypes 
 
 
 ### 02 - Alternate course of events -
@@ -47,10 +46,21 @@
 #### Do not Have Tickets to be Cancelled.
 - The system shows that there are no tickets that can be cancelled.
 
-#### Related UI Prototypes
+#### Ticket Exceeds Cancellation Deadline
+- The user selects 'Cancel Ticket' option from the ticket management menu.
+- The system displays a collection of tickets that can be cancelled.
+- The user selects a ticket to cancel.
+- The system checks the ticket’s eligibility for cancellation and determines that the cancellation deadline has passed.
+- The system displays a message indicating that the selected ticket cannot be cancelled because it has exceeded the cancellation deadline.
+- The system returns to the previous interface without cancelling any tickets.
+
 
 ## Exceptions
 - **System Error** : If there occur some unknown errors while cancelling tickets, the system will prompt user to try again.
 
 ### **Related UI Prototypes**
-|![2](../../UI/user/cancel_ticket.png)|
+| Cancel Ticket                                             |
+|-----------------------------------------------------------|
+| ![Cancel Ticket](../../UI/user/41-cancel_ticket.png)      |
+|   Ticket Exceeds Cancellation Deadline                                                        |
+| ![Ticket Exceeds Cancellation Deadline](../../UI/user/Alternative/cancel_ticket.png) |

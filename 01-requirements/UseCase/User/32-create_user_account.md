@@ -31,7 +31,7 @@
 - The user select **Create**.
 - The account is created and the information will be stored in the account management.
 
-#### Related UI Prototypes
+
 
 ### 02 - Alternate course of events -
 
@@ -46,10 +46,12 @@
 - The user select **Cancel**.
 - No account will be created and the system returns to the previous interface.
 
-#### Related UI Prototypes
+
 
 ## Exceptions
 - **System Error** : If there occur some unknown errors while creating account, the system will prompt user to try again.
 
 ### **Related UI Prototypes**
-|![2](../../UI/user/create_user_account.png)|
+| Display Events for Date Page                   |
+|------------------------------------------------|
+| ![2](../../UI/user/32-create_user_account.png) |

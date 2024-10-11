@@ -25,7 +25,7 @@
 - The system displays the search results.
 - The user can view the displayed event information.
 
-#### Related UI Prototypes
+
 
 ### 02 - Alternate course of events - 
 
@@ -34,10 +34,12 @@
 - The user click the 'Search' button.
 - The system prompts that no event information that meets the criteria was found.
 
-#### Related UI Prototypes
+
 
 ## Exceptions
 - **System Error** : If there occur some unknown errors while searching events, the system will prompt user to try again.
 
 ### **Related UI Prototypes**
-|![2](../../UI/user/search_filter_events.png)|
+| Search Filter Events                                               |
+|--------------------------------------------------------------------|
+| ![Search Filter Events](../../UI/user/38-search_filter_events.png) |

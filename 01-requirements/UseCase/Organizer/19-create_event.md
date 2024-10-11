@@ -49,6 +49,8 @@ This use case allows an organizer to create a new event in the event management 
 - **System Error**: If a system error occurs while saving the event, the system displays an error message and prompts the organizer to try again later.
 
 ### **Related UI Prototypes**
-| Create Event Page |
-| --- |
-| ![Create Event](../../UI/organizer/create_event.png) |
+| Create Event Page                                             |
+|---------------------------------------------------------------|
+| ![Create Event](../../UI/organizer/19-create_event.png)       |
+| Error: Venue Unavaliable                                      |
+| ![Add Venue](../../UI/organizer/Alternative/create_event.png) |                                                        |

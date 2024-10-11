@@ -29,8 +29,6 @@
 - The account is disabled and cannot log in.
 - A confirmation message is shown to the administrator.
 
-#### Related UI Prototypes
-- Account disable confirmation dialog
 
 ### 02 - Alternate course of events -
 
@@ -48,5 +46,5 @@
 - The administrator tries to disable an account that does not exist.
 - The system displays an error message.
 
-#### Related UI Prototypes
-- Error message for account not found
+### Related UI Prototypes
+![Disable Account](../../UI/admin/15-disable_account.png)

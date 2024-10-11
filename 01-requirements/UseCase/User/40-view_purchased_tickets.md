@@ -30,7 +30,7 @@
     3. The price.
     4. The type of seat.
 
-#### Related UI Prototypes
+
 
 ### 02 - Alternate course of events - 
 
@@ -38,10 +38,12 @@
 - The user click 'Purchased' in the account management.
 - The system prompts that there are no purchased tickets.
 
-#### Related UI Prototypes
+
 
 ## Exceptions
 - **System Error** : If there occur some unknown errors while viewing purchased tickets, the system will prompt user to try again.
 
 ### **Related UI Prototypes**
-|![2](../../UI/user/40-view_purchased_tickets.png)|
+| View Purchased Tickets                                                   |
+|--------------------------------------------------------------------|
+|![View Purchased Tickets](../../UI/user/40-view_purchased_tickets.png)|

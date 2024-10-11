@@ -49,6 +49,8 @@ None
 
 
 #### Related UI Prototypes
-| Add Venue Form |
-| --- |
-| ![Add Venue](../../UI/organizer/add_venue.png) |
+| Add Venue Form                                             |
+|------------------------------------------------------------|
+| ![Add Venue](../../UI/organizer/26-create_venue.png)       |
+| Error: Duplicate Venue                                     |
+| ![Add Venue](../../UI/organizer/Alternative/add_venue.png) |

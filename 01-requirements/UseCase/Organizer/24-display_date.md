@@ -36,6 +36,6 @@ None
 **READ** - The system retrieves the details of the existing events for the specified date.
 
 ### **Related UI Prototypes**
-| Display Events for Date Page |
-| --- |
-| ![Display Events for Date](../../UI/organizer/display_date.png) |
+| Display Events for Date Page                                       |
+|--------------------------------------------------------------------|
+| ![Display Events for Date](../../UI/organizer/24-display_date.png) |

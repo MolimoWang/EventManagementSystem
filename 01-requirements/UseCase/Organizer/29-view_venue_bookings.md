@@ -38,6 +38,6 @@ This use case allows an organizer to view the booking details for a specific ven
 - **System Error**: If a system error occurs while retrieving the booking details, the system displays an error message and prompts the organizer to try again later.
 
 #### Related UI Prototypes
-| View Venue Bookings Page |
-| --- |
+| View Venue Bookings Page                                              |
+|-----------------------------------------------------------------------|
 | ![View Venue Bookings](../../UI/organizer/29-view_venue_bookings.png) |

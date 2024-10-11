@@ -25,7 +25,6 @@
 - The user click the 'Account' option from the account management.
 - The system displays the details about his/her account.
 
-#### Related UI Prototypes
 
 ### 02 - Alternate course of events - 
 
@@ -37,10 +36,12 @@
   1. Name.
   2. Email.
 
-#### Related UI Prototypes
+
 
 ## Exceptions
 - **System Error** : If there occur some unknown errors while viewing account, the system will prompt user to try again.
 
 ### **Related UI Prototypes**
-|![2](../../UI/user/35-view_user_account.png)|
+| View All Events Page                                     |
+|----------------------------------------------------------|
+|![View All Events Page  ](../../UI/user/35-view_user_account.png)|

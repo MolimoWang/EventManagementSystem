@@ -25,7 +25,6 @@
 - The user select 'Upcoming' option from the user management menu.
 - The system displays a list of upcoming events.
 
-#### Related UI Prototypes
 
 ### 02 - Alternate course of events -
 
@@ -33,10 +32,12 @@
 - The user select 'Upcoming' option from the user management menu.
 - The system prompts the user that there is no upcoming events.
 
-#### Related UI Prototypes
+
 
 ## Exceptions
 - **System Error** : If there occur some unknown errors while listing upcoming events, the system will prompt user to try again.
 
 ### **Related UI Prototypes**
-|![2](../../UI/user/list_upcoming_events.jpg)|
+| List Upcoming Events                                   |
+|----------------------------------------------------------|
+|![List Upcoming Events](../../UI/user/36-list_upcoming_events.jpg)|
