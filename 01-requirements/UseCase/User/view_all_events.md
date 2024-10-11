@@ -46,4 +46,4 @@ This use case allows a user to view all events scheduled in the event management
 ## Related UI Prototypes
 | View All Events Page                                  |
 |-------------------------------------------------------|
-| ![View All Events](../../UI/user/view_all_events.jpg) |
+| ![View All Events](../../UI/user/34-view_all_events.jpg) |

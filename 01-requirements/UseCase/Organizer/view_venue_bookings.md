@@ -40,4 +40,4 @@ This use case allows an organizer to view the booking details for a specific ven
 #### Related UI Prototypes
 | View Venue Bookings Page |
 | --- |
-| ![View Venue Bookings](../../UI/organizer/view_venue_bookings.png) |
+| ![View Venue Bookings](../../UI/organizer/29-view_venue_bookings.png) |

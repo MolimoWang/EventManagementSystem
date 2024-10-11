@@ -44,4 +44,4 @@ This use case allows an organizer to view all events scheduled in the event mana
 ## Related UI Prototypes
 | View All Events Page |
 | --- |
-| ![View All Events](../../UI/organizer/view_all_events.png) |
+| ![View All Events](../../UI/organizer/17-view_all_events.png) |

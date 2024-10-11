@@ -48,4 +48,4 @@ This use case allows an organizer to view their account information, such as nam
 ## Related UI Prototypes
 | View Organizer Account Page |
 | --- |
-| ![View Organizer Account](../../UI/organizer/view_organizer_account.png) |
+| ![View Organizer Account](../../UI/organizer/30-view_organizer_account.png) |

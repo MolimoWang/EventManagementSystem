@@ -21,7 +21,7 @@
 ### 01 - Basic course of events -
 
 #### Course of Events
-1. After logging in, the administrator is presented with the 'View All Events' page, displaying a table of all scheduled events for the current date
+1. After logging in, the administrator is presented with the event management menu, displaying a table of all scheduled events for the current date
 2. The system displays a table showing all events scheduled for the current date.
 3. The administrator can see the following details in the table:
     - Event Name

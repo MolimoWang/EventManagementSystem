@@ -42,4 +42,4 @@ This use case allows an organizer to view the detailed information of a specific
 #### Related UI Prototypes
 | View Venue Details Page |
 | --- |
-| ![View Venue Details](../../UI/organizer/view_venue_details.png) |
+| ![View Venue Details](../../UI/organizer/28-view_venue_details.png) |

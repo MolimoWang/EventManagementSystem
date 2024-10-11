@@ -43,4 +43,4 @@ This use case allows an organizer to view detailed information about a specific 
 #### Related UI Prototypes
 | View Event Details Page |
 | --- |
-| ![View Event Details](../../UI/organizer/view_event_details.png) |
+| ![View Event Details](../../UI/organizer/22-view_event_details.png) |

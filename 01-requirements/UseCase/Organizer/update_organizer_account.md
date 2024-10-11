@@ -50,4 +50,4 @@ This use case allows an organizer to update their account information in the eve
 ## Related UI Prototypes
 | Update Organizer Account Page                                                |
 |------------------------------------------------------------------------------|
-| ![Update Organizer Account](../../UI/organizer/update_organizer_account.png) |
+| ![Update Organizer Account](../../UI/organizer/31-update_organizer_account.png) |

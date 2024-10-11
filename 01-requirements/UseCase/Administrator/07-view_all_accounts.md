@@ -20,7 +20,7 @@
 ### 01 - Basic course of events -
 
 #### Course of Events
-- The administrator selects 'View All Accounts' from the 'View All Events' page.
+- The administrator selects 'View All Accounts' from the event management menu.
 - The system retrieves and displays a list of all existing accounts (administrators, organizers, users).
 
 #### Related UI Prototypes

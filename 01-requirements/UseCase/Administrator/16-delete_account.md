@@ -1,32 +1,32 @@
 # Use Case: Delete Event
 
 ## Description
-- This use case allows an administrator to delete an existing event from the system.
+- This use case allows an administrator to delete an existing account from the system.
 
 ## Actors
 - Administrator
 
 ## Triggers
-- The administrator decides to remove an event from the system.
+- The administrator decides to remove an account (user, organizer or administrator) from the system.
 
 ## Preconditions
 - The administrator must be logged into the system.
-- The event must exist.
+- The account must exist.
 
 ## Postconditions
-- The event is permanently removed from the system.
+- The account is permanently removed from the system.
 
 ## Courses of Events
 
 ### 01 - Basic course of events -
 
 #### Course of Events
-- The administrator selects 'Delete Event' from the 'View All Events' page.
-- The system displays a list of existing events.
-- The administrator selects the event to delete.
+- The administrator navigates to the 'View All Accounts' page, which displaying all existing accounts in the system.
+- The system displays a list of existing accounts.
+- The administrator selects an account to delete.
 - The system asks the administrator to confirm.
 - The administrator selects **Yes**.
-- The event is deleted.
+- The account is deleted.
 - A confirmation message is shown to the administrator.
 
 #### Related UI Prototypes

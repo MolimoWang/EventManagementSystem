@@ -43,4 +43,4 @@ This use case allows an organizer to view the registration details of a specific
 #### Related UI Prototypes
 | View Event Registration Page |
 | --- |
-| ![View Event Registration](../../UI/organizer/view_event_registrations.png) |
+| ![View Event Registration](../../UI/organizer/23-view_event_registrations.png) |

@@ -21,7 +21,7 @@
 ### 01 - Basic course of events -
 
 #### Course of Events
-- The administrator selects 'View All Venues' from the 'View All Events' page.
+- The administrator selects 'View All Venues' from the event management menu.
 - The system retrieves and displays a list of all existing venues.
 
 #### Related UI Prototypes

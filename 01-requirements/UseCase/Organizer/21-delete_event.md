@@ -1,4 +1,4 @@
-# Cancel Event Use Case
+# Delete Event Use Case
 
 ## Description
 This use case allows an organizer to cancel an event that has been scheduled in the event management system.
@@ -24,7 +24,7 @@ This use case allows an organizer to cancel an event that has been scheduled in 
 ### 01 - Basic course of events
 
 #### Course of Events
-1. The organizer selects the "Cancel Event" option from the event management menu.
+1. The organizer selects the "Delete Event" option from the event management menu.
 2. The system displays a list of events that can be canceled.
 3. The organizer selects the event to be canceled and confirms the cancellation.
 4. The system marks the event as canceled and displays a confirmation message.
@@ -41,4 +41,4 @@ This use case allows an organizer to cancel an event that has been scheduled in 
 ### **Related UI Prototypes**
 | Cancel Event Page |
 | --- |
-| ![Cancel Event](../../UI/organizer/cancel_event.png) |
+| ![Cancel Event](../../UI/organizer/21-delete_event.png) |
