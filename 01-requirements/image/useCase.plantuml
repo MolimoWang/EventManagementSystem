@@ -1,34 +1,41 @@
 @startuml
 left to right direction
+skinparam backgroundColor white
 
-:Administrator: -up->(Remove Account)
-:Administrator: -->(Update Account)
-:Administrator: -left->(List Accounts)
+
+:Administrator: --left->(List Accounts)
 :Administrator: -->(Create Account)
-:Administrator: -->(Remove Venues)
+:Administrator: -down->(Delete Venue)
+:Administrator: --->(View Account)
+:Administrator: -up->(Delete Account)
+:Administrator: -right->(Delete Event)
+:Administrator: --->(View Venue)
+:Administrator: -->(Update Account)
+:Administrator: --->(List Events)
+:Administrator: --->(List Venues)
+:Administrator:--->(View Event)
 
-:User:--->(Create Account)
-:User:--->(Update Account)
 :User:--->(View Account)
 :User:--->(Register Account)
 :User:--->(List Venues)
 :User:--->(View Venue)
 :User:--->(List Events)
+:User:--->(Update Profile)
 :User:--->(View Event)
-:User:--left-->(Buy Tickets)
-:User:--right-->(View Tickets)
-
+:User:--left-->(Buy Ticket)
+:User:--right-->(View Ticket)
+:User:-up->(List Tickets)
 :Organiser:
 
 (Add Venue) <-up- :Organiser:
-(Edit Venue) <- :Organiser:
+(Update Venue) <- :Organiser:
 (Create Event) <-left-:Organiser:
 (View Event) <--- :Organiser:
-(List Events) <--- :Organiser:
-(List Venues) <--- :Organiser:
-(Register Account) <--- :Organiser:
+(List My Events) <-- :Organiser:
+(List My Venues) <-- :Organiser:
 (View Account) <--- :Organiser:
 (View Venue) <--- :Organiser:
-(Update Account) <--- :Organiser:
+(Update Profile) <--- :Organiser:
 
 @enduml
+
