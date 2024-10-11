@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Sean's Restaurant Management</title>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+</head>
+
+<body>
+
+
+<div class = "grid">
+    <span><a th:href="@{/(date=${yesterday})}" role="button">&#8592;</a></span>
+    <span><input type="date" name="date" id="start" th:value="${date}" onchange="handleDateChange(event)"></span>
+    <span><a th:href="@{/(date=${tomorrow})}" role="button">&#8594;</a></span>
+    <form action="/search" method="get" style="display: flex; align-items: center;">
+        <input type="text" name="query" placeholder="Search..." style="font-size: 14px; padding: 5px; width: 250px; height: 50px;">
+        <button type="submit" style="font-size: 14px; cursor: pointer; margin-left: 5px; text-align: center;">search</button>
+    </form>
+    <span><a href="#" role="button" data-target="add-reservation" onClick="toggleModal(event)" style="font-size:14px;">TICKET</a></span>
+    <span><a href="#" role="button" data-target="account-management" onClick="toggleModal(event)" style="font-size:14px;">ACCOUNT</a></span>
+    <!--<span><a href="#" role="button" data-target="add-reservation" onClick="toggleModal(event)" style="font-size:14px;">EVENT</a></span>
+    <span><a href="#" role="button" data-target="add-walkIn" onClick="toggleModal(event)" style="font-size:14px;">VENUE</a></span>
+    <span><a href="#" role="button" data-target="account-management" onClick="toggleModal(event)" style="font-size:14px;">ACCOUNT MANAGEMENT</a></span> -->
+</div>
+<div>
+  <canvas id="myCanvas" width="1000" height="600" style="border:1px solid #000000;">Your browser does not support the HTML5 canvas tag.</canvas>
+</div>
+
+<form method="post" action="/change/" id="changeForm" th:object="${alterDTO}">
+    <input type="hidden" id="changeFormId" name="changeFormId" th:field="*{bookingId}">
+    <input type="hidden" id="changeFormDate" name="changeFormDate" th:field="*{date}">
+    <input type="hidden" id="changeFormTable" name="changeFormTable" th:field="*{tableNumber}">
+    <input type="hidden" id="changeFormTime" name="changeFormTime" th:field="*{time}">
+    <input type="hidden" id="changeFormOver" name="changeFormOver" th:field="*{overfill}">
+</form>
+
+<!--
+*event*
+<dialog id="add-reservation">
+    <article>
+        <a href="#close" aria-label="Close" class="close" data-target="add-reservation" onClick="toggleModal(event)"></a>
+        <h3>HAVE BOUGHT</h3>
+        <p th:text="${errorDTO?.message}"></p>
+        <form id="reservationForm" th:object="${reservationDTO}">
+            <input type="hidden" id="overfillReservation" name="overfillReservation" >
+            <div style="display: flex; gap: 10px;justify-content: space-between;align-items: center;">
+                <span><strong>Event 1</strong></span>
+                <span>01/01/2024</span>
+                <span>Venue 1</span>
+                <span>Section_1&Row_1  </span>
+                <button style="border: none; background: none; color: steelblue; cursor: pointer; text-decoration: underline"  onclick="deleteLine1(event,this)">Cancel</button>
+            </div>
+
+            <hr>
+            <div style="display: flex; gap: 10px;justify-content: space-between;align-items: center;">
+                <span><strong>Event 2</strong></span>
+                <span>02/01/2024</span>
+                <span>Venue 2</span>
+                <span>Section_2&Row_2</span>
+                <button style="border: none; background: none; color: steelblue; cursor: pointer; text-decoration: underline"  onclick="deleteLine1(event,this)">Cancel</button>
+            </div>
+            <footer>
+                <a href="#close" role="button" class="secondary" data-target="add-reservation" onClick="toggleModal(event)">Cancel</a>
+            </footer>
+        </form>
+
+    </article>
+</dialog>
+
+
+<script>
+    function deleteLine1(event,button) {
+        event.preventDefault();
+        const confirmDialog = document.getElementById('confirmDeleteEvent');
+        confirmDialog.showModal();
+
+        const confirmYes = document.getElementById('confirmYes');
+        const confirmNo = document.getElementById('confirmNo');
+
+        confirmYes.onclick = function() {
+            button.parentElement.remove();
+            confirmDialog.close();
+        };
+
+        confirmNo.onclick = function() {
+            confirmDialog.close();
+        };
+    }
+</script>-->
+
+
+*coming events*
+<dialog id="add-reservation">
+    <article>
+        <a href="#close" aria-label="Close" class="close" data-target="add-reservation" onClick="toggleModal(event)"></a>
+        <h3>Coming Events</h3>
+        <p th:text="${errorDTO?.message}"></p>
+        <form id="reservationForm" th:object="${reservationDTO}">
+            <input type="hidden" id="overfillReservation" name="overfillReservation" >
+            <div style="display: flex; gap: 10px;justify-content: space-between;align-items: center;">
+                <span><strong>Event 1</strong></span>
+                <span>01/01/2024</span>
+                <span>Venue 1</span>
+                <span>50 people reserved </span>
+                <button style="border: none; background: none; color: steelblue; cursor: pointer; text-decoration: underline"  onclick="deleteLine1(event,this)">Buy!</button>
+            </div>
+
+            <hr>
+            <div style="display: flex; gap: 10px;justify-content: space-between;align-items: center;">
+                <span><strong>Event 2</strong></span>
+                <span>02/01/2024</span>
+                <span>Venue 2</span>
+                <span>100 people reserved</span>
+                <button style="border: none; background: none; color: steelblue; cursor: pointer; text-decoration: underline"  onclick="deleteLine1(event,this)">Buy!</button>
+            </div>
+            <footer>
+                <a href="#close" role="button" class="secondary" data-target="add-reservation" onClick="toggleModal(event)">Cancel</a>
+            </footer>
+        </form>
+
+    </article>
+</dialog>
+
+
+<script>
+    function deleteLine1(event,button) {
+        event.preventDefault();
+        const confirmDialog = document.getElementById('confirmDeleteEvent');
+        confirmDialog.showModal();
+
+        const confirmYes = document.getElementById('confirmYes');
+        const confirmNo = document.getElementById('confirmNo');
+
+        confirmYes.onclick = function() {
+            button.parentElement.remove();
+            confirmDialog.close();
+        };
+
+        confirmNo.onclick = function() {
+            confirmDialog.close();
+        };
+    }
+</script>
+
+<dialog id="confirmDeleteEvent">
+    <article>
+        <h3>Confirm</h3>
+        <p>Are you sure to buy this event?</p>
+        <footer>
+            <button id="confirmYes">Yes</button>
+            <button id="confirmNo">No</button>
+        </footer>
+    </article>
+</dialog>
+
+
+*account management*
+
+<dialog id="account-management">
+    <article>
+        <a href="#close" aria-label="Close" class="close" data-target="confirm-cancel" onClick="toggleModal(event)"></a>
+        <h3>ACCOUNT MANAGEMENT</h3>
+        <p th:text="${errorDTO?.message}"></p>
+        <form id="account_management">
+            <input type="hidden" id="confirm" name="walkInoverfill" >
+            <div style="display: flex; gap: 10px;justify-content: space-between;align-items: center;">
+                <span><strong>Eszter</strong></span>
+                <span>User</span>
+                <div style="display: flex; gap: 10px;">
+                    <button style="border: none; background: none; color: steelblue; cursor: pointer; text-decoration: underline" onclick="permission(event,this)">Permission</button>
+                    <button style="border: none; background: none; color: steelblue; cursor: pointer; text-decoration: underline" onclick="edit_account(event,this)">Edit</button>
+                    <button style="border: none; background: none; color: steelblue; cursor: pointer; text-decoration: underline" onclick="disable_account(event,this)">Disable</button>
+                </div>
+            </div>
+            <hr>
+            <div style="display: flex;gap: 10px; justify-content: space-between;align-items: center;">
+                <span><strong>Siiing</strong></span>
+                <span>Organizer</span>
+                <div style="display: flex; gap: 10px;">
+                    <button style="border: none; background: none; color: steelblue; cursor: pointer; text-decoration: underline" onclick="permission(event,this)">Permission</button>
+                    <button style="border: none; background: none; color: steelblue; cursor: pointer; text-decoration: underline" onclick="edit_account(event,this)">Edit</button>
+                    <button style="border: none; background: none; color: steelblue; cursor: pointer; text-decoration: underline" onclick="disable_account(event,this)">Disable</button>
+                </div>
+            </div>
+            <footer>
+                <a href="#close" role="button" class="secondary" data-target="add-walkIn" onClick="document.getElementById('account-management').close()">Cancel</a>
+                <button style="border: none; background: steelblue; color: white; cursor: pointer;" onclick="edit_account(event,this)">New Account</button>
+            </footer>
+        </form>
+    </article>
+</dialog>
+
+<script>
+    /**
+     * disable button
+     */
+    function disable_account(event,button) {
+        event.preventDefault();
+        const confirmDialog = document.getElementById('confirmDisable');
+        confirmDialog.showModal();
+
+        const confirmYes = document.getElementById('confirmYes3');
+        const confirmNo = document.getElementById('confirmNo3');
+
+        confirmYes.onclick = function() {
+            confirmDialog.close();
+        };
+
+        confirmNo.onclick = function() {
+            confirmDialog.close();
+        };
+    }
+
+    /**
+     * edit button
+     */
+    function edit_account(event,button) {
+        event.preventDefault();
+        const editDialog = document.getElementById('account');
+        editDialog.showModal();
+    }
+
+    /**
+     * permission button
+     */
+    function permission(event,button){
+        event.preventDefault();
+        const permissionDialog = document.getElementById('accountPermission');
+        permissionDialog.showModal();
+
+        const confirmYes = document.getElementById('confirmYes5');
+        const confirmNo = document.getElementById('confirmNo5');
+
+        confirmYes.onclick = function() {
+            permissionDialog.close();
+        };
+
+        confirmNo.onclick = function() {
+            permissionDialog.close();
+        };
+    }
+</script>
+
+*permission button dialog*
+<dialog id="accountPermission">
+    <article>
+        <h3>Confirm</h3>
+        <p>Are you sure to change this account's permission from 'organizer' to 'user'?</p>
+        <footer>
+            <button id="confirmYes5">Yes</button>
+            <button id="confirmNo5">No</button>
+        </footer>
+    </article>
+</dialog>
+
+*disable button dialog*
+<dialog id="confirmDisable">
+    <article>
+        <h3>Confirm</h3>
+        <p>Are you sure to make this account disabled?</p>
+        <footer>
+            <button id="confirmYes3">Yes</button>
+            <button id="confirmNo3">No</button>
+        </footer>
+    </article>
+</dialog>
+
+
+*edit / create account*
+<dialog id="account">
+    <article>
+        <h3>Account Info</h3>
+        <label for ="Name">
+            Name
+            <input type="text" id="Name" name="Name" required>
+        </label>
+        <label for="Address">
+            Address
+            <input type="text" id="Address" name="Address" required>
+        </label>
+        <label for="CompanyName">
+            CompanyName
+            <input type="text" id="CompanyName" name="CompanyName" required>
+        </label>
+        <label for="Email">
+            Email
+            <input type="Email" id="Email" name="Email"  required>
+        </label>
+        <label for="password">
+            Password
+            <input type="password" id="password" name="password"  required>
+        </label>
+        <label for="phoneNumber">
+            Phone Number
+            <input type="tel" id="phoneNumber" name="phoneNumber" required>
+        </label>
+        <footer>
+            <a href="#close" role="button" class="secondary" data-target="add-walkIn" onClick="document.getElementById('account').close()">Cancel</a>
+            <a href="#" role="button" onClick="javascript: document.getElementById('walkInForm').submit();">Submit</a>
+        </footer>
+        </form>
+    </article>
+</dialog>
+<!--
+*event*
+<dialog id="add-reservation">
+    <article>
+        <a href="#close" aria-label="Close" class="close" data-target="add-reservation" onClick="toggleModal(event)"></a>
+        <h3>EVENT</h3>
+        <p th:text="${errorDTO?.message}"></p>
+        <form id="reservationForm" th:object="${reservationDTO}">
+            <input type="hidden" id="overfillReservation" name="overfillReservation" >
+            <div style="display: flex; gap: 10px;justify-content: space-between;align-items: center;">
+                <span><strong>Event 1</strong></span>
+                <span>01/01/2024</span>
+                <span>Venue 1</span>
+                <span>50 people reserved</span>
+                <button style="border: none; background: none; color: steelblue; cursor: pointer; text-decoration: underline"  onclick="deleteLine1(event,this)">Delete</button>
+            </div>
+
+            <hr>
+            <div style="display: flex; gap: 10px;justify-content: space-between;align-items: center;">
+                <span><strong>Event 2</strong></span>
+                <span>02/01/2024</span>
+                <span>Venue 2</span>
+                <span>100 people reserved</span>
+                <button style="border: none; background: none; color: steelblue; cursor: pointer; text-decoration: underline"  onclick="deleteLine1(event,this)">Delete</button>
+            </div>
+            <footer>
+                <a href="#close" role="button" class="secondary" data-target="add-reservation" onClick="toggleModal(event)">Cancel</a>
+            </footer>
+        </form>
+
+    </article>
+</dialog>
+
+
+<script>
+    function deleteLine1(event,button) {
+        event.preventDefault();
+        const confirmDialog = document.getElementById('confirmDeleteEvent');
+        confirmDialog.showModal();
+
+        const confirmYes = document.getElementById('confirmYes');
+        const confirmNo = document.getElementById('confirmNo');
+
+        confirmYes.onclick = function() {
+            button.parentElement.remove();
+            confirmDialog.close();
+        };
+
+        confirmNo.onclick = function() {
+            confirmDialog.close();
+        };
+    }
+</script>
+
+
+<dialog id="confirmDeleteEvent">
+    <article>
+        <h3>Confirm</h3>
+        <p>Are you sure to delete this event?</p>
+        <footer>
+            <button id="confirmYes">Yes</button>
+            <button id="confirmNo">No</button>
+        </footer>
+    </article>
+</dialog>
+
+*venue*
+<dialog id="add-walkIn">
+    <article>
+        <a href="#close" aria-label="Close" class="close" data-target="add-walkIn" onClick="toggleModal(event)"></a>
+        <h3>VENUE</h3>
+        <p th:text="${errorDTO?.message}"></p>
+        <form  id="walkInForm" th:object="${walkInDTO}">
+            <input type="hidden" id="walkInoverfill" name="walkInoverfill" th:field="*{overfill}">
+            <div style="display: flex;gap: 10px; justify-content: space-between;align-items: center;">
+                <span><strong>Venue 1</strong></span>
+                <span>Event 1  01/01/2024</span>
+                <button style="border: none; background: none; color: steelblue; cursor: pointer; text-decoration: underline"  onclick="deleteLine2(event,this)">Delete</button>
+            </div>
+            <hr>
+            <div style="display: flex; justify-content: space-between;align-items: center;">
+                <span><strong>Venue 2</strong></span>
+                <span>Event 2  02/01/2024</span>
+                <button style="border: none; background: none; color: steelblue; cursor: pointer; text-decoration: underline"  onclick="deleteLine2(event,this)">Delete</button>
+            </div>
+            <footer>
+                <a href="#close" role="button" class="secondary" data-target="add-walkIn" onClick="toggleModal(event)">Cancel</a>
+                <a href="#" role="button" onClick="javascript: document.getElementById('walkInForm').submit();">Submit</a>
+            </footer>
+        </form>
+    </article>
+</dialog>
+
+<script>
+    function deleteLine2(event,button) {
+        event.preventDefault();
+        const confirmDialog = document.getElementById('confirmDeleteVenue');
+        confirmDialog.showModal();
+
+        const confirmYes = document.getElementById('confirmYes2');
+        const confirmNo = document.getElementById('confirmNo2');
+
+        confirmYes.onclick = function() {
+            button.parentElement.remove();
+            confirmDialog.close();
+        };
+
+        confirmNo.onclick = function() {
+            confirmDialog.close();
+        };
+    }
+</script>
+
+<dialog id="confirmDeleteVenue">
+    <article>
+        <h3>Confirm</h3>
+        <p>Are you sure to delete this venue?</p>
+        <footer>
+            <button id="confirmYes2">Yes</button>
+            <button id="confirmNo2">No</button>
+        </footer>
+    </article>
+</dialog>
+
+
+*account management*
+
+<dialog id="account-management">
+    <article>
+        <a href="#close" aria-label="Close" class="close" data-target="confirm-cancel" onClick="toggleModal(event)"></a>
+        <h3>ACCOUNT MANAGEMENT</h3>
+        <p th:text="${errorDTO?.message}"></p>
+        <form id="account_management">
+            <input type="hidden" id="confirm" name="walkInoverfill" >
+            <div style="display: flex; gap: 10px;justify-content: space-between;align-items: center;">
+                <span><strong>Eszter</strong></span>
+                <span>User</span>
+                <div style="display: flex; gap: 10px;">
+                    <button style="border: none; background: none; color: steelblue; cursor: pointer; text-decoration: underline" onclick="permission(event,this)">Permission</button>
+                    <button style="border: none; background: none; color: steelblue; cursor: pointer; text-decoration: underline" onclick="edit_account(event,this)">Edit</button>
+                    <button style="border: none; background: none; color: steelblue; cursor: pointer; text-decoration: underline" onclick="disable_account(event,this)">Disable</button>
+                </div>
+            </div>
+            <hr>
+            <div style="display: flex;gap: 10px; justify-content: space-between;align-items: center;">
+                <span><strong>Siiing</strong></span>
+                <span>Organizer</span>
+                <div style="display: flex; gap: 10px;">
+                    <button style="border: none; background: none; color: steelblue; cursor: pointer; text-decoration: underline" onclick="permission(event,this)">Permission</button>
+                    <button style="border: none; background: none; color: steelblue; cursor: pointer; text-decoration: underline" onclick="edit_account(event,this)">Edit</button>
+                    <button style="border: none; background: none; color: steelblue; cursor: pointer; text-decoration: underline" onclick="disable_account(event,this)">Disable</button>
+                </div>
+            </div>
+            <footer>
+                <a href="#close" role="button" class="secondary" data-target="add-walkIn" onClick="document.getElementById('account-management').close()">Cancel</a>
+                <button style="border: none; background: steelblue; color: white; cursor: pointer;" onclick="edit_account(event,this)">New Account</button>
+            </footer>
+        </form>
+    </article>
+</dialog>
+
+<script>
+    /**
+     * disable button
+     */
+    function disable_account(event,button) {
+        event.preventDefault();
+        const confirmDialog = document.getElementById('confirmDisable');
+        confirmDialog.showModal();
+
+        const confirmYes = document.getElementById('confirmYes3');
+        const confirmNo = document.getElementById('confirmNo3');
+
+        confirmYes.onclick = function() {
+            confirmDialog.close();
+        };
+
+        confirmNo.onclick = function() {
+            confirmDialog.close();
+        };
+    }
+
+    /**
+     * edit button
+     */
+    function edit_account(event,button) {
+        event.preventDefault();
+        const editDialog = document.getElementById('account');
+        editDialog.showModal();
+    }
+
+    /**
+     * permission button
+     */
+    function permission(event,button){
+        event.preventDefault();
+        const permissionDialog = document.getElementById('accountPermission');
+        permissionDialog.showModal();
+
+        const confirmYes = document.getElementById('confirmYes5');
+        const confirmNo = document.getElementById('confirmNo5');
+
+        confirmYes.onclick = function() {
+            permissionDialog.close();
+        };
+
+        confirmNo.onclick = function() {
+            permissionDialog.close();
+        };
+    }
+</script>
+
+*permission button dialog*
+<dialog id="accountPermission">
+    <article>
+        <h3>Confirm</h3>
+        <p>Are you sure to change this account's permission from 'organizer' to 'user'?</p>
+        <footer>
+            <button id="confirmYes5">Yes</button>
+            <button id="confirmNo5">No</button>
+        </footer>
+    </article>
+</dialog>
+
+*disable button dialog*
+<dialog id="confirmDisable">
+    <article>
+        <h3>Confirm</h3>
+        <p>Are you sure to make this account disabled?</p>
+        <footer>
+            <button id="confirmYes3">Yes</button>
+            <button id="confirmNo3">No</button>
+        </footer>
+    </article>
+</dialog>
+
+
+*edit / create account*
+<dialog id="account">
+    <article>
+        <h3>Account Info</h3>
+            <label for ="Name">
+                Name
+                <input type="text" id="Name" name="Name" required>
+            </label>
+            <label for="Address">
+                Address
+                <input type="text" id="Address" name="Address" required>
+            </label>
+            <label for="CompanyName">
+                CompanyName
+                <input type="text" id="CompanyName" name="CompanyName" required>
+            </label>
+            <label for="Email">
+                Email
+                <input type="Email" id="Email" name="Email"  required>
+            </label>
+            <label for="password">
+                Password
+                <input type="password" id="password" name="password"  required>
+            </label>
+            <label for="phoneNumber">
+                Phone Number
+                <input type="tel" id="phoneNumber" name="phoneNumber" required>
+            </label>
+            <footer>
+                <a href="#close" role="button" class="secondary" data-target="add-walkIn" onClick="document.getElementById('account').close()">Cancel</a>
+                <a href="#" role="button" onClick="javascript: document.getElementById('walkInForm').submit();">Submit</a>
+            </footer>
+        </form>
+    </article>
+</dialog>
+-->
+
+
+<script th:inline="javascript">
+    // Config
+    const bookings = [[${bookings}]]
+    const tableList = [[${tables}]]
+</script>
+<script type="text/javascript" th:src="@{/js/canvas.js}">
+</script>
+<script type="text/javascript" th:src="@{/js/modals.js}">
+</script>
+</body>
+</html>

@@ -37,3 +37,6 @@
 
 ## Exceptions
 - **System Error** : If there occur some unknown errors while listing upcoming events, the system will prompt user to try again.
+
+### **Related UI Prototypes**
+|![2](../../UI/user/list_upcoming_events.jpg)|

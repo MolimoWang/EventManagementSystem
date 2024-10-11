@@ -1,35 +1,45 @@
 # View Venue Details Use Case
 
-### **Actor**: Organizer
-
-### **Description**
+## Description
 This use case allows an organizer to view the detailed information of a specific venue, such as the venue name, address, capacity, and contact information.
 
-### **Trigger**
-The organizer wants to see the details of a specific venue to assess its suitability for an event.
+## Actors
+- Organizer
 
-### **Preconditions**
+## Triggers
+- The organizer wants to see the details of a specific venue to assess its suitability for an event.
+
+## Preconditions
 - The organizer must be logged into the system.
 - The venue must exist in the system.
 
-### **Postconditions**
+## Postconditions
 - The system displays the detailed information of the selected venue.
 
-### **Basic Flow**
+## Courses of Events
+
+### 01 - Basic course of events
+
+#### Course of Events
 1. The organizer selects the "View Venue Details" option from the venue management menu.
 2. The system retrieves the details of the selected venue.
 3. The system displays the venue details, including:
-    - Venue Name
-    - Address
-    - Capacity
-    - Contact Information (name, phone, email)
+   - Venue Name
+   - Address
+   - Capacity
+   - Contact Information (name, phone, email)
 
-### **Alternate Flow**
-- **Venue Not Found**: If the selected venue does not exist, the system displays an error message and prompts the organizer to select a valid venue.
 
-### **Exceptions**
+
+### 02 - Alternate course of events
+
+#### Venue Not Found
+- If the selected venue does not exist, the system displays an error message and prompts the organizer to select a valid venue.
+
+## Exceptions
 - **System Error**: If a system error occurs while retrieving the venue details, the system displays an error message and prompts the organizer to try again later.
 
-### **Related UI Prototypes**
-### **Related UI Prototypes**
-|![2](../../UI/organizer/view_venue_details.png)|
+#### Related UI Prototypes
+| View Venue Details Page |
+| --- |
+| ![View Venue Details](../../UI/organizer/view_venue_details.png) |

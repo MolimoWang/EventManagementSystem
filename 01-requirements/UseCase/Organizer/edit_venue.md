@@ -1,38 +1,53 @@
-# Change Event Venue Use Case
+# Edit Venue Use Case
 
-### **Actor**: Organizer
+## Description
+This use case allows an organizer to edit the details of an existing venue in the event management system, such as the venue name, address, contact information, capacity, and ticket type availability.
 
-### **Description**
-This use case allows an organizer to change the venue of an existing event in the event management system, ensuring that the new venue is available on the event's date and time.
+## Actors
+- Organizer
 
-### **Trigger**
-The organizer wants to move an event to a different venue due to availability issues or other reasons.
+## Triggers
+- The organizer wants to update information about a venue due to changes in capacity, contact information, or other reasons.
 
-### **Preconditions**
+## Preconditions
 - The organizer must be logged into the system.
-- The organizer has appropriate privileges to modify the event.
-- The event must already exist in the system.
-- There must be at least one other available venue in the system.
+- The organizer has appropriate privileges to edit the venue.
+- The venue must already exist in the system.
 
-### **Postconditions**
-- The event's venue is updated in the system.
-- Notifications are optionally sent to users who have purchased tickets to inform them of the change.
+## Postconditions
+- The venue details are updated in the system, and the changes are reflected in all events using this venue.
 
-### **Basic Flow**
-1. The organizer selects the "Change Venue" option from the event management menu.
-2. The system displays a list of events that the organizer can modify.
-3. The organizer selects the event they want to change the venue for.
-4. The system displays the current event details, including the current venue.
-5. The organizer selects a new venue from the list of available venues.
-6. The system checks if the new venue is available for the event's date and time.
-7. If the venue is available, the organizer confirms the change.
-8. The system updates the event with the new venue and displays a confirmation message.
+## Courses of Events
 
-### **Alternate Flow**
-- **Venue Unavailable**: If the selected venue is not available for the chosen date and time, the system displays an error message and prompts the organizer to choose a different venue or adjust the event schedule.
-- **Event Not Found**: If the selected event does not exist, the system displays an error message and prompts the organizer to select a valid event.
+### 01 - Basic course of events
 
-### **Exceptions**
-- **System Error**: If a system error occurs while updating the venue, the system displays an error message and prompts the organizer to try again later.
+#### Course of Events
+1. The organizer selects the "Edit Venue" option from the venue management menu.
+2. The system displays a list of venues created by the organizer.
+3. The organizer selects the venue they wish to edit.
+4. The system displays a form with the current venue details, including:
+    - Venue Name
+    - Venue Address
+    - Local Contact Details (name, phone number, email)
+    - Total Capacity
+    - Ticket Types Available (e.g., Standing, Seated)
+5. The organizer updates the necessary fields.
+6. The organizer clicks "Save Changes" to confirm the modifications.
+7. The system validates the updated input and checks for any missing required fields.
+8. If validation passes, the system updates the venue details and displays a confirmation message.
 
-### **Related UI Prototypes**
+### 02 - Alternate course of events
+
+#### Missing Required Fields
+- If the organizer submits the form with missing required fields (e.g., venue name or capacity), the system highlights the missing fields and prompts the organizer to provide the necessary information.
+
+#### Invalid Ticket Capacity
+- If the total capacity is set to a value lower than the total tickets already sold for events at this venue, the system displays an error message and prompts the organizer to adjust the capacity or cancel certain tickets.
+
+## Exceptions
+- **System Error**: If a system error occurs while saving the updated venue details, the system displays an error message and prompts the organizer to try again later.
+
+## Related UI Prototypes
+| Edit Venue Page |
+| --- |
+| ![Edit Venue](../../UI/organizer/edit_venue.png) |

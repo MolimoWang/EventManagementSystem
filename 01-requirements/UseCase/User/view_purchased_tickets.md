@@ -42,3 +42,6 @@
 
 ## Exceptions
 - **System Error** : If there occur some unknown errors while viewing purchased tickets, the system will prompt user to try again.
+
+### **Related UI Prototypes**
+|![2](../../UI/user/view_purchased_tickets.png)|
