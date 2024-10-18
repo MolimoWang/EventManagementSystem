@@ -25,7 +25,7 @@
 |TM1| <*Required*: Team Leader. Responsible for organizing team meetings, discussing task distribution, and leading the Use Case design. Completed use case descriptions for the Organizer role and designed UI diagrams for special scenarios. Responsible for final compilation and review of all project documentation.> |
 |TM2| <*Required*: Designing the domain model diagrams; Reviewing, and supplementing the use case descriptions and UI diagrams for the Admin and User roles. Compiled the final README file.>                                                                                                                               |
 |TM3| <*Required*: Completing the detailed descriptions of the domain model. Assisted with the diagram design.>                                                                                                                                                                                                             |
-|TM4| <*Required*: Drew a use case diagram and completed the System Glossary.>                                                                                                                                                                                                                                              |
+|TM4| <*Required*: Determine the use case content and name, drew a use case diagram and completed the System Glossary.>                                                                                                                                                                                                                                              |
 |TM5| <*Required*: Completed half of the UI diagram and participated in the design of the use case description.>                                                                                                                                                                                                            |
 |TM6| <*Required*: Completed half of the UI diagram and participated in the design of the use case description.>                                                                                                                                                                                                                                                                                  |
 |TM7| <*Required*: The User section in the use case description.>                                                                                                                                                                                                                                                           |
@@ -165,7 +165,7 @@ This includes the following use cases:
 |---------------------------------------------|----------------|-------------|-------------|----------|
 | Use Case Diagram                            | TM4            |             |             | TM2      |
 | Domain Model                                | TM2            | TM3         | TM1         | TM4      |
-| System Golssary                             | TM3            |             |             | TM3      |
+| System Golssary                             | TM4            |             |             | TM4      |
 | UI Prototypes                               | TM5&6          | TM2         | TM1         | TM1      |
 | Use Case 1: "View All Events"               | TM1            | TM2         |             | TM1      |
 | Use Case 2: "View Events History"           | TM8            | TM2         |             | TM1      |
