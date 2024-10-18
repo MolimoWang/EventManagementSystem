@@ -165,7 +165,7 @@ This includes the following use cases:
 |---------------------------------------------|----------------|-------------|-------------|----------|
 | Use Case Diagram                            | TM4            |             |             | TM2      |
 | Domain Model                                | TM2            | TM3         | TM1         | TM4      |
-| System Golssary                             | TM4            |             |             | TM4      |
+| System Golssary                             | TM4            |             |             | TM2      |
 | UI Prototypes                               | TM5&6          | TM2         | TM1         | TM1      |
 | Use Case 1: "View All Events"               | TM1            | TM2         |             | TM1      |
 | Use Case 2: "View Events History"           | TM8            | TM2         |             | TM1      |
