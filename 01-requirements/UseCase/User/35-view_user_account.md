@@ -13,9 +13,7 @@
 - The user must be logged into the system.
 
 ## Postconditions:
-- The user can view his/her own account, including:
-  1. Name, email.
-  2. List of events his/her have bought tickets for events.
+- The user can view his/her own account, including: Name, password and email.
 
 ## Courses of Events
 
@@ -31,10 +29,11 @@
 #### Edit Account
 - The user click the 'Account' option from the account management.
 - The system displays the details about his/her account.
-- The user click the 'Edit' option.
-- The user edit at most two things:
+- The user can change at most two things:
   1. Name.
-  2. Email.
+  2. Password.
+  3. Email.
+- The user click the 'Submit' option to save the change.
 
 
 
