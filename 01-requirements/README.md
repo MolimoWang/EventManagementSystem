@@ -9,7 +9,7 @@
 | TM4    | An Ran      | ran.am@ucdconnect.ie      | @RanAnQWQ         |     
 | TM5    | Li Siying   | siying.li@ucdconnect.ie   | @siying.li        |     
 | TM6    | Shen Jinyan | jinyan.shen@ucdconnect.ie | @Shen_Jinyan      |     
-| TM7    | Wan Zitong  | zitong.wan@ucdconnect.ie  | @tong wen         |     
+| TM7    | Wan Zitong  | zitong.wan@ucdconnect.ie  | @Rostiute         |     
 | TM8    | Qin Chenle  | chenle.qin@ucdconnect.ie  | @22207284         |
 
 ## Milestone 1 Requirements Analysis
