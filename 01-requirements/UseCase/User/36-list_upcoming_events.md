@@ -11,11 +11,12 @@
 
 ## Preconditions
 - The user must be logged into the system.
-- The user has at least one unused ticket.
+- The system has at least one upcoming event.
 
 ## Postconditions:
 - The system displays the user's upcoming events.
 - The user can select the events they want to see.
+- The user can select 'Buy it' button to buy the ticket.
 
 ## Courses of Events
 
