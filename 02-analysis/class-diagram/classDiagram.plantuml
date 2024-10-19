@@ -1,0 +1,179 @@
+@startuml
+left to right direction
+skinparam monochrome true
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam linetype ortho
+skinparam lineThickness 3   ' Thickness of line
+skinparam noteMargin 30     ' Margins for comments
+skinparam ranksep 100        ' Control vertical spacing
+skinparam nodesep 200        ' Control horizontal spacing
+skinparam classFontSize 12
+skinparam ArrowFontSize 12
+skinparam classBorderThickness 1
+skinparam classAttributeIconSize 0
+
+hide class circle
+hide empty members
+hide stereotypes
+
+skinparam class {
+    BorderColor black
+    ArrowColor black
+    FontColor black
+    FontName Arial
+    FontSize 12
+}
+
+' Account Management Group
+package "Account Management" {
+    class Account {
+        - name: String
+        - email: String
+        - password: String
+    }
+    class Administrator {
+    }
+    class Organiser {
+        - address: String
+        - companyName: String
+        - phoneNumber: String
+    }
+    class User {
+    }
+
+    class AccountService {
+        +login(email: String, password: String): Boolean
+        +logout(): void
+        +createAccount(accountDetails: AccountDetails): Boolean
+        +deleteAccount(accountId: String): Boolean
+        +viewAccount(accountId: String): AccountDetails
+        +updateAccount(accountId: String, accountDetails: AccountDetails): Boolean
+    }
+
+    class AccountCreationRequest {
+        - accountDetails: AccountDetails
+    }
+
+    Administrator --|> Account
+    Organiser --|> Account
+    User --|> Account
+    AccountService --> Account
+}
+
+' Venue Management Group
+package "Venue Management" {
+    class Venue {
+        - name: String
+        - address: String
+        - contactName: String
+        - contactPhoneNumber: String
+        - contactEmail: String
+        - capacity: int
+    }
+
+    class VenueService {
+        +createVenue(venueDetails: VenueDetails): Boolean
+        +viewVenue(venueId: String): VenueDetails
+        +updateVenue(venueId: String, venueDetails: VenueDetails): Boolean
+        +deleteVenue(venueId: String): Boolean
+        +listVenues(): List<VenueDetails>
+    }
+
+    class VenueCreationRequest {
+        - venueDetails: VenueDetails
+    }
+
+    VenueService --> Venue
+}
+
+' Event Management Group
+package "Event Management" {
+    class Event {
+        - name: String
+        - description: String
+        - date: Date
+        - time: Time
+    }
+
+    class EventService {
+        +createEvent(eventDetails: EventDetails): Boolean
+        +viewEvent(eventId: String): EventDetails
+        +deleteEvent(eventId: String): Boolean
+        +updateEvent(eventId: String, eventDetails: EventDetails): Boolean
+        +listEvents(): List<EventDetails>
+    }
+
+    class EventCreationRequest {
+        - eventDetails: EventDetails
+    }
+
+    Venue "1 -venue" <-- Event
+    EventService --> Event
+}
+
+' Ticket Management Group
+package "Ticket Management" {
+    class Ticket {
+        - type: String
+        - price: double
+        - available_number: int
+        - sold_number: int
+    }
+
+    class TicketService {
+        +buyTicket(userId: String, eventId: String, ticketType: String): TicketDetails
+        +viewTicket(ticketId: String): TicketDetails
+        +listUserTickets(userId: String): List<TicketDetails>
+        +cancelTicket(ticketId: String): Boolean
+    }
+
+    class TicketPurchaseRequest {
+        - ticketDetails: TicketDetails
+    }
+
+    Event --> "0..* -tickets" Ticket
+    TicketService --> Ticket
+}
+
+' System classes for each module
+class AccountSystem {
+    +login(email: String, password: String): Boolean
+    +logout(): void
+    +createAccount(accountDetails: AccountDetails): Boolean
+    +deleteAccount(accountId: String): Boolean
+    +viewAccount(accountId: String): AccountDetails
+    +updateAccount(accountId: String, accountDetails: AccountDetails): Boolean
+}
+AccountSystem --> AccountService
+
+class VenueSystem {
+    +createVenue(venueDetails: VenueDetails): Boolean
+    +viewVenue(venueId: String): VenueDetails
+    +updateVenue(venueId: String, venueDetails: VenueDetails): Boolean
+    +deleteVenue(venueId: String): Boolean
+    +listVenues(): List<VenueDetails>
+}
+VenueSystem --> VenueService
+
+class EventSystem {
+    +createEvent(eventDetails: EventDetails): Boolean
+    +viewEvent(eventId: String): EventDetails
+    +deleteEvent(eventId: String): Boolean
+    +updateEvent(eventId: String, eventDetails: EventDetails): Boolean
+    +listEvents(): List<EventDetails>
+}
+EventSystem --> EventService
+
+class TicketSystem {
+    +buyTicket(userId: String, eventId: String, ticketType: String): TicketDetails
+    +viewTicket(ticketId: String): TicketDetails
+    +listUserTickets(userId: String): List<TicketDetails>
+    +cancelTicket(ticketId: String): Boolean
+}
+TicketSystem --> TicketService
+
+Organiser "1..*" o--> "0..* -organises" Event
+User "1" o--> "-tickets 0..*" Ticket
+
+@enduml
