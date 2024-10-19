@@ -1,0 +1,69 @@
+title Organizer Edit Venue Deatils
+
+
+actor Organizer
+participant VenueSystem
+participant VenueService
+participant Venue
+
+Organizer ->>  VenueSystem : viewVenue(action)
+activate Organizer
+activate VenueSystem
+
+
+    VenueSystem ->> VenueService : listVenue (<List VenueDetails>)
+   activate VenueService
+
+   VenueSystem ->> VenueService : viewVenue (VenueDetails)
+
+alt For click 'edit' button
+    VenueSystem ->> VenueService : updateVenue (venueDetails:VenueDetails)
+loop For each object
+    VenueService ->> Venue : getName(name)
+    activate Venue
+    Venue -->VenueService : return uploaded name
+
+    VenueService ->>Venue : getAddress(address)
+
+    Venue --> VenueService : return uploaded description
+
+    VenueService ->>Venue : getContactName(contactName)
+
+    Venue --> VenueService : return uploaded contactName
+
+    VenueService ->> Venue : getPhoneNumber(phoneNumber)
+
+    Venue --> VenueService : return uploaded phoneNumber
+
+    VenueService ->> Venue : getContactEmail(contactEmail)
+
+    Venue --> VenueService : return uploaded contactEmail
+
+    VenueService ->> Venue : getCapacity(capacity)
+
+    Venue --> VenueService : return uploaded capacity
+
+   deactivate Venue
+end
+
+
+ VenueService -->> VenueSystem :return uploaded venue messages
+end
+
+
+ VenueService -->>  VenueSystem :return list venue messages
+
+ VenueSystem -->> Organizer :return uploaded venue messages
+
+alt For click 'cancel' button
+   VenueService ->> VenueSystem : closeCurrentPage()
+
+end
+
+
+alt For click 'back' button
+   VenueSystem ->> Organizer : closeListPage()
+   deactivate VenueSystem
+end
+
+ VenueSystem -->> Organizer :return original venue messages

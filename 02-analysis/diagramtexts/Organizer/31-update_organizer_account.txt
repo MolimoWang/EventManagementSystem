@@ -1,0 +1,87 @@
+title Organizer Account Update Deatils
+
+
+actor Organizer
+participant AccountSystem
+participant AccountService
+participant Account
+participant Event
+
+participant Account
+
+Organizer ->>  AccountSystem : viewAccount(action)
+activate Organizer
+activate AccountSystem
+
+
+    AccountSystem ->> AccountService : listAccount (<ListAccountDetails>)
+   activate AccountService
+
+   AccountSystem ->>AccountService : viewAccount (AccountDetails)
+
+alt For click 'edit' button
+    AccountSystem ->> AccountService : updateAccount (venueDetails:VenueDetails)
+loop For each object
+    AccountService ->> Account : getName(name)
+    activate Account
+    Account -->AccountService : return uploaded name
+
+    AccountService ->>Account : getAddress(address)
+
+    Account --> AccountService : return uploaded description
+
+    AccountService ->>Account : getCompanyName(contactName)
+
+    Account --> AccountService : return uploaded companyName
+
+    AccountService ->> Account : getContactEmail(contactEmail)
+
+    Account --> AccountService : return uploaded contactEmail
+
+    AccountService ->> Account : getPassword(password)
+
+    Account --> AccountService : return uploaded password
+
+    AccountService ->>Account : getPhoneNumber(phoneNumber)
+
+    Account --> AccountService : return uploaded phoneNumber
+
+    Account ->>Event : getPastEvents(List <pastEventDetails>)
+
+    Event --> Account : return pastEvents
+
+    Account --> AccountService: return pastEvents
+
+    Account ->>Event : getFutureEvents(List <futureEventDetails>)
+
+    Event --> Account : return futureEvents
+
+    Account --> AccountService: return futureEvents
+
+   deactivate Account
+end
+
+
+ AccountService -->> AccountSystem :return uploaded account messages
+end
+
+ AccountService -->>  AccountSystem :return Account messages
+
+
+ AccountSystem -->> Organizer :return uploaded Account messages
+
+
+alt For click 'cancel' button
+  AccountService ->> AccountSystem : closeCurrentPage()
+
+  deactivate AccountService
+end
+
+
+
+alt For click 'back' button
+   AccountSystem ->> Organizer : closeAccountPage()
+    deactivate AccountSystem
+   end
+
+ AccountSystem -->> Organizer :return original account messages

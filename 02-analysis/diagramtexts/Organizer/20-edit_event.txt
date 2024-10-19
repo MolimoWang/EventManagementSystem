@@ -1,0 +1,59 @@
+title Organizer Edit Event Deatils
+
+
+actor Organizer
+participant EventSystem
+participant EventService
+participant Event
+
+Organizer ->> EventSystem : viewEvent(action)
+activate Organizer
+activate EventSystem
+
+
+   EventSystem ->> EventService : listEvent (<List eventDetails>)
+   activate EventService
+
+  EventSystem ->> EventService : viewEvent (eventDetails)
+
+alt For click 'edit' button
+  EventSystem ->> EventService : updateEvent (eventDetails:EventDetails)
+loop For each object
+    EventService ->> Event : getName(name)
+    activate Event
+    Event --> EventService : return updated name
+
+    EventService ->> Event : getDescription(description)
+
+    Event --> EventService : return updated description
+
+    EventService ->> Event : getDate(date)
+
+    Event --> EventService : return updated date
+
+    EventService ->> Event : getTime(time)
+
+    Event --> EventService : return updated time
+    deactivate Event
+end
+
+ EventService -->> EventSystem :return uploaded event messages
+end
+
+
+ EventService -->> EventSystem :return list event messages
+
+EventSystem -->> Organizer :return uploaded event messages
+
+alt For click 'cancel' button
+   EventService ->> EventSystem : closeCurrentPage()
+
+end
+
+
+alt For click 'back' button
+   EventSystem ->> Organizer : closeListPage()
+    deactivate EventSystem
+end
+
+EventSystem -->> Organizer :return original event messages
