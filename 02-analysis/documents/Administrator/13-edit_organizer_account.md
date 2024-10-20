@@ -1,4 +1,4 @@
-# 01 View All Events
+# 13 Edit Organizer Account
 
 ## Basic Course of Events
 - The administrator navigates to the 'View All Accounts' page, which displaying all existing accounts in the system.
