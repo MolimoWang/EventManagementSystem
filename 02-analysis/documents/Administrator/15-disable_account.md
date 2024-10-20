@@ -8,7 +8,7 @@
 - The administrator selects **Yes**.
 - The account is disabled and cannot log in.
 - A confirmation message is shown to the administrator.
-### Sequence Diagram
+#### Sequence Diagram
 
 ## Alternate Course of Events
 ### Do Not Disable
@@ -16,16 +16,16 @@
 - The system asks the administrator to confirm.
 - The administrator selects **No**.
 - The system returns to the previous interface, and no action is taken.
-### Sequence Diagram
+#### Sequence Diagram
 
 ### Account Already Disabled
 - The administrator selects an account to disable, but the account is already disabled.
 - The system displays a message indicating the account is already inactive.
-### Sequence Diagram
+#### Sequence Diagram
 
 ### Account Not Found
 - The administrator tries to disable an account that does not exist.
 - The system displays an error message.
-### Sequence Diagram
+#### Sequence Diagram
 
 ## UI Sketches
