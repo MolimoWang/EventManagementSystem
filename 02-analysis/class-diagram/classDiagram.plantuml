@@ -1,4 +1,4 @@
-而@startuml
+@startuml
 left to right direction
 skinparam monochrome true
 skinparam backgroundColor white
@@ -38,8 +38,6 @@ package "Account Management" {
         - address: String
         - companyName: String
         - phoneNumber: String
-        - pastEvent: List<EventDetails>
-        - futureEvent: List<EventDetails>
     }
     class User {
     }
