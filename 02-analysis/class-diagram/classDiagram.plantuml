@@ -38,6 +38,8 @@ package "Account Management" {
         - address: String
         - companyName: String
         - phoneNumber: String
+        - pastEvents: List<EventDetails>
+        - futureEvents: List<EventDetails>
     }
     class User {
     }
