@@ -5,7 +5,6 @@ actor Organizer
 participant AccountSystem
 participant AccountService
 participant Account
-participant Event
 
 participant Account
 
@@ -46,23 +45,9 @@ loop For each object
 
     Account --> AccountService : return uploaded phoneNumber
 
-    Account ->>Event : getPastEvents(List <pastEventDetails>)
-
-    Event --> Account : return pastEvents
-
-    Account --> AccountService: return pastEvents
-
-    Account ->>Event : getFutureEvents(List <futureEventDetails>)
-
-    Event --> Account : return futureEvents
-
-    Account --> AccountService: return futureEvents
-
-   deactivate Account
-end
-
-
- AccountService -->> AccountSystem :return uploaded account messages
+    deactivate Account
+    end
+     AccountService -->> AccountSystem :return uploaded account messages
 end
 
  AccountService -->>  AccountSystem :return Account messages
@@ -76,7 +61,6 @@ alt For click 'cancel' button
 
   deactivate AccountService
 end
-
 
 
 alt For click 'back' button
