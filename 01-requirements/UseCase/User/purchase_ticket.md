@@ -67,3 +67,4 @@
 
 ## Data Outcome
 - **READ** - The details of the target ticket will be read and displayed.
+- **UPDATE** - The selected event will be added into the account system.
