@@ -1,4 +1,4 @@
-# View Event Details Use Case
+# Use Case: View Event Details
 
 ## Description
 This use case allows an administrator, organizer or user to view detailed information about a specific event in the event management system.
