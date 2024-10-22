@@ -1,4 +1,4 @@
-# Create User Account
+# Use Case: Create User Account
 
 ## Description
 - This use case allows a user to register a user account 
