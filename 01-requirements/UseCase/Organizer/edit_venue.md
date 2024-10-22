@@ -1,4 +1,4 @@
-# Edit Venue Use Case
+# Use Case: Edit Venue
 
 ## Description
 This use case allows an organizer to edit the details of an existing venue.
@@ -8,14 +8,14 @@ This use case allows an organizer to edit the details of an existing venue.
 
 ## Triggers
 - The organizer wants to update information about a venue.
-- 
+
 ## Preconditions
 - The organizer is on list venues page (25-view_all_venues.png).
 
 
 ## Postconditions
 - The organizer is shown the updated list venues page (25-view_all_venues.png).
-- 
+
 ## Courses of Events
 
 ### 01 - Basic course of events
