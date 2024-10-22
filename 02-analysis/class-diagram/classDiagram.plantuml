@@ -172,6 +172,7 @@ class EventSystem {
     +deleteEvent(eventId: String): Boolean
     +updateEvent(eventId: String, eventDetails: EventDetails): Boolean
     +listEvents(): List<Events>
+    +listMyEvents(): List<Events>
 }
 EventSystem --> EventService
 
