@@ -43,4 +43,4 @@
 |![List Upcoming Events](../../UI/user/36-list_upcoming_events.jpg)|
 
 ## Data Outcome
-- **READ** - The list of the all accounts upcoming will be read and displayed.
+- **READ** - The list of the all upcoming events will be read and displayed.
