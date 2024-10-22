@@ -1,0 +1,38 @@
+title Organizer Display Date Process
+
+actor Organizer
+
+
+participant EventSystem
+participant EventService
+participant Event
+
+Organizer ->> EventSystem : viewEvents(action)
+activate EventSystem
+
+EventSystem->>EventService: listEvents(eventDetails)
+activate EventService
+activate Event
+
+ EventService->>Event: getEvent(eventDetails)
+loop For every Events
+
+ EventService->>Event: getEventName(name)
+  Event-->EventService: return Event Name
+ EventService->>Event: getEventDate(Date)
+  Event-->EventService: return Event Date
+  EventService->>Event: getEventTime(Time)
+ Event-->EventService: return Event Time
+ end
+  Event-->EventService: return  Event list on chosed date
+ deactivate Event
+
+
+
+EventService-->EventSystem:return Event list on chosed date
+deactivate EventService
+EventSystem->EventSystem:return Event list on chosed date
+EventSystem-->Organizer:
+deactivate EventSystem
+
+

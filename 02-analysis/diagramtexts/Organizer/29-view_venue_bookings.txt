@@ -1,0 +1,38 @@
+title Organizer View Venue Bookings Process
+
+actor Organizer
+
+
+participant VenueSystem
+participant VenueService
+participant Venue
+activate VenueSystem
+Organizer ->> VenueSystem : viewVenue(action)
+activate VenueService
+VenueSystem->>VenueService: listVenue(eventDetails)
+
+activate Venue
+VenueService->>Venue: getVenue(venueDetails)
+
+
+loop For every Venues
+ VenueService->>Venue: getVenueName(name)
+  Venue-->VenueService: return Venue Name
+ VenueService->>Venue: getAddress(Address)
+  Venue-->VenueService: return Venue Address
+ VenueService->>Venue: getCapacity(Capacity)
+ Venue-->VenueService: return Capacity
+ end
+  Venue-->VenueService:return corresponding venue list
+ VenueService-->VenueSystem:return corresponding venue list
+
+
+
+ deactivate Venue
+
+
+deactivate VenueService
+VenueSystem->VenueSystem:return corresponding Venue Details list
+VenueSystem-->Organizer:
+deactivate VenueSystem
+

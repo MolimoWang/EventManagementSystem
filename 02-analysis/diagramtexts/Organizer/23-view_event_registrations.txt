@@ -1,0 +1,34 @@
+title Organizer View Event Registration Process
+
+actor Organizer
+
+
+participant EventSystem
+participant EventService
+participant Event
+
+Organizer ->> EventSystem : viewEvents(action)
+activate EventSystem
+
+EventSystem->>EventService: viewEvents(eventDetails)
+activate EventService
+activate Event
+
+ EventService->>Event: getEvent(eventDetails)
+loop For every Events
+
+ EventService->>Event: getEventDiscription(Discription)
+  Event-->EventService: return Event Discription
+ end
+  Event-->EventService: return choosed Event Details
+ deactivate Event
+
+
+
+EventService-->EventSystem:return choosed Event Details
+deactivate EventService
+EventSystem->EventSystem:return choosed Event Details Page(contain registration)
+EventSystem-->Organizer:
+deactivate EventSystem
+
+

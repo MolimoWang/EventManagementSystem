@@ -1,0 +1,36 @@
+title Organizer View All Events Details Process
+
+actor Organizer
+
+
+participant EventSystem
+participant EventService
+participant Event
+
+Organizer ->> EventSystem : viewEvents(action)
+activate EventSystem
+
+EventSystem->>EventService: listEvents(eventDetails)
+activate EventService
+activate Event
+
+loop For every Events
+
+ EventService->>Event: getEventName(name)
+  Event-->EventService: return Event Name
+ EventService->>Event: getEventDate(Date)
+  Event-->EventService: return Event Date
+  EventService->>Event: getEventTime(Time)
+ Event-->EventService: return Event Time
+ end
+ deactivate Event
+
+
+
+EventService-->EventSystem:return updated Event List
+deactivate EventService
+EventSystem->EventSystem:return updated Event List
+EventSystem-->Organizer:
+deactivate EventSystem
+
+
