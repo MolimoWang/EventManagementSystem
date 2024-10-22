@@ -44,3 +44,7 @@
 
 ### Related UI Prototypes
 ![Disable Account](../../UI/admin/15-disable_account.png)
+
+##Data Outcome
+- **Read** - All the existing accounts will be read and display.
+- **UPDATE** - The selected account will be disabled.
