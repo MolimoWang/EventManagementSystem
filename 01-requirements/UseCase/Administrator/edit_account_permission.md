@@ -45,3 +45,7 @@
 
 ### Related UI Prototypes
 ![Edit Account Permission](../../UI/admin/11-edit_account_permission.png)
+
+## Data Outcome
+- **READ** - ALL the existing accounts will be display and read.
+- **UPDATE** - The permission level of selected account will be changed.
