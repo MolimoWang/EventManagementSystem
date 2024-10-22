@@ -46,3 +46,6 @@ Allows the administrator or user to view the details of an account in the system
  ![View Organizer Account](../../UI/organizer/30-view_organizer_account.png) 
 ## Related UI Prototypes-- User Viewing Their Account
 ![View User Account  ](../../UI/user/35-view_user_account.png)
+
+## Data Outcome
+- **READ** - The details of an account in the system will be read and display.
