@@ -46,4 +46,8 @@ This use case allows an organizer to edit the details of an existing venue.
 | Error: Invalid Ticket Capacity                                                                    |
 | ![Invalid Ticket Capacity](../../UI/organizer/Alternative/edit_venue_Invalid Ticket Capacity.png) |  
 | Error: Missing Required Fields                                                                         |
-| ![Missing Required Fields](../../UI/organizer/Alternative/edit_venue_Missing Required Fields.png) |  
+| ![Missing Required Fields](../../UI/organizer/Alternative/edit_venue_Missing Required Fields.png) |
+
+## Data Outcome
+- **READ** - The details of the venue will be read and displayed.
+- **UPDATE** - The details of the venue will be updated.  
