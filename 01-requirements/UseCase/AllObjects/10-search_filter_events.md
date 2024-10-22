@@ -43,3 +43,7 @@
 | Search Filter Events                                               |
 |--------------------------------------------------------------------|
 | ![Search Filter Events](../../UI/user/38-search_filter_events.png) |
+
+## Data Outcome
+- **SEARCH** - The target events based on **Name** will be searched.
+- **READ** - The details of the searched event will be read and displayed.
