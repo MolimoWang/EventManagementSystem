@@ -64,3 +64,6 @@
 | ![Add Venue](../../UI/user/Alternative/purchase_ticket_error1.png) |
 | Purchase Timeout                                                   |
 | ![Add Venue](../../UI/user/Alternative/purchase_ticket_error2.png) |
+
+## Data Outcome
+- ****
