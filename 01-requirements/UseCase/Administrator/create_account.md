@@ -1,4 +1,4 @@
-# Use Case: Edit Account Permission
+# Use Case: Create Account
 
 ## Description
 - This use case allows an administrator to create a new account in the system. 
