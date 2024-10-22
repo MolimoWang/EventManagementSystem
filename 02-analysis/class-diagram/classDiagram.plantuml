@@ -48,6 +48,7 @@ package "Account Management" {
         +deleteAccount(accountId: String): Boolean
         +readAccount(accountId: String): AccountDetails
         +updateAccount(accountId: String, accountDetails: AccountDetails): Boolean
+
     }
 
     class AccountCreationRequest {
@@ -77,6 +78,13 @@ package "Venue Management" {
         +updateVenue(venueId: String, venueDetails: VenueDetails): Boolean
         +deleteVenue(venueId: String): Boolean
         +getVenue(venueId: String): Venue
+        +getVenueName(venueId: String)):String
+        +getVenueAddress(venueId: String):String
+        +getVenueContactName(venueId: String):String
+        +getVenueContactPhoneNumber(venueId: String): String
+        +getVenueContactEmail(venueId: String):String
+        +getVenueCapacity(venueId: String): int
+        +saveEvent(eventId: String):Boolean
     }
 
     class VenueCreationRequest {
@@ -101,6 +109,11 @@ package "Event Management" {
         +deleteEvent(eventId: String): Boolean
         +updateEvent(eventId: String, eventDetails: EventDetails): Boolean
         +getEvent(eventId: String):Event
+        +getEventName(eventId: String)):String
+        +getEventDescription(eventId: String):String
+        +getEventDate(eventId: String):Date
+        +getEventTime(eventId: String):Time
+        +saveEvent(eventId: String):Boolean
     }
 
     class EventCreationRequest {
