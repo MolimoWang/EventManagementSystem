@@ -1,4 +1,4 @@
-# Create Event Use Case
+# Use Case:Create Event
 
 ## Description
 This use case allows an organizer to create a new event to the system by providing event details such as name, date, time, and venue.
@@ -50,3 +50,7 @@ This use case allows an organizer to create a new event to the system by providi
 | ![Create Event](../../UI/organizer/19-create_event.png)       |
 | Error: Venue Unavaliable                                      |
 | ![Add Venue](../../UI/organizer/Alternative/create_event.png) |                                                        |
+
+## Data Outcome
+- **CREATE** - A new event will be created and added to the system.
+- **READ** - The details of the newly created event will be read and displayed.
