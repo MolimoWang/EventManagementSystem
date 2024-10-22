@@ -1,4 +1,4 @@
-# List Upcoming Events
+# Use Case: List Upcoming Events
 
 ## Description
 - This use case allows a user to view upcoming events.
