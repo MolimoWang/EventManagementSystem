@@ -74,3 +74,4 @@
 
 ## Data Outcomes
 - **CREATE** - Administrator can create one of three types of accounts: User, Organizer, or Administrator. 
+- **READ** - Adnubustrator could read wether the account is successfully created or not.
