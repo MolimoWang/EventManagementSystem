@@ -1,4 +1,4 @@
-# Use Case: Edit Account Permission
+# Use Case: Create Account
 
 ## Description
 - This use case allows an administrator to create a new account in the system. 
@@ -63,8 +63,6 @@
 - The system prompts the administrator to correct the input and resubmit.
 
 
-
-
 ### Related UI Prototypes
 ![Create User Account](../../UI/admin/08-create_user_account.png)
 ![Create Organizer Account](../../UI/admin/09-create_organizer_account.png)
@@ -74,3 +72,6 @@
 #### Invalide Input Error
 ![Invalide Input Error](../../UI/admin/Alternative/create_account_invalid_input.png)
 
+## Data Outcomes
+- **CREATE** - Administrator can create one of three types of accounts: User, Organizer, or Administrator. 
+- **READ** - Adnubustrator could read wether the account is successfully created or not.

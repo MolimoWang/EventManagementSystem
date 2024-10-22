@@ -49,3 +49,7 @@
 
 ### Related UI Prototypes
 ![Delete Venue](../../UI/admin/06-delete_venue.png)
+
+## Data Outcome
+- **READ** - The details of the all venues will be read and displayed.
+- **DELETE** - The details of the venue will be removed from the system.

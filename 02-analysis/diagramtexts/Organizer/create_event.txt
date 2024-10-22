@@ -1,0 +1,51 @@
+title Organizer Create Event Deatils
+
+
+actor Organizer
+participant EventSystem
+participant EventService
+participant Event
+
+Organizer ->> EventSystem :createEvent(eventDetails: EventDetails)
+activate EventSystem
+
+
+EventSystem ->> EventService :createEvent(eventDetails: EventDetails)
+activate EventService
+    EventService ->> EventService : getEventName(name)
+    activate EventService
+    EventService --> EventService : return name
+    deactivate EventService
+
+    EventService ->> EventService : getEventDescription(description)
+    activate EventService
+    EventService --> EventService : return description
+    deactivate EventService
+
+    EventService ->> EventService : getEventDate(date)
+    activate EventService
+    EventService --> EventService : return date
+    deactivate EventService
+
+    EventService ->> EventService : getEventTime(time)
+    activate EventService
+    EventService --> EventService : return time
+    deactivate EventService
+
+ EventService ->> Event :Event(name, description,date,time)
+    activate Event
+    Event -->EventService:return e
+    deactivate Event
+
+
+    EventService ->>EventService:saveEvent(e)
+    activate EventService
+    EventService --> EventService:
+    deactivate EventService
+
+ EventService --> EventSystem :return true
+
+EventSystem --> Organizer :
+deactivate EventService
+deactivate EventSystem
+

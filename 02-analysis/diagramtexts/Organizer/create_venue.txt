@@ -1,0 +1,63 @@
+title Organizer Create Venue Deatils
+
+
+actor Organizer
+participant VenueSystem
+participant VenueService
+participant Venue
+
+Organizer ->>  VenueSystem : createVenue(venueDetails: VenusDetails)
+activate VenueSystem
+
+
+    VenueSystem ->> VenueService :createVenue(venueDetails: VenusDetails)
+   activate VenueService
+
+
+
+    VenueService ->> VenueService : getVenueName(name)
+    activate VenueService
+    VenueService -->VenueService : return name
+    deactivate VenueService
+
+    VenueService ->>VenueService : getVenueAddress(address)
+    activate VenueService
+    VenueService --> VenueService : return address
+    deactivate VenueService
+
+    VenueService ->>VenueService : getVenueContactName(contactName)
+    activate VenueService
+    VenueService --> VenueService : return contactName
+    deactivate VenueService
+
+    VenueService ->> VenueService : getVenueContactPhoneNumber(phoneNumber)
+    activate VenueService
+    VenueService --> VenueService : return phoneNumber
+    deactivate VenueService
+
+    VenueService ->> VenueService : geVenuetContactEmail(contactEmail)
+    activate VenueService
+    VenueService --> VenueService : return contactEmail
+    deactivate VenueService
+
+    VenueService ->> VenueService : getVenueCapacity(capacity)
+    activate VenueService
+    VenueService --> VenueService : return capacity
+   deactivate VenueService
+
+
+ VenueService ->> Venue :Venue(name, address, contactName, phoneNumber, contactEmail, capacity)
+ activate Venue
+ Venue-->VenueService: return v
+
+VenueService ->> VenueService: saveVenue(v)
+activate VenueService
+VenueService --> VenueService:
+deactivate VenueService
+
+
+ VenueService -->>  VenueSystem :return true
+
+ VenueSystem -->> Organizer :
+
+

@@ -84,7 +84,7 @@ package "Venue Management" {
         +getVenueContactPhoneNumber(venueId: String): String
         +getVenueContactEmail(venueId: String):String
         +getVenueCapacity(venueId: String): int
-        +saveEvent(eventId: String):Boolean
+        +saveVenue(venueId: String):Boolean
     }
 
     class VenueCreationRequest {
@@ -172,6 +172,7 @@ class EventSystem {
     +deleteEvent(eventId: String): Boolean
     +updateEvent(eventId: String, eventDetails: EventDetails): Boolean
     +listEvents(): List<Events>
+    +listMyEvents(): List<Events>
 }
 EventSystem --> EventService
 

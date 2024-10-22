@@ -39,3 +39,7 @@
 
 ### Related UI Prototypes
 ![Delete Account](../../UI/admin/16-delete_account.png)
+
+## Data Outcome
+- **DELETE** The selected accound will be deleted from the system
+- **READ** The selected accound deleted message will be read and display

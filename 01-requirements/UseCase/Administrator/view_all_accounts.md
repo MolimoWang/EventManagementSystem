@@ -33,3 +33,6 @@
 
 #### Related UI Prototypes
 ![View All Accounts](../../UI/admin/07-view_all_accounts.png)
+
+## Data Outcome
+- **READ** - All the existing accounts will be read and display.

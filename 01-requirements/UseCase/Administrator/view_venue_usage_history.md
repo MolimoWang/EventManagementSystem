@@ -32,3 +32,6 @@
 
 ### Related UI Prototypes
 ![View Venue Usage History](../../UI/admin/05-view_venue_usage_history.png)
+
+## Data Outcome
+- **READ** - The history of a specific venue usage in the system will be read and display.

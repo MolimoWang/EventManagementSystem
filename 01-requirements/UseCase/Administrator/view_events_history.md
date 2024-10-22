@@ -32,3 +32,6 @@
 
 ### Related UI Prototypes
 ![View Events History](../../UI/admin/02-view_events_history.png)
+
+## Data Outcoome
+- **READ** - The history of events organized in the system will be read and display.
