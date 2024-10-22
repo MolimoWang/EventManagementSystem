@@ -47,6 +47,7 @@
 #### User
 ![User Main Page](../../UI/user/34-view_all_events.png) 
 
-
-
+## Data Outcome
+- **** -
+- **READ** - The main page is read and display.
 
