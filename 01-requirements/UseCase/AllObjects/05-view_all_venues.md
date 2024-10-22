@@ -40,3 +40,6 @@
 ![View All Venues](../../UI/admin/04-view_all_venues.png)
 ### Related UI Prototypes-- Organizer
  ![View All Venues](../../UI/organizer/25-view_all_venues.png) 
+
+## Data Outcome
+- **READ** -  A list of all venues in the system available for hosting events will be read and display.
