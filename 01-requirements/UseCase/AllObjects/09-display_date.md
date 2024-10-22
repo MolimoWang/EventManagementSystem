@@ -45,4 +45,6 @@ None
 | ![Display Events for Date](../../UI/organizer/24-display_date.png) |
 
 ## Data Outcome
-- **READ** - The details of an account in the system will be read and display.
+- **READ** - The schedule will be read and displayed.
+- **CREARE** - The event of the selected date will be created.
+- **UPDATE** - The event of the selected date will be updated.
