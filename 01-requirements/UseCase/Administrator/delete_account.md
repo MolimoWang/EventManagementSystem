@@ -42,3 +42,4 @@
 
 ## Data Outcome
 - **DELETE** The selected accound will be deleted from the system
+- **READ** The selected accound deleted message will be read and display
