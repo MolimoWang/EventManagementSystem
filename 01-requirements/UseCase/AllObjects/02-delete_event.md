@@ -53,5 +53,5 @@
 ![Cancel Event](../../UI/organizer/21-delete_event.png)
 
 ##Data Outcome
-- **READ** - The details of the selected event will be read and displayed
-- **DELETE**
+- **READ** - The details of all events will be read and displayed
+- **DELETE** - The details of the selected event will be removed from the system
