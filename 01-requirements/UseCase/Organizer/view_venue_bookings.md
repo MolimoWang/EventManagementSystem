@@ -1,4 +1,4 @@
-# View Venue Bookings Use Case
+# Use Case: View Venue Bookings
 
 ## Description
 This use case allows an organizer to view the booking details for a specific venue, focusing on the events scheduled at that venue, including dates, times, and event names.
@@ -35,3 +35,6 @@ This use case allows an organizer to view the booking details for a specific ven
 | View Venue Bookings Page                                              |
 |-----------------------------------------------------------------------|
 | ![View Venue Bookings](../../UI/organizer/29-view_venue_bookings.png) |
+
+## Data Outcome
+- **READ** - The booking details of a specific venue will be read and displayed.
