@@ -1,4 +1,4 @@
-# Create Venue Use Case
+# Use Case: Create Venue
 
 ## Description
 This use case allows an organizer to add a new venue to the event management system. Organizers can provide details like the name, address, and capacity of the venue.
@@ -53,3 +53,7 @@ This use case allows an organizer to add a new venue to the event management sys
 | ![Add Venue](../../UI/organizer/26-create_venue.png)       |
 | Error: Duplicate Venue                                     |
 | ![Add Venue](../../UI/organizer/Alternative/add_venue.png) |
+
+## Data Outcome
+- **CREATE** - A new venue will be created and added to the system.
+- **READ**  - The details of the newly created venue will be read and displayed.
