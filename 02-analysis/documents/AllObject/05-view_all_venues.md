@@ -20,6 +20,6 @@
 
 ## UI Sketches
 ### Related UI Prototypes-- Administrator
-![View All Venues](../../UI/admin/04-view_all_venues.png)
+![View All Venues](01-requirements/UI/admin/04-view_all_venues.png)
 ### Related UI Prototypes-- Organizer
- ![View All Venues](../../UI/organizer/25-view_all_venues.png) 
+ ![View All Venues](01-requirements/UI/admin/25-view_all_venues.png) 
