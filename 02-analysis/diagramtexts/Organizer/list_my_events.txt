@@ -6,7 +6,7 @@ participant EventSystem
 participant EventService
 
 
-Organizer ->> EventSystem : LsitEvents(List<Events>)
+Organizer ->> EventSystem : listMyEvents(List<Events>)
 activate EventSystem
 
 loop For every Event
@@ -16,5 +16,5 @@ loop For every Event
    deactivate EventService
 end
 
-EventSystem -->> Organizer :return event messages
+EventSystem -->> Organizer :return my event messages
 deactivate EventSystem
