@@ -73,3 +73,7 @@
 ![Invalid Password](../../UI/organizer/Alternative/update_organizer_account_Invalid%20Email%20or%20Password.png)
 ### Missing Required Fields
 ![Missing Required Fields](../../UI/organizer/Alternative/update_organizer_account_Missing%20Required%20Fields.png)
+
+## Data Outcome
+- **READ** - The details of the selected account in the system will be read and display.
+- **UPDATE** - The details of the selected account will be changed.
