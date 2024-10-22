@@ -43,11 +43,10 @@ package "Account Management" {
     }
 
     class AccountService {
-        +login(email: String, password: String): Boolean
-        +logout(): void
+        +getAccount(email: String, password: String): Boolean
         +createAccount(accountDetails: AccountDetails): Boolean
         +deleteAccount(accountId: String): Boolean
-        +viewAccount(accountId: String): AccountDetails
+        +readAccount(accountId: String): AccountDetails
         +updateAccount(accountId: String, accountDetails: AccountDetails): Boolean
     }
 
@@ -74,10 +73,10 @@ package "Venue Management" {
 
     class VenueService {
         +createVenue(venueDetails: VenueDetails): Boolean
-        +viewVenue(venueId: String): VenueDetails
+        +readVenue(venueId: String): VenueDetails
         +updateVenue(venueId: String, venueDetails: VenueDetails): Boolean
         +deleteVenue(venueId: String): Boolean
-        +listVenues(): List<VenueDetails>
+        +getVenue(venueId: String): Venue
     }
 
     class VenueCreationRequest {
@@ -98,10 +97,10 @@ package "Event Management" {
 
     class EventService {
         +createEvent(eventDetails: EventDetails): Boolean
-        +viewEvent(eventId: String): EventDetails
+        +readEvent(eventId: String): EventDetails
         +deleteEvent(eventId: String): Boolean
         +updateEvent(eventId: String, eventDetails: EventDetails): Boolean
-        +listEvents(): List<EventDetails>
+        +getEvent(eventId: String):Event
     }
 
     class EventCreationRequest {
@@ -122,9 +121,8 @@ package "Ticket Management" {
     }
 
     class TicketService {
-        +buyTicket(userId: String, eventId: String, ticketType: String): TicketDetails
-        +viewTicket(ticketId: String): TicketDetails
-        +listUserTickets(userId: String): List<TicketDetails>
+        +getTicket(userId: String, eventId: String, ticketType: String): TicketDetails
+        +readTicket(ticketId: String): TicketDetails
         +cancelTicket(ticketId: String): Boolean
     }
 
@@ -152,7 +150,7 @@ class VenueSystem {
     +viewVenue(venueId: String): VenueDetails
     +updateVenue(venueId: String, venueDetails: VenueDetails): Boolean
     +deleteVenue(venueId: String): Boolean
-    +listVenues(): List<VenueDetails>
+    +listVenues(): List<Venues>
 }
 VenueSystem --> VenueService
 
@@ -161,7 +159,7 @@ class EventSystem {
     +viewEvent(eventId: String): EventDetails
     +deleteEvent(eventId: String): Boolean
     +updateEvent(eventId: String, eventDetails: EventDetails): Boolean
-    +listEvents(): List<EventDetails>
+    +listEvents(): List<Events>
 }
 EventSystem --> EventService
 
