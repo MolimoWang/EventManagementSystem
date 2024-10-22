@@ -59,8 +59,8 @@
 | ![Ticket Exceeds Cancellation Deadline](../../UI/user/Alternative/cancel_ticket.png) |
 
 ##  Data Outcomes
-UPDATE: The system will update the user's account by removing the cancelled ticket.
-UPDATE: The remaining number of tickets for the corresponding venue will be incremented by one.
-READ: The system will display a collection of tickets that are eligible for cancellation.
-READ: If no tickets are available for cancellation, the system will display a message indicating no cancellable tickets.
-READ: If the cancellation deadline has passed, the system will display a message indicating that the ticket cannot be cancelled.
+- **UPDATE** - The system will update the user's account by removing the cancelled ticket.
+- **UPDATE** - The remaining number of tickets for the corresponding venue will be incremented by one.
+- **READ** - The system will display a collection of tickets that are eligible for cancellation.
+- **READ** - If no tickets are available for cancellation, the system will display a message indicating no cancellable tickets.
+- **READ** - If the cancellation deadline has passed, the system will display a message indicating that the ticket cannot be cancelled.
