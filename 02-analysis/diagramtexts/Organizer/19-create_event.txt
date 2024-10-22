@@ -6,53 +6,46 @@ participant EventSystem
 participant EventService
 participant Event
 
-Organizer ->> EventSystem : viewEvent(action)
-activate Organizer
+Organizer ->> EventSystem :createEvent(eventDetails: EventDetails)
 activate EventSystem
 
 
-   EventSystem ->> EventService : listEvent (<List eventDetails>)
-   activate EventService
+EventSystem ->> EventService :createEvent(eventDetails: EventDetails)
+activate EventService
+    EventService ->> EventService : getEventName(name)
+    activate EventService
+    EventService --> EventService : return name
+    deactivate EventService
 
-alt For click 'create' button
-    EventSystem ->> EventService : createEvent (EventDetails)
-loop For each object
-    EventService ->> Event : getName(name)
+    EventService ->> EventService : getEventDescription(description)
+    activate EventService
+    EventService --> EventService : return description
+    deactivate EventService
+
+    EventService ->> EventService : getEventDate(date)
+    activate EventService
+    EventService --> EventService : return date
+    deactivate EventService
+
+    EventService ->> EventService : getEventTime(time)
+    activate EventService
+    EventService --> EventService : return time
+    deactivate EventService
+
+ EventService ->> Event :Event(name, description,date,time)
     activate Event
-    Event --> EventService : return name
-
-    EventService ->> Event : getDescription(description)
-
-    Event --> EventService : return description
-
-    EventService ->> Event : getDate(date)
-
-    Event --> EventService : return date
-
-    EventService ->> Event : getTime(time)
-
-    Event --> EventService : return time
+    Event -->EventService:return e
     deactivate Event
-end
 
 
- EventService -->> EventSystem :return new event messages
-end
+    EventService ->>EventService:saveEvent(e)
+    activate EventService
+    EventService --> EventService:
+    deactivate EventService
 
+ EventService --> EventSystem :return true
 
- EventService -->> EventSystem :return list event messages
+EventSystem --> Organizer :
+deactivate EventService
+deactivate EventSystem
 
-EventSystem -->> Organizer :return uploaded event messages
-
-alt For click 'cancel' button
-   EventService ->> EventSystem : closeCurrentPage()
-
-end
-
-
-alt For click 'back' button
-   EventSystem ->> Organizer : closeListPage()
-    deactivate EventSystem
-end
-
-EventSystem -->> Organizer :return original event messages
