@@ -42,3 +42,6 @@
 Data Outcomes
 READ: The details of the purchased tickets are retrieved and displayed to the user.
 ERROR: An error message is displayed if there are issues retrieving the purchased tickets.
+
+## Data Outcome
+- **READ** - The purchased tickets in the ticket management will be read and displayed.
