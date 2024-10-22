@@ -1,4 +1,4 @@
-# Edit Event Use Case
+# Use Case: Edit Event
 
 ## Description
 This use case allows an organizer to edit the details of an existing event in the event management system, such as the event name, date, time, venue, or ticket information.
@@ -44,3 +44,7 @@ This use case allows an organizer to edit the details of an existing event in th
 | ![Edit Event](../../UI/organizer/20-edit_event.png)         |
 | Error: Venue Unavaliable                                    |
 | ![Add Venue](../../UI/organizer/Alternative/edit_event.png) |  
+
+## Data Outcome
+- **READ** - The details of the event will be read and displayed.
+- **UPDATE** - The details of the event will be updated.
