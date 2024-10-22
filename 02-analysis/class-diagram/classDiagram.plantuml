@@ -123,7 +123,7 @@ package "Ticket Management" {
     class TicketService {
         +getTicket(userId: String, eventId: String, ticketType: String): TicketDetails
         +readTicket(ticketId: String): TicketDetails
-        +cancelTicket(ticketId: String): Boolean
+        +deleteTicket(ticketId: String): Boolean
     }
 
     class TicketPurchaseRequest {
@@ -166,7 +166,7 @@ EventSystem --> EventService
 class TicketSystem {
     +buyTicket(userId: String, eventId: String, ticketType: String): TicketDetails
     +viewTicket(ticketId: String): TicketDetails
-    +listUserTickets(userId: String): List<TicketDetails>
+    +listUserTickets(userId: String): List<Tickets>
     +cancelTicket(ticketId: String): Boolean
 }
 TicketSystem --> TicketService
