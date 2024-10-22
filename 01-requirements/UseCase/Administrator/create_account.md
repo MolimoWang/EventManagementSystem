@@ -74,3 +74,5 @@
 #### Invalide Input Error
 ![Invalide Input Error](../../UI/admin/Alternative/create_account_invalid_input.png)
 
+##Data Outcomes
+- ##CREATE## - Administrator can create one of three types of accounts: User, Organizer, or Administrator. 
