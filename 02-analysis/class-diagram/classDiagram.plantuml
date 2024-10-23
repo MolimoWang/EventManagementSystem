@@ -73,6 +73,7 @@ package "Venue Management" {
     }
 
     class VenueService {
+        +getVenue(venue: Venue):Venue
         +getVenues():Venue[*]
         +createVenue(venueDetails: VenueDetails): Boolean
         +readVenue(venueId: String): VenueDetails
@@ -86,7 +87,6 @@ package "Venue Management" {
         +getVenueContactEmail(venueId: String):String
         +getVenueCapacity(venueId: String): int
         +saveVenue(venueId: String):Boolean
-        +checkDuplicateVenue(venueName: String, venueAddress: String): Boolean
     }
 
     class VenueCreationRequest {
@@ -160,7 +160,8 @@ class AccountSystem {
 AccountSystem --> AccountService
 
 class VenueSystem {
-    +displayVenues(venues)
+    +displayVenue(venue: Venue)
+    +displayVenues(venues: Venue[*])
     +createVenue(venueDetails: VenueDetails): Boolean
     +viewVenue(venueId: String): VenueDetails
     +updateVenue(venueId: String, venueDetails: VenueDetails): Boolean
