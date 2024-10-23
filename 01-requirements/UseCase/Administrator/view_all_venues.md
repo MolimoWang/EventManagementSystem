@@ -14,7 +14,6 @@
 
 ## Postconditions
 - The administrator is shown the list venues page (04-view_all_venues.png).
-- The organizer is shown the list venues page (25-view_all_venues.png).
 
 ## Courses of Events
 
