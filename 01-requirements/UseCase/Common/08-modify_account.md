@@ -53,10 +53,10 @@
 - The system displays the modify account page (07-modify-account) which shows the details of the selected account as editable fields
 - The administrator or user enters invalid or incomplete information.
 - The system prompts for corrections and prevents submission until valid data is provided.
-- The user selects OK and returns to step 3 in the basic course of events
-#### Missing Required Fields
-- If the administrator or user submits the form with missing required fields (e.g., name, password)
-- The system highlights the missing fields and prompts the user to provide the necessary information.
+#### Missing Required Fieldss
+- The administrator or user selects the modify account functionality
+- The system displays the modify account page (07-modify-account) which shows the details of the selected account as editable fields
+- If the administrator or user submits the form with missing required fields (e.g., name, password). The system highlights the missing fields and prevents submission until user provides the necessary information.
 
 
 ### Related UI Prototypes-- Administrator Modifying Other Accounts
