@@ -1,4 +1,4 @@
-# Create User Account
+# Use Case: Create User Account
 
 ## Description
 - This use case allows a user to register a user account 
@@ -54,3 +54,7 @@
 | Display Events for Date Page                   |
 |------------------------------------------------|
 | ![2](../../UI/user/32-create_user_account.png) |
+
+## Data Outcome
+- **CREATE**  - A new account will be created and added to the system.
+- **READ** - The details of the newly created account will be read and displayed.

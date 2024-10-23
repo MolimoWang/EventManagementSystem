@@ -51,3 +51,7 @@
 ![Delete Event](../../UI/admin/03-delete_event.png)
 ### Related UI Prototypes-- Organizer
 ![Cancel Event](../../UI/organizer/21-delete_event.png)
+
+##Data Outcome
+- **READ** - The details of all events will be read and displayed
+- **DELETE** - The details of the selected event will be removed from the system

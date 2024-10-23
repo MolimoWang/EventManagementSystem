@@ -1,4 +1,4 @@
-# List Event Use Case
+# Use Case: List Event
 
 ## Description
 This use case allows an organizer to view a list of events that they have created in the event management system.
@@ -37,3 +37,6 @@ The organizer is on their main page(17-view_all_events.png).
 | List Events Page                                     |
 |------------------------------------------------------|
 | ![List Events](../../UI/organizer/18-list_my_events.png) |
+
+## Data Outcome
+- **READ** - The details of all events will be read and displayed.

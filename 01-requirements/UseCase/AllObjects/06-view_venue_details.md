@@ -43,3 +43,6 @@ This use case allows a user to view the detailed information of a specific venue
 | View Venue Details Page |
 | --- |
 | ![View Venue Details](../../UI/organizer/28-view_venue_details.png) |
+
+## Data Outcome
+- **READ** -   The detailed information of a specific venue will be read and display.

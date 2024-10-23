@@ -1,4 +1,4 @@
-# Purchase Ticket
+# Use Case: Purchase Ticket
 
 ## Description
 - This use case allows a user to purchase tickets.
@@ -64,3 +64,7 @@
 | ![Add Venue](../../UI/user/Alternative/purchase_ticket_error1.png) |
 | Purchase Timeout                                                   |
 | ![Add Venue](../../UI/user/Alternative/purchase_ticket_error2.png) |
+
+## Data Outcome
+- **READ** - The details of the target ticket will be read and displayed.
+- **UPDATE** - The selected event will be added into the account system.

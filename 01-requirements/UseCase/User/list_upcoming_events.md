@@ -1,4 +1,4 @@
-# List Upcoming Events
+# Use Case: List Upcoming Events
 
 ## Description
 - This use case allows a user to view upcoming events.
@@ -41,3 +41,6 @@
 | List Upcoming Events                                   |
 |----------------------------------------------------------|
 |![List Upcoming Events](../../UI/user/36-list_upcoming_events.jpg)|
+
+## Data Outcome
+- **READ** - The list of the all upcoming events will be read and displayed.

@@ -37,3 +37,6 @@ This use case allows an organizer or administrator to view the registration deta
 | View Event Registration Page |
 | --- |
 | ![View Event Registration](../../UI/organizer/23-view_event_registrations.png) |
+
+## Data Outcome
+- **READ** - The registration details of a specific event will be read and display.

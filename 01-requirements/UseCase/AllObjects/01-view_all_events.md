@@ -1,4 +1,4 @@
-# Use Case: View All Accounts
+# Use Case: View All Events
 
 ## Description
 - This use case allows the administrator to view a list of all events in the system.
@@ -68,5 +68,8 @@
  ![View All Events](../../UI/organizer/17-view_all_events.png) 
 ### User
  ![View All Events](../../UI/user/34-view_all_events.png) 
+
+ ## Data Outcome
+- **READ** - The table of all events in the system is read and display.
 
 

@@ -1,4 +1,4 @@
-# Display Date Use Case
+# Use Case: Display Date
 
 ## Description
 This use case allows any entities to navigate to a specific date to view the current events scheduled for that date or add new events.
@@ -43,3 +43,8 @@ None
 | Display Events for Date Page                                       |
 |--------------------------------------------------------------------|
 | ![Display Events for Date](../../UI/organizer/24-display_date.png) |
+
+## Data Outcome
+- **READ** - The schedule will be read and displayed.
+- **CREARE** - The event of the selected date will be created.
+- **UPDATE** - The event of the selected date will be updated.
