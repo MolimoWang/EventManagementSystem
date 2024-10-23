@@ -1,7 +1,7 @@
 # 08 Modify Account
 
 ## Basic Course of Events
-###Course of Events-- Administrator Modifying Other Accounts
+### ourse of Events-- Administrator Modifying Other Accounts
 - The administrator is on the view all accounts page(07-view_all_accounts.png).
 - The administrator selects the account to edit.
 - The system displays the modify account page (12-edit_user_account.png,13-edit_organizer_account.png,14-edit_administrator_account.png) which shows the details of the selected account as editable fields.
@@ -18,7 +18,7 @@
 - The organizer clicks "Save Changes" to confirm the modifications.
 - The system back to the view account page(30-view_organizer_account).
 ### Sequence Diagram
-- 
+
 ### Course of Events-- User Modifying Their Accounts
 - The user click the 'Account' option from the view account page(35-view_user_account.png).
 - The system displays the the modify account page(42-edit_user_account.png).
@@ -57,9 +57,9 @@
 
 ## Related UI Prototypes - Alternate course of events
 ### Invalid Password
-![Invalid Password](01-requirements/UI/organizer/Alternative/update_organizer_account_Invalid%20Email%20or%20Password.png)
+![Invalid Password](01-requirements/UI/organizer/Alternative/01-requirements/UI/organizer/Alternative/update_organizer_account_Invalid Email or Password.png)
 ### Missing Required Fields
-![Missing Required Fields](01-requirements/UI/organizer/Alternative/update_organizer_account_Missing%20Required%20Fields.png)
+![Missing Required Fields](01-requirements/UI/organizer/Alternative/01-requirements/UI/organizer/Alternative/update_organizer_account_Missing Required Fields.png)
 
 ## Data Outcome
 - **READ** - The details of the selected account in the system will be read and display.
