@@ -20,7 +20,7 @@ The organizer is on their main page(17-view_all_events.png).
 ### 01 - Basic course of events
 
 #### Course of Events
-- The organizer click the 'Event' on their main page(17-view_all_events.png).
+- The organizer click the 'My Events' on their main page(17-view_all_events.png).
 - The system turn to list my events page (18-list_my_events.png) and displays the list of events, including details such as event name, date, time, and venue.
 
 

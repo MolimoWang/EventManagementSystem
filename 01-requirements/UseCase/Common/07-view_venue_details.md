@@ -11,7 +11,7 @@ This use case allows a user to view the detailed information of a specific venue
 
 ## Preconditions
 - The administrator is on the list venues page (04-view_all_venues.png) or view event detail page(22-view_event_details.png).
-- The organizer is on the list venues page (25-view_all_venues.png) or view event detail page(22-view_event_details.png).
+- The organizer is on the list venues page (25-list_my_venues.png) or view event detail page(22-view_event_details.png).
 - The user is on ticket list page(40-view_purchased_tickets.png) or view event detail page(43-view_event_details.png).
 
 ## Postconditions

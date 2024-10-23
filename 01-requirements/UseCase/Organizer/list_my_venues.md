@@ -1,4 +1,4 @@
-# Use Case: View My Venues
+# Use Case: List My Venues
 
 ## Description
 This use case allows an organizer to view all the venues that the organizer created.
@@ -9,17 +9,17 @@ This use case allows an organizer to view all the venues that the organizer crea
 - The organizer wants to see all the venues that the organizer created.
 
 ## Preconditions
-- The organizer is on main page (17-view_all_events) (这个UI图可能要修改一下，可能要加上一个看全部场馆的按钮吧).
+- The organizer is on main page (17-view_all_events)
 
 ## Postconditions
-- 这个后置条件我没想出来有啥.
+- The system displays a list of venues created by the organizer.
 ## Courses of Events
 
 ### 01 - Basic course of events
 
 #### Course of Events
-1. The organizer selects the "All My Venues" option from the main page.
-2. The system displays a list of all the venues created.
+1. The organizer selects the "My Venues" option from the main page.
+2. The system turn my venues page(25-list_my_venues.png) to the displays a list of all the venues created.
 
 
 ### 02 - Alternate course of events
@@ -29,9 +29,9 @@ This use case allows an organizer to view all the venues that the organizer crea
 - **System Error**: If a system error occurs while retrieving all the venues created, the system displays an error message and prompts the organizer to try again later.
 
 #### Related UI Prototypes
-| All My Venues Page                                              |
-|-----------------------------------------------------------------------|
-| ![]() |
+| All My Venues Page                                       |
+|----------------------------------------------------------|
+| ![List Venues](../../UI/organizer/25-list_my_venues.png) |
 
 ## Data Outcome
 - **READ** - All created venues of this organizer will be read and displayed.
