@@ -113,6 +113,7 @@ package "Event Management" {
         +getEventDescription(eventId: String):String
         +getEventDate(eventId: String):Date
         +getEventTime(eventId: String):Time
+        +getEvents():List<Event>
         +saveEvent(eventId: String):Boolean
     }
 
