@@ -17,16 +17,11 @@
 
 ## Courses of Events
 
-### 01 - Basic course of events -
+### - Basic course of events -
 
 #### Course of Events
 - The administrator selects 'View All Venues' from the main page(01-view_all_events.png).
 - The system retrieves and displays a list of all existing venues(04-view_all_venues.png).
-
-### 02 - Alternate course of events -
-
-#### No Venues Found
-- The system shows that no venues exist in the system.
 
 ### Related UI Prototypes-- Administrator
 ![View All Venues](../../UI/admin/04-view_all_venues.png)
