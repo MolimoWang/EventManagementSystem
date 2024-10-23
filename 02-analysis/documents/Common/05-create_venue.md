@@ -1,4 +1,4 @@
-# 01 View All Events
+# 01 View Venue Details
 
 ## Basic Course of Events
 ### Sequence Diagram
