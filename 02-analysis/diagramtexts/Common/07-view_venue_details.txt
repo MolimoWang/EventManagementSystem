@@ -1,42 +1,26 @@
-title Organizer View Venue Details Process
-
-actor Organizer
-
-
-participant VenueSystem
-participant VenueService
-participant Venue
-activate VenueSystem
-Organizer ->> VenueSystem : viewVenue(action)
-activate VenueService
-VenueSystem->>VenueService: viewVenue(eventDetails)
-
-activate Venue
-VenueService->>Venue: getVenue(venueDetails)
+actor "Organizer" as a
+control ": VenueSystem" as s
+participant ": VenueService" as u
+entity "all : Venue" as m
+entity "Venue : selectedVenue" as sm
 
 
-loop For every Venues
- VenueService->>Venue: getVenueName(name)
-  Venue-->VenueService: return Venue Name
- VenueService->>Venue: getAddress(Address)
-  Venue-->VenueService: return Venue Address
- VenueService->>Venue: getContactName(ContactName)
-  Venue-->VenueService: return Contact Name
-  VenueService->>Venue: getContactPhoneNumber(ContactPhoneNumber)
- Venue-->VenueService: return Contact Phone Number
- VenueService->>Venue: getCapacity(Capacity)
- Venue-->VenueService: return Capacity
- end
-  Venue-->VenueService:return choosed venue details
- VenueService-->VenueSystem:return choosed venue details
+a->s:viewVenue(venueid)
+activate s
 
+s->u: getVenue(venueid)
+loop [for every venue]
+  u->m: getId()
+end loop  
 
+activate u
 
- deactivate Venue
+u-->s:return selectedVenue
+deactivate u
 
+s->sm:getVenueDetails(selectedeVenues)
+s->s:displayVenue(selectedVenue)
 
-deactivate VenueService
-VenueSystem->VenueSystem:return choosed Venue Details page
-VenueSystem-->Organizer:
-deactivate VenueSystem
+s-->a:
+deactivate s
 
