@@ -1,26 +1,23 @@
-title Organizer List Venue Deatils
+title View All Venues of Adminstrator
 
 
-actor Organizer
-participant VenueSystem
-participant VenueService
+actor "Admin" as a
+control ": VenueSystem" as s
+participant ": VenueService" as u
+entity "all : Venue" as m
 
 
-Organizer ->>  VenueSystem : viewVenue(action)
-activate Organizer
-activate VenueSystem
+a->s:listVenues()
+activate s
 
+s->u: getVenues()
 
-    VenueSystem ->> VenueService : listEvent (<List VenueDetails>)
-   activate VenueService
+activate u
 
- VenueService -->>  VenueSystem :return list venue messages
+u-->s:return venues
+deactivate u
 
- VenueSystem -->> Organizer :return venue messages
+s->s:displayVenues(Venues)
 
-alt For click 'back' button
-   VenueService ->>  VenueSystem : closeCurrentPage()
-    deactivate VenueSystem
-end
-
- VenueSystem -->> Organizer :return venue messages
+s-->a:
+deactivate s
