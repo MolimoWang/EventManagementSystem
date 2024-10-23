@@ -1,0 +1,23 @@
+actor "Administrator" as a
+control ": VenueSystem" as s
+participant ": VenueService" as u
+entity "all : Venue" as m
+
+
+a->s:viewVenue(venueid)
+activate s
+
+s->u: getVenue(venueid)
+loop [for every venue]
+  u->m: getId()
+end loop  
+
+activate u
+
+u-->s:return selectedVenue
+deactivate u
+
+s->s:displayVenue(selectedVenue)
+
+s-->a:
+deactivate s

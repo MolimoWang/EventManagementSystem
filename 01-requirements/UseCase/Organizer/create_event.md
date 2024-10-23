@@ -35,11 +35,6 @@ This use case allows an organizer to create a new event to the system by providi
 
 ### 02 - Alternate course of events
 
-#### Missing Required Fields
-- If the organizer submits the form with missing required fields (e.g., event name or date), the system highlights the missing fields and prompts the organizer to provide the necessary information.
-
-#### Venue Unavailable
-- If the selected venue is not available for the chosen date and time, the system displays an error message and prompts the organizer to choose a different venue or date.
 
 ## Exceptions
 - **System Error**: If a system error occurs while saving the event, the system displays an error message and prompts the organizer to try again later.
@@ -48,8 +43,7 @@ This use case allows an organizer to create a new event to the system by providi
 | Create Event Page                                             |
 |---------------------------------------------------------------|
 | ![Create Event](../../UI/organizer/19-create_event.png)       |
-| Error: Venue Unavaliable                                      |
-| ![Add Venue](../../UI/organizer/Alternative/create_event.png) |                                                        |
+
 
 ## Data Outcome
 - **CREATE** - A new event will be created and added to the system.

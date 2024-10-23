@@ -1,0 +1,68 @@
+title Actor Create Venue Details
+
+actor Actor
+participant VenueSystem
+participant VenueService
+participant Venue
+
+Actor ->> VenueSystem : createVenue(venueDetails: VenueDetails)
+activate VenueSystem
+
+    VenueSystem ->> VenueService : createVenue(venueDetails: VenueDetails)
+    activate VenueService
+
+    VenueService ->> VenueService : getVenueName(name)
+    activate VenueService
+    VenueService --> VenueService : return name
+    deactivate VenueService
+
+    VenueService ->> VenueService : getVenueAddress(address)
+    activate VenueService
+    VenueService --> VenueService : return address
+    deactivate VenueService
+
+    VenueService ->> VenueService : getVenueContactName(contactName)
+    activate VenueService
+    VenueService --> VenueService : return contactName
+    deactivate VenueService
+
+    VenueService ->> VenueService : getVenueContactPhoneNumber(phoneNumber)
+    activate VenueService
+    VenueService --> VenueService : return phoneNumber
+    deactivate VenueService
+
+    VenueService ->> VenueService : getVenueContactEmail(contactEmail)
+    activate VenueService
+    VenueService --> VenueService : return contactEmail
+    deactivate VenueService
+
+    VenueService ->> VenueService : getVenueCapacity(capacity)
+    activate VenueService
+    VenueService --> VenueService : return capacity
+    deactivate VenueService
+
+ VenueService ->> Venue : Venue(name, address, contactName, phoneNumber, contactEmail, capacity)
+        activate Venue
+        Venue --> VenueService : return v
+deactivate Venue
+
+    VenueService ->> VenueService : checkDuplicateVenue(v)
+    activate VenueService
+    VenueService --> VenueService : return isDuplicate
+    deactivate VenueService
+
+    alt isDuplicate == false
+
+
+        VenueService ->> VenueService : saveVenue(v)
+        activate VenueService
+        VenueService --> VenueService :
+        deactivate VenueService
+
+        VenueService -->> VenueSystem : return true
+    else isDuplicate == true
+        VenueService -->> VenueSystem : return false
+deactivate VenueSystem
+deactivate VenueService
+end
+VenueSystem -->> Actor :

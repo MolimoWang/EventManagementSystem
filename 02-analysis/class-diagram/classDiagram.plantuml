@@ -73,6 +73,7 @@ package "Venue Management" {
     }
 
     class VenueService {
+        +getVenue(venue: Venue):Venue
         +getVenues():Venue[*]
         +createVenue(venueDetails: VenueDetails): Boolean
         +readVenue(name: String): VenueDetails
@@ -160,7 +161,8 @@ class AccountSystem {
 AccountSystem --> AccountService
 
 class VenueSystem {
-    +displayVenues(venues)
+    +displayVenue(venue: Venue)
+    +displayVenues(venues: Venue[*])
     +createVenue(venueDetails: VenueDetails): Boolean
     +viewVenue(name: String): VenueDetails
     +updateVenue(name: String, venueDetails: VenueDetails): Boolean
