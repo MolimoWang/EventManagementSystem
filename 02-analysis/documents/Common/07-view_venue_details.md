@@ -45,7 +45,7 @@
 ### Venues list
 ![Venues List](01-requirements/UI/organizer/25-list_my_venues.png)
 
-###View Event Details
+### View Event Details
 ![UI of View Event Details](01-requirements/UI/organizer/22-view_event_details.png)
 
 ### Venue Details
