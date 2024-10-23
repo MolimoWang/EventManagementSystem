@@ -13,7 +13,7 @@
 - 4. The system displays the list of venues page(25-view_all_venues.png), including details such as venue name, address, capacity, and contact information.
 ### Sequence Diagram
 
-## Alternate Course of Events
+## Alternate Course of Eventsorganizer
 ### No Venues Found
 - The system shows that no venues exist in the system.
 ### Sequence Diagram
@@ -22,4 +22,4 @@
 ### Related UI Prototypes-- Administrator
 ![View All Venues](01-requirements/UI/admin/04-view_all_venues.png)
 ### Related UI Prototypes-- Organizer
- ![View All Venues](01-requirements/UI/admin/25-view_all_venues.png) 
+![View All Venues](01-requirements/UI/organizer/25-view_all_venues.png) 
