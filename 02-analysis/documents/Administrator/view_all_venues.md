@@ -7,12 +7,12 @@
 ### Sequence Diagram
 ![view all venues for administrator](02-analysis/sequence-diagrams/Administrator/05-view_all_venues_administrator.png)
 
-## Alternative Course of Events
-### No Venues Found
-- The system shows that no venues exist in the system.
-### Sequence Diagram
-
 ## UI Sketches
 ### Related UI Prototypes-- Administrator
+
+#### Main page
+![Main Page](01-requirements/UI/admin/01-view_all_events.png)
+
+#### View All Venues
 ![View All Venues](01-requirements/UI/admin/04-view_all_venues.png)
 
