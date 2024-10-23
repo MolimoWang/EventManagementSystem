@@ -1,7 +1,7 @@
 # 01 View Venue Details
 
 ## Basic Course of Events
-1. The administrator, organizer or user click one venue from different page. 
+1. The administrator, organizer or user click the view venue details functionality from different page. 
 2. The system turn to view venue details page(28-view_venue_details.png) which displays the venue details, including:
    - Venue Name
    - Address
@@ -19,8 +19,33 @@
 
 ## UI Sketches
 
-### Organizer and User
- ![UI of View Venue Detailsl](01-requirements/UI/organizer/28-view_venue_details.png)
-
 ### Administrator
-- 这里应该加一个类似上面图的UI，但是是不是应该给个可以编辑的按钮专门给管理员用户？
+- **View All Venues**
+![view all venues](01-requirements/UI/admin/04-view_all_venues.png)
+
+- **View Event Details**
+![UI of View Event Details](01-requirements/UI/organizer/22-view_event_details.png)
+
+- **View Venue Details**
+![View Venue Details](01-requirements/UI/organizer/28-view_venue_details.png)
+
+ ### User
+ - **Ticket List Page**
+ ![Ticket List Page](01-requirements/UI/user/40-view_purchased_tickets.png)
+
+- **View Event Details**
+ ![View Event Details](01-requirements/UI/user/43-view_event_details.png)
+
+ - **View Venue Details**
+![View Venue Details](01-requirements/UI/organizer/28-view_venue_details.png)
+
+
+### Organizer
+- **Venues list**
+![Venues List](01-requirements/UI/organizer/25-list_my_venues.png)
+
+- **View Event Details**
+![UI of View Event Details](01-requirements/UI/organizer/22-view_event_details.png)
+
+- **Venue details**
+![View Venue Details](01-requirements/UI/organizer/28-view_venue_details.png)
