@@ -1,12 +1,12 @@
-title Organizer Edit Venue Deatils
+title Actor Edit Venue Deatils
 
 
-actor Organizer
+actor Actor
 participant VenueSystem
 participant VenueService
 participant Venue
 
-Organizer ->>  VenueSystem : updateVenue(venueDetails: VenusDetails)
+Actor ->>  VenueSystem : updateVenue(venueDetails: VenusDetails)
 activate VenueSystem
 
 
@@ -46,19 +46,30 @@ activate VenueSystem
    deactivate VenueService
 
 
- VenueService ->> Venue :Venue(name, address, contactName, phoneNumber, contactEmail, capacity)
- activate Venue
- Venue-->VenueService: return v
+ VenueService ->> Venue : Venue(name, address, contactName, phoneNumber, contactEmail, capacity)
+        activate Venue
+        Venue --> VenueService : return v
+deactivate Venue
 
-VenueService->>VenueService:saveVenue(v)
-activate VenueService
+    VenueService ->> VenueService : checkDuplicateVenue(v)
+    activate VenueService
+    VenueService --> VenueService : return isDuplicate
+    deactivate VenueService
 
-VenueService-->VenueService:return
+    alt isDuplicate == false
+
+
+        VenueService ->> VenueService : saveVenue(v)
+        activate VenueService
+        VenueService --> VenueService :
+        deactivate VenueService
+
+        VenueService -->> VenueSystem : return true
+    else isDuplicate == true
+        VenueService -->> VenueSystem : return false
+deactivate VenueSystem
 deactivate VenueService
-
-
- VenueService -->>  VenueSystem :return true
-
- VenueSystem -->> Organizer :
+end
+VenueSystem -->> Actor :
 
 
