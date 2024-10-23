@@ -57,9 +57,9 @@
 
 ## Related UI Prototypes - Alternate course of events
 ### Invalid Password
-![Invalid Password](01-requirements/UI/organizer/Alternative/01-requirements/UI/organizer/Alternative/update_organizer_account_Invalid Email or Password.png)
+![Invalid Password](01-requirements/UI/organizer/Alternative/update_organizer_account_Invalid Email or Password.png)
 ### Missing Required Fields
-![Missing Required Fields](01-requirements/UI/organizer/Alternative/01-requirements/UI/organizer/Alternative/update_organizer_account_Missing Required Fields.png)
+![Missing Required Fields](01-requirements/UI/organizer/Alternative/update_organizer_account_Missing Required Fields.png)
 
 ## Data Outcome
 - **READ** - The details of the selected account in the system will be read and display.
