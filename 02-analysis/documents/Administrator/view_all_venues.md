@@ -5,7 +5,7 @@
 - 1.The administrator selects 'My Venues' from the main page(01-view_all_events.png).
 - 2.The system retrieves and displays a list of all existing venues(04-view_all_venues.png).
 ### Sequence Diagram
-![view all venues for administrator](02-analysis/sequence-diagrams/AllObjects/05-view_all_venues_administrator.png)
+![view all venues for administrator](02-analysis/sequence-diagrams/Common/05-view_all_venues_administrator.png)
 
 ## Alternative Course of Events
 ### No Venues Found
