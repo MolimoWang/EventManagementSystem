@@ -75,17 +75,17 @@ package "Venue Management" {
     class VenueService {
         +getVenues():Venue[*]
         +createVenue(venueDetails: VenueDetails): Boolean
-        +readVenue(venueId: String): VenueDetails
-        +updateVenue(venueId: String, venueDetails: VenueDetails): Boolean
-        +deleteVenue(venueId: String): Boolean
-        +getVenue(venueId: String): Venue
-        +getVenueName(venueId: String)):String
-        +getVenueAddress(venueId: String):String
-        +getVenueContactName(venueId: String):String
-        +getVenueContactPhoneNumber(venueId: String): String
-        +getVenueContactEmail(venueId: String):String
-        +getVenueCapacity(venueId: String): int
-        +saveVenue(venueId: String):Boolean
+        +readVenue(name: String): VenueDetails
+        +updateVenue(name: String, venueDetails: VenueDetails): Boolean
+        +deleteVenue(name: String): Boolean
+        +getVenue(name: String): Venue
+        +getVenueName(name: String)):String
+        +getVenueAddress(name: String):String
+        +getVenueContactName(name: String):String
+        +getVenueContactPhoneNumber(name: String): String
+        +getVenueContactEmail(name: String):String
+        +getVenueCapacity(name: String): int
+        +saveVenue(name: String):Boolean
     }
 
     class VenueCreationRequest {
@@ -106,14 +106,14 @@ package "Event Management" {
 
     class EventService {
         +createEvent(eventDetails: EventDetails): Boolean
-        +readEvent(eventId: String): EventDetails
-        +deleteEvent(eventId: String): Boolean
-        +updateEvent(eventId: String, eventDetails: EventDetails): Boolean
-        +getEvent(eventId: String):Event
-        +getEventName(eventId: String)):String
-        +getEventDescription(eventId: String):String
-        +getEventDate(eventId: String):Date
-        +getEventTime(eventId: String):Time
+        +readEvent(name: String): EventDetails
+        +deleteEvent(name: String): Boolean
+        +updateEvent(name: String, eventDetails: EventDetails): Boolean
+        +getEvent(name: String):Event
+        +getEventName(name: String)):String
+        +getEventDescription(name: String):String
+        +getEventDate(name: String):Date
+        +getEventTime(name: String):Time
         +getEvents():List<Event>
         +saveEvent(eventId: String):Boolean
     }
@@ -162,18 +162,18 @@ AccountSystem --> AccountService
 class VenueSystem {
     +displayVenues(venues)
     +createVenue(venueDetails: VenueDetails): Boolean
-    +viewVenue(venueId: String): VenueDetails
-    +updateVenue(venueId: String, venueDetails: VenueDetails): Boolean
-    +deleteVenue(venueId: String): Boolean
+    +viewVenue(name: String): VenueDetails
+    +updateVenue(name: String, venueDetails: VenueDetails): Boolean
+    +deleteVenue(name: String): Boolean
     +listVenues(): List<Venues>
 }
 VenueSystem --> VenueService
 
 class EventSystem {
     +createEvent(eventDetails: EventDetails): Boolean
-    +viewEvent(eventId: String): EventDetails
-    +deleteEvent(eventId: String): Boolean
-    +updateEvent(eventId: String, eventDetails: EventDetails): Boolean
+    +viewEvent(name: String): EventDetails
+    +deleteEvent(name: String): Boolean
+    +updateEvent(name: String, eventDetails: EventDetails): Boolean
     +listEvents(): List<Events>
     +listMyEvents(): List<Events>
 }
