@@ -141,9 +141,10 @@ package "Ticket Management" {
         }
 
     class TicketService {
-            +getTicket(userEmail: String, eventId: String, ticketType: String): TicketDetails
-            +readTicket(ticketId: String): TicketDetails
-        }
+        +getTicket(userEmail: String, eventId: String, ticketType: String): TicketDetails
+        +readTicket(userEmail: String, eventId: String): TicketDetails
+    }
+
 
     class TicketPurchaseRequest {
         - ticketDetails: TicketDetails
