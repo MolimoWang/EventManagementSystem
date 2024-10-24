@@ -4,12 +4,12 @@ participant ": VenueService" as u
 entity "all : Venue" as m
 
 
-a->s:viewVenue(venueid)
+a->s:viewVenue(venueName)
 activate s
 
-s->u: getVenue(venueid)
+s->u: getVenue(venueName)
 loop [for every venue]
-  u->m: getId()
+  u->m: getName()
 end loop  
 
 activate u
