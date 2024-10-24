@@ -17,7 +17,7 @@ activate u
 u-->s:return venues
 deactivate u
 
-s->s:displayVenues(Venues)
+s->s:displayVenues(venues)
 
 s-->a:
 deactivate s
