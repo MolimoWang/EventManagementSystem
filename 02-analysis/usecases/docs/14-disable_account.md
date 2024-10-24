@@ -1,4 +1,4 @@
-# 01 View All Events
+# 14 Disable Account
 
 ## Basic Course of Events
 ### Sequence Diagram

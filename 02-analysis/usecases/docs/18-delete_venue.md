@@ -1,4 +1,4 @@
-# 01 View All Events
+# 18 Delete Venue
 
 ## Basic Course of Events
 ### Sequence Diagram

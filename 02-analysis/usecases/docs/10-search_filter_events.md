@@ -1,4 +1,4 @@
-# 01 View All Events
+# 10 Search Filter Events
 
 ## Basic Course of Events
 ### Sequence Diagram
@@ -11,13 +11,13 @@
 This is the page that the user must be on at the start to complete the use case.
 #### Main Page
 ![Main Page](/02-analysis/UI/admin/01-view_all_events.png)
-### User
+### Organizer
 There the pages that the user must be on at the start to complete the use case.
 #### Main Page
 ![Main Page](/02-analysis/UI/organizer/17-view_all_events.png)
 
 
-### Organizer
+### User
 There the pages that the user must be on at the start to complete the use case.
 #### Main Page
 ![Main Page](/02-analysis/UI/user/34-view_all_events.png)

@@ -1,4 +1,4 @@
-# 01 View All Events
+# 30 View Ticket Details
 
 ## Basic Course of Events
 ### Sequence Diagram

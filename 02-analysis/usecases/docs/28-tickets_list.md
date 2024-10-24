@@ -1,4 +1,4 @@
-# 01 View All Events
+# 28 Tickets List
 
 ## Basic Course of Events
 ### Sequence Diagram

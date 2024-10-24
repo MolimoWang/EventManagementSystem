@@ -1,4 +1,4 @@
-# 01 View Venue Details
+# 07 View Venue Details
 
 ## Basic Course of Events
 1. The administrator, organizer or user click the view venue details functionality from different page. 

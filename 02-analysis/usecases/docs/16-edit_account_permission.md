@@ -1,4 +1,4 @@
-# 01 View All Events
+# 16 Edit Account Permission
 
 ## Basic Course of Events
 ### Sequence Diagram

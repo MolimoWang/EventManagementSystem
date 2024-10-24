@@ -1,4 +1,4 @@
-# 01 View All Events
+# 19 View Venue Usage History
 
 ## Basic Course of Events
 ### Sequence Diagram

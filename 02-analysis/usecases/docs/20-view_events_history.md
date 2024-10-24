@@ -1,4 +1,4 @@
-# 01 View All Events
+# 20 View Events History
 
 ## Basic Course of Events
 ### Sequence Diagram

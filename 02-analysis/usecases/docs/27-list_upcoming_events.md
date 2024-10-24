@@ -1,4 +1,4 @@
-# 01 View All Events
+# 27 List Upcoming Events
 
 ## Basic Course of Events
 ### Sequence Diagram

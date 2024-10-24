@@ -28,7 +28,7 @@ This use case allows an organizer to edit the details of an existing event in th
 
 
 ### 02 - Alternate course of events
-
+- None
 ## Exceptions
 - **System Error**: If a system error occurs while saving the updated event, the system displays an error message and prompts the organizer to try again later.
 

@@ -1,7 +1,7 @@
 # 08 Modify Account
 
 ## Basic Course of Events
-### ourse of Events-- Administrator Modifying Other Accounts
+### Course of Events-- Administrator Modifying Other Accounts
 - The administrator is on the view all accounts page(07-view_all_accounts.png).
 - The administrator selects the account to edit.
 - The system displays the modify account page (12-edit_user_account.png,13-edit_organizer_account.png,14-edit_administrator_account.png) which shows the details of the selected account as editable fields.
@@ -61,12 +61,13 @@ This is the page that the user must be on at the start to complete the use case.
 ### Related UI Prototypes-- Organizer Modifying Their Accounts
 
 This is the page that the user must be on at the start to complete the use case.
-![View All Accounts](/02-analysis/UI/admin/view_all_accounts.png)
+![View Organizer Accounts](/02-analysis/UI/organizer/30-view_organizer_account.png)
 ![Update Organizer Account](/02-analysis/UI/organizer/31-update_organizer_account.png)
 
 
 ### Related UI Prototypes-- User Modifying Their Accounts
 This is the page that the user must be on at the start to complete the use case.
+![View User Accounts](/02-analysis/UI/organizer/35-view_user_account.png)
 ![Update User Account](/02-analysis/UI/user/42-edit_user_account.png)
 
 ## Related UI Prototypes - Alternate course of events

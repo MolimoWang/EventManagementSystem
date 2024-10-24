@@ -1,4 +1,4 @@
-# 01 View All Events
+# 29 Purchase Ticket
 
 ## Basic Course of Events
 ### Sequence Diagram
