@@ -130,23 +130,31 @@ package "Event Management" {
 ' Ticket Management Group
 package "Ticket Management" {
     class Ticket {
-        - type: String
-        - price: double
-        - available_number: int
-        - sold_number: int
-    }
+            ' Ticket class with no attributes, representing a relationship
+        }
+
+    class TicketType {
+            - name: String
+            - numberAvailable: int
+            - numberSold: int
+            - price: double
+        }
 
     class TicketService {
-        +getTicket(userId: String, eventId: String, ticketType: String): TicketDetails
-        +readTicket(ticketId: String): TicketDetails
-    }
+            +getTicket(userEmail: String, eventId: String, ticketType: String): TicketDetails
+            +readTicket(ticketId: String): TicketDetails
+        }
 
     class TicketPurchaseRequest {
         - ticketDetails: TicketDetails
     }
 
-    Event --> "0..* -tickets" Ticket
-    TicketService --> Ticket
+    Venue "1 -venue" --> TicketType : creates
+        Event --> "1 -ticketType" TicketType : determines price
+        User --> "0..* -tickets" Ticket : purchases
+        Ticket --> "1 -event" Event : related to
+        Ticket --> "1 -ticketType" TicketType : is of type
+        TicketService --> Ticket
 }
 
 ' System classes for each module
@@ -182,9 +190,9 @@ class EventSystem {
 EventSystem --> EventService
 
 class TicketSystem {
-    +buyTicket(userId: String, eventId: String, ticketType: String): TicketDetails
+    +buyTicket(userEmail: String, eventId: String, ticketType: String): TicketDetails
     +viewTicket(ticketId: String): TicketDetails
-    +listUserTickets(userId: String): List<Tickets>
+    +listUserTickets(userEmail: String): List<Tickets>
     +cancelTicket(ticketId: String): Boolean
 }
 TicketSystem --> TicketService
