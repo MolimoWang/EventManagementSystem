@@ -1,0 +1,28 @@
+@startuml
+actor User
+participant "AccountSystem" as AS
+participant "AccountService" as ACS
+participant "Account" as A
+
+== User Confirms Account Creation (Select "Create") ==
+User -> AS: createAccount(userDetails)
+AS -> User: ask for confirmation
+User -> AS: confirms Create
+AS -> ACS: validateAccountDetails(userDetails)
+alt No Duplicates Found
+AS -> ACS: proceed with account creation
+ACS -> A: createAccount(userDetails)
+A -> ACS: return success
+ACS -> AS: return true
+AS -> User: account created successfully
+else Duplicate Details Found
+AS -> User: display error message "Account already exists"
+end
+
+== User Cancels Account Creation (Select "Cancel") ==
+User -> AS: createAccount(userDetails)
+AS -> User: ask for confirmation
+alt User selects Cancel
+AS -> User: account creation aborted
+end
+@enduml
