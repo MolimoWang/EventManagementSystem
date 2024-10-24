@@ -5,11 +5,14 @@ participant "AccountService" as ACS
 participant "Account" as A
 
 
+
+== Purchase Ticket (Insufficient Tickets) ==
 User -> AS: select 'Buy it!' option for an event
 AS -> User: ask for confirmation
 User -> AS: confirms Yes
 AS -> ACS: checkTicketAvailability(userEmail, eventName)
-alt Ticket Available
-ACS -> AS: update event ticket count
-AS -> User: display purchased ticket details
+alt No Tickets Available
+AS -> User: display message "Tickets are sold out"
+end
+
 @enduml
