@@ -60,7 +60,7 @@ The software includes the following use cases, grouped by topic for convenience.
 
 The class diagram represents the information gained about the system by completing the use case realisations.
 
-![class diagram](documents/class-diagram.png)
+![class diagram](usecases/docs/class-diagram.png)
 
 ## Description of Responsibilities
 

@@ -14,5 +14,6 @@
 ![Main Page](01-requirements/UI/admin/01-view_all_events.png)
 
 #### View All Venues
+This is the page that the user must be on at the start to complete the use case.
 ![View All Venues](01-requirements/UI/admin/04-view_all_venues.png)
 

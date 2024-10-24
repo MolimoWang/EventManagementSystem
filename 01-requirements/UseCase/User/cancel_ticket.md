@@ -35,11 +35,6 @@
 - The user select **No**.
 - The system back to the ticket list page(40-view_purchased_tickets.png).
 
-#### Do not Have Tickets to be Cancelled.
-- The user selects 'Cancel Ticket' option from the ticket management menu.
-- The system checks the user's account for any cancellable tickets.
-- The system shows that there are no tickets that can be cancelled.
-
 #### Ticket Exceeds Cancellation Deadline
 - The user selects 'Cancel' option of a ticket from their ticket list(on the ticket list page(40-view_purchased_tickets.png).).
 - The system asks the user to confirm.

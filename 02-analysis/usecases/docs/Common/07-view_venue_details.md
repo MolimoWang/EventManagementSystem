@@ -22,6 +22,7 @@
 ### Administrator
 
 ### View All Venues
+There the pages that the user must be on at the start to complete the use case.
 ![view all venues](01-requirements/UI/admin/04-view_all_venues.png)
 
 ### View Event Details
@@ -31,6 +32,7 @@
 ![View Venue Details](01-requirements/UI/organizer/28-view_venue_details.png)
 
 ### User
+There the pages that the user must be on at the start to complete the use case.
 ### Ticket List Page
  ![Ticket List Page](01-requirements/UI/user/40-view_purchased_tickets.png)
 
@@ -42,6 +44,7 @@
 
 
 ### Organizer
+There the pages that the user must be on at the start to complete the use case.
 ### Venues list
 ![Venues List](01-requirements/UI/organizer/25-list_my_venues.png)
 

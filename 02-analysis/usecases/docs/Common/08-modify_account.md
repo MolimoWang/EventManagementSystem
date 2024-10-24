@@ -46,13 +46,26 @@
 
 ## UI Sketches
 
+
+
 ### Related UI Prototypes-- Administrator Modifying Other Accounts
+This is the page that the user must be on at the start to complete the use case.
+![View All Accounts](/02-analysis/UI/Administrator/view_all_accounts.png)
+
 ![Edit User Account](01-requirements/UI/admin/12-edit_user_account.png)
 ![Edit Organizer](01-requirements/UI/admin/13-edit_organizer_account.png)
 ![Edit Administrator](01-requirements/UI/admin/14-edit_administrator_account.png)
+
+
 ### Related UI Prototypes-- Organizer Modifying Their Accounts
+
+This is the page that the user must be on at the start to complete the use case.
+![View All Accounts](/02-analysis/UI/Administrator/view_all_accounts.png)
 ![Update Organizer Account](01-requirements/UI/organizer/31-update_organizer_account.png)
+
+
 ### Related UI Prototypes-- User Modifying Their Accounts
+This is the page that the user must be on at the start to complete the use case.
 ![Update User Account](01-requirements/UI/user/42-edit_user_account.png)
 
 ## Related UI Prototypes - Alternate course of events

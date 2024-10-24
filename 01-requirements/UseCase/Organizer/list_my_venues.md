@@ -23,7 +23,8 @@ This use case allows an organizer to view all the venues that the organizer crea
 
 
 ### 02 - Alternate course of events
-- None.
+#### No Venues Found
+- If the organizer has not created any venues, the system displays a message indicating that no venues are available.
 
 ## Exceptions
 - **System Error**: If a system error occurs while retrieving all the venues created, the system displays an error message and prompts the organizer to try again later.
