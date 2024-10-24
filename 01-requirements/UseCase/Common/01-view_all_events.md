@@ -55,7 +55,8 @@
 4. The user can use the navigation buttons (left, right) or date picker to change the date and view events scheduled on different dates.
 5. If there are no events for the selected date, the system displays an empty table or a "No Events Scheduled" message.
 
-### 02 - Alternate course of events -
+### 02 - Alternate course of events 
+- None
 
 #### No Events Found
 - The system shows that no events exist in the system.

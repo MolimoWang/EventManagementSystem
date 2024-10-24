@@ -36,13 +36,14 @@
 - The system displays the modify account page (07-modify-account) which shows the details of the selected account as editable fields
 - The administrator or user enters invalid or incomplete information.
 - The system prompts for corrections and prevents submission until valid data is provided.
-### Sequence Diagram
+### Sequence Diagram-- Alternate Course of Events
 
 ### Missing Required Fields
 - The administrator or user selects the modify account functionality
 - The system displays the modify account page (07-modify-account) which shows the details of the selected account as editable fields
 - If the administrator or user submits the form with missing required fields (e.g., name, password). The system highlights the missing fields and prevents submission until user provides the necessary information.
-### Sequence Diagram
+### Sequence Diagram-- Alternate Course of Events
+
 
 ## UI Sketches
 
@@ -50,29 +51,29 @@
 
 ### Related UI Prototypes-- Administrator Modifying Other Accounts
 This is the page that the user must be on at the start to complete the use case.
-![View All Accounts](/02-analysis/UI/Administrator/view_all_accounts.png)
+![View All Accounts](/02-analysis/UI/admin/07-view_all_accounts.png)
 
-![Edit User Account](01-requirements/UI/admin/12-edit_user_account.png)
-![Edit Organizer](01-requirements/UI/admin/13-edit_organizer_account.png)
-![Edit Administrator](01-requirements/UI/admin/14-edit_administrator_account.png)
+![Edit User Account](/02-analysis/UI/admin/12-edit_user_account.png)
+![Edit Organizer](/02-analysis/UI/admin/13-edit_organizer_account.png)
+![Edit Administrator](/02-analysis/UI/admin/14-edit_administrator_account.png)
 
 
 ### Related UI Prototypes-- Organizer Modifying Their Accounts
 
 This is the page that the user must be on at the start to complete the use case.
-![View All Accounts](/02-analysis/UI/Administrator/view_all_accounts.png)
-![Update Organizer Account](01-requirements/UI/organizer/31-update_organizer_account.png)
+![View All Accounts](/02-analysis/UI/admin/view_all_accounts.png)
+![Update Organizer Account](/02-analysis/UI/organizer/31-update_organizer_account.png)
 
 
 ### Related UI Prototypes-- User Modifying Their Accounts
 This is the page that the user must be on at the start to complete the use case.
-![Update User Account](01-requirements/UI/user/42-edit_user_account.png)
+![Update User Account](/02-analysis/UI/user/42-edit_user_account.png)
 
 ## Related UI Prototypes - Alternate course of events
 ### Invalid Password
-![Invalid Password](01-requirements/UI/organizer/Alternative/update_organizer_account_Invalid Email or Password.png)
+![Invalid Password](/02-analysis/UI/organizer/Alternative/update_organizer_account_Invalid Email or Password.png)
 ### Missing Required Fields
-![Missing Required Fields](01-requirements/UI/organizer/Alternative/update_organizer_account_Invalid Email or Password.png)
+![Missing Required Fields](/02-analysis/UI/organizer/Alternative/update_organizer_account_Invalid Email or Password.png)
 
 ## Data Outcome
 - **READ** - The details of the selected account in the system will be read and display.
