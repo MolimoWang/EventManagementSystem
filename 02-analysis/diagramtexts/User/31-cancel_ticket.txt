@@ -4,14 +4,19 @@ participant "TicketSystem" as TS
 participant "TicketService" as TKS
 participant "Ticket" as TK
 
+
 User -> TS: cancelTicket(userEmail, eventName)
-TS -> TKS: markTicketAsCancelled(userEmail, eventName)
-loop [For every ticket]
-    TKS -> TK: readTicket(userEmail, eventName)
-    TK -> TKS: return ticketDetails
+TS -> User: ask for confirmation
+alt User selects Yes
+    TS -> TKS: markTicketAsCancelled(userEmail, eventName)
+    loop [For every ticket]
+        TKS -> TK: readTicket(userEmail, eventName)
+        TK -> TKS: return ticketDetails
+    end
+    TKS -> TK: mark as cancelled
+    TK -> TKS: return success
+    TKS -> TS: return true
+    TS -> User: display updated ticket list
 end
-TKS -> TK: mark as cancelled
-TK -> TKS: return success
-TKS -> TS: return true
-TS -> User: display updated ticket list
+
 @enduml
