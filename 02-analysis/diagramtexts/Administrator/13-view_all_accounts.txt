@@ -1,24 +1,27 @@
-title View All accounts
-
-
+title View All Accounts - 01 Basic Course of Events
 participantspacing 5
 
+actor "Administrator" as admin
+control "<link:_>: AccountSystem" as acs
+participant "<link:_>: AccountService" as asvc
+entity "<link:_>a : Account" as acc
 
-actor "Admin" as a
-control ":EventSystem" as e
-participant ": EventService" as s
-entity "events: Event" as v
+== 1. The administrator selects 'View All Accounts' ==
+admin -> acs: viewAllAccounts(accountId)
+activate acs
 
-a->e: viewAccount(accountId)
-activate e
+== 2. The system retrieves all existing accounts ==
+acs -> asvc: getAllAccounts(accountId)
+activate asvc
 
-e->s: getAccount()
-activate s
+loop for every account
+  asvc -> acc: readAccount(accountDetails)
+end
 
-s-->e: return account
-deactivate s
+asvc --> acs: return all accounts
+deactivate asvc
 
-e->e: displayAccounts(accounts)
+== 3. The system displays a list of all accounts ==
+acs -> admin: displayAccountList(accounts)
 
-e-->a:
-deactivate e
+deactivate acs
