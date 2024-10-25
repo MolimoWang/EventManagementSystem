@@ -1,10 +1,70 @@
-# 12 Create Account
+# 01 Create Account
 
-## Basic Course of Events
+## Basic Course of Events-- Creating User
+- The administrator navigates to the 'View All Accounts' page, which displaying all existing accounts in the system.
+- The system displays a list of existing accounts.
+- The administrator selects 'New Account'.
+- The administrator selects the type of account : User.
+- The system presents a form for entering account information (Name, Email, Password).
+- The administrator fills out the information.
+- The system validates the change and updates this new user account.
+- A confirmation message is shown to the administrator.
 ### Sequence Diagram
 
-## Alternate Course of Events
-### Sequence Diagram-- Alternate Course of Events
+## Basic Course of Events-- Creating Organizer
+- The administrator navigates to the 'View All Accounts' page, which displaying all existing accounts in the system.
+- The system displays a list of existing accounts.
+- The administrator selects 'New Account'.
+- The administrator selects the type of account : Organizer.
+- The system presents a form for entering account information (Name, Email, Password, Address, Company Name, Phone Number).
+- The administrator fills out the information.
+- The system validates the change and updates this new organizer account.
+- A confirmation message is shown to the administrator.
+### Sequence Diagram
+
+## Basic Course of Events-- Creating Administrator
+- The administrator navigates to the 'View All Accounts' page, which displaying all existing accounts in the system.
+- The system displays a list of existing accounts.
+- The administrator selects 'New Account'.
+- The administrator selects the type of account : Administrator.
+- The system presents a form for entering account information (Name, Email, Password).
+- The administrator fills out the information.
+- The system validates the change and updates this new administrator account.
+- A confirmation message is shown to the administrator.
+### Sequence Diagram
+
+## Alternate Course of Events-- Duplicate Email Error
+- The administrator navigates to the 'View All Accounts' page, which displaying all existing accounts in the system.
+- The system displays a list of existing accounts.
+- The administrator selects 'New Account'.
+- The administrator selects the type of account : Administrator.
+- The system presents a form for entering account information (Name, Email, Password).
+- The administrator fills out the information.
+- The administrator submits the form using an email that already exists in the system.
+- The system displays an error message indicating that the email is already associated with another account.
+- The system prompts the administrator to use a different email or to edit the existing account instead.
+### Sequence Diagram
+
+## Alternate Course of Events-- Invalid Input Error
+- The administrator navigates to the 'View All Accounts' page, which displaying all existing accounts in the system.
+- The system displays a list of existing accounts.
+- The administrator selects 'New Account'.
+- The administrator selects the type of account : Administrator.
+- The system presents a form for entering account information (Name, Email, Password).
+- The administrator fills out the information.
+- The administrator submits the form with invalid data (e.g., improper email format, password not meeting security requirements).
+- The system displays an error message explaining the issue (e.g., "Invalid email format" or "Password must contain at least 8 characters").
+- The system prompts the administrator to correct the input and resubmit.
+### Sequence Diagram
 
 ## UI Sketches
-This is the page that the user must be on at the start to complete the use case.
+### Related UI Prototypes
+![Create User Account](../../UI/admin/08-create_user_account.png)
+![Create Organizer Account](../../UI/admin/09-create_organizer_account.png)
+![Create Administrator](../../UI/admin/10-create_administrator_account.png)
+
+#### Duplicate Email Error
+![Duplicate Email Error](../../UI/admin/Alternative/create_account_duplicate_email.png)
+#### Invalide Input Error
+![Invalide Input Error](../../UI/admin/Alternative/create_account_invalid_input.png)
+

@@ -105,7 +105,6 @@ package "Event Management" {
         +updateEvent(name: String, eventDetails: EventDetails): Boolean
         +getEvent(name: String):Event
         +getEventName(name: String)):String
-        +getVenue(name: String):String
         +getTicketTypes(venue: Venue): (TicketType,number)
         +getEvents():List<Event>
         +saveEvent(eventId: String):Boolean
