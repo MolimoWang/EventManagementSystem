@@ -1,0 +1,38 @@
+title Create Account - Creating Organizer
+participantspacing 2
+
+actor "Administrator" as admin
+control ": AccountSystem" as acs
+participant ": AccountService" as asvc
+entity "newOrganizer : Account" as no
+
+==1. The user navigates to 'View All Accounts' page==
+note right of admin: This part happens in the UI
+==2. The user selects 'New Account'\n3. The system displays a form to enter organizer details==
+
+
+admin -> acs: createAccount(accountDetails)
+activate acs
+==4. The user enters name, email, password, address, company, and phone number==
+acs -> asvc: createAccount(accountDetails)
+activate asvc
+
+asvc ->* no: Account(name, email, password, address, company, phone)
+activate no
+no --> asvc: 
+deactivate no
+
+asvc -> asvc: updateAccount(accountDetails)
+activate asvc
+note over asvc: The saveAccount method is a standin for\nthe future operation of saving the created\norganizer account in the database
+asvc --> asvc: 
+deactivate asvc
+
+asvc --> acs: 
+deactivate asvc
+
+acs -> acs: accounts := getAccounts()
+acs -> admin: display confirmation message
+
+deactivate acs
+==5. The system updates the display to show the newly created organizer account==
