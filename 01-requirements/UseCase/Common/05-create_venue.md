@@ -64,8 +64,6 @@ This use case allows an organizer to add a new venue to the event management sys
 |----------------------------------------------------------------------|
 | ![Add Venue](../../UI/organizer/26-create_venue.png)                 |
 | Error: Duplicate Venue                                               |
-| ![Add Venue](../../UI/organizer/Alternative/add_venue-capacity.png)  |
-| Error: Duplicate Venue                                               |
 | ![Add Venue](../../UI/organizer/Alternative/add_venue-duplicate.png) |
 
 ## Data Outcome

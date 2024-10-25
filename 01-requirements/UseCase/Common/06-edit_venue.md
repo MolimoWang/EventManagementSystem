@@ -56,8 +56,6 @@ This use case allows an organizer to edit the details of an existing venue.
 |---------------------------------------------------------------------------------------------------|
 | ![Edit Venue](../../UI/organizer/27-edit_venue.png)                                               |
 | Error: Duplicate Venue                                               |
-| ![Add Venue](../../UI/organizer/Alternative/add_venue-capacity.png)  |
-| Error: Duplicate Venue                                               |
 | ![Add Venue](../../UI/organizer/Alternative/add_venue-duplicate.png) |
 
 ## Data Outcome
