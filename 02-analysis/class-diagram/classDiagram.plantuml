@@ -69,7 +69,6 @@ package "Venue Management" {
         - contactName: String
         - contactPhoneNumber: String
         - contactEmail: String
-        - capacity: int
     }
 
     class VenueService {
@@ -155,12 +154,13 @@ package "Ticket Management" {
     }
 
     Venue "1 -venue" --> TicketType : creates
-    TicketType -->"1 -ticketType" TicketInfo : ticketType
-
-    Event --> "1 -ticketType" TicketType : determines price
+    TicketType -->"1 -ticketInfo" TicketInfo
+    Venue "1 -venue" --> TicketType : Venue
+    TicketType -->"1..* ticketType" Venue : TicketType
+    Event --> "1 -ticketInfo" TicketInfo : determines price
     User --> "0..* -tickets" Ticket : purchases
     Ticket --> "1 -event" Event : related to
-    Ticket --> "1 -ticketType" TicketType : is of type
+    Ticket --> "1 -ticketInfo" TicketInfo : get info
     TicketService --> Ticket
 }
 

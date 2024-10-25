@@ -26,7 +26,7 @@ This use case allows an organizer to add a new venue to the event management sys
 2. The system turn to create venue page(26-create_venue.png) which displays a form to enter venue details,including:
    - Name
    - Address
-   - Capacity
+   - Ticket Types(ticketTypeName, number)
    - Contact information (name, phone, email)
 3. The organizer fills in the required details and clicks "Submit".
 4. The system updates the list of upcoming events and return to the list venues page (25-list_my_venues.png).
@@ -41,7 +41,7 @@ This use case allows an organizer to add a new venue to the event management sys
 #### Incorrect Capacity
 - The organiser or administrator selects the add venue functionality
 - The system displays the add venue page (11-add-venue) page
-- The organiser or administrator enters the details of the venue
+- The organiser or administrator enters the details of the venue.
 - The system warns the organiser or administrator that the total capacity of the venue does not match the sum of the different types of tickets (Alternative/add_venue-capacity.png)
 - The organiser or administrator clicks OK
 - The system returns to step 2 of the use case
