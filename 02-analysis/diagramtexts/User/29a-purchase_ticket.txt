@@ -17,12 +17,12 @@ note right of TicketSystem: 2. The system forwards the request to the TicketServ
     activate TicketService
 
 note right of TicketService: 3. The service checks the availability of the tickets.
-    TicketService ->> TicketInfo : checkAvailability(eventId: String, ticketType: String)
+    TicketService ->> TicketInfo : checkAvailability(eventId: String, ticketType: String, numberAvailable: int, numberSold: int)
     activate TicketInfo
     TicketInfo --> TicketService : return availableTickets
     deactivate TicketInfo
 
-alt availableTickets == 0
+alt  availableTickets == 0
     note right of TicketService: Tickets are not available, return failure.
     TicketService -->> TicketSystem : return failure
 end
