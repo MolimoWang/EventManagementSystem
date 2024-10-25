@@ -80,12 +80,6 @@ package "Venue Management" {
         +updateVenue(name: String, venueDetails: VenueDetails): Boolean
         +deleteVenue(name: String): Boolean
         +getVenue(name: String): Venue
-        +getVenueName(name: String)):String
-        +getVenueAddress(name: String):String
-        +getVenueContactName(name: String):String
-        +getVenueContactPhoneNumber(name: String): String
-        +getVenueContactEmail(name: String):String
-        +getVenueCapacity(name: String): int
         +saveVenue(name: String):Boolean
     }
 
@@ -106,15 +100,13 @@ package "Event Management" {
     }
 
     class EventService {
-        +createEvent(eventDetails: EventDetails): Boolean
         +readEvent(name: String): EventDetails
         +deleteEvent(name: String): Boolean
         +updateEvent(name: String, eventDetails: EventDetails): Boolean
         +getEvent(name: String):Event
         +getEventName(name: String)):String
-        +getEventDescription(name: String):String
-        +getEventDate(name: String):Date
-        +getEventTime(name: String):Time
+        +getVenue(name: String):String
+        +getTicketTypes(venue: Venue): (TicketType,number)
         +getEvents():List<Event>
         +saveEvent(eventId: String):Boolean
     }
@@ -133,13 +125,16 @@ package "Ticket Management" {
             ' Ticket class with no attributes, representing a relationship
         }
 
-    class TicketType {
+    class TicketInfo {
             - name: String
             - numberAvailable: int
             - numberSold: int
             - price: double
         }
-
+    class TicketType {
+            - TicketType: String
+            - number: int
+        }
     class TicketService {
         +getTicket(userEmail: String, eventId: String, ticketType: String): TicketDetails
         +readTicket(userEmail: String, eventId: String): TicketDetails
