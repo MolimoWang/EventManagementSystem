@@ -1,0 +1,24 @@
+title View All accounts
+
+
+participantspacing 5
+
+
+actor "Admin" as a
+control ":EventSystem" as e
+participant ": EventService" as s
+entity "events: Event" as v
+
+a->e: viewAccount(accountId)
+activate e
+
+e->s: getAccount()
+activate s
+
+s-->e: return account
+deactivate s
+
+e->e: displayAccounts(accounts)
+
+e-->a:
+deactivate e
