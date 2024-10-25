@@ -3,11 +3,12 @@ title Organizer View Venue Bookings Process
 actor Organizer
 
 
-participant VenueSystem
-participant VenueService
-participant Venue
+boundary VenueSystem
+control VenueService
+entity Venue
 activate VenueSystem
 Organizer ->> VenueSystem : viewVenue(action)
+note left of VenueSystem:1. The organizer selects the "Event Venue"\n option from the create event page
 activate VenueService
 VenueSystem->>VenueService: listVenue(eventDetails)
 
@@ -15,13 +16,13 @@ activate Venue
 VenueService->>Venue: getVenue(venueDetails)
 
 
+
+
 loop For every Venues
- VenueService->>Venue: getVenueName(name)
-  Venue-->VenueService: return Venue Name
- VenueService->>Venue: getAddress(Address)
-  Venue-->VenueService: return Venue Address
- VenueService->>Venue: getCapacity(Capacity)
- Venue-->VenueService: return Capacity
+ VenueService->>Venue: getVenue(name)
+  Venue-->VenueService:return name
+ VenueService->>Venue: getVenueAddress(Address)
+  Venue-->VenueService:return address
  end
   Venue-->VenueService:return corresponding venue list
  VenueService-->VenueSystem:return corresponding venue list
@@ -32,7 +33,11 @@ loop For every Venues
 
 
 deactivate VenueService
+
+note over VenueSystem:2. The system displays list of all the venues available for booking \n for the time period which the organizer chosen in this page.
+
 VenueSystem->VenueSystem:return corresponding Venue Details list
 VenueSystem-->Organizer:
 deactivate VenueSystem
 
+note over VenueSystem:3. Organizer select one available venue from the list \n to be the venue which the events will use.
