@@ -1,28 +1,36 @@
-@startuml
+title Create User Account Sequence Diagram
+
 actor User
-participant "AccountSystem" as AS
-participant "AccountService" as ACS
-participant "Account" as A
+boundary AccountSystem
+control AccountService
+entity Account
 
-== User Confirms Account Creation (Select "Create") ==
-User -> AS: createAccount(userDetails)
-AS -> User: ask for confirmation
-User -> AS: confirms Create
-AS -> ACS: validateAccountDetails(userDetails)
-alt No Duplicates Found
-AS -> ACS: proceed with account creation
-ACS -> A: createAccount(userDetails)
-A -> ACS: return success
-ACS -> AS: return true
-AS -> User: account created successfully
-else Duplicate Details Found
-AS -> User: display error message "Account already exists"
+note right of User: 1. The user wants to create an account at the login page.
+User ->> AccountSystem : createAccount(accountDetails: AccountDetails)
+
+activate AccountSystem
+note right of AccountSystem: 2. The system forwards the request to the AccountService.
+    AccountSystem ->> AccountService : createAccount(accountDetails: AccountDetails)
+    activate AccountService
+
+note right of AccountService: 3. The service checks if the name and email are unique.
+    AccountService ->> Account : checkDuplicateAccount(name: String, email: String)
+    activate Account
+    Account --> AccountService : return isDuplicate
+    deactivate Account
+
+alt isDuplicate == false
+    note right of AccountService: 4. Account information is valid, proceed with creation.
+    AccountService ->> Account : createAccount(accountDetails: AccountDetails)
+    activate Account
+    Account --> AccountService : return accountCreated
+    deactivate Account
+
+    AccountService -->> AccountSystem : return success
+
 end
 
-== User Cancels Account Creation (Select "Cancel") ==
-User -> AS: createAccount(userDetails)
-AS -> User: ask for confirmation
-alt User selects Cancel
-AS -> User: account creation aborted
-end
-@enduml
+deactivate AccountService
+
+note right of User: 5. The system notifies the user of the result.
+AccountSystem -->> User : accountCreationResult
