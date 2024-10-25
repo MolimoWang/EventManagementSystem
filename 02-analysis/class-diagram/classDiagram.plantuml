@@ -133,12 +133,16 @@ package "Ticket Management" {
             ' Ticket class with no attributes, representing a relationship
         }
 
-    class TicketType {
-            - name: String
+    class TicketInfo {
             - numberAvailable: int
             - numberSold: int
             - price: double
         }
+     class TicketType {
+                - ticketTypeName: String
+                - number: int
+
+            }
 
     class TicketService {
         +getTicket(userEmail: String, eventId: String, ticketType: String): TicketDetails
@@ -151,11 +155,13 @@ package "Ticket Management" {
     }
 
     Venue "1 -venue" --> TicketType : creates
-        Event --> "1 -ticketType" TicketType : determines price
-        User --> "0..* -tickets" Ticket : purchases
-        Ticket --> "1 -event" Event : related to
-        Ticket --> "1 -ticketType" TicketType : is of type
-        TicketService --> Ticket
+    TicketType -->"1 -ticketType" TicketInfo : ticketType
+
+    Event --> "1 -ticketType" TicketType : determines price
+    User --> "0..* -tickets" Ticket : purchases
+    Ticket --> "1 -event" Event : related to
+    Ticket --> "1 -ticketType" TicketType : is of type
+    TicketService --> Ticket
 }
 
 ' System classes for each module
