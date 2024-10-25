@@ -26,7 +26,7 @@ This use case allows an organizer to create a new event to the system by providi
    - Date and Time
    - Venue
    - Description
-   - Ticket Information (types, prices, quantity)
+   - Ticket Information (price)
 3. The organizer fills in the required details and clicks "Submit".
 4. The system updates the list of upcoming events and return to the list my events page (18-list_my_events.png).
 

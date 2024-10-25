@@ -25,7 +25,7 @@ This use case allows an organizer to edit the details of an existing venue.
 #### Course of Events
 1. The organiser or administrator selects the edit venue functionality.
 2. The system displays a form with the current venue details (27-edit_venue.png).
-3. The organiser or administrator updates the information.
+3. The organiser or administrator updates the information (Name, Address, Ticket Types(ticketTypeName, number),Contact information (name, phone, email)).
 4. The organiser or administrator clicks "Save Changes" to confirm the modifications.
 5. The system updates the list of upcoming events and return to the list venues page (25-list_my_venues.png).
 
