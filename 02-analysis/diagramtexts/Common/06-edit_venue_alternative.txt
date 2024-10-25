@@ -33,16 +33,8 @@ note right of VenueService:4. The organiser or administrator clicks "Save Change
     VenueService --> VenueService : return isDuplicate
     deactivate VenueService
 
-    alt isDuplicate == false
-
-
-        VenueService ->> VenueService : saveVenue(v)
-        activate VenueService
-        VenueService --> VenueService :
-        deactivate VenueService
-
-        VenueService -->> VenueSystem : return true
-   VenueSystem : return false
+    alt isDuplicate == true
+        VenueService -->> VenueSystem : return false
 deactivate VenueSystem
 deactivate VenueService
 end
