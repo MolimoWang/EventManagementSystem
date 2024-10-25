@@ -22,7 +22,7 @@
 ### Sequence Diagram-- Alternate Course of Events
 
 ## UI Sketches
-This is the page that the user must be on at the start to complete the use case.
+This is the page that the user must be on at the start to complete the use case
 ### Create Venue Page
 ![Create Venue Page](/02-analysis/UI/organizer/26-create_venue.png)
 ### Edit Venue Page
