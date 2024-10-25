@@ -1,0 +1,24 @@
+title Create Account - Invalid Input Error
+participantspacing 2
+
+actor "Administrator" as admin
+control ": AccountSystem" as acs
+participant ": AccountService" as asvc
+
+==1. The user navigates to 'View All Accounts' page==
+note right of admin: This part happens in the UI
+==2. The user selects 'New Account'\n3. The system displays a form to enter details==
+
+admin -> acs: createAccount(accountDetails)
+activate acs
+==4. The user enters invalid name, email, or password==
+acs -> asvc: validateInput(name, email, password)
+activate asvc
+asvc --> acs: invalid input
+deactivate asvc
+
+note right of acs: The system displays an error message explaining the issue\n(e.g., "Invalid email format" or "Password must contain at least 8 characters")
+acs -> admin: display 'Invalid input'
+
+deactivate acs
+==5. The system prompts the user to correct the input and resubmit==

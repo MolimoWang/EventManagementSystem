@@ -1,0 +1,40 @@
+title Create Account - Creating Administrator
+participantspacing 2
+
+actor "Administrator" as admin
+control ": AccountSystem" as acs
+participant ": AccountService" as asvc
+entity "newAdmin : Account" as na
+
+==1. The user navigates to 'View All Accounts' page==
+note right of admin: This part happens in the UI
+==2. The user selects 'New Account'\n3. The system displays a form to enter admin details==
+
+
+admin -> acs: createAccount(accountDetails)
+activate acs
+==\n4. The user enters name, email, and password==
+acs -> asvc: createAccount(accountDetails)
+activate asvc
+
+asvc ->* na: Account(name, email, password)
+activate na
+na --> asvc: 
+deactivate na
+
+asvc -> asvc: updateAccount(accountDetails)
+
+activate asvc
+note over asvc: The saveAccount method is a standin for\nthe future operation of saving the created\nadmin account in the database
+asvc --> asvc: 
+deactivate asvc
+
+asvc --> acs: 
+deactivate asvc
+
+acs -> acs: accounts := getAccounts()
+acs -> admin: display confirmation message
+
+deactivate acs
+==5. The system updates the display to show the newly created admin account==
+
