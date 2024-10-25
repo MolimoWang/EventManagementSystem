@@ -131,10 +131,7 @@ package "Ticket Management" {
             - numberSold: int
             - price: double
         }
-    class TicketType {
-            - TicketType: String
-            - number: int
-        }
+
     class TicketService {
         +getTicket(userEmail: String, eventId: String, ticketType: String): TicketDetails
         +readTicket(userEmail: String, eventId: String): TicketDetails
