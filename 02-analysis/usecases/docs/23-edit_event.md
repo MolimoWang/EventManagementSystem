@@ -3,7 +3,7 @@
 ## Basic Course of Events
 1. The organizer selects the "Edit" option of a certain event on list my events page (18-list_my_events.png).
 2. The system displays a form with the current event details(20-edit_event.png).
-3. The organizer updates the necessary fields (e.g., name, date, time, venue, ticket information).
+3. The organizer updates the necessary fields (name, date, time, venue, ticket information (price)).
 4. The organizer clicks "Save Changes" to confirm the changes.
 5. The system shows the created details of the event on the view events page (22-view_event_details).
 
