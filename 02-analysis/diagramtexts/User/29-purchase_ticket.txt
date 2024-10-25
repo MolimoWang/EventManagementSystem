@@ -30,7 +30,7 @@ alt availableTickets > 0
     deactivate TicketInfo
 
     note right of TicketService: 5. Create a ticket entity to link user and event.
-    TicketService ->> Ticket : Ticket(userEmail, eventId, ticketType)
+    TicketService ->> Ticket : Ticket(userEmail, eventId, ticketInfo)
     activate Ticket
     Ticket --> TicketService : return ticket
     deactivate Ticket
