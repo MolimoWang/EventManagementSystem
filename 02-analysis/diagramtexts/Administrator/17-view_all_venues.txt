@@ -1,0 +1,23 @@
+title View All Venues of Adminstrator
+
+
+actor "Admin" as a
+control ": VenueSystem" as s
+participant ": VenueService" as u
+entity "all : Venue" as m
+
+
+a->s:listVenues()
+activate s
+
+s->u: getVenues()
+
+activate u
+
+u-->s:return venues
+deactivate u
+
+s->s:displayVenues(venues)
+
+s-->a:
+deactivate s

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #343434;
+        }
+
+        .container {
+            width: 400px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="password"], select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .cancel {
+            background-color: #7a7a7a;
+            color: white;
+        }
+
+        .create {
+            background-color: #336699;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Account Info</h1>
+
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name">
+
+
+
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email">
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password">
+
+
+
+    <!-- New Type selection -->
+    <label for="type">Type</label>
+    <select id="type" name="type">
+        <option value="user">User</option>
+        <option value="organizer">Organizer</option>
+        <option value="administrator">Administrator</option>
+    </select>
+
+    <div class="buttons">
+        <button class="cancel">Cancel</button>
+        <button class="create">Create</button>
+    </div>
+</div>
+
+</body>
+</html>

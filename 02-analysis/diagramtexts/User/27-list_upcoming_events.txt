@@ -1,0 +1,17 @@
+@startuml
+actor User
+participant "AccountSystem" as AS
+participant "AccountService" as ACS
+participant "Account" as A
+
+User -> AS: select 'Upcoming' option from main page
+AS -> ACS: getUpcomingEvents(userEmail)
+alt Upcoming Events Found
+ACS -> AS: return upcoming events list
+AS -> User: display upcoming events
+else No Upcoming Events Found
+AS -> User: display message "No upcoming events"
+end
+
+@enduml
+

@@ -73,18 +73,20 @@ package "Venue Management" {
     }
 
     class VenueService {
+        +getVenue(venue: Venue):Venue
+        +getVenues():Venue[*]
         +createVenue(venueDetails: VenueDetails): Boolean
-        +readVenue(venueId: String): VenueDetails
-        +updateVenue(venueId: String, venueDetails: VenueDetails): Boolean
-        +deleteVenue(venueId: String): Boolean
-        +getVenue(venueId: String): Venue
-        +getVenueName(venueId: String)):String
-        +getVenueAddress(venueId: String):String
-        +getVenueContactName(venueId: String):String
-        +getVenueContactPhoneNumber(venueId: String): String
-        +getVenueContactEmail(venueId: String):String
-        +getVenueCapacity(venueId: String): int
-        +saveVenue(venueId: String):Boolean
+        +readVenue(name: String): VenueDetails
+        +updateVenue(name: String, venueDetails: VenueDetails): Boolean
+        +deleteVenue(name: String): Boolean
+        +getVenue(name: String): Venue
+        +getVenueName(name: String)):String
+        +getVenueAddress(name: String):String
+        +getVenueContactName(name: String):String
+        +getVenueContactPhoneNumber(name: String): String
+        +getVenueContactEmail(name: String):String
+        +getVenueCapacity(name: String): int
+        +saveVenue(name: String):Boolean
     }
 
     class VenueCreationRequest {
@@ -105,14 +107,15 @@ package "Event Management" {
 
     class EventService {
         +createEvent(eventDetails: EventDetails): Boolean
-        +readEvent(eventId: String): EventDetails
-        +deleteEvent(eventId: String): Boolean
-        +updateEvent(eventId: String, eventDetails: EventDetails): Boolean
-        +getEvent(eventId: String):Event
-        +getEventName(eventId: String)):String
-        +getEventDescription(eventId: String):String
-        +getEventDate(eventId: String):Date
-        +getEventTime(eventId: String):Time
+        +readEvent(name: String): EventDetails
+        +deleteEvent(name: String): Boolean
+        +updateEvent(name: String, eventDetails: EventDetails): Boolean
+        +getEvent(name: String):Event
+        +getEventName(name: String)):String
+        +getEventDescription(name: String):String
+        +getEventDate(name: String):Date
+        +getEventTime(name: String):Time
+        +getEvents():List<Event>
         +saveEvent(eventId: String):Boolean
     }
 
@@ -127,23 +130,32 @@ package "Event Management" {
 ' Ticket Management Group
 package "Ticket Management" {
     class Ticket {
-        - type: String
-        - price: double
-        - available_number: int
-        - sold_number: int
-    }
+            ' Ticket class with no attributes, representing a relationship
+        }
+
+    class TicketType {
+            - name: String
+            - numberAvailable: int
+            - numberSold: int
+            - price: double
+        }
 
     class TicketService {
-        +getTicket(userId: String, eventId: String, ticketType: String): TicketDetails
-        +readTicket(ticketId: String): TicketDetails
+        +getTicket(userEmail: String, eventId: String, ticketType: String): TicketDetails
+        +readTicket(userEmail: String, eventId: String): TicketDetails
     }
+
 
     class TicketPurchaseRequest {
         - ticketDetails: TicketDetails
     }
 
-    Event --> "0..* -tickets" Ticket
-    TicketService --> Ticket
+    Venue "1 -venue" --> TicketType : creates
+        Event --> "1 -ticketType" TicketType : determines price
+        User --> "0..* -tickets" Ticket : purchases
+        Ticket --> "1 -event" Event : related to
+        Ticket --> "1 -ticketType" TicketType : is of type
+        TicketService --> Ticket
 }
 
 ' System classes for each module
@@ -158,28 +170,30 @@ class AccountSystem {
 AccountSystem --> AccountService
 
 class VenueSystem {
+    +displayVenue(venue: Venue)
+    +displayVenues(venues: Venue[*])
     +createVenue(venueDetails: VenueDetails): Boolean
-    +viewVenue(venueId: String): VenueDetails
-    +updateVenue(venueId: String, venueDetails: VenueDetails): Boolean
-    +deleteVenue(venueId: String): Boolean
+    +viewVenue(name: String): VenueDetails
+    +updateVenue(name: String, venueDetails: VenueDetails): Boolean
+    +deleteVenue(name: String): Boolean
     +listVenues(): List<Venues>
 }
 VenueSystem --> VenueService
 
 class EventSystem {
     +createEvent(eventDetails: EventDetails): Boolean
-    +viewEvent(eventId: String): EventDetails
-    +deleteEvent(eventId: String): Boolean
-    +updateEvent(eventId: String, eventDetails: EventDetails): Boolean
+    +viewEvent(name: String): EventDetails
+    +deleteEvent(name: String): Boolean
+    +updateEvent(name: String, eventDetails: EventDetails): Boolean
     +listEvents(): List<Events>
     +listMyEvents(): List<Events>
 }
 EventSystem --> EventService
 
 class TicketSystem {
-    +buyTicket(userId: String, eventId: String, ticketType: String): TicketDetails
+    +buyTicket(userEmail: String, eventId: String, ticketType: String): TicketDetails
     +viewTicket(ticketId: String): TicketDetails
-    +listUserTickets(userId: String): List<Tickets>
+    +listUserTickets(userEmail: String): List<Tickets>
     +cancelTicket(ticketId: String): Boolean
 }
 TicketSystem --> TicketService

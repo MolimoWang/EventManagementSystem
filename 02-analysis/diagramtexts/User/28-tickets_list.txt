@@ -1,0 +1,19 @@
+@startuml
+actor User
+participant "AccountSystem" as AS
+participant "AccountService" as ACS
+participant "Account" as A
+
+
+
+User -> AS: select 'Tickets' option from main page
+AS -> ACS: getPurchasedTickets(userEmail)
+alt Purchased Tickets Found
+ACS -> AS: return purchased tickets list
+AS -> User: display purchased tickets
+else No Purchased Tickets Found
+AS -> User: display message "No purchased tickets"
+end
+
+@enduml
+

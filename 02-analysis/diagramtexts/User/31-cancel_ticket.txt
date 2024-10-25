@@ -1,0 +1,27 @@
+@startuml
+actor User
+participant "TicketSystem" as TS
+participant "TicketService" as TKS
+participant "Ticket" as TK
+
+User -> TS: cancelTicket(userEmail, eventName)
+TS -> User: ask for confirmation
+User -> TS: confirms Yes
+    TS -> TKS: checkCancellationDeadline(eventName)
+    alt Cancellation Deadline Not Exceeded
+
+    alt Cancellation Deadline Not Exceeded
+
+    alt Cancellation Deadline Not Exceeded
+        TS -> TKS: markTicketAsCancelled(userEmail, eventName)
+    loop [For every ticket]
+        TKS -> TK: readTicket(userEmail, eventName)
+        TK -> TKS: return ticketDetails
+    end
+    TKS -> TK: mark as cancelled
+    TK -> TKS: return success
+    TKS -> TS: return true
+    TS -> User: display updated ticket list
+end
+
+@enduml

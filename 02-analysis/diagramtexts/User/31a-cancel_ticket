@@ -1,0 +1,13 @@
+@startuml
+actor User
+participant "TicketSystem" as TS
+participant "TicketService" as TKS
+participant "Ticket" as TK
+
+== Confirmation No ==
+User -> TS: cancelTicket(userEmail, eventName)
+TS -> User: ask for confirmation
+alt User selects No
+    TS -> User: cancellation aborted
+end
+@enduml

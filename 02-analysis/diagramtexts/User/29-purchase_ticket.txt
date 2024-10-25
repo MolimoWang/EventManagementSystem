@@ -1,0 +1,15 @@
+@startuml
+actor User
+participant "AccountSystem" as AS
+participant "AccountService" as ACS
+participant "Account" as A
+
+
+User -> AS: select 'Buy it!' option for an event
+AS -> User: ask for confirmation
+User -> AS: confirms Yes
+AS -> ACS: checkTicketAvailability(userEmail, eventName)
+alt Ticket Available
+ACS -> AS: update event ticket count
+AS -> User: display purchased ticket details
+@enduml
