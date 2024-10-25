@@ -1,18 +1,33 @@
-@startuml
+title User Purchase Ticket Sequence Diagram
+
 actor User
-participant "AccountSystem" as AS
-participant "AccountService" as ACS
-participant "Account" as A
+boundary TicketSystem
+control TicketService
+entity TicketInfo
+entity Ticket
+entity Event
 
 
+note right of User: 1. The user initiates the ticket purchase.
+User ->> TicketSystem : buyTicket(userEmail: String, eventId: String, ticketType: String)
 
-== Purchase Ticket (Insufficient Tickets) ==
-User -> AS: select 'Buy it!' option for an event
-AS -> User: ask for confirmation
-User -> AS: confirms Yes
-AS -> ACS: checkTicketAvailability(userEmail, eventName)
-alt No Tickets Available
-AS -> User: display message "Tickets are sold out"
+activate TicketSystem
+note right of TicketSystem: 2. The system forwards the request to the TicketService.
+    TicketSystem ->> TicketService : buyTicket(userEmail: String, eventId: String, ticketType: String)
+    activate TicketService
+
+note right of TicketService: 3. The service checks the availability of the tickets.
+    TicketService ->> TicketInfo : checkAvailability(eventId: String, ticketType: String, numberAvailable: int, numberSold: int)
+    activate TicketInfo
+    TicketInfo --> TicketService : return availableTickets
+    deactivate TicketInfo
+
+alt  availableTickets == 0
+    note right of TicketService: Tickets are not available, return failure.
+    TicketService -->> TicketSystem : return failure
 end
 
-@enduml
+deactivate TicketService
+
+note right of User: 6. The system notifies the user of the result.
+TicketSystem -->> User : purchaseResult

@@ -1,13 +1,32 @@
-@startuml
-actor User
-participant "TicketSystem" as TS
-participant "TicketService" as TKS
-participant "Ticket" as TK
+title User Cancel Ticket Sequence Diagram
 
-== Confirmation No ==
-User -> TS: cancelTicket(userEmail, eventName)
-TS -> User: ask for confirmation
-alt User selects No
-    TS -> User: cancellation aborted
+actor User
+boundary TicketSystem
+control TicketService
+entity Ticket
+entity Event
+entity TicketInfo
+
+note right of User: 1. The user initiates the ticket cancellation.
+User ->> TicketSystem : cancelTicket(ticketId: String)
+
+activate TicketSystem
+note right of TicketSystem: 2. The system forwards the request to the TicketService.
+    TicketSystem ->> TicketService : cancelTicket(ticketId: String)
+    activate TicketService
+
+note right of TicketService: 3. The service checks if the cancellation is within the allowed time frame.
+    TicketService ->> Event : checkCancellationTime(eventId: String)
+    activate Event
+    Event --> TicketService : return isCancellable
+    deactivate Event
+
+alt  isCancellable == false
+    note right of TicketService: 4. Cancellation is not allowed as the allowed time frame has passed.
+    TicketService -->> TicketSystem : return failure
 end
-@enduml
+
+deactivate TicketService
+
+note right of User: 5. The system notifies the user of the result.
+TicketSystem -->> User : cancellationResult

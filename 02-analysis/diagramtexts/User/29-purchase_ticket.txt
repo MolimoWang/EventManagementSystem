@@ -1,15 +1,44 @@
-@startuml
+title User Purchase Ticket Sequence Diagram
+
 actor User
-participant "AccountSystem" as AS
-participant "AccountService" as ACS
-participant "Account" as A
+boundary TicketSystem
+control TicketService
+entity TicketInfo
+entity Ticket
+entity Event
 
 
-User -> AS: select 'Buy it!' option for an event
-AS -> User: ask for confirmation
-User -> AS: confirms Yes
-AS -> ACS: checkTicketAvailability(userEmail, eventName)
-alt Ticket Available
-ACS -> AS: update event ticket count
-AS -> User: display purchased ticket details
-@enduml
+note right of User: 1. The user initiates the ticket purchase.
+User ->> TicketSystem : buyTicket(userEmail: String, eventId: String, ticketType: String)
+
+activate TicketSystem
+note right of TicketSystem: 2. The system forwards the request to the TicketService.
+    TicketSystem ->> TicketService : buyTicket(userEmail: String, eventId: String, ticketType: String)
+    activate TicketService
+
+note right of TicketService: 3. The service checks the availability of the tickets.
+    TicketService ->> TicketInfo : checkAvailability(eventId: String, ticketType: String, numberAvailable: int, numberSold: int)
+    activate TicketInfo
+    TicketInfo --> TicketService : return availableTickets
+    deactivate TicketInfo
+
+alt availableTickets > 0
+    note right of TicketService: 4. Tickets are available, proceed with purchase.
+    TicketService ->> TicketInfo : updateTicketInfo(eventId: String, ticketType: String, numberAvailable: int, numberSold: int)
+    activate TicketInfo
+    TicketInfo --> TicketService : return updated
+    deactivate TicketInfo
+
+    note right of TicketService: 5. Create a ticket entity to link user and event.
+    TicketService ->> Ticket : Ticket(userEmail, eventId, ticketType)
+    activate Ticket
+    Ticket --> TicketService : return ticket
+    deactivate Ticket
+
+    TicketService -->> TicketSystem : return success
+
+
+deactivate TicketService
+
+note right of User: 6. The system notifies the user of the result.
+TicketSystem -->> User : purchaseResult
