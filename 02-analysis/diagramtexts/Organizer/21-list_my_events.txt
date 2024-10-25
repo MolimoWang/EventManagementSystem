@@ -2,13 +2,14 @@ title Organizer List Event Deatils
 
 
 actor Organizer
-participant EventSystem
-participant EventService
+boundary EventSystem
+control EventService
 
-
+note right of Organizer:1. The organizer click the 'My Events'\non their main page(17-view_all_events.png).
 Organizer ->> EventSystem : listMyEvents(List<Events>)
 activate EventSystem
 
+note right of EventSystem:The system turn to list my events\npage (18-list_my_events.png) and\ndisplays the list of events, including\ndetails such as event name, date, time, and venue.
 loop For every Event
  EventSystem ->> EventService : getEvent(Event)
   activate EventService

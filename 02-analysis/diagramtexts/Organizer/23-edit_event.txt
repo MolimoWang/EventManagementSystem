@@ -2,36 +2,36 @@ title Organizer Edit Event Deatils
 
 
 actor Organizer
-participant EventSystem
-participant EventService
-participant Event
+boundary EventSystem
+control EventService
+entity Event
+entity TicketInfo
 
+note right of Organizer:1. The organizer selects the "Edit" option of a certain\neventon list my events page (18-list_my_events.png).
 Organizer ->> EventSystem :updateEvent(eventDetails: EventDetails)
+
 
 activate EventSystem
 
-
+note right of EventSystem:2. The system displays a form with\nthe current event details(20-edit_event.png).
 EventSystem ->> EventService :updateEvent(eventDetails: EventDetails)
+
+
 activate EventService
-    EventService ->> EventService : getEventName(name)
+
+note right of EventService:3. The organizer updates the necessary fields\n(name, date, time, venue, ticket information (price)).
+    EventService ->> EventService : getVenue(venue: Venue)
     activate EventService
-    EventService --> EventService : return name
+    EventService --> EventService : return venueDetails
     deactivate EventService
 
-    EventService ->> EventService : getEventDescription(description)
+loop for every ticket type
+    EventService ->> EventService : getTicketTypes(venue:Venue)
     activate EventService
-    EventService --> EventService : return description
+    EventService --> EventService : return (ticketTypeName, number)
     deactivate EventService
+end
 
-    EventService ->> EventService : getEventDate(date)
-    activate EventService
-    EventService --> EventService : return date
-    deactivate EventService
-
-    EventService ->> EventService : getEventTime(time)
-    activate EventService
-    EventService --> EventService : return time
-    deactivate EventService
 
  EventService ->> Event :Event(name, description,date,time)
     activate Event
@@ -39,12 +39,26 @@ activate EventService
     deactivate Event
 
 
+note right of EventService:4. The organizer clicks "Save Changes" to confirm the changes.
     EventService ->>EventService:saveEvent(e)
     activate EventService
     EventService --> EventService:
     deactivate EventService
 
+    EventService ->> TicketInfo :TicketType(price)
+    activate TicketInfo
+    TicketInfo -->EventService:return p
+    deactivate TicketInfo
+
+
+    activate EventService
+    EventService ->>EventService:saveTicketPrice(p)
+    EventService --> EventService:
+    deactivate EventService
+
  EventService --> EventSystem :return true
+
+note left of EventSystem:5. The system shows the created details of the event\non the view events page (22-view_event_details).
 
 EventSystem --> Organizer :
 deactivate EventService

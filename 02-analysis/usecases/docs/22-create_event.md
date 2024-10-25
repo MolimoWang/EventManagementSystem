@@ -3,11 +3,11 @@
 ## Basic Course of Events
 1. The organizer selects the "+" option from the list my events page (18-list_my_events.png).
 2. The system turn to create event page (19-create_event.png) which displays a form to enter event details, including:
-    - Event Name
-    - Date and Time
-    - Venue
-    - Description
-    - Ticket Information (types, prices, quantity)
+   - Event Name
+   - Date and Time
+   - Venue
+   - Description
+   - Ticket Information (price)
 3. The organizer fills in the required details and clicks "Submit".
 4. The system updates the list of upcoming events and return to the list my events page (18-list_my_events.png).
 
