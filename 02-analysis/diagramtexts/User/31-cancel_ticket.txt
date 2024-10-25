@@ -8,11 +8,11 @@ entity Event
 entity TicketInfo
 
 note right of User: 1. The user initiates the ticket cancellation.
-User ->> TicketSystem : cancelTicket(ticketId: String)
+User ->> TicketSystem : cancelTicket(userEmail: String, eventId: String)
 
 activate TicketSystem
 note right of TicketSystem: 2. The system forwards the request to the TicketService.
-    TicketSystem ->> TicketService : cancelTicket(ticketId: String)
+    TicketSystem ->> TicketService : cancelTicket(userEmail: String, eventId: String)
     activate TicketService
 
 note right of TicketService: 3. The service checks if the cancellation is within the allowed time frame.
@@ -23,7 +23,7 @@ note right of TicketService: 3. The service checks if the cancellation is within
 
 alt isCancellable == true
     note right of TicketService: 4. Cancellation is allowed, proceed with canceling the ticket.
-    TicketService ->> Ticket : cancelTicket(ticketId: String)
+    TicketService ->> Ticket : cancelTicket(userEmail: String, eventId: String)
     activate Ticket
     Ticket --> TicketService : return cancelled
     deactivate Ticket
@@ -35,7 +35,6 @@ alt isCancellable == true
     deactivate TicketInfo
 
     TicketService -->> TicketSystem : return success
-
 end
 
 deactivate TicketService
