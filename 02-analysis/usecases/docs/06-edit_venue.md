@@ -10,17 +10,10 @@
 ### Sequence Diagram
 
 ## Alternate Course of Events
-#### Incorrect Capacity
-- The organiser or administrator selects the add venue functionality
-- The system displays the add venue page (11-add-venue) page
-- The organiser or administrator enters the details of the venue(Name, Address, Ticket Types(ticketTypeName, number),Contact information (name, phone, email))
-- The system warns the organiser or administrator that the total capacity of the venue does not match the sum of the different types of tickets (Alternative/add_venue-capacity.png)
-- The organiser or administrator clicks OK
-- The system returns to step 2 of the use case
 
 #### Duplicate Venue
 - The organiser or administrator selects the add venue functionality
-- The system displays the add venue page (11-add-venue) page
+- The system displays the add venue page (26-create_venue.png) page
 - The organiser or administrator enters the details of the venue(Name, Address, Ticket Types(ticketTypeName, number),Contact information (name, phone, email))
 - The displays an error message and prevents saving the duplicate entry(add_venue-duplicate.png).
 - The organiser or administrator clicks OK
@@ -29,4 +22,16 @@
 ### Sequence Diagram-- Alternate Course of Events
 
 ## UI Sketches
-This is the page that the user must be on at the start to complete the use case.
+This is the page that the user must be on at the start to complete the use case
+- The organizer is on my list venues page (25-list_my_venues.png).
+- The administrator is on the all venues page (04-view_all_venues.png).
+### List Venue Page
+![List Venue Page](/02-analysis/UI/organizer/25-list_my_venues.png)
+### Create Venue Page
+![View All Venues](/02-analysis/UI/admin/04-view_all_venues.png)
+### Edit Venue Page
+![Edit Venue Page](/02-analysis/UI/organizer/27-edit_venue.png)
+
+### Create Venue Duplicate Page
+![List Venue Page](/01-requirements/UI/organizer/Alternative/add_venue-duplicate.png)
+

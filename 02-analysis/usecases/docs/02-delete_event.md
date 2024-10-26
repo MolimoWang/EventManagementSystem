@@ -6,12 +6,14 @@
 - The system asks the administrator to confirm.
 - The administrator selects **Yes**.
 - The event is deleted.
-- A confirmation message is shown to the administrator.
+- The system returns to the previous interface.
 
 ### Course of Events-- Organizer
-- The organizer selects the event to be canceled and confirms the cancellation.
-- The system marks the event as canceled and displays a confirmation message.
-- The system sends notifications to users who have purchased tickets for the canceled event.
+- The organizer selects the event to delete.
+- The system asks the organizer to confirm.
+- The organizer selects **Yes**.
+- The event is deleted.
+- The system returns to the previous interface.
 
 ### Sequence Diagram
 
@@ -22,7 +24,7 @@
 - The system asks the administrator(organizer) to confirm.
 - The administrator(organizer) selects **No**.
 - The system returns to the previous interface, and no event is deleted.
-- 
+
 ### Sequence Diagram-- Alternate Course of Events
 
 ## UI Sketches
@@ -34,5 +36,5 @@ This is the page that the user must be on at the start to complete the use case.
 
 ### Organizer
 This is the page that the user must be on at the start to complete the use case.
-![View Events History](/02-analysis/UI/organizer/02-view_events_history.png)
+![View Events History](/02-analysis/UI/organizer/18-list_my_events.png)
 ![Delete Event](/02-analysis/UI/organizer/21-delete_event.png)

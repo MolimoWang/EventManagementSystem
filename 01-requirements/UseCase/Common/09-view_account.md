@@ -1,4 +1,4 @@
-# View Organizer Account Use Case
+# View Account Use Case
 
 ## Description
 Allows the administrator or user to view the details of an account in the system
@@ -8,7 +8,7 @@ Allows the administrator or user to view the details of an account in the system
 
 ## Triggers
 - This use case is triggered when the administrator or user needs to view the details of an account in the system
-- 
+
 ## Preconditions
 -  The administrator is on the view all accounts page(07-view_all_accounts.png).
 -  The organizer is on their main page(17-view_all_events.png).
@@ -26,7 +26,7 @@ Allows the administrator or user to view the details of an account in the system
 - The system displays the view account page (30-view_organizer_account.png,35-view_user_account.png) which shows the details of the selected account
 
 #### Course of Events-- Any User Viewing Their Account
-- The organizer or user is on their main page(17-view_all_events.png,34-view_all_events.png).
+- The organizer or user is on their main page(17-view_all_events.png,34-view_all_events.png) and press **Account** button.
 - The system displays the view account page (30-view_organizer_account.png,35-view_user_account.png) which shows the details of the selected account
 
 ### 02 - Alternate course of events

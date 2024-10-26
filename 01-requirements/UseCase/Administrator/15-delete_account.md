@@ -1,4 +1,4 @@
-# Use Case: Delete Event
+# Use Case: Delete Account
 
 ## Description
 - This use case allows an administrator to delete an existing account from the system.

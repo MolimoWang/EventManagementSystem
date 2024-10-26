@@ -69,7 +69,6 @@ package "Venue Management" {
         - contactName: String
         - contactPhoneNumber: String
         - contactEmail: String
-        - capacity: int
     }
 
     class VenueService {

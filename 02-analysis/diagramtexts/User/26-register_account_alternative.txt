@@ -19,15 +19,9 @@ note right of AccountService: 3. The service checks if the name and email are un
     Account --> AccountService : return isDuplicate
     deactivate Account
 
-alt isDuplicate == false
-    note right of AccountService: 4. Account information is valid, proceed with creation.
-    AccountService ->> Account : createAccount(accountDetails: AccountDetails)
-    activate Account
-    Account --> AccountService : return accountCreated
-    deactivate Account
-
-    AccountService -->> AccountSystem : return success
-
+alt isDuplicate == true
+    note right of AccountService: 4. Account information is not unique, return failure.
+    AccountService -->> AccountSystem : return failure
 end
 
 deactivate AccountService
