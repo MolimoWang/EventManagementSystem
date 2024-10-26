@@ -1,0 +1,28 @@
+title View Events History - Basic Course of Events
+participantspacing 2
+
+actor "Administrator" as admin
+control ": EventSystem" as es
+participant ": EventService" as esvc
+entity "e : Event" as event
+
+== 1. The administrator selects 'View Event History' from the main page (01-view_all_events.png) ==
+admin -> es: viewEventHistory()
+activate es
+
+== 2. The system retrieves the history of all past events ==
+es -> esvc: getEventHistory()
+activate esvc
+note right of esvc: The system queries the database to fetch the list\nof all past events
+esvc -> event: readEventHistory()
+
+
+esvc --> es: return event history
+deactivate esvc
+
+es -> es: updateDisplay()
+
+== 3. The system displays the list of past events (02-view_events_history.png) ==
+es --> admin: display event history
+deactivate es
+

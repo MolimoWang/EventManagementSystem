@@ -21,7 +21,7 @@ activate nu
 nu --> asvc: 
 deactivate nu
 
-asvc -> asvc: updateAccount(accountDetails)
+asvc -> asvc: updateUserAccount(newName: String, newPassword:String)
 activate asvc
 note over asvc: The saveAccount method is a standin for\nthe future operation of saving the created\nuser account in the database
 asvc --> asvc: 

@@ -22,7 +22,7 @@ activate no
 no --> asvc: 
 deactivate no
 
-asvc -> asvc: updateAccount(accountDetails)
+asvc -> asvc: updateOrganizerAccount(newName: String, newPassword:String,newAddress:String,newCompanyName :String, newPhoneNumber:String)
 activate asvc
 note over asvc: The saveAccount method is a standin for\nthe future operation of saving the created\norganizer account in the database
 asvc --> asvc: 

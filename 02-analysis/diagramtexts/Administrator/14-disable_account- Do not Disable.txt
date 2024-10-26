@@ -1,0 +1,21 @@
+title Disable Account - Do Not Disable
+participantspacing 2
+
+actor "Administrator" as admin
+control ": AccountSystem" as acs
+
+== 1. The administrator selects an account to disable ==
+admin -> acs: selectAccount(accountEmail)
+activate acs
+
+acs -> admin: confirm()
+activate admin
+== 2. The system asks the administrator to confirm (15 - Disable Account - Confirmation Dialog) \n 3. The administrator selects **No** ==
+admin --> acs: return false
+deactivate admin
+
+acs --> admin: return to account list
+deactivate acs
+
+== 4. The system updates the view all accounts page with no changes ==
+
