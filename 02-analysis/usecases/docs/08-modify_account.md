@@ -10,6 +10,14 @@
 - A confirmation message is shown to the administrator.
 - The system back to the view all accounts page(07-view_all_accounts.png)and show the updated account.
 ### Sequence Diagram
+#### Administrator Modifying Organizer Account
+![Administrator Modifying Other Accounts](02-analysis/sequence-diagrams/Common/08-administrator_modify_account_organizer.png)
+
+#### Administrator Modifying User Account
+![Administrator Modifying Other Accounts](02-analysis/sequence-diagrams/Common/08-administrator_modify_account_user.png)
+
+#### Administrator Modifying Administrator Account
+![Administrator Modifying Other Accounts](02-analysis/sequence-diagrams/Common/08-modify_account_administrator.png)
 
 ### Course of Events-- Organizer Modifying Their Accounts
 - The organizer selects the "Edit" option from view account page(30-view_organizer_account).
@@ -18,6 +26,8 @@
 - The organizer clicks "Save Changes" to confirm the modifications.
 - The system back to the view account page(30-view_organizer_account).
 ### Sequence Diagram
+
+![Organizer Modifying Their Accounts](02-analysis/sequence-diagrams/Common/08-modify_account_organizer.png)
 
 ### Course of Events-- User Modifying Their Accounts
 - The user click the 'Account' option from the view account page(35-view_user_account.png).
@@ -28,6 +38,8 @@
 - The user click the 'Save' option to save the change.
 - The system back to the view account page(35-view_user_account.png).
 ### Sequence Diagram
+
+![User Modifying Their Accounts](02-analysis/sequence-diagrams/Common/08-modify_account_user.png)
 
 ## Alternate Course of Events
 
