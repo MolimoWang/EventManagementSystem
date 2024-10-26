@@ -1,0 +1,40 @@
+@startuml
+title Log in
+
+actor "User" as us
+
+control ": AccountSystem" as as
+participant ": AccountService" as u
+entity " : Account" as uc
+
+note right of us: 1.The user enters their credentials.
+us->as: login(email, password)
+
+activate as
+
+note right of as: 2.The system passes requests to the service.
+as -> u: getAccount(email, password)
+
+activate u
+activate uc
+
+note right of u: 3.Service queries all accounts and returns results.
+loop for each account
+  u->uc: e := getAccount(email, password)
+end
+
+uc --> u : return true
+
+deactivate uc
+
+u --> as : return true
+
+deactivate u
+
+note right of as: 4.The system displays the main page of the system.
+as->as:showMainPage()
+
+as-->us:
+deactivate as
+
+@enduml

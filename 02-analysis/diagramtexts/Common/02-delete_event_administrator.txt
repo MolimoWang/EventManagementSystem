@@ -1,0 +1,45 @@
+@startuml
+title Delete event
+
+actor "Admin" as a
+control ": EventSystem" as s
+participant ": EventService" as u
+entity "all : Event" as ae
+entity "deletedEvent : Event" as de
+
+note right of a: 1.The administrator selects the event to delete.
+
+a->s:deleteEvent(eventName)
+activate s
+
+note right of s: 2.The system passes requests to the service.
+s->u: deleteEvent(eventName)
+activate u
+
+note right of u: 3.The service queries this event among all events.
+loop for every event
+  u->ae:getEvent(eventName)
+end
+
+ae -->u: return true
+
+activate de
+
+note right of ae: 4.The event is deleted.
+u->de : deleteEvent(eventName)
+
+de-->u : return true
+
+deactivate de
+destroy de
+
+u-->s:return true
+deactivate u
+
+note right of s: 5.The system displays remaining events to the administrator.
+s->s:listEvents()
+
+s-->a:
+deactivate s
+
+@enduml

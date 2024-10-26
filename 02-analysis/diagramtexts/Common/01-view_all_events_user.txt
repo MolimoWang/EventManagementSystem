@@ -1,0 +1,27 @@
+@startuml
+title View All Events
+
+actor "User" as a
+control ": EventSystem" as s
+participant ": EventService" as u
+
+note right of a: 1. The User wants to view all events.
+a->s:listEvents()
+activate s
+
+note right of s: 2. The system passes requests to the service.
+s->u: getEvents()
+
+activate u
+
+note right of u: 3. The service return the list of events.
+u-->s:return events
+deactivate u
+
+note right of s: 4. The system displays the events.
+s->s:displayEvents(events)
+
+s-->a:
+deactivate s
+
+@enduml

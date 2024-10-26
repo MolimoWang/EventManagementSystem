@@ -1,29 +1,43 @@
 # 02 Delete Event
 
-## Basic Course of Events
-### Course of Events-- Administrator
-- The administrator selects the event to delete.
-- The system asks the administrator to confirm.
-- The administrator selects **Yes**.
-- The event is deleted.
-- A confirmation message is shown to the administrator.
 
-### Course of Events-- Organizer
-- The organizer selects the event to be canceled and confirms the cancellation.
-- The system marks the event as canceled and displays a confirmation message.
-- The system sends notifications to users who have purchased tickets for the canceled event.
+## Basic Course of Events
+### Course of Events -- Administrator
+- 1.The administrator selects the event to delete.
+- 2.The system passes requests to the service.
+- 3.The service queries this event among all events.
+- 4.The service asks the administrator to confirm.
+- 5.The administrator selects **Yes**.
+- 6.The event is deleted.
+- 7.The system displays remaining events to the administrator.
 
 ### Sequence Diagram
+![Delete Event_Administrator](/02-analysis/sequence-diagrams/Common/02-delete_event_administrator.png)
+
+### Course of Events -- Organizer
+- 1.The organizer selects the event to delete.
+- 2.The system queries this event among all events.
+- 3.The system passes requests to the service.
+- 4.The system asks the organizer to confirm.
+- 5.The organizer selects **Yes**.
+- 6.The event is deleted.
+- 7.The system displays remaining events to the organizer.
+
+### Sequence Diagram
+![Delete Event_Organizer](/02-analysis/sequence-diagrams/Common/02-delete_event_organizer.png)
 
 ## Alternate Course of Events
 
 #### Do Not Delete
-- The administrator(organizer) selects an event to delete.
-- The system asks the administrator(organizer) to confirm.
-- The administrator(organizer) selects **No**.
-- The system returns to the previous interface, and no event is deleted.
-- 
-### Sequence Diagram-- Alternate Course of Events
+- 1.The administrator(organizer) selects an event to delete.
+- 2.The system passes requests to the service.
+- 3.The service queries this event among all events.
+- 4.The system asks the administrator(organizer) to confirm.
+- 5.The administrator(organizer) selects **No**.
+- 6.The system returns to the previous interface, and no event is deleted.
+
+### Sequence Diagram -- Alternate Course of Events
+- In this case, all interactions are completed within the JS code of the page. No request is made to the server and no response is received.
 
 ## UI Sketches
 
