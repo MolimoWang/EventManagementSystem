@@ -27,5 +27,5 @@ This is the page that the user must be on at the start to complete the use case.
 #### Administrator
 
 ## Data Outcome
-- **READ** The venue usage history will be shown on the system and the administrator can read it.
-- **UPDATE** None
+- **READ** - The venue usage history will be shown on the system and the administrator can read it.
+- **UPDATE** - None
