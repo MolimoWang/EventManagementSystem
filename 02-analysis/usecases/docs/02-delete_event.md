@@ -41,12 +41,18 @@
 
 ## UI Sketches
 
-### Administrator
+### Main Page
+
+#### Administrator
 This is the page that the user must be on at the start to complete the use case.
 ![View Events History](/02-analysis/UI/admin/02-view_events_history.png)
 ![Delete Event](/02-analysis/UI/admin/03-delete_event.png)
 
-### Organizer
+#### Organizer
 This is the page that the user must be on at the start to complete the use case.
 ![View Events History](/02-analysis/UI/organizer/02-view_events_history.png)
 ![Delete Event](/02-analysis/UI/organizer/21-delete_event.png)
+
+## Data Outcome
+- **Read** - The selected event will be deleted in the system.
+- **UPDATE** - The number of events will be changed.

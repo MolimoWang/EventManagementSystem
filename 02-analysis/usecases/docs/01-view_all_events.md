@@ -72,3 +72,7 @@ There the pages that the user must be on at the start to complete the use case.
 #### Main Page
 ![Main Page](/02-analysis/UI/user/34-view_all_events.png)
 
+## Data Outcome
+- **Read** - All events will be shown on the system and the administrator, organizer or user can read it.
+- **UPDATE** - None
+

@@ -1,35 +1,38 @@
-title Organizer View Event Registration Process
+@startuml
+title View event registrations
 
-actor Organizer
+actor "Admin/Organizer" as a
+control ": TicketSystem" as s
+participant ": TicketService" as u
+entity "all : Tickets" as ae
 
+note right of a: 1.The administrator or organizer wants to see the event registrations.
 
-participant EventSystem
-participant EventService
-participant Event
+a->s:getRegistrations(eventName)
+activate s
 
-Organizer ->> EventSystem : viewEvents(action)
-activate EventSystem
+note right of s: 2.The system passes requests to the service.
+s->u: getRegistrations(eventName)
 
-EventSystem->>EventService: viewEvents(eventDetails)
-activate EventService
-activate Event
+activate u
+activate ae
 
- EventService->>Event: getEvent(eventDetails)
-loop For every Events
+note right of u: 3.The service queries the registrations among all tickets.
+loop for every ticket
+  u->ae:getUser(eventName)
+  ae -->u: return targetUser
+end
 
- EventService->>Event: getEventDiscription(Discription)
-  Event-->EventService: return Event Discription
- end
-  Event-->EventService: return choosed Event Details
- deactivate Event
+deactivate ae
 
+u-->s:return targetRegistrations
 
+deactivate u
 
+note right of s: 4.The system displays the registrations to admin/organizer .
+s->s:displayRegistrations(targetRegistrations)
 
-EventService-->EventSystem:return choosed Event Details
-deactivate EventService
-EventSystem->EventSystem:return choosed Event Details Page(contain registration)
-EventSystem-->Organizer:
-deactivate EventSystem
+s-->a:
+deactivate s
 
-
+@enduml
