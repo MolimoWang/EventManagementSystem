@@ -16,7 +16,7 @@
     4. Venue
     5. Organiser
     6. Ticket type, price, available and sold.
-
+ 
 ### Sequence Diagram
 
 ![view_event_details_administrator](/02-analysis/sequence-diagrams/Common/03-view_event_details_administrator.png)

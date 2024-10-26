@@ -25,7 +25,7 @@
 
 ### Sequence Diagram
 ![Delete Event_Organizer](/02-analysis/sequence-diagrams/Common/02-delete_event_organizer.png)
-
+ 
 ## Alternate Course of Events
 
 #### Do Not Delete

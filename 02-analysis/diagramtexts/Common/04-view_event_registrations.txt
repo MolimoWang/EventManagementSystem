@@ -25,6 +25,7 @@ loop For every Events
 
 
 
+
 EventService-->EventSystem:return choosed Event Details
 deactivate EventService
 EventSystem->EventSystem:return choosed Event Details Page(contain registration)

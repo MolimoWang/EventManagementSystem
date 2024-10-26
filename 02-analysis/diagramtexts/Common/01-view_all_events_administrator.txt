@@ -9,6 +9,7 @@ note right of a: 1. The administrator wants to view all events.
 a->s:listEvents()
 activate s
 
+
 note right of s: 2. The system passes requests to the service.
 s->u: getEvents()
 

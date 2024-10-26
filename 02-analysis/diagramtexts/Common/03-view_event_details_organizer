@@ -25,6 +25,7 @@ ae -->u: return targetEvent
 
 activate de
 
+
 note right of ae: 4.The target event details is found.
 u->de : getEventDetails(targetEvent)
 

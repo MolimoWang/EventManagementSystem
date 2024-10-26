@@ -9,7 +9,7 @@
 - 5.Service queries all accounts and returns results.
 - 6.The system displays the main page of the system. The administrator is on their main page(01-view_all_events.png). The organizer is on their main page(17-view_all_events.png). The user is on their main page(34-view_all_events.png).
 
-
+ 
 ### Sequence Diagram
 ![Login](/02-analysis/sequence-diagrams/Common/00-login_basic.png)
 

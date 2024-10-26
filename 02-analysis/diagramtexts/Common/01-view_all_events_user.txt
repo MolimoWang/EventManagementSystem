@@ -14,6 +14,7 @@ s->u: getEvents()
 
 activate u
 
+
 note right of u: 3. The service return the list of events.
 u-->s:return events
 deactivate u

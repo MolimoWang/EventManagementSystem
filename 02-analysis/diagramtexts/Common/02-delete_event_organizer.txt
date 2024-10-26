@@ -25,6 +25,7 @@ ae -->u: return true
 
 activate de
 
+
 note right of ae: 4.The event is deleted.
 u->de : deleteEvent(eventName)
 

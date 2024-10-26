@@ -33,7 +33,7 @@
 
 ### Sequence Diagram
 ![view_all_events_Organizer](/02-analysis/sequence-diagrams/Common/01-view_all_events_organizer.png)
-
+ 
 #### Course of Events
 1. After logging in, the user is presented with the main page(34-view_all_events.png), displaying a table of all scheduled events for the current date.
 2. The system passes requests to the service.
