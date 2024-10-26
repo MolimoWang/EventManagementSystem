@@ -1,23 +1,33 @@
+title View Venue Details
+
+
 actor "Administrator" as a
 control ": VenueSystem" as s
 participant ": VenueService" as u
 entity "all : Venue" as m
+entity "Venue : selectedVenue" as sm
 
-
+==The administrator is on the list venues page **(04-view_all_venues.png)** or view event detail page**(22-view_event_details.png)**.==
 a->s:viewVenue(venueName)
 activate s
+activate u
 
 s->u: getVenue(venueName)
-loop [for every venue]
-  u->m: getName()
-end loop  
+note right of u:The getVenue(venueName) method is a  stadin for the future operation of retrieving venue with the corresponding name.
 
-activate u
+loop for every venue
+u->m: getName()
+end loop
+
+
 
 u-->s:return selectedVenue
 deactivate u
 
+s->sm:getVenueDetails(selectedeVenues)
 s->s:displayVenue(selectedVenue)
 
 s-->a:
 deactivate s
+
+==The system turn to view venue details page**(28-view_venue_details.png)** which displays the detailed information of the selected venue.==
