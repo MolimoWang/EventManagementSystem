@@ -8,7 +8,7 @@
 - The system update the view all accounts page(7-view_all_accounts.png) with this account deleted.
 
 ### Sequence Diagram
-
+![Delete Account](\eventmanagementsystem\02-analysis\sequence-diagrams\Administrator\15-delete_account.png)
 ## Alternate Course of Events
 
 #### Do Not Delete
