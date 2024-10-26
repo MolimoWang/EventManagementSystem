@@ -1,0 +1,42 @@
+title Actor Edit Venue Details
+
+actor Actor
+boundary VenueSystem
+control VenueService
+entity Venue
+entity TicketType
+
+
+note right of Actor:1. The organiser or administrator\nselects the edit venue functionality.
+Actor ->> VenueSystem : updateVenue(venueDetails: VenueDetails)
+
+activate VenueSystem
+note right of VenueSystem:2. The system displays a form with\ the current venue details (27-edit_venue.png).
+    VenueSystem ->> VenueService : updateVenue(venueDetails: VenueDetails)
+    activate VenueService
+
+ note right of VenueService:3. The organiser or administrator updates the information\n(Name, Address, Ticket Types(ticketTypeName, number),\nContact information (name, phone, email)).
+
+ VenueService ->> Venue : Venue(name, address, contactName, phoneNumber, contactEmail, ticketType)
+activate Venue
+        Venue->>TicketType:TicketType(ticketTypeName,number)
+TicketType -->Venue:return ticketType
+
+Venue --> VenueService : return v
+
+deactivate Venue
+
+note right of VenueService:4. The organiser or administrator clicks "Save Changes" to confirm the modifications.
+
+    VenueService ->> VenueService : checkDuplicateVenue(v)
+    activate VenueService
+    VenueService --> VenueService : return isDuplicate
+    deactivate VenueService
+
+    alt isDuplicate == true
+        VenueService -->> VenueSystem : return false
+deactivate VenueSystem
+deactivate VenueService
+end
+note right of Actor: 5. The system updates the list of upcoming events\nand return to the list venues page (25-list_my_venues.png).
+VenueSystem -->> Actor :

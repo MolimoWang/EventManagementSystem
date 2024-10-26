@@ -1,55 +1,32 @@
-title Actor Edit Venue Deatils
-
+title Actor Edit Venue Details
 
 actor Actor
-participant VenueSystem
-participant VenueService
-participant Venue
+boundary VenueSystem
+control VenueService
+entity Venue
+entity TicketType
 
-Actor ->>  VenueSystem : updateVenue(venueDetails: VenusDetails)
+
+note right of Actor:1. The organiser or administrator\nselects the edit venue functionality.
+Actor ->> VenueSystem : updateVenue(venueDetails: VenueDetails)
+
 activate VenueSystem
-
-
-    VenueSystem ->> VenueService :updateVenue(venueDetails: VenusDetails)
-   activate VenueService
-
-
-
-    VenueService ->> VenueService : getVenueName(name)
+note right of VenueSystem:2. The system displays a form with\ the current venue details (27-edit_venue.png).
+    VenueSystem ->> VenueService : updateVenue(venueDetails: VenueDetails)
     activate VenueService
-    VenueService -->VenueService : return name
-    deactivate VenueService
 
-    VenueService ->>VenueService : getVenueAddress(address)
-    activate VenueService
-    VenueService --> VenueService : return address
-    deactivate VenueService
+ note right of VenueService:3. The organiser or administrator updates the information\n(Name, Address, Ticket Types(ticketTypeName, number),\nContact information (name, phone, email)).
 
-    VenueService ->>VenueService : getVenueContactName(contactName)
-    activate VenueService
-    VenueService --> VenueService : return contactName
-    deactivate VenueService
+ VenueService ->> Venue : Venue(name, address, contactName, phoneNumber, contactEmail, ticketType)
+activate Venue
+        Venue->>TicketType:TicketType(ticketTypeName,number)
+TicketType -->Venue:return ticketType
 
-    VenueService ->> VenueService : getVenueContactPhoneNumber(phoneNumber)
-    activate VenueService
-    VenueService --> VenueService : return phoneNumber
-    deactivate VenueService
+Venue --> VenueService : return v
 
-    VenueService ->> VenueService : geVenuetContactEmail(contactEmail)
-    activate VenueService
-    VenueService --> VenueService : return contactEmail
-    deactivate VenueService
-
-    VenueService ->> VenueService : getVenueCapacity(capacity)
-    activate VenueService
-    VenueService --> VenueService : return capacity
-   deactivate VenueService
-
-
- VenueService ->> Venue : Venue(name, address, contactName, phoneNumber, contactEmail, capacity)
-        activate Venue
-        Venue --> VenueService : return v
 deactivate Venue
+
+note right of VenueService:4. The organiser or administrator clicks "Save Changes" to confirm the modifications.
 
     VenueService ->> VenueService : checkDuplicateVenue(v)
     activate VenueService
@@ -65,11 +42,9 @@ deactivate Venue
         deactivate VenueService
 
         VenueService -->> VenueSystem : return true
-    else isDuplicate == true
-        VenueService -->> VenueSystem : return false
+   VenueSystem : return false
 deactivate VenueSystem
 deactivate VenueService
 end
+note right of Actor: 5. The system updates the list of upcoming events\nand return to the list venues page (25-list_my_venues.png).
 VenueSystem -->> Actor :
-
-

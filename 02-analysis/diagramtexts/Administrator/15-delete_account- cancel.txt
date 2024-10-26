@@ -1,0 +1,38 @@
+title Delete Account - Alternate Course of Events (Cancel)
+participantspacing 2
+
+actor "Administrator" as admin
+control ": AccountSystem" as acs
+participant ": AccountService" as asvc
+entity "current : Account" as all
+entity "selected : Account" as sel
+
+== 1. The administrator is on the 'View All Accounts' page (07-view_all_accounts.png) ==
+== 2. The administrator selects an account to delete from the displayed list ==
+
+admin -> acs: selectAccount(accountId)
+activate acs
+
+loop for each account currently displayed on the screen
+  acs -> all: getAccount(accountDetails)
+end
+
+acs -> acs: updateDisplay()
+acs --> admin: 
+deactivate acs
+
+== 3. The system highlights the account to indicate it is selected \n 4. The administrator selects the delete account functionality ==
+
+admin -> acs: deleteSelected()
+activate acs
+
+acs -> admin: confirm()
+activate admin
+== 5. The system asks the administrator to confirm (16 - Delete Account - Confirmation Dialog) \n 6. The administrator selects **Cancel** ==
+admin --> acs: return false
+deactivate admin
+
+acs --> admin: return to account list
+deactivate acs
+
+== 7. The system returns to the 'View All Accounts' page without any changes (07-view_all_accounts.png) ==

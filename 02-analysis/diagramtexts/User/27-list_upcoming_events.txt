@@ -1,0 +1,28 @@
+title List Upcoming Events Sequence Diagram
+
+actor User
+boundary EventSystem
+control EventService
+entity Event
+
+note right of User: 1. The user selects 'Upcoming' option from the main page.
+User ->> EventSystem : listEvents()
+
+activate EventSystem
+note right of EventSystem: 2. The system forwards the request to the EventService.
+    EventSystem ->> EventService : getEvents()
+    activate EventService
+
+note right of EventService: 3. The service retrieves the upcoming events.
+    loop For each event in upcomingEventsList
+        EventService ->> Event : getEvent(name: String)
+        activate Event
+        Event --> EventService : return eventDetails
+        deactivate Event
+    end
+
+upcomingEventsList.size() > 0
+    note right of EventService: 4. There are upcoming events, proceed to display them.
+    EventService -->> EventSystem : return upcomingEventsList
+    EventSystem -->> User : displayUpcomingEvents(upcomingEventsList)
+

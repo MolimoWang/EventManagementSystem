@@ -1,0 +1,24 @@
+title Create Account - Duplicate Email Error
+participantspacing 2
+
+actor "Administrator" as admin
+control ": AccountSystem" as acs
+participant ": AccountService" as asvc
+
+==1. The user navigates to 'View All Accounts' page==
+note right of admin: This part happens in the UI
+==2. The user selects 'New Account'\n3. The system displays a form to enter details==
+admin -> acs: createAccount(accountDetails)
+activate acs
+==4. The user enters name, email, and password==
+acs -> asvc: checkEmailExists(email)
+activate asvc
+asvc --> acs: email exists
+deactivate asvc
+
+note right of acs: The system displays an error message indicating\nthat the email is already associated with another account
+acs -> admin: display 'Email already exists'
+
+deactivate acs
+==5. The system prompts the user to use a different email or edit the existing account==
+

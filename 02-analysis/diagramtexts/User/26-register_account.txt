@@ -1,0 +1,36 @@
+title Create User Account Sequence Diagram
+
+actor User
+boundary AccountSystem
+control AccountService
+entity Account
+
+note right of User: 1. The user wants to create an account at the login page.
+User ->> AccountSystem : createAccount(accountDetails: AccountDetails)
+
+activate AccountSystem
+note right of AccountSystem: 2. The system forwards the request to the AccountService.
+    AccountSystem ->> AccountService : createAccount(accountDetails: AccountDetails)
+    activate AccountService
+
+note right of AccountService: 3. The service checks if the name and email are unique.
+    AccountService ->> Account : checkDuplicateAccount(name: String, email: String)
+    activate Account
+    Account --> AccountService : return isDuplicate
+    deactivate Account
+
+alt isDuplicate == false
+    note right of AccountService: 4. Account information is valid, proceed with creation.
+    AccountService ->> Account : createAccount(accountDetails: AccountDetails)
+    activate Account
+    Account --> AccountService : return accountCreated
+    deactivate Account
+
+    AccountService -->> AccountSystem : return success
+
+end
+
+deactivate AccountService
+
+note right of User: 5. The system notifies the user of the result.
+AccountSystem -->> User : accountCreationResult

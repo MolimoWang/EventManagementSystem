@@ -1,0 +1,28 @@
+title View Purchased Tickets Sequence Diagram
+
+actor User
+boundary TicketSystem
+control TicketService
+entity Ticket
+
+note right of User: 1. The user clicks 'Tickets' on their main page.
+User ->> TicketSystem : viewPurchasedTickets()
+
+activate TicketSystem
+note right of TicketSystem: 2. The system forwards the request to the TicketService.
+    TicketSystem ->> TicketService : getPurchasedTickets(userId: String)
+    activate TicketService
+
+note right of TicketService: 3. The service retrieves the purchased tickets.
+    TicketService ->> Ticket : readPurchasedTickets(userId: String)
+    activate Ticket
+    Ticket --> TicketService : return purchasedTicketsList
+    deactivate Ticket
+
+purchasedTicketsList.size() > 0
+    note right of TicketService: 4. There are purchased tickets, proceed to display them.
+    TicketService -->> TicketSystem : return purchasedTicketsList
+    TicketSystem -->> User : displayPurchasedTickets(purchasedTicketsList)
+
+
+end

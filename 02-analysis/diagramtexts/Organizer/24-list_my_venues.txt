@@ -1,0 +1,22 @@
+title Organizer List My Venues  Page
+
+
+actor Organizer
+boundary VenueSystem
+control VenueService
+
+note right of Organizer:1. The organizer selects the "My Venues" \noption from the main page.
+Organizer ->> VenueSystem : listMyEvents(List<Events>)
+activate VenueSystem
+
+note right of VenueSystem:2. The system turn my venues page(25-list_my_venues.png) \nto the displays a list of all the venues created.
+loop For every Venue
+ VenueSystem ->> VenueService : getVenue(Venue)
+  activate VenueService
+   VenueService -->> VenueSystem :return Venue
+   deactivate VenueService
+end
+
+
+VenueSystem -->> Organizer :return my event messages
+deactivate VenueSystem
