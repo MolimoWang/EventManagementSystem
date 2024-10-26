@@ -1,0 +1,45 @@
+@startuml
+title View event details
+
+actor "Organizer" as a
+control ": EventSystem" as s
+participant ": EventService" as u
+entity "all : Event" as ae
+entity "targetEvent : Event" as de
+
+note right of a: 1.The organizer selects an event to view its details.
+
+a->s:viewEvent(eventName)
+activate s
+
+note right of s: 2.The system passes requests to the service.
+s->u: getEventDetails(eventName)
+activate u
+
+note right of u: 3.The service queries this event among all events.
+loop for every event
+  u->ae:getEvent(eventName)
+end
+
+ae -->u: return targetEvent
+
+activate de
+
+
+note right of ae: 4.The target event details is found.
+u->de : getEventDetails(targetEvent)
+
+de-->u : return targetDetails
+
+deactivate de
+
+u-->s:return targetDetails
+deactivate u
+
+note right of s: 5.The system displays the details to the organizer .
+s->s:displayEventDetails(targetDetails)
+
+s-->a:
+deactivate s
+
+@enduml

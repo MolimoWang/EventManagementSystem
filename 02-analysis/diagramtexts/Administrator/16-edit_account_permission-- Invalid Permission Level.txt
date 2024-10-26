@@ -1,0 +1,24 @@
+title Edit Account Permission - Invalid Permission Level
+participantspacing 2
+
+actor "Administrator" as admin
+control ": AccountSystem" as acs
+
+== 1. The administrator selects an account to modify ==
+admin -> acs: selectAccountToEdit(accountId)
+activate acs
+
+
+== 2. The administrator attempts to assign an invalid permission level ==
+admin -> acs: changePermission(accountId, permissionLevel)
+
+note right of acs: The system checks if the selected permission level is valid
+acs -> acs: validatePermission(accountId,permissionLevel)
+activate acs
+note right of acs: Validation fails because the selected permission\nis not among the allowed options
+
+acs --> admin: display 'Invalid permission level'
+note right of admin: The system prompts the administrator to select\na valid permission level
+
+deactivate acs
+
