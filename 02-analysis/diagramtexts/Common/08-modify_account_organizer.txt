@@ -1,0 +1,63 @@
+title Organizer Modify Account
+
+actor "Organizer" as a
+control "AccountSystem" as b
+participant "AccountService" as c
+entity "all: Account" as d
+entity "selectedAccount: Account" as e
+
+==1. The organizer selects the "Edit" option from view account page **(30-view_organizer_account)**. ==
+
+a -> b:showEditAccount(accountEmail)
+activate b
+
+b -> c:getAccount(accountEmail)
+activate c
+
+note right of c:The getAccount method is a standin for the future operation of retrieving account with the corresponding name.
+
+loop for all accounts
+  c -> d:getEmail()
+end loop
+
+c --> b: return selectedAccount
+b -> b: displayEditAccountPage(selectedAccount)
+note right of b:The system displays the modify account page **(31-update_organizer_account.png)**
+
+deactivate c
+b --> a:
+deactivate b
+
+note right of a :The organizer can change five things: **Name** **Password** **Address** **CompanyName** and **PhoneNumber**.
+
+note right of a:The organizer enters the updated details of the account.
+a -> b:updateOrganizerAccount(newName,newPassword,newAddress,newCompanyName,newPhoneNumber).
+activate b
+note right of b:The organizer clicks "Save Changes" to confirm the modifications.
+
+
+b -> c: getAccount(accountEmail)
+activate c
+
+loop for all accounts
+  c -> d:getEmail()
+end loop
+
+c --> b: return selectedAccount
+deactivate c
+
+b -> e:setName(newName)
+b -> e:setPassword(newPassword)
+b -> e:setAddress(newAddress)
+b -> e:setCompanyName(newCompanyName)
+b -> e:setPhoneNumber(newPhoneNumber)
+
+b -> c: getAccounts()
+activate c
+c --> b: return accounts
+b -> b: displayAccounts(accounts)
+b --> a:
+deactivate c
+
+deactivate b
+==The system back to the view account page **(30-view_organizer_account)**=

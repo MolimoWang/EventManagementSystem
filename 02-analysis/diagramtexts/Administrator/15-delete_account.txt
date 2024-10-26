@@ -10,11 +10,11 @@ entity "selected : Account" as sel
 == 1. The administrator is on the 'View All Accounts' page (07-view_all_accounts.png) ==
 == 2. The administrator selects an account to delete from the displayed list ==
 
-admin -> acs: selectAccountToDelete(accountId)
+admin -> acs: selectAccountToDelete(accountEmail)
 activate acs
 
 loop for each account currently displayed on the screen
-  acs -> all: getAccount(accountDetails)
+  acs -> all: getAccount(accountEmail)
 end
 
 acs -> acs: updateDisplay()
@@ -32,7 +32,7 @@ activate admin
 admin --> acs: return true
 deactivate admin
 
-acs -> asvc: deleteAccount(accountId)
+acs -> asvc: deleteAccount(accountEmail)
 activate asvc
 note over asvc: The deleteAccount method is a stand-in for\ndeleting the selected account object from the database
 asvc -> sel: <<destroy>>

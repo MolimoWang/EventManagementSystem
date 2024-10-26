@@ -1,0 +1,27 @@
+title User View Account
+
+
+actor "User" as a
+control ": AccountSystem" as s
+participant ":AccountService" as u
+entity "all : Account" as m
+entity "selectedAccount : Account" as sm
+
+==1. The user is on their main page **(34-view_all_events.png)** and press **My Account button**.==
+a->s:viewAccount(accountEmail)
+activate s
+
+s->u: getAccount(accountEmail)
+
+loop [for every account]
+  u -> m: getEmail()
+end loop
+
+u --> s: return selectedAccount
+
+s -> s: displayAccount(selectedAccount)
+
+s --> a:
+deactivate s
+
+==The system displays the view account page **(35-view_user_account.png)** which shows the details of the selected account.==

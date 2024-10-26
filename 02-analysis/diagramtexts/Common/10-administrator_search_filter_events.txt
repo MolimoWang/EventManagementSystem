@@ -1,0 +1,31 @@
+title Administrator Search Filter Events
+
+
+actor "Administrator" as a
+control ": EventSystem" as s
+participant ": EventService" as u
+entity "all : Event" as m
+entity "filterEvents : Event" as sm
+== 1. The administrator is on their main page **(01-view_all_events.png)**.==
+
+note right of a:The Administrator inputs the name of the event they want to search for in the filter box.
+note right of a:The administrator click the 'Search' button.
+
+a->s:filterEvents(keyWords)
+activate s
+
+s->u: getEvents(keyWords)
+activate u
+
+loop [for every Event]
+u -> m: getDate()
+end loop
+u-->s:return filterEvents
+deactivate u
+
+s->s:displayEvents(filterEvents)
+
+s-->a:
+deactivate s
+
+==The system displays the search results.==

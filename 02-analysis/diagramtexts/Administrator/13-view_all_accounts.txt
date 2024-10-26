@@ -7,11 +7,11 @@ participant ": AccountService" as asvc
 entity "a : Account" as acc
 
 == 1. The administrator selects 'View All Accounts' ==
-admin -> acs: viewAllAccounts(accountId)
+admin -> acs: viewAccounts(accountEmail)
 activate acs
 
 == 2. The system retrieves all existing accounts ==
-acs -> asvc: getAllAccounts(accountId)
+acs -> asvc: getAccounts()
 activate asvc
 
 note over asvc: The getAllAccounts method retrieves\nall existing accounts from the database

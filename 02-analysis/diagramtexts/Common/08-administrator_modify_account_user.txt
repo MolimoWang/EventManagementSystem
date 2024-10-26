@@ -1,0 +1,61 @@
+title Administrator Modify User Account
+
+actor "Administrator" as a
+control "AccountSystem" as b
+participant "AccountService" as c
+entity "all: Account" as d
+entity "selectedAccount: Account" as e
+
+==1. The administrator is on the view all accounts page **(07-view_all_accounts.png)**. 2.The administrator selects the account to edit ==
+
+a -> b:showEditAccount(accountEmail)
+activate b
+
+b -> c:getAccount(accountEmail)
+activate c
+
+note right of c:The getAccount method is a standin for the future operation of retrieving account with the corresponding name.
+
+loop for all accounts
+  c -> d:getEmail()
+end loop
+
+c --> b: return selectedAccount
+b -> b: displayEditAccountPage(selectedAccount)
+note right of b:The system displays the modify account page **(12-edit_user_account.png)** which shows the details of the selected account as editable fields.
+
+deactivate c
+b --> a:
+deactivate b
+
+note right of a :The administrator can change two things of user: **Name** **Password**.
+
+note right of a:The administrator enters the updated details of the account.
+a -> b:updateUserAccount(newName,newPassword).
+activate b
+note right of b:The administrator clicks "Submit" to confirm the modifications.
+
+
+b -> c: getAccount(accountEmail)
+activate c
+
+loop for all accounts
+  c -> d:getEmail()
+end loop
+
+c --> b: return selectedAccount
+deactivate c
+
+b -> e:setName(newName)
+b -> e:setPassword(newPassword)
+
+b -> c: getAccounts()
+activate c
+c --> b: return accounts
+b -> b: displayAccounts(accounts)
+b --> a:
+note right of a:A confirmation message is shown to the administrator.
+deactivate c
+
+deactivate b
+==The system back to the view all accounts page **(07-view_all_accounts.png)** and show the updated account.==

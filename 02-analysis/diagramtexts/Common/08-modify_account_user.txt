@@ -1,0 +1,58 @@
+title User Modify Account
+
+actor "User" as a
+control "AccountSystem" as b
+participant "AccountService" as c
+entity "all: Account" as d
+entity "selectedAccount: Account" as e
+
+==1. The user click the 'Account' option from the view account page **(35-view_user_account.png)**. 2.The system displays the the modify account page **(42-edit_user_account.png)**. ==
+
+a -> b:showEditAccount(accountEmail)
+activate b
+
+b -> c:getAccount(accountEmail)
+activate c
+
+note right of c:The getAccount method is a standin for the future operation of retrieving account with the corresponding name.
+
+loop for all accounts
+  c -> d:getEmail()
+end loop
+
+c --> b: return selectedAccount
+b -> b: displayEditAccountPage(selectedAccount)
+note right of b:The system displays the modify account page **(31-update_organizer_account.png)**
+
+deactivate c
+b --> a:
+deactivate b
+
+note left of b :The user can change at most two things: **Name** and **Password**.
+a -> b:updateUserAccount(newName,newEmail,newPassword)
+activate b
+note right of b:The user click the 'Save' option to save the change.
+
+
+b -> c: getAccount(accountEmail)
+activate c
+
+loop for all accounts
+  c -> d:getEmail()
+end loop
+
+c --> b: return selectedAccount
+deactivate c
+
+b -> e:setName(newName)
+b -> e:setPassword(newPassword)
+
+b -> c: getAccounts()
+activate c
+c --> b: return accounts
+b -> b: displayAccounts(accounts)
+b --> a:
+deactivate c
+
+deactivate b
+==The system back to the view account page **(35-view_user_account.png)**.==

@@ -8,7 +8,7 @@
 - The administrator modifies the permission level (e.g., from user to organizer).
 - The system update the view all accounts page(7-view_all_accounts.png) with updated account’s permission.
 ### Sequence Diagram
-
+![Edit account permission](\eventmanagementsystem\02-analysis\sequence-diagrams\Administrator\16-edit_account_permission.png)
 ## Alternate Course of Events
 
 #### Invalid Permission Level
@@ -16,14 +16,14 @@
 - The administrator selects an account and attempts to assign an invalid permission level.
 - The system displays an error message and prompts for a valid selection.
 ### Sequence Diagram-- Alternate Course of Events
-
+![Invalid permission level](\eventmanagementsystem\02-analysis\sequence-diagrams\Administrator\16-edit_account_permission-- Invalid Permission Level.png)
 ## Alternate Course of Events
 #### Account Not Found
 - The administrator is on view all accounts page(7-view_all_accounts.png).
 - The administrator attempts to select an account that does not exist.
 - The system displays an error message indicating the account is not found.
 ### Sequence Diagram-- Alternate Course of Events
-
+![Account not found](\eventmanagementsystem\02-analysis\sequence-diagrams\Administrator\16-edit_account_permission- Account Not Found.png)
 ## Alternate Course of Events
 #### Permission Already Granted
 - The administrator is on view all accounts page(7-view_all_accounts.png).

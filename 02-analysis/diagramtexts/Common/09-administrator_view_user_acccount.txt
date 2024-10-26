@@ -1,0 +1,27 @@
+title Administrator View User Account
+
+
+actor "Administrator" as a
+control ": AccountSystem" as s
+participant ":AccountService" as u
+entity "all : Account" as m
+entity "selectedAccount : Account" as sm
+
+==1. The administrator click a specific account at view all accounts page **(07-view_all_accounts.png)**.==
+a->s:viewAccount(accountEmail)
+activate s
+
+s->u: getAccount(accountEmail)
+
+loop [for every account]
+  u -> m: getEmail()
+end loop
+
+u --> s: return selectedAccount
+
+s -> s: displayAccount(selectedAccount)
+
+s --> a:
+deactivate s
+
+==The system displays the view account page **(35-view_user_account.png)** which shows the details of the selected account.==

@@ -1,0 +1,30 @@
+title Administrator Display Date
+
+
+actor "Administrator" as a
+control ": EventSystem" as s
+participant ": EventService" as u
+entity "all : Event" as m
+entity "dateEvents : Event" as sm
+
+==1. The administrator is on their main page **(01-view_all_events.png)**.==
+
+note right of a:The administrator enters the date they want to view.
+a->s:DisplayDate(date)
+activate s
+
+s->u: getEvents(date)
+activate u
+
+loop [for every Event]
+u -> m: getDate()
+end loop
+u-->s:return dateEvents
+deactivate u
+
+s->s:displayEvents(dateEvents)
+
+s-->a:
+deactivate s
+
+==The selected date and all events scheduled for that date will be displayed on the screen.==

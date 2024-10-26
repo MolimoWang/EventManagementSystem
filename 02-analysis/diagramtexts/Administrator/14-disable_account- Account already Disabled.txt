@@ -21,17 +21,17 @@ deactivate asvc
 acs -> admin: display current permission level
 
 == 4. The administrator modifies the permission level ==
-admin -> acs: changePermission(accountEmail, permissionLevel)
+admin -> acs: changePermission(accountEmail, newPermission)
 activate acs
 
-acs -> asvc: updatePermission(accountEmail, permissionLevel)
+acs -> asvc: updatePermission(accountEmail, newPermission)
 activate asvc
 note over asvc: The updatePermission method updates the account's permission\nin the database
-asvc -> sel: setPermission(permissionLevel)
+asvc -> sel: setPermission(newPermission)
 asvc --> acs: permission updated
 deactivate asvc
 
-acs -> acs: accounts := getAllAccounts()
+acs -> acs: accounts := getAccounts()
 acs -> acs: updateDisplay()
 
 acs --> admin: 

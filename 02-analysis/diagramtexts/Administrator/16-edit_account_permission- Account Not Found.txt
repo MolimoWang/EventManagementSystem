@@ -1,0 +1,21 @@
+title Edit Account Permission - Account Not Found
+participantspacing 2
+
+actor "Administrator" as admin
+control ": AccountSystem" as acs
+participant ": AccountService" as asvc
+
+== 1. The administrator attempts to select an account ==
+admin -> acs: selectAccount(accountEmail)
+activate acs
+
+acs -> asvc: checkAccountExists(accountEmail)
+activate asvc
+note right of asvc: The system checks if the account ID exists in the database
+asvc --> acs: account not found
+deactivate asvc
+
+== 2. The system displays an error message indicating the account is not found ==
+acs -> admin: display 'Account not found'
+
+deactivate acs

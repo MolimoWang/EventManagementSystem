@@ -1,0 +1,38 @@
+title Disable Account - Basic Course of Events
+participantspacing 2
+
+actor "Administrator" as admin
+control ": AccountSystem" as acs
+participant ": AccountService" as asvc
+entity "selected : Account" as sel
+
+== 1. The administrator is on the 'View All Accounts' page (07-view_all_accounts.png) ==
+== 2. The administrator selects an account to disable from the displayed list ==
+admin -> acs: selectAccount(accountEmail)
+activate acs
+
+acs -> admin: confirm()
+activate admin
+
+== 3. The system asks the administrator to confirm (15 - Disable Account - Confirmation Dialog) ==
+== 4. The administrator selects Yes ==
+admin --> acs: return true
+deactivate admin
+
+acs -> asvc: disableAccount(accountEmail)
+activate asvc
+note right of asvc: The disableAccount method sets the account\nstatus to inactive in the database
+asvc -> sel: setDisable(accountId)
+
+
+asvc --> acs: account disabled
+deactivate asvc
+
+acs -> acs: accounts := getAllAccounts()
+acs -> acs: updateDisplay()
+
+acs --> admin: 
+deactivate acs
+
+== 5. The system updates the view all accounts page with the account disabled ==
+
