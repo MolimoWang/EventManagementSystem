@@ -45,9 +45,9 @@ package "Account Management" {
     class AccountService {
         +getAccount(email: String, password: String): Boolean
         +createAccount(accountDetails: AccountDetails): Boolean
-        +deleteAccount(accountId: String): Boolean
-        +readAccount(accountId: String): AccountDetails
-        +updateAccount(accountId: String, accountDetails: AccountDetails): Boolean
+        +deleteAccount(accountEmail: String): Boolean
+        +readAccount(accountEmail: String): AccountDetails
+        +updateAccount(accountEmail: String, accountDetails: AccountDetails): Boolean
 
     }
 
@@ -144,9 +144,10 @@ package "Ticket Management" {
             }
 
     class TicketService {
-        +getTicket(userEmail: String, eventId: String, ticketType: String): TicketDetails
-        +readTicket(userEmail: String, eventId: String): TicketDetails
-        +buyTicket(userEmail: String, eventId: String, ticketType: String): TicketDetails
+        +getTicket(userEmail: String, eventName: String, ticketType: String): TicketDetails
+        +readTicket(userEmail: String, eventName: String): TicketDetails
+        +buyTicket(userEmail: String, eventName: String, ticketType: String): TicketDetails
+        +getRegistrations(eventName: event):List<User>
 
     }
 
@@ -170,9 +171,9 @@ class AccountSystem {
     +login(email: String, password: String): Boolean
     +logout(): void
     +createAccount(accountDetails: AccountDetails): Boolean
-    +deleteAccount(accountId: String): Boolean
-    +viewAccount(accountId: String): AccountDetails
-    +updateAccount(accountId: String, accountDetails: AccountDetails): Boolean
+    +deleteAccount(accountEmail: String): Boolean
+    +viewAccount(accountEmail: String): AccountDetails
+    +updateAccount(accountEmail: String, accountDetails: AccountDetails): Boolean
 }
 AccountSystem --> AccountService
 
@@ -198,10 +199,11 @@ class EventSystem {
 EventSystem --> EventService
 
 class TicketSystem {
-    +buyTicket(userEmail: String, eventId: String, ticketType: String): TicketDetails
+    +buyTicket(userEmail: String, eventEmail: String, ticketType: String): TicketDetails
     +viewTicket(ticketId: String): TicketDetails
     +listUserTickets(userEmail: String): List<Tickets>
     +cancelTicket(ticketId: String): Boolean
+    +getRegistrations(eventName: event):List<User>
 }
 TicketSystem --> TicketService
 
