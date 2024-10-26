@@ -6,10 +6,10 @@ control ": AccountSystem" as acs
 participant ": AccountService" as asvc
 
 == 1. The administrator attempts to select an account ==
-admin -> acs: selectAccount(accountId)
+admin -> acs: selectAccount(accountEmail)
 activate acs
 
-acs -> asvc: checkAccountExists(accountId)
+acs -> asvc: checkAccountExists(accountEmail)
 activate asvc
 note right of asvc: The system checks if the account ID exists in the database
 asvc --> acs: account not found

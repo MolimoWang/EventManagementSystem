@@ -10,7 +10,7 @@
 #### No Events Found
 - The system shows that there are no past events in the system.
 ### Sequence Diagram-- Alternate Course of Events
-
+There is no interaction
 
 ## UI Sketches
 This is the page that the user must be on at the start to complete the use case.
