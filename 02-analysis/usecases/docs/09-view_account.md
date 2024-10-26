@@ -7,7 +7,9 @@
 - The system displays the view account page (30-view_organizer_account.png,35-view_user_account.png) which shows the details of the selected account
 
 ### Sequence Diagram
+#### View Organizer
 ![Main Page](02-analysis/sequence-diagrams/Common/09-Administrator_view_organizer_acccount.png)
+#### View User
 ![Main Page](02-analysis/sequence-diagrams/Common/09-administrator_view_user_acccount.png)
 ### Course of Events-- Any User Viewing Their Account
 - The organizer or user is on their main page(17-view_all_events.png,34-view_all_events.png) and press **Account** button.
