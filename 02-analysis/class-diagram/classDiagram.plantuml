@@ -31,6 +31,11 @@ package "Account Management" {
         - name: String
         - email: String
         - password: String
+        +getName(): String
+        +getEmail(): String
+        +getPassword(): String
+        +setName(name: String)
+        +setPassword(password: String)
     }
     class Administrator {
     }
@@ -38,17 +43,23 @@ package "Account Management" {
         - address: String
         - companyName: String
         - phoneNumber: String
+        +getAddress():String
+        +getCompanyName():String
+        +getPhoneNumber(): String
+        +setAddress(address: String)
+        +setCompanyName(companyName: String)
+        +setPhoneNumber(phoneNumber: String)
     }
     class User {
     }
 
     class AccountService {
-        +getAccount(email: String, password: String): Boolean
+        +getAccount(email: String): Boolean
         +createAccount(accountDetails: AccountDetails): Boolean
         +deleteAccount(accountEmail: String): Boolean
         +readAccount(accountEmail: String): AccountDetails
         +updateAccount(accountEmail: String, accountDetails: AccountDetails): Boolean
-
+        +getAccounts():Account[*]
     }
 
     class AccountCreationRequest {
@@ -69,6 +80,15 @@ package "Venue Management" {
         - contactName: String
         - contactPhoneNumber: String
         - contactEmail: String
+        +getName():String
+        +getAddress():String
+        +getContactName():String
+        +getContactPhoneNumber():String
+        +getContactEmail():String
+        +setAddress(address: String)
+        +setContactName(contactName: String)
+        +setContactPhoneNumber(contactPhoneNumber: String)
+        +setContactEmail(contactEmail: String)
     }
 
     class VenueService {
@@ -102,6 +122,13 @@ package "Event Management" {
         - description: String
         - date: Date
         - time: Time
+        +getName(): String
+        +getDescription():String
+        +getDate():Date
+        +getTime():Time
+        +setDescription(description: String)
+        +setDate(date: Date)
+        +setTime(time: Time)
     }
 
     class EventService {
@@ -130,16 +157,29 @@ package "Event Management" {
 package "Ticket Management" {
     class Ticket {
             ' Ticket class with no attributes, representing a relationship
+        +getUser(eventName: event):User
+        +getEvent(userEmail: String):Event
+        +getTicketInfo(eventName: event,userEmail: String):TicketInfo
         }
 
     class TicketInfo {
             - numberAvailable: int
             - numberSold: int
             - price: double
+            +getNumberAvailable():int
+            +getNumberSold():int
+            +getPrice():double
+            +setNumberAvailable(numberAvailable: int)
+            +setNumberSold(numberSold: int)
+            +setPrice(price: double)
         }
      class TicketType {
                 - ticketTypeName: String
                 - number: int
+                +getTicketTypeName():String
+                +getNumber():int
+                +setTicketTypeName(ticketTypeName: String)
+                +setNumber(number: int)
 
             }
 
@@ -173,7 +213,13 @@ class AccountSystem {
     +createAccount(accountDetails: AccountDetails): Boolean
     +deleteAccount(accountEmail: String): Boolean
     +viewAccount(accountEmail: String): AccountDetails
-    +updateAccount(accountEmail: String, accountDetails: AccountDetails): Boolean
+    +updateAdministratorAccount(newName: String, newPassword:String)
+    +updateUserAccount(newName: String, newPassword:String)
+    +updateOrganizerAccount(newName: String, newPassword:String,newAddress:String,newCompanyName :String, newPhoneNumber:String)
+    +displayEditAccountPage(selectedAccount)
+    +displayAccounts(accounts:Account[*])
+    +showEditAccount(email: String)
+
 }
 AccountSystem --> AccountService
 
@@ -195,6 +241,9 @@ class EventSystem {
     +updateEvent(name: String, eventDetails: EventDetails): Boolean
     +listEvents(): List<Events>
     +listMyEvents(): List<Events>
+    +filterEvents(keyWords:String)
+    +displayEvents(filterEvents:List<Event>)
+    +DisplayDate(date: Date)
 }
 EventSystem --> EventService
 
