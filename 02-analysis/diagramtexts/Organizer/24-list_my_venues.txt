@@ -17,5 +17,6 @@ loop For every Venue
    deactivate VenueService
 end
 
+
 VenueSystem -->> Organizer :return my event messages
 deactivate VenueSystem
