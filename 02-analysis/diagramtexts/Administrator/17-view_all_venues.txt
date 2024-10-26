@@ -1,4 +1,4 @@
-title View All Venues of Adminstrator
+title View All Venues
 
 
 actor "Admin" as a
@@ -6,6 +6,7 @@ control ": VenueSystem" as s
 participant ": VenueService" as u
 entity "all : Venue" as m
 
+== 1.The Administrator selects "View All Venuues" in the main page **(01-view_all_events)** ==
 
 a->s:listVenues()
 activate s
@@ -13,11 +14,16 @@ activate s
 s->u: getVenues()
 
 activate u
+note right of u:The getVenues method is a standin for the future operation of retrieving venues from the database.
 
 u-->s:return venues
+
 deactivate u
 
 s->s:displayVenues(venues)
 
 s-->a:
 deactivate s
+
+
+== 2.The system displays a list of all venues **(04-view_all_venues)** ==
