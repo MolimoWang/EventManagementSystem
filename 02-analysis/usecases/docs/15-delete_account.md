@@ -27,4 +27,5 @@
 There is no interaction
 ## UI Sketches
 This is the page that the user must be on at the start to complete the use case.
+！[Main Page](\eventmanagementsystem\02-analysis\UI\admin\01-view_all_events.png)
 ![Delete Account](\eventmanagementsystem\02-analysis\UI\admin\16-delete_account.png)

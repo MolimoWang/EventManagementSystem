@@ -31,6 +31,7 @@
 - The administrator attempts to assign a permission level that the account already has.
 - The system displays a message indicating no changes are needed.
 ### Sequence Diagram-- Alternate Course of Events
-
+There is no interaction 
 ## UI Sketches
+！[Main Page](\eventmanagementsystem\02-analysis\UI\admin\01-view_all_events.png)
 This is the page that the user must be on at the start to complete the use case.
