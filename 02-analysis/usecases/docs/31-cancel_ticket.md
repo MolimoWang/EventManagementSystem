@@ -1,33 +1,40 @@
-# Cancel Ticket
+# 30 User Cancel Ticket
 
 ## Basic Course of Events
-- The user selects 'Cancel' option of a ticket from their ticket list(on the ticket list page(40-view_purchased_tickets.png).).
-- The system asks the user to confirm.
-- The user select **Yes**.
-- The system updates and displays the ticket list page(40-view_purchased_tickets.png) with this ticket removed.
+- The user selects 'Cancel' option for a ticket on their ticket list page (40-view_purchased_tickets.png).
+- The system asks the user to confirm cancellation.
+- The user selects **Yes** to confirm the cancellation.
+- The system forwards the cancellation request to the TicketService.
+- The service checks if the cancellation is within the allowed time frame.
+- If cancellation is allowed, the system proceeds to cancel the ticket, update ticket availability, and adjust the sold count.
+- The system updates and displays the ticket list page with the canceled ticket removed.
 
 ### Sequence Diagram
+![User Cancel Ticket](/02-analysis/sequence-diagrams/User/31-cancel_ticket.png)
 
 ## Alternate Course of Events
-### Do not Cancel
-- The user selects 'Cancel' option of a ticket from their ticket list(on the ticket list page(40-view_purchased_tickets.png).).
-- The system asks the user to confirm.
-- The user select **No**.
-- The system back to the ticket list page(40-view_purchased_tickets.png).
-### Sequence Diagram--Alternate Course of Events
 
-#### Ticket Exceeds Cancellation Deadline
-- The user selects 'Cancel' option of a ticket from their ticket list(on the ticket list page(40-view_purchased_tickets.png).).
-- The system asks the user to confirm.
-- The user select **Yes**.
-- The system displays a message indicating that the selected ticket cannot be cancelled because it has exceeded the cancellation deadline.
+### Exceeds Cancellation Deadline
+- The user selects 'Cancel' option for a ticket on their ticket list page.
+- The system asks the user to confirm cancellation.
+- The user selects **Yes** to confirm.
+- The service checks if the cancellation is within the allowed time frame and finds the deadline has passed.
+- The system displays a message indicating that the ticket cannot be cancelled due to exceeding the deadline.
 
+### Sequence Diagram -- Alternate Course of Events
+![Exceeds Cancellation Deadline](/02-analysis/sequence-diagrams/User/31-cancel_ticket_deadline.png)
 
-### Sequence Diagram--Alternate Course of Events
+### Do Not Cancel
+- The user selects 'Cancel' option for a ticket on their ticket list page.
+- The system asks the user to confirm cancellation.
+- The user selects **No** to decline the cancellation.
+- The system returns to the ticket list page without making any changes.
 
-
-### Do not Cancel
-In this case, all interactions are completed within the javascript of the view majors page. No request is made to the server and no response is received.
-### Ticket Exceeds Cancellation Deadline
+### Sequence Diagram -- Alternate Course of Events
+![Do Not Cancel](/02-analysis/sequence-diagrams/User/31-cancel_ticket_no.png)
 
 ## UI Sketches
+
+### Ticket List Page
+This is the page where the user can see their purchased tickets and select the 'Cancel' option to remove a ticket if needed.
+![Ticket List Page](/02-analysis/UI/user/40-view_purchased_tickets.png)
