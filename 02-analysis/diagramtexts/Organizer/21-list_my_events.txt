@@ -1,4 +1,4 @@
-title Organizer List Event Deatils
+title Organizer List Event Details
 
 
 actor Organizer
