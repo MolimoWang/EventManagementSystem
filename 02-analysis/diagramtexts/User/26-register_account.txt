@@ -5,32 +5,41 @@ boundary AccountSystem
 control AccountService
 entity Account
 
-note right of User: 1. The user wants to create an account at the login page.
-User ->> AccountSystem : createAccount(accountDetails: AccountDetails)
+note right of User: A new user selects 'Create User Account' in the account management.
+User ->> AccountSystem : createAccountRequest
 
 activate AccountSystem
-note right of AccountSystem: 2. The system forwards the request to the AccountService.
-    AccountSystem ->> AccountService : createAccount(accountDetails: AccountDetails)
-    activate AccountService
+note right of AccountSystem: The user fills in necessary information to create a user, including: 1. name 2. email 3. password
 
-note right of AccountService: 3. The service checks if the name and email are unique.
-    AccountService ->> Account : checkDuplicateAccount(name: String, email: String)
-    activate Account
-    Account --> AccountService : return isDuplicate
-    deactivate Account
+AccountSystem ->> User : requestUserConfirmation
+
+note right of User: The user selects the 'Create'.
+User ->> AccountSystem : confirmCreateAccount
+
+note right of AccountSystem: The system asks the user to confirm.
+AccountSystem ->> AccountService : validateAccountDetails(accountDetails)
+
+activate AccountService
+note right of AccountService: The service checks if the name and email are unique.
+AccountService ->> Account : checkDuplicateAccount(userName, userEmail)
+activate Account
+Account --> AccountService : return isDuplicate
+deactivate Account
 
 alt isDuplicate == false
-    note right of AccountService: 4. Account information is valid, proceed with creation.
-    AccountService ->> Account : createAccount(accountDetails: AccountDetails)
+    note right of AccountService: Account information is valid, proceed with creation.
+    AccountService ->> Account : createAccount(accountDetails)
     activate Account
     Account --> AccountService : return accountCreated
     deactivate Account
 
-    AccountService -->> AccountSystem : return success
+    AccountService -->> AccountSystem : accountCreatedSuccess
 
 end
 
 deactivate AccountService
 
-note right of User: 5. The system notifies the user of the result.
-AccountSystem -->> User : accountCreationResult
+note right of AccountSystem: The user selects **Create**.
+AccountSystem -->> User : accountCreationResult(success)
+
+note right of User: The account is created, and the information will be stored in the account management.

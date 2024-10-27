@@ -1,0 +1,45 @@
+title User Purchase Ticket Sequence Diagram (Insufficient Tickets)
+
+actor User
+boundary TicketSystem
+control TicketService
+entity TicketInfo
+entity Event
+
+note right of User: The user selects an event from the list of events.
+User ->> TicketSystem : viewEventDetails(eventName: String)
+
+activate TicketSystem
+note right of TicketSystem: The system displays the target event interface with a 'Purchase' option.
+TicketSystem ->> User : displayEventDetailsWithPurchaseOption
+
+note right of User: The user selects 'Purchase' from the event interface.
+User ->> TicketSystem : initiatePurchase(eventName: String)
+
+note right of TicketSystem: The system asks the user to confirm.
+TicketSystem ->> User : requestPurchaseConfirmation
+
+note right of User: The user selects **Yes** to confirm the purchase.
+User ->> TicketSystem : confirmPurchase
+
+note right of TicketSystem: The system forwards the purchase request to the TicketService.
+TicketSystem ->> TicketService : processPurchase(userEmail: String, eventName: String)
+activate TicketService
+
+note right of TicketService: The service checks the availability of tickets.
+TicketService ->> TicketInfo : checkAvailability(eventName: String)
+activate TicketInfo
+TicketInfo --> TicketService : return availableTickets = 0
+deactivate TicketInfo
+
+alt availableTickets == 0
+    note right of TicketService: No tickets are available (synchronization issue of processes).
+    TicketService -->> TicketSystem : return soldOutStatus
+end
+
+deactivate TicketService
+
+note right of TicketSystem: The system prompts the user that the tickets have already been sold out.
+TicketSystem -->> User : displaySoldOutMessage
+
+deactivate TicketSystem

@@ -1,0 +1,24 @@
+title Create User Account Sequence Diagram
+
+actor User
+boundary AccountSystem
+control AccountService
+entity Account
+
+note right of User: A new user selects 'Create User Account' in the account management.
+User ->> AccountSystem : initiateCreateAccount
+
+activate AccountSystem
+note right of AccountSystem: The user fills in necessary information to create a user, including: 1. name 2. email 3. password
+
+AccountSystem ->> User : requestUserConfirmation
+
+note right of User: The system asks the user to confirm.
+User ->> AccountSystem : selectCancel
+
+note right of AccountSystem: The user selects **Cancel**.
+AccountSystem -->> User : returnToPreviousInterface
+
+deactivate AccountSystem
+
+note right of User: No account will be created, and the system returns to the previous interface.

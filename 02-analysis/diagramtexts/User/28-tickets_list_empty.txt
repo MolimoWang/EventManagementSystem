@@ -1,0 +1,30 @@
+title View Purchased Tickets Sequence Diagram (No Purchased Tickets)
+
+actor User
+boundary TicketSystem
+control TicketService
+entity Ticket
+
+note right of User: The user clicks 'Tickets' on their main page (34-view_all_events.png).
+User ->> TicketSystem : viewPurchasedTickets()
+
+activate TicketSystem
+note right of TicketSystem: The system turns to the ticket list page (40-view_purchased_tickets.png) and forwards the request to the TicketService to retrieve purchased tickets.
+TicketSystem ->> TicketService : getPurchasedTickets(userEmail: String)
+
+activate TicketService
+note right of TicketService: The service checks for purchased tickets associated with the user's email.
+TicketService ->> Ticket : readPurchasedTickets(userEmail: String)
+activate Ticket
+Ticket --> TicketService : return emptyList (no purchased tickets)
+deactivate Ticket
+
+note right of TicketService: No purchased tickets found, return empty list.
+TicketService -->> TicketSystem : return emptyList
+
+deactivate TicketService
+
+note right of TicketSystem: The system prompts the user that there are no purchased tickets.
+TicketSystem -->> User : displayNoPurchasedTicketsMessage()
+
+deactivate TicketSystem

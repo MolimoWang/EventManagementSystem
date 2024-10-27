@@ -5,24 +5,24 @@ boundary TicketSystem
 control TicketService
 entity Ticket
 
-note right of User: 1. The user clicks 'Tickets' on their main page.
+note right of User: The user clicks 'Tickets' on their main page (34-view_all_events.png).
 User ->> TicketSystem : viewPurchasedTickets()
 
 activate TicketSystem
-note right of TicketSystem: 2. The system forwards the request to the TicketService.
-    TicketSystem ->> TicketService : getPurchasedTickets(userEmail: String)
-    activate TicketService
+note right of TicketSystem: The system turns to the ticket list page (40-view_purchased_tickets.png) and displays all the tickets purchased by the user.
+TicketSystem ->> TicketService : getPurchasedTickets(userEmail: String)
 
-note right of TicketService: 3. The service retrieves the purchased tickets.
-    TicketService ->> Ticket : readPurchasedTickets(userEmail: String)
-    activate Ticket
-    Ticket --> TicketService : return purchasedTicketsList
-    deactivate Ticket
+activate TicketService
+note right of TicketService: The service retrieves the purchased tickets associated with the user's email.
+TicketService ->> Ticket : readPurchasedTickets(userEmail: String)
+activate Ticket
+Ticket --> TicketService : return purchasedTicketsList
+deactivate Ticket
 
 purchasedTicketsList.size() > 0
-    note right of TicketService: 4. There are purchased tickets, proceed to display them.
+    note right of TicketService: There are purchased tickets, proceed to display them.
     TicketService -->> TicketSystem : return purchasedTicketsList
     TicketSystem -->> User : displayPurchasedTickets(purchasedTicketsList)
 
-
-end
+deactivate TicketService
+deactivate TicketSystem

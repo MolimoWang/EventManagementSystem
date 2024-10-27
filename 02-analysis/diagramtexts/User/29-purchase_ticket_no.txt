@@ -1,0 +1,26 @@
+title User Purchase Ticket Sequence Diagram (Select No)
+
+actor User
+boundary TicketSystem
+control TicketService
+
+note right of User: The user selects an event from the list of events.
+User ->> TicketSystem : viewEventDetails(eventName: String)
+
+activate TicketSystem
+note right of TicketSystem: The system displays the target event interface with a 'Purchase' option.
+TicketSystem ->> User : displayEventDetailsWithPurchaseOption
+
+note right of User: The user selects 'Purchase' from the event interface.
+User ->> TicketSystem : initiatePurchase(eventName: String)
+
+note right of TicketSystem: The system asks the user to confirm.
+TicketSystem ->> User : requestPurchaseConfirmation
+
+note right of User: The user selects **No** to cancel the purchase.
+User ->> TicketSystem : cancelPurchase
+
+note right of TicketSystem: No tickets will be purchased, and the system returns to the previous interface.
+TicketSystem -->> User : returnToPreviousInterface
+
+deactivate TicketSystem

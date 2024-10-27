@@ -7,38 +7,45 @@ entity TicketInfo
 entity Ticket
 entity Event
 
-
-note right of User: 1. The user initiates the ticket purchase.
-User ->> TicketSystem : buyTicket(userEmail: String, eventName: String, ticketType: String)
+note right of User: The user selects 'Buy it!' option for an event on the list upcoming events page (36-list_upcoming_events.jpg).
+User ->> TicketSystem : initiateTicketPurchase(eventName: String)
 
 activate TicketSystem
-note right of TicketSystem: 2. The system forwards the request to the TicketService.
-    TicketSystem ->> TicketService : buyTicket(userEmail: String, eventName: String, ticketType: String)
-    activate TicketService
+note right of TicketSystem: The system asks the user to select the type of ticket.
+TicketSystem ->> User : requestTicketTypeSelection
 
-note right of TicketService: 3. The service checks the availability of the tickets.
-    TicketService ->> TicketInfo : checkAvailability(eventName: String, ticketType: String, numberAvailable: int, numberSold: int)
-    activate TicketInfo
-    TicketInfo --> TicketService : return availableTickets
-    deactivate TicketInfo
+note right of User: The user selects one type of ticket.
+User ->> TicketSystem : selectTicketType(ticketType: String)
+
+note right of TicketSystem: The system forwards the request to the TicketService.
+TicketSystem ->> TicketService : processPurchase(userEmail: String, eventName: String, ticketType: String)
+activate TicketService
+
+note right of TicketService: The service checks the availability of the selected ticket type.
+TicketService ->> TicketInfo : checkAvailability(eventName: String, ticketType: String)
+activate TicketInfo
+TicketInfo --> TicketService : return availableTickets
+deactivate TicketInfo
 
 alt availableTickets > 0
-    note right of TicketService: 4. Tickets are available, proceed with purchase.
-    TicketService ->> TicketInfo : updateTicketInfo(eventName: String, ticketType: String, numberAvailable: int, numberSold: int)
+    note right of TicketService: Tickets are available, proceed with purchase.
+    TicketService ->> TicketInfo : updateTicketInfo(eventName: String, ticketType: String, decrease available by 1)
     activate TicketInfo
     TicketInfo --> TicketService : return updated
     deactivate TicketInfo
 
-    note right of TicketService: 5. Create a ticket entity to link user and event.
-    TicketService ->> Ticket : Ticket(userEmail, eventName, ticketInfo)
+    note right of TicketService: Create a ticket entity to link the user and the event.
+    TicketService ->> Ticket : createTicket(userEmail, eventName, ticketType)
     activate Ticket
-    Ticket --> TicketService : return ticket
+    Ticket --> TicketService : return ticketCreated
     deactivate Ticket
 
-    TicketService -->> TicketSystem : return success
-
+    TicketService -->> TicketSystem : return purchaseSuccess
+end
 
 deactivate TicketService
 
-note right of User: 6. The system notifies the user of the result.
-TicketSystem -->> User : purchaseResult
+note right of TicketSystem: The system displays the tickets purchased by the user.
+TicketSystem -->> User : displayPurchasedTickets
+
+deactivate TicketSystem

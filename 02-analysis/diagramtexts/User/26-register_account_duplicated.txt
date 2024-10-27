@@ -1,0 +1,42 @@
+title Create User Account Sequence Diagram (with Duplicate Check)
+
+actor User
+boundary AccountSystem
+control AccountService
+entity Account
+
+note right of User: A new user selects 'Create User Account' in the account management.
+User ->> AccountSystem : initiateCreateAccount
+
+activate AccountSystem
+note right of AccountSystem: The user fills in necessary information to create a user, including:
+  1. name
+  2. email
+  3. password
+
+AccountSystem ->> User : requestUserConfirmation
+
+note right of User: The system asks the user to confirm.
+User ->> AccountSystem : confirmCreateAccount
+
+note right of AccountSystem: The system forwards the request to the AccountService.
+AccountSystem ->> AccountService : createAccount(accountDetails)
+
+activate AccountService
+note right of AccountService: The service checks if the name and email are unique.
+AccountService ->> Account : checkDuplicateAccount(name, email)
+activate Account
+Account --> AccountService : return isDuplicate = true
+deactivate Account
+
+alt isDuplicate == true
+    note right of AccountService: Account information is not unique, return failure.
+    AccountService -->> AccountSystem : accountCreationFailed(duplicate)
+end
+
+deactivate AccountService
+
+note right of AccountSystem: No account will be created due to duplication.
+AccountSystem -->> User : accountCreationResult(failure, duplicate)
+
+note right of User: The system notifies the user of the duplicate account information.

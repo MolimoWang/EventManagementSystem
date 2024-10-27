@@ -1,0 +1,24 @@
+title List Upcoming Events Sequence Diagram (No Upcoming Events)
+
+actor User
+boundary EventSystem
+control EventService
+entity Event
+
+note right of User: The user selects 'Upcoming' option from the user management menu.
+User ->> EventSystem : listEvents()
+
+activate EventSystem
+note right of EventSystem: The system forwards the request to the EventService to retrieve upcoming events.
+EventSystem ->> EventService : getUpcomingEvents()
+
+activate EventService
+note right of EventService: The service checks for upcoming events in the database.
+EventService -->> EventSystem : return emptyList (no upcoming events)
+
+deactivate EventService
+
+note right of EventSystem: The system prompts the user that there are no upcoming events.
+EventSystem -->> User : displayNoUpcomingEventsMessage()
+
+deactivate EventSystem
