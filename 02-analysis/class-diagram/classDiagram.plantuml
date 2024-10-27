@@ -158,9 +158,9 @@ package "Event Management" {
 package "Ticket Management" {
     class Ticket {
             ' Ticket class with no attributes, representing a relationship
-        +getUser(eventName: event):User
+        +getUser(eventName: String):User
         +getEvent(userEmail: String):Event
-        +getTicketInfo(eventName: event,userEmail: String):TicketInfo
+        +getTicketInfo(eventName: String,userEmail: String):TicketInfo
         }
 
     class TicketInfo {
@@ -185,9 +185,8 @@ package "Ticket Management" {
             }
 
     class TicketService {
-        +getTicket(userEmail: String, eventName: String, ticketType: String): TicketDetails
-        +readTicket(userEmail: String, eventName: String): TicketDetails
-        +buyTicket(userEmail: String, eventName: String, ticketType: String): TicketDetails
+        +getTicket(userEmail: String, eventName: String): TicketDetails
+         +buyTicket(userEmail: String, eventName: String, ticketType: String): TicketDetails
         +getRegistrations(eventName: event):List<User>
 
     }
@@ -255,11 +254,12 @@ EventSystem --> EventService
 
 class TicketSystem {
     +buyTicket(userEmail: String, eventName: String, ticketType: String): TicketDetails
-    +viewTicket(userEmail: String, eventName: String): TicketDetails
+    +viewTicketDetails(userEmail: String, eventName: String): TicketDetails
     +listUserTickets(userEmail: String): List<Tickets>
     +cancelTicket(userEmail: String, eventName: String): Boolean
     +getRegistrations(eventName: event):List<User>
     +displayRegistrations(eventName: event):List<User>
+    +displayTicketDetails(ticketDetails)
 }
 TicketSystem --> TicketService
 
