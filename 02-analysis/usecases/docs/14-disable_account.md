@@ -25,4 +25,5 @@
 ![Account already disabled](\eventmanagementsystem\02-analysis\sequence-diagrams\Administrator\14-disable_account- Account already Disabled.png)
 ## UI Sketches
 This is the page that the user must be on at the start to complete the use case.
+！[Main Page](\eventmanagementsystem\02-analysis\UI\admin\01-view_all_events.png)
 ![Disable account](\eventmanagementsystem\02-analysis\UI\admin\15-disable_account.png)

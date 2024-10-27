@@ -60,6 +60,7 @@
 
 ## UI Sketches
 ### Related UI Prototypes
+！[Main Page](\eventmanagementsystem\02-analysis\UI\admin\01-view_all_events.png)
 ![Create User Account](../../UI/admin/08-create_user_account.png)
 ![Create Organizer Account](../../UI/admin/09-create_organizer_account.png)
 ![Create Administrator](../../UI/admin/10-create_administrator_account.png)
