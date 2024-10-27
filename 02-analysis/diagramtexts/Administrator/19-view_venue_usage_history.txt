@@ -1,0 +1,35 @@
+@startuml
+title View venue usage history
+
+actor "Admin" as a
+control ": EventSystem" as s
+participant ": EventService" as u
+entity "all : Event" as ae
+
+note right of a: 1.The organizer wants to see venue usage history
+
+a->s:getVenueUsage(venueName)
+activate s
+
+note right of s: 2.The system passes requests to the service.
+s->u: getVenueUsage(venueName)
+activate u
+activate ae
+
+note right of u: 3.The service queries this venue usage history among all events.
+loop for every event
+  u->ae:getUsage(venueName)
+  ae -->u: return targetEvent
+end
+
+deactivate ae
+
+u-->s:return targetEvents
+deactivate u
+
+note right of s: 4.The system displays the venue usage history to the organizer .
+s->s:displayVenueUsage(targetEvents)
+s-->a:
+deactivate s
+
+@enduml

@@ -13,7 +13,7 @@ a->s:viewEvent(eventName)
 activate s
 
 note right of s: 2.The system passes requests to the service.
-s->u: getEventDetails(eventName)
+s->u: readEvent(eventName)
 activate u
 
 note right of u: 3.The service queries this event among all events.

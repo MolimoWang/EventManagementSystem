@@ -34,7 +34,8 @@ This is the page that the user must be on at the start to complete the use case.
 ![Search](02-analysis/UI/user/38-search_filter_events.png)
 
 #### Event Lists
-- 这里粘贴根据关键字找事件的列表
+![Event Lists](02-analysis/UI/user/44-filter_events.png)
+
 ### Organizer
 There the pages that the user must be on at the start to complete the use case.
 #### Main Page
@@ -44,7 +45,8 @@ There the pages that the user must be on at the start to complete the use case.
 ![Search](02-analysis/UI/user/38-search_filter_events.png)
 
 #### Event Lists
-- 这里粘贴根据关键字找事件的列表
+![Event Lists](02-analysis/UI/user/44-filter_events.png)
+
 ### User
 There the pages that the user must be on at the start to complete the use case.
 #### Main Page
@@ -54,4 +56,4 @@ There the pages that the user must be on at the start to complete the use case.
 ![Search](02-analysis/UI/user/38-search_filter_events.png)
 
 #### Event Lists
-- 这里粘贴根据关键字找事件的列表
+![Event Lists](02-analysis/UI/user/44-filter_events.png)

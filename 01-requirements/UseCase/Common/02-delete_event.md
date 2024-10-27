@@ -29,9 +29,9 @@
 - A confirmation message is shown to the administrator.
 
 #### Course of Events-- Organizer
-3. The organizer selects the event to be canceled and confirms the cancellation.
-4. The system marks the event as canceled and displays a confirmation message.
-5. The system sends notifications to users who have purchased tickets for the canceled event.
+- The organizer selects the event to be canceled and confirms the cancellation.
+- The system marks the event as canceled and displays a confirmation message. 
+- The system sends notifications to users who have purchased tickets for the canceled event.
 
 
 
@@ -52,6 +52,6 @@
 ### Related UI Prototypes-- Organizer
 ![Cancel Event](../../UI/organizer/21-delete_event.png)
 
-##Data Outcome
+## Data Outcome
 - **READ** - The details of all events will be read and displayed
 - **DELETE** - The details of the selected event will be removed from the system

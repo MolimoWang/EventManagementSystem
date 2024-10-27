@@ -143,6 +143,7 @@ package "Event Management" {
         +getEventTime(name: String):Time
         +getEvents():List<Event>
         +saveEvent(eventId: String):Boolean
+        +getVenueUsage(venueName: String): List<Events>
     }
 
     class EventCreationRequest {
@@ -219,6 +220,8 @@ class AccountSystem {
     +displayEditAccountPage(selectedAccount)
     +displayAccounts(accounts:Account[*])
     +showEditAccount(email: String)
+    +showError()
+    +showMainPage()
 
 }
 AccountSystem --> AccountService
@@ -239,11 +242,14 @@ class EventSystem {
     +viewEvent(name: String): EventDetails
     +deleteEvent(name: String): Boolean
     +updateEvent(name: String, eventDetails: EventDetails): Boolean
-    +listEvents(): List<Events>
-    +listMyEvents(): List<Events>
+    +listEvents(): List<Event>
+    +listMyEvents(): List<Event>
     +filterEvents(keyWords:String)
-    +displayEvents(filterEvents:List<Event>)
-    +DisplayDate(date: Date)
+    +displayEvents(filterEvents:List<Event>): void
+    +DisplayDate(date: Date): void
+    +displayEventDetails(eventDetails: EventDetails): void
+    +getVenueUsage(VenueName: String): List<Event>
+    +displayVenueUsage(filterEvents:List<Event>): void
 }
 EventSystem --> EventService
 
@@ -253,6 +259,7 @@ class TicketSystem {
     +listUserTickets(userEmail: String): List<Tickets>
     +cancelTicket(userEmail: String, eventName: String): Boolean
     +getRegistrations(eventName: event):List<User>
+    +displayRegistrations(eventName: event):List<User>
 }
 TicketSystem --> TicketService
 

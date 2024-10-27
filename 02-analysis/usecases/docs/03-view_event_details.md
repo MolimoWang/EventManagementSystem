@@ -101,3 +101,7 @@ There the pages that the user must be on at the start to complete the use case.
 |----------------------------------------------------------------|
 | ![View Event Details](../../UI/user/43-view_event_details.png) |
 
+## Data Outcome
+- **Read** - The event details will be shown on the system and the administrator, organizer or user can read it.
+- **UPDATE** - None
+
