@@ -62,12 +62,12 @@
 ### Related UI Prototypes
 ![Main Page](/02-analysis/UI/admin/01-view_all_events.png)
 ！[View all accounts](/02-analysis/UI/admin/07-view_all_accounts.png)
-![Create User Account](../../UI/admin/08-create_user_account.png)
-![Create Organizer Account](../../UI/admin/09-create_organizer_account.png)
-![Create Administrator](../../UI/admin/10-create_administrator_account.png)
+![Create User Account](/02-analysis/UI/admin/08-create_user_account.png)
+![Create Organizer Account](/02-analysis/UI/admin/09-create_organizer_account.png)
+![Create Administrator](/02-analysis/UI/admin/10-create_administrator_account.png)
 
-#### Duplicate Email Error
-![Duplicate Email Error](../../UI/admin/Alternative/create_account_duplicate_email.png)
-#### Invalide Input Error
-![Invalide Input Error](../../UI/admin/Alternative/create_account_invalid_input.png)
+### Duplicate Email Error
+![Duplicate Email Error](/02-analysis/UI/admin/Alternative/create_account_duplicate_email.png)
+### Invalide Input Error
+![Invalide Input Error](/02-analysis/UI/admin/Alternative/create_account_invalid_input.png)
 

@@ -14,11 +14,11 @@
 
 ## UI Sketches
 ### Related UI Prototypes-- Administrator
-
+This is the page that the user must be on at the start to complete the use case.
 #### Main page
 ![Main Page](/02-analysis/UI/admin/01-view_all_events.png)
 
 #### View All Venues
-This is the page that the user must be on at the start to complete the use case.
+
 ![View All Venues](/02-analysis/UI/admin/04-view_all_venues.png)
 

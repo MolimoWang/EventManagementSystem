@@ -7,18 +7,18 @@
 - The system displays the view account page (30-view_organizer_account.png,35-view_user_account.png) which shows the details of the selected account
 
 ### Sequence Diagram
-#### View Organizer
+### View Organizer
 ![Main Page](/02-analysis/sequence-diagrams/Common/09-Administrator_view_organizer_acccount.png)
-#### View User
+### View User
 ![Main Page](/02-analysis/sequence-diagrams/Common/09-administrator_view_user_acccount.png)
 ### Course of Events-- Any User Viewing Their Account
 - The organizer or user is on their main page(17-view_all_events.png,34-view_all_events.png) and press **Account** button.
 - The system displays the view account page (30-view_organizer_account.png,35-view_user_account.png) which shows the details of the selected account
 
 ### Sequence Diagram
-#### Organizer
+### Organizer
 ![Main Page](/02-analysis/sequence-diagrams/Common/09-organizer_view_account.png)
-#### User
+### User
 ![Main Page](/02-analysis/sequence-diagrams/Common/09-user_view_account.png)
 
 ## Alternate Course of Events
@@ -32,24 +32,24 @@
 ## UI Sketches
 ### Administrator
 This is the page that the user must be on at the start to complete the use case.
-#### Main Page
+### Main Page
 ![Main Page](/02-analysis/UI/admin/01-view_all_events.png)
 
-#### View All Accounts
+### View All Accounts
 ![All accounts](/02-analysis/UI/admin/07-view_all_accounts.png)
 
-#### View Selected Account
-##### User
+### View Selected Account
+### User
 ![User Account](/02-analysis/UI/user/35-view_user_account.png)
-##### Organizer
+### Organizer
 ![Organizer Account](/02-analysis/UI/organizer/30-view_organizer_account.png)
 
 ### Organizer
 There the pages that the user must be on at the start to complete the use case.
-#### Main Page
+### Main Page
 ![Main Page](/02-analysis/UI/organizer/17-view_all_events.png)
 
-#### View Account
+### View Account
 ![All accounts](/02-analysis/UI/organizer/30-view_organizer_account.png)
 
 ### User
@@ -57,5 +57,5 @@ There the pages that the user must be on at the start to complete the use case.
 #### Main Page
 ![Main Page](/02-analysis/UI/user/34-view_all_events.png)
 
-#### View Account
+### View Account
 ![All accounts](/02-analysis/UI/user/35-view_user_account.png)

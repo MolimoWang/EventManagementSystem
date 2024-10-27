@@ -10,13 +10,13 @@
 ### Sequence Diagram
 
 
-#### Organizer
+### Organizer
 ![View All Events](/02-analysis/sequence-diagrams/Common/07-view_venue_details_organizer.png)
 
-#### Administrator
+### Administrator
 ![View All Events](/02-analysis/sequence-diagrams/Common/07-view_venue_details_administrator.png)
 
-#### User
+### User
 ![View All Events](/02-analysis/sequence-diagrams/Common/07-view_venue_details_user.png)
 
 

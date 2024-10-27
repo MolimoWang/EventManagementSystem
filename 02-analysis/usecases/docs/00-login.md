@@ -25,14 +25,14 @@
 This is the page that the user must be on at the start to complete the use case.
 ![Login](/02-analysis/UI/00-login.png) 
 ### Main Page
-#### Administrator
+### Administrator
 
 ![Admin Main Page](../../UI/admin/01-view_all_events.png)
 
-#### Organizer
+### Organizer
 ![Organizer Main Page](../../UI/organizer/17-view_all_events.png)
 
-#### User
+### User
 ![User Main Page](../../UI/user/34-view_all_events.png) 
 
 ## Data Outcome

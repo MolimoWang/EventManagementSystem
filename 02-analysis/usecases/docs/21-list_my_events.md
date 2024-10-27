@@ -8,7 +8,7 @@
 ### Sequence Diagram
 
 ## Alternate Course of Events
-#### No Events Found
+### No Events Found
 - If the organizer has not created any events, the system displays a message indicating that no events are available.
 
 ### Sequence Diagram-- Alternate Course of Events

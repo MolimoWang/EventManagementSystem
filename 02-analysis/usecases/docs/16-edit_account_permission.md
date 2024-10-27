@@ -1,7 +1,7 @@
 # 16 Edit Account Permission
 
 ## Basic Course of Events
-#### Course of Events
+### Course of Events
 - The administrator is on view all accounts page(7-view_all_accounts.png).
 - The administrator selects the account to modify.
 - The system displays the account’s current permission level.
@@ -11,7 +11,7 @@
 ![Edit account permission](/02-analysis/sequence-diagrams/Administrator/16-edit_account_permission.png)
 
 ## Alternate Course of Events
-#### Invalid Permission Level
+### Invalid Permission Level
 - The administrator is on view all accounts page(7-view_all_accounts.png).
 - The administrator selects an account and attempts to assign an invalid permission level.
 - The system displays an error message and prompts for a valid selection.
@@ -19,7 +19,7 @@
 ![Invalid permission level](/02-analysis/sequence-diagrams/Administrator/16-edit_account_permission_Invalid_Permission_Level.png)
 
 ## Alternate Course of Events
-#### Account Not Found
+### Account Not Found
 - The administrator is on view all accounts page(7-view_all_accounts.png).
 - The administrator attempts to select an account that does not exist.
 - The system displays an error message indicating the account is not found.
@@ -27,7 +27,7 @@
 ![Account not found](/02-analysis/sequence-diagrams/Administrator/16-edit_account_permission_Account_Not_Found.png)
 
 ## Alternate Course of Events
-#### Permission Already Granted
+### Permission Already Granted
 - The administrator is on view all accounts page(7-view_all_accounts.png).
 - The administrator selects the account to modify.
 - The administrator attempts to assign a permission level that the account already has.

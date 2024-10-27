@@ -7,11 +7,11 @@
 - The system displays the search results.
 
 ### Sequence Diagram
-#### Administrator
+### Administrator
 ![Administrator](/02-analysis/sequence-diagrams/Common/10-administrator_search_filter_events.png)
-#### User
+### User
 ![User](/02-analysis/sequence-diagrams/Common/10-user_search_filter_events.png)
-#### Organizer
+### Organizer
 ![Organizer](/02-analysis/sequence-diagrams/Common/10-organizer_search_filter_events.png)
 
 ## Alternate Course of Events
@@ -27,33 +27,33 @@
 ## UI Sketches
 ### Administrator
 This is the page that the user must be on at the start to complete the use case.
-#### Main Page
+### Main Page
 ![Main Page](/02-analysis/UI/admin/01-view_all_events.png)
 
-#### Search
+### Search
 ![Search](/02-analysis/UI/user/38-search_filter_events.png)
 
-#### Event Lists
+### Event Lists
 ![Event Lists](/02-analysis/UI/user/44-filter_events.png)
 
 ### Organizer
 There the pages that the user must be on at the start to complete the use case.
-#### Main Page
+### Main Page
 ![Main Page](/02-analysis/UI/organizer/17-view_all_events.png)
 
-#### Search
+### Search
 ![Search](/02-analysis/UI/user/38-search_filter_events.png)
 
-#### Event Lists
+### Event Lists
 ![Event Lists](/02-analysis/UI/user/44-filter_events.png)
 
 ### User
 There the pages that the user must be on at the start to complete the use case.
-#### Main Page
+### Main Page
 ![Main Page](/02-analysis/UI/user/34-view_all_events.png)
 
-#### Search
+### Search
 ![Search](/02-analysis/UI/user/38-search_filter_events.png)
 
-#### Event Lists
+### Event Lists
 ![Event Lists](/02-analysis/UI/user/44-filter_events.png)

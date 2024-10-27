@@ -25,30 +25,30 @@
 ## UI Sketches
 ### Administrator
 This is the page that the user must be on at the start to complete the use case.
-#### Main Page
+### Main Page
 ![Main Page](/02-analysis/UI/admin/01-view_all_events.png)
-#### Select Date
+### Select Date
 ![Select Date](/02-analysis/UI/user/33-display_date.png)
-#### Selected Date Events
+### Selected Date Events
 ![Selected Date Events](/02-analysis/UI/admin/01-view_all_events.png)
 - **Tips: The events table on the main page shows all the events for the day.**
 
 ### Organizer
 There the pages that the user must be on at the start to complete the use case.
-#### Main Page
+### Main Page
 ![Main Page](/02-analysis/UI/organizer/17-view_all_events.png)
-#### Select Date
+### Select Date
 ![Select Date](/02-analysis/UI/user/33-display_date.png)
-#### Selected Date Events
+### Selected Date Events
 ![Selected Date Events](/02-analysis/UI/organizer/17-view_all_events.png)
 - **Tips: The events table on the main page shows all the events for the day.**
 
 ### User
 There the pages that the user must be on at the start to complete the use case.
-#### Main Page
+### Main Page
 ![Main Page](/02-analysis/UI/user/34-view_all_events.png)
-#### Select Date
+### Select Date
 ![Select Date](/02-analysis/UI/user/33-display_date.png)
-#### Selected Date Events
+### Selected Date Events
 ![Selected Date Events](/02-analysis/UI/user/34-view_all_events.png)
 - **Tips: The events table on the main page shows all the events for the day.**

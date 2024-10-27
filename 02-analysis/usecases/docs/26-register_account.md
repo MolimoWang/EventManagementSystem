@@ -15,7 +15,7 @@
 ### Sequence Diagram
 
 ## Alternate Course of Events
-#### Do not Create
+### Do not Create
 - A new user select 'Create User Account' in the account management.
 - The user fill in necessary information to create a user, including:
     1. name

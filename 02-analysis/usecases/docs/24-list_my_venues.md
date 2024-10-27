@@ -7,7 +7,7 @@
 ### Sequence Diagram
 
 ## Alternate Course of Events
-#### No Venues Found
+### No Venues Found
 - If the organizer has not created any venues, the system displays a message indicating that no venues are available.
 
 ### Sequence Diagram-- Alternate Course of Events

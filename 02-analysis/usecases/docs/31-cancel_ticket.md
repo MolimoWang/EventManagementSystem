@@ -9,7 +9,7 @@
 ### Sequence Diagram
 
 ## Alternate Course of Events
-#### Do not Cancel
+### Do not Cancel
 - The user selects 'Cancel' option of a ticket from their ticket list(on the ticket list page(40-view_purchased_tickets.png).).
 - The system asks the user to confirm.
 - The user select **No**.
@@ -26,8 +26,8 @@
 ### Sequence Diagram--Alternate Course of Events
 
 
-#### Do not Cancel
+### Do not Cancel
 In this case, all interactions are completed within the javascript of the view majors page. No request is made to the server and no response is received.
-#### Ticket Exceeds Cancellation Deadline
+### Ticket Exceeds Cancellation Deadline
 
 ## UI Sketches

@@ -14,7 +14,7 @@
 ### Sequence Diagram
 
 
-#### Duplicate Venue
+### Duplicate Venue
 - The organiser or administrator selects the add venue functionality
 - The system displays the add venue page (26-create_venue.png) page
 - The organiser or administrator enters the details of the venue(Name, Address, Ticket Types(ticketTypeName, number),Contact information (name, phone, email))

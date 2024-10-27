@@ -73,16 +73,20 @@
   response is received.
 
 ## UI Sketches
-
+- The administrator is on their main page(01-view_all_events.png) or events history page(02-view_events_history.png).
+- The organizer is on their main page(17-view_all_events.png) or their events list page (18-list_my_events.png).
+- The user is on their main page(34-view_all_events.png).
 ### Administrator
 
 This is the page that the user must be on at the start to complete the use case.
 ![Main Page](/02-analysis/UI/admin/01-view_all_events.png)
+![View Events History](/02-analysis/UI/admin/02-view_events_history.png)
 
 ### Organizer
 
 There the pages that the user must be on at the start to complete the use case.
 ![Main Page](/02-analysis/UI/organizer/17-view_all_events.png)
+![List My Events](/02-analysis/UI/organizer/18-list_my_events.png)
 
 ### User
 
@@ -91,15 +95,15 @@ There the pages that the user must be on at the start to complete the use case.
 
 #### Related UI Prototypes-- Administrator, Organizer
 
-| View Event Details Page                                             |
-|---------------------------------------------------------------------|
-| ![View Event Details](../../UI/organizer/22-view_event_details.png) |
+| View Event Details Page                                                    |
+|----------------------------------------------------------------------------|
+| ![View Event Details](/02-analysis/UI/organizer/22-view_event_details.png) |
 
 #### Related UI Prototypes-- User
 
-| View Event Details Page                                        |
-|----------------------------------------------------------------|
-| ![View Event Details](../../UI/user/43-view_event_details.png) |
+| View Event Details Page                                               |
+|-----------------------------------------------------------------------|
+| ![View Event Details](/02-analysis/UI/user/43-view_event_details.png) |
 
 ## Data Outcome
 - **Read** - The event details will be shown on the system and the administrator, organizer or user can read it.

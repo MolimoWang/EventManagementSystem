@@ -11,7 +11,7 @@
 ![Delete Account](/02-analysis/sequence-diagrams/Administrator/15-delete_account.png)
 ## Alternate Course of Events
 
-#### Do Not Delete
+### Do Not Delete
 - The administrator selects an account to delete on view all accounts page(7-view_all_accounts.png).
 - The system asks the administrator to confirm.
 - The administrator selects **No**.
@@ -19,7 +19,7 @@
 
 ### Sequence Diagram-- Alternate Course of Events
 ![Do not delete](/02-analysis/sequence-diagrams/Administrator/15-delete_account_cancel.png)
-#### Event Not Found
+### Event Not Found
 - The administrator tries to delete an event that no longer exists.
 - The system displays an error message.
 

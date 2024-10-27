@@ -8,7 +8,7 @@
 ### Sequence Diagram
 
 ## Alternate Course of Events
-#### Venue Not Found
+### Venue Not Found
 - If the selected venue does not exist, the system displays an error message and prompts the organizer to select a valid venue.
 
 ### Sequence Diagram-- Alternate Course of Events
