@@ -5,7 +5,7 @@
 - The administrator turn to view all accounts page(07-view_all_accounts.png).
 - The system retrieves and displays a list of all existing accounts (administrators, organizers, users).
 ### Sequence Diagram
-![view all accounts for administrator](\02-analysis\sequence-diagrams\Administrator\view_all_accounts.png)
+![view all accounts for administrator](\eventmanagementsystem\02-analysis\sequence-diagrams\Administrator\view_all_accounts.png)
 
 ## Alternate Course of Events
 - The administrator selects 'View All Accounts' from the main page(01-view_all_events.png).

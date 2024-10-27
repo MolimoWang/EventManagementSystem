@@ -7,7 +7,7 @@
 - The administrator selects **Yes**.
 - The system update the view all accounts page(7-view_all_accounts.png) with this account deleted.
 ### Sequence Diagram
-![Disable account](\eventmanagementsystem\02-analysis\sequence-diagrams\Administrator\14-disable_account.png)
+![Disable account](\02-analysis\sequence-diagrams\Administrator\14-disable_account.png)
 ## Alternate Course of Events
 #### Do Not Disable
 - The administrator selects an account to disable.
@@ -25,5 +25,6 @@
 ![Account already disabled](\eventmanagementsystem\02-analysis\sequence-diagrams\Administrator\14-disable_account- Account already Disabled.png)
 ## UI Sketches
 This is the page that the user must be on at the start to complete the use case.
-！[Main Page](\eventmanagementsystem\02-analysis\UI\admin\01-view_all_events.png)
-![Disable account](\eventmanagementsystem\02-analysis\UI\admin\15-disable_account.png)
+！[Main Page](\02-analysis\UI\admin\01-view_all_events.png)
+![Disable account](\02-analysis\UI\admin\15-disable_account.png)
+![Already disabled](\02-analysis\UI\admin\Alternative\disable_account_already_disabled.jpg)
