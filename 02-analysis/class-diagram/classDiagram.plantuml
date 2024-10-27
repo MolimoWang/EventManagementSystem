@@ -106,6 +106,7 @@ package "Venue Management" {
         +getVenueContactEmail(name: String):String
         +getVenueCapacity(name: String): int
         +saveVenue(name: String):Boolean
+        +checkDuplicateVenue(venue: Venue)
     }
 
     class VenueCreationRequest {
