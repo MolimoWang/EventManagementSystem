@@ -1,0 +1,19 @@
+title User Cancel Ticket Sequence Diagram (Do Not Cancel)
+
+actor User
+boundary TicketSystem
+
+note right of User: The user selects 'Cancel' option for a ticket on their ticket list page (40-view_purchased_tickets.png).
+User ->> TicketSystem : initiateTicketCancellation(eventName: String)
+
+activate TicketSystem
+note right of TicketSystem: The system asks the user to confirm cancellation.
+TicketSystem ->> User : requestCancellationConfirmation
+
+note right of User: The user selects **No** to decline the cancellation.
+User ->> TicketSystem : declineCancellation
+
+note right of TicketSystem: The system returns to the ticket list page without making changes.
+TicketSystem -->> User : displayTicketListPage(40-view_purchased_tickets.png)
+
+deactivate TicketSystem
