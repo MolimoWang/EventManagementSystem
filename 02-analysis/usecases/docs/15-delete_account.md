@@ -8,7 +8,7 @@
 - The system update the view all accounts page(7-view_all_accounts.png) with this account deleted.
 
 ### Sequence Diagram
-![Delete Account](\eventmanagementsystem\02-analysis\sequence-diagrams\Administrator\15-delete_account.png)
+![Delete Account](/02-analysis/sequence-diagrams/Administrator/15-delete_account.png)
 ## Alternate Course of Events
 
 #### Do Not Delete
@@ -18,7 +18,7 @@
 - The system returns to the view all accounts page(7-view_all_accounts.png) with no changes.
 
 ### Sequence Diagram-- Alternate Course of Events
-![Do not delete](\eventmanagementsystem\02-analysis\sequence-diagrams\Administrator\15-delete_account- cancel.png)
+![Do not delete](/02-analysis/sequence-diagrams/Administrator/15-delete_account- cancel.png)
 #### Event Not Found
 - The administrator tries to delete an event that no longer exists.
 - The system displays an error message.
@@ -27,5 +27,5 @@
 There is no interaction
 ## UI Sketches
 This is the page that the user must be on at the start to complete the use case.
-！[Main Page](\eventmanagementsystem\02-analysis\UI\admin\01-view_all_events.png)
-![Delete Account](\eventmanagementsystem\02-analysis\UI\admin\16-delete_account.png)
+！[Main Page](02-analysis/UI/admin/07-view_all_accounts.png)
+![Delete Account](/02-analysis/UI/admin/16-delete_account.png)
