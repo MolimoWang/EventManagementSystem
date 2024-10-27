@@ -1,4 +1,4 @@
-title Organizer Create Event Deatils
+title Organizer Create Event Details
 
 
 actor Organizer

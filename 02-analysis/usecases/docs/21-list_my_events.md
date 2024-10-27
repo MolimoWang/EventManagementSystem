@@ -13,7 +13,7 @@
 
 ### Sequence Diagram-- Alternate Course of Events
 - None
-
+![List My Events](02-analysis/sequence-diagrams/Organizer/21-list_my_events.png)
 ## UI Sketches
 This is the page that the user must be on at the start to complete the use case.
 ### Main Page
