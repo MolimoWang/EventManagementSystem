@@ -60,6 +60,7 @@ package "Account Management" {
         +readAccount(accountEmail: String): AccountDetails
         +updateAccount(accountEmail: String, accountDetails: AccountDetails): Boolean
         +getAccounts():Account[*]
+        +checkAccountExist(accountEmail:String):Boolean
     }
 
     class AccountCreationRequest {
@@ -219,9 +220,14 @@ class AccountSystem {
     +updateOrganizerAccount(newName: String, newPassword:String,newAddress:String,newCompanyName :String, newPhoneNumber:String)
     +displayEditAccountPage(selectedAccount)
     +displayAccounts(accounts:Account[*])
+    +updateDisplay()
+    +disableAccount(accountEmail:String):Boolean
+    +selectAccount(accountEmail:String)
+    +updatePermission(accountEmail:String)
     +showEditAccount(email: String)
     +showError()
     +showMainPage()
+    +confirm()
 
 }
 AccountSystem --> AccountService
