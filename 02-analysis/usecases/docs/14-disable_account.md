@@ -27,3 +27,4 @@
 This is the page that the user must be on at the start to complete the use case.
 ！[Main Page](\eventmanagementsystem\02-analysis\UI\admin\01-view_all_events.png)
 ![Disable account](\eventmanagementsystem\02-analysis\UI\admin\15-disable_account.png)
+![Already disabled](\eventmanagementsystem\02-analysis\UI\admin\Alternative\disable_account_already_disabled.jpg)
