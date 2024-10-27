@@ -16,4 +16,4 @@ There is no interaction
 ## UI Sketches
 This is the page that the user must be on at the start to complete the use case.
 ![Main Page](/02-analysis/UI/admin/01-view_all_events.png)
-！[View all accounts](02-analysis/UI/admin/07-view_all_accounts.png)
+！[View all accounts](/02-analysis/UI/admin/07-view_all_accounts.png)
