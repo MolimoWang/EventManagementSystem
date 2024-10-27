@@ -8,8 +8,8 @@
 5. The system updates the list of upcoming events and return to the list venues page (25-list_my_venues.png).
 
 ### Sequence Diagram
-![Edit Venue Page](02-analysis/sequence-diagrams/Common/06-edit_venue.png)
-![Edit Venue Page-alternative](02-analysis/sequence-diagrams/Common/06-edit_venue_alternative.png)
+![Edit Venue Page](/02-analysis/sequence-diagrams/Common/06-edit_venue.png)
+![Edit Venue Page-alternative](/02-analysis/sequence-diagrams/Common/06-edit_venue_alternative.png)
 ## Alternate Course of Events
 
 ### Duplicate Venue
