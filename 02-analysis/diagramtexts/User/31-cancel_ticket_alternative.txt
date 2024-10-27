@@ -16,7 +16,7 @@ note right of TicketSystem: 2. The system forwards the request to the TicketServ
     activate TicketService
 
 note right of TicketService: 3. The service checks if the cancellation is within the allowed time frame.
-    TicketService ->> Event : checkCancellationTime(eventId: String)
+    TicketService ->> Event : checkCancellationTime(eventName: String)
     activate Event
     Event --> TicketService : return isCancellable
     deactivate Event
