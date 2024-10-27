@@ -248,10 +248,10 @@ class EventSystem {
 EventSystem --> EventService
 
 class TicketSystem {
-    +buyTicket(userEmail: String, eventEmail: String, ticketType: String): TicketDetails
-    +viewTicket(ticketId: String): TicketDetails
+    +buyTicket(userEmail: String, eventName: String, ticketType: String): TicketDetails
+    +viewTicket(userEmail: String, eventName: String): TicketDetails
     +listUserTickets(userEmail: String): List<Tickets>
-    +cancelTicket(ticketId: String): Boolean
+    +cancelTicket(userEmail: String, eventName: String): Boolean
     +getRegistrations(eventName: event):List<User>
 }
 TicketSystem --> TicketService
