@@ -38,3 +38,4 @@ There is no interaction
 This is the page that the user must be on at the start to complete the use case.
 ！[Main Page](02-analysis/UI/admin/07-view_all_accounts.png)
 ![Edit account permission](/02-analysis/UI/admin/11-edit_account_permission.png)
+![Invalid permissionlevel](/02-analysis/UI/admin/Alternative/edit_account_permission_invalid_permissionlevel.png)
