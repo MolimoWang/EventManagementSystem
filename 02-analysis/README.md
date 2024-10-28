@@ -182,8 +182,8 @@ Special note: the content of each use case here includes: sequence diagrams (png
 | Use Case 02: "Delete Event"             | TM7            | TM2         |             | TM8      |
 | Use Case 03: "View Event Details"       | TM7            | TM2         |             | TM8      |
 | Use Case 04: "View Event Registrations" | TM7            | TM2         |             | TM8      |
-| Use Case 05: "Create Venue"             |                |             |             | TM2      |
-| Use Case 06: "Edit Venue"               |                |             |             | TM2      |
+| Use Case 05: "Create Venue"             |                | TM4         |             | TM4&TM2  |
+| Use Case 06: "Edit Venue"               |                | TM4         |             | TM4&TM2  |
 | Use Case 07: "View Venue Details"       | TM3            |             |             | TM2&TM8  |
 | Use Case 08: "Modify Account"           | TM3            |             |             | TM2&TM8  |
 | Use Case 09: "View Account"             | TM3            |             |             | TM2&TM8  |
@@ -198,11 +198,11 @@ Special note: the content of each use case here includes: sequence diagrams (png
 | Use Case 18: "Delete Venue"             | TM8            |             |             | TM2&TM3  |
 | Use Case 19: "View Venue Usage History" | TM7            | TM2         |             | TM2&TM3  |
 | Use Case 20: "View Events History"      | TM8            |             |             | TM2&TM3  |
-| Use Case 21: "List My Events"           |                |             |             | TM2      |
-| Use Case 22: "Create Event"             |                |             |             | TM2      |
-| Use Case 23: "Edit Event"               |                |             |             | TM2      |
-| Use Case 24: "List My Venues"           |                |             |             | TM2      |
-| Use Case 25: "View Venue Bookings"      |                |             |             | TM2      |
+| Use Case 21: "List My Events"           |                | TM4         |             | TM4&TM2  |
+| Use Case 22: "Create Event"             |                | TM4         |             | TM4&TM2  |
+| Use Case 23: "Edit Event"               |                | TM4         |             | TM4&TM2  |
+| Use Case 24: "List My Venues"           |                | TM4         |             | TM4&TM2  |
+| Use Case 25: "View Venue Bookings"      |                | TM4         |             | TM4&TM2  |
 | Use Case 26: "Register Account"         | TM1            |             |             | TM2      |
 | Use Case 27: "List Upcoming Events"     | TM1            |             |             | TM2      |
 | Use Case 28: "Tickets List"             | TM1            |             |             | TM2      |
