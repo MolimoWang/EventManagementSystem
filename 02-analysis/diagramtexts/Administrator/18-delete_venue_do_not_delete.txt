@@ -1,0 +1,22 @@
+title Delete Venue - Venue In Use
+participantspacing 2
+
+actor "Administrator" as admin
+control ": VenueSystem" as vs
+participant ": VenueService" as vsvc
+
+== 1. The administrator selects a venue to delete ==
+admin -> vs: selectVenue(venueName)
+activate vs
+
+vs -> vsvc: checkVenueUsage(venueName)
+activate vsvc
+note right of vsvc: The system checks if the venue is associated\nwith any upcoming events
+vsvc --> vs: venue in use
+deactivate vsvc
+
+== 2. The system displays a warning indicating that the venue cannot be deleted ==
+vs -> admin: display 'Venue in use'
+
+deactivate vs
+

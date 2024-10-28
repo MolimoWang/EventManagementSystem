@@ -1,0 +1,36 @@
+title Delete Venue - Basic Course of Events
+participantspacing 2
+
+actor "Administrator" as admin
+control ": VenueSystem" as vs
+participant ": VenueService" as vsvc
+entity "selected : Venue" as sel
+
+== 1. The administrator is shown the list venues page (04-view_all_venues.png) ==
+== 2. The administrator selects the venue to delete ==
+admin -> vs: selectVenue(venueName)
+activate vs
+
+vs -> admin: confirm()
+activate admin
+
+== 3. The system asks the administrator to confirm ==
+== 4. The administrator selects Yes ==
+admin --> vs: return true
+deactivate admin
+
+vs -> vsvc: deleteVenue(venueName)
+activate vsvc
+note right of vsvc: The system deletes the venue from the database
+vsvc -> sel: <<destroy>>
+destroy sel
+vsvc --> vs: venue deleted
+deactivate vsvc
+
+vs -> vs: venues := getVenues()
+vs -> vs: updateDisplay()
+
+vs --> admin: 
+deactivate vs
+
+== 5. The system updates the list venues page with the venue deleted ==
