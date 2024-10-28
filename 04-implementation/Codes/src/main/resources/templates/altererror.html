@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Group05 Event Management</title>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+</head>
+
+<body>
+
+
+<div class = "grid">
+    <span><a th:href="@{/(date=${yesterday})}" role="button">&#8592;</a></span>
+    <span><input type="date" name="date" id="start" th:value="${date}" onchange="handleDateChange(event)"></span>
+    <span><a th:href="@{/(date=${tomorrow})}" role="button">&#8594;</a></span>
+    <span><a href="#" role="button" data-target="add-reservation" onClick="toggleModal(event)">Add Reservation</a></span>
+    <span><a href="#" role="button" data-target="add-walkIn" onClick="toggleModal(event)">Add WalkIn</a></span>
+    <span><a id="cancelButton" class = "secondary" href="#" role="button" data-target="confirm-cancel" onClick="return false;">Remove Booking</a></span>
+</div>
+<div>
+    <canvas id="myCanvas" width="1000" height="600" style="border:1px solid #000000;">Your browser does not support the HTML5 canvas tag.</canvas>
+</div>
+
+<form method="post" action="/change/" id="changeForm" th:object="${alterDTO}">
+    <input type="hidden" id="changeFormId" name="changeFormId" th:field="*{bookingId}">
+    <input type="hidden" id="changeFormDate" name="changeFormDate" th:field="*{date}">
+    <input type="hidden" id="changeFormTable" name="changeFormTable" th:field="*{tableNumber}">
+    <input type="hidden" id="changeFormTime" name="changeFormTime" th:field="*{time}">
+    <input type="hidden" id="changeFormOver" name="changeFormOver" th:field="*{overfill}">
+</form>
+<dialog id="alter-over" th:open="${errorDTO?.type == T(org.work1.eventmanagement.controller.ErrorType).OVERBOOKED_ALTERATION}">
+    <article>
+        <h3>Error!</h3>
+        <p th:text="${errorDTO?.message}"></p>
+        <footer>
+            <a href="#close" role="button" class="secondary" data-target="alter-over" onClick="toggleModal(event)">Cancel</a>
+            <a href="#" role="button" onClick="javascript: handleBookingChangeOver(event);" th:text="${errorDTO?.type == T(org.work1.eventmanagement.controller.ErrorType).OVERBOOKED_ALTERATION}?'Confirm Overfill' : 'Submit'">Confirm</a>
+        </footer>
+    </article>
+</dialog>
+<dialog id="alter-clash" th:open="${errorDTO?.type == T(org.work1.eventmanagement.controller.ErrorType).DOUBLE_BOOKED_ALTERATION}">
+    <article>
+        <h3>Error!</h3>
+        <p th:text="${errorDTO?.message}"></p>
+        <footer>
+            <a href="#close" role="button" class="secondary" data-target="alter-clash" onClick="toggleModal(event)">Cancel</a>
+        </footer>
+    </article>
+</dialog>
+<dialog id="add-reservation">
+    <article>
+        <a href="#close" aria-label="Close" class="close" data-target="add-reservation" onClick="toggleModal(event)"></a>
+        <h3>Enter Reservation Details</h3>
+        <p th:text="${errorDTO?.message}"></p>
+        <form id="reservationForm" method="post" action="/reservation/" th:object="${reservationDTO}">
+            <input type="hidden" id="overfillReservation" name="overfillReservation" th:field="*{isOverfill}">
+            <label for="customerName">
+                Customer Name
+                <input type="text" id="customerName" name="customerName" placeholder="Customer Name" required th:field="*{name}">
+            </label>
+            <label for="customerNumber">
+                Phone Number
+                <input type="tel" id="customerNumber" name="customerNumber" placeholder="Phone Number" required th:field="*{number}">
+            </label>
+            <label for ="reservationDate">
+                Date
+                <input type="date" id="reservationDate" name="reservationDate" required th:field="*{date}">
+            </label>
+            <label for="reservationTime">
+                Time
+                <input type="time" id="reservationTime" name="reservationTime" required th:field="*{time}">
+            </label>
+            <label for="reservationCovers">
+                Covers
+                <input type="number" id="reservationCovers" name="reservationCovers" min="1" max="10" required th:field="*{covers}">
+            </label>
+            <label for="reservationTable">
+                Table
+                <select id="reservationTable" name="reservationTable" required th:field="*{tableId}">
+                    <option th:each="table : ${tables}" th:value="${table.id}" th:text="'Table ' + ${table.number} + ' (' + ${table.places} + ')'"></option>
+                </select>
+            </label>
+            <footer>
+                <a href="#close" role="button" class="secondary" data-target="add-reservation" onClick="toggleModal(event)">Cancel</a>
+                <a href="#" role="button" onClick="javascript: document.getElementById('reservationForm').submit();">Submit</a>
+            </footer>
+        </form>
+
+    </article>
+</dialog>
+<dialog id="add-walkIn">
+    <article>
+        <a href="#close" aria-label="Close" class="close" data-target="add-walkIn" onClick="toggleModal(event)"></a>
+        <h3>Enter WalkIn Details</h3>
+        <p th:text="${errorDTO?.message}"></p>
+        <form method="post" action="/walkin/" id="walkInForm" th:object="${walkInDTO}">
+            <input type="hidden" id="walkInoverfill" name="walkInoverfill" th:field="*{overfill}">
+            <label for ="walkInDate">
+                Date
+                <input type="date" id="walkInDate" name="walkInDate" th:field="*{date}" required>
+            </label>
+            <label for="walkInTime">
+                Time
+                <input type="time" id="walkInTime" name="walkInTime" th:field="*{time}" required>
+            </label>
+            <label for="walkInCovers">
+                Covers
+                <input type="number" id="walkInCovers" name="walkInCovers" min="1" max="10" value="2" th:field="*{covers}" required>
+            </label>
+            <label for="walkInTable">
+                Table
+                <select id="walkInTable" name="walkInTable" required th:field="*{tableId}">
+                    <option th:each="table : ${tables}" th:value="${table.id}" th:text="'Table ' + ${table.number} + ' (' + ${table.places} + ')'"></option>
+                </select>
+            </label>
+            <footer>
+                <a href="#close" role="button" class="secondary" data-target="add-walkIn" onClick="toggleModal(event)">Cancel</a>
+                <a href="#" role="button" onClick="javascript: document.getElementById('walkInForm').submit();" th:text="${error?.type == T(org.work1.eventmanagement.controller.ErrorType).OVERBOOKED_WALK_IN}?'Confirm Overfill' : 'Submit'">Confirm</a>
+            </footer>
+        </form>
+    </article>
+</dialog>
+<dialog id="confirm-cancel">
+    <article>
+        <h3>Are you sure?</h3>
+        <p>
+            This booking will be removed from the system.
+        </p>
+        <footer>
+            <a href="#close" role="button" class="secondary" data-target="confirm-cancel" onClick="toggleModal(event)">Cancel</a>
+            <a href="#" role="button" onClick="handleBookingDelete(event)">Confirm</a>
+            <form method="post" action="/delete/" id="deleteForm">
+                <input type="hidden" id="deleteFormId" name="deleteFormId" value="">
+            </form>
+        </footer>
+    </article>
+</dialog>
+<script th:inline="javascript">
+    // Config
+    const bookings = [[${bookings}]]
+    const tableList = [[${tables}]]
+
+    function handleBookingChangeOver(e){
+        const changeForm = document.getElementById('changeForm');
+        /*<![CDATA[*/
+        let tab = document.getElementById("changeFormTable");
+        let tim = document.getElementById("changeFormTime");
+        let dat = document.getElementById("changeFormDate");
+        let id = document.getElementById("changeFormId");
+        let over = document.getElementById("changeFormOver");
+        tab.setAttribute('value', /*[[${alterDTO?.tableNumber}]]*/ '1');
+        tim.setAttribute('value', /*[[${alterDTO?.time}]]*/ '18:30');
+        dat.setAttribute('value', /*[[${alterDTO?.date}]]*/ '2022-09-30');
+        id.setAttribute('value', /*[[${alterDTO?.bookingId}]]*/ '1');
+        over.setAttribute('value', "true");
+        /*]]>*/
+
+        changeForm.submit();
+    }
+</script>
+<script type="text/javascript" th:src="@{/js/canvas.js}">
+</script>
+<script type="text/javascript" th:src="@{/js/modals.js}">
+</script>
+</body>
+</html>
