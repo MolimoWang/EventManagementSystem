@@ -21,10 +21,9 @@
 
 ## UI Sketches
 This is the page that the user must be on at the start to complete the use case.
+![View All Venues](/02-analysis/UI/admin/04-view_all_venues.png)
+![View Venue Usage History](/02-analysis/UI/admin/05-view_venue_usage_history.png)
 
-### Main Page
-
-### Administrator
 
 ## Data Outcome
 - **READ** - The venue usage history will be shown on the system and the administrator can read it.
