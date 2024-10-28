@@ -31,7 +31,7 @@
 
 ### Course of Events-- User Modifying Their Accounts
 - The user click the 'Account' option from the view account page(35-view_user_account.png).
-- The system displays the the modify account page(42-edit_user_account.png).
+- The system displays the modify account page(42-edit_user_account.png).
 - The user can change at most two things:
    1. Name.
    2. Password.

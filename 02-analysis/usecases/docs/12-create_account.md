@@ -61,7 +61,7 @@
 ## UI Sketches
 ### Related UI Prototypes
 ![Main Page](/02-analysis/UI/admin/01-view_all_events.png)
-！[View all accounts](/02-analysis/UI/admin/07-view_all_accounts.png)
+![View all accounts](/02-analysis/UI/admin/07-view_all_accounts.png)
 ![Create User Account](/02-analysis/UI/admin/08-create_user_account.png)
 ![Create Organizer Account](/02-analysis/UI/admin/09-create_organizer_account.png)
 ![Create Administrator](/02-analysis/UI/admin/10-create_administrator_account.png)

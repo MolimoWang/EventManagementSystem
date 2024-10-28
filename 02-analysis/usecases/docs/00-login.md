@@ -27,13 +27,13 @@ This is the page that the user must be on at the start to complete the use case.
 ### Main Page
 ### Administrator
 
-![Admin Main Page](../../UI/admin/01-view_all_events.png)
+![Admin Main Page](/02-analysis/UI/admin/01-view_all_events.png)
 
 ### Organizer
-![Organizer Main Page](../../UI/organizer/17-view_all_events.png)
+![Organizer Main Page](/02-analysis/UI/organizer/17-view_all_events.png)
 
 ### User
-![User Main Page](../../UI/user/34-view_all_events.png) 
+![User Main Page](/02-analysis/UI/user/34-view_all_events.png) 
 
 ## Data Outcome
 - **READ** - The details of the selected account in the system will be read and display.
