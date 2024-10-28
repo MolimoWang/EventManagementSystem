@@ -194,7 +194,7 @@ Special note: the content of each use case here includes: sequence diagrams (png
 | Use Case 14: "Disable Account"          | TM8            |             |             | TM2&TM3  |
 | Use Case 15: "Delete Account"           | TM8            |             |             | TM2&TM3  |
 | Use Case 16: "Edit Account Permission"  | TM8            |             |             | TM2&TM3  |
-| Use Case 17: "View All Venues"          | TM8            |             |             | TM2&TM3  |
+| Use Case 17: "View All Venues"          | TM3            |             |             | TM2&TM8  |
 | Use Case 18: "Delete Venue"             | TM8            |             |             | TM2&TM3  |
 | Use Case 19: "View Venue Usage History" | TM7            | TM2         |             | TM2&TM3  |
 | Use Case 20: "View Events History"      | TM8            |             |             | TM2&TM3  |
