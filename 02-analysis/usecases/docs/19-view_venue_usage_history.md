@@ -9,7 +9,7 @@
 - 4.The system retrieves and displays a list of events that have been hosted at that venue.
 
 ### Sequence Diagram
-![view_venue_usage_history](/02-analysis/sequence-diagrams/Administrator/18-view_venue_usage_history.png)
+![view_venue_usage_history](/02-analysis/sequence-diagrams/Administrator/19-view_venue_usage_history.png)
 
 ## Alternate Course of Events
 
