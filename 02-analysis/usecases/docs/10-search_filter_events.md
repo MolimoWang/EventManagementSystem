@@ -1,16 +1,20 @@
 # 10 Search Filter Events
 
 ## Basic Course of Events
+
 ### Course of Events
 - The user/organizer/administrator inputs the name of the event they want to search for in the filter box.
 - The user/organizer/administrator click the 'Search' button.
 - The system displays the search results.
 
 ### Sequence Diagram
+
 ### Administrator
 ![Administrator](/02-analysis/sequence-diagrams/Common/10-administrator_search_filter_events.png)
+
 ### User
 ![User](/02-analysis/sequence-diagrams/Common/10-user_search_filter_events.png)
+
 ### Organizer
 ![Organizer](/02-analysis/sequence-diagrams/Common/10-organizer_search_filter_events.png)
 

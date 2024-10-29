@@ -1,6 +1,7 @@
 # 04 View Event Registrations
 
 ## Basic Course of Events
+
 - 1.The administrator or organizer selects the "View Event Registrations" option from event details page(22-view_event_details.png).
 - 2.The system passes requests to the service.
 - 3.The system displays the users who registered for this event to organizer or administrator.
@@ -11,6 +12,7 @@
 ## Alternate Course of Events
 
 ### No users for this event
+
 - The system shows that there is no users for this event.
 
 ### Sequence Diagram-- Alternate Course of Events

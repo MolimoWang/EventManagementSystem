@@ -11,6 +11,7 @@
 ![List Upcoming Events](/02-analysis/sequence-diagrams/User/27-list_upcoming_events.png)
 
 ## Alternate Course of Events
+
 ### No Upcoming Events
 - The user selects 'Upcoming' option from the user management menu.
 - The system forwards the request to the EventService to retrieve upcoming events.

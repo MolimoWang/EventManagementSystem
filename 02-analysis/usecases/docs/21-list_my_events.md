@@ -9,6 +9,7 @@
 ![Edit Venue Page](/02-analysis/sequence-diagrams/Organizer/21-list_my_events.png)
 
 ## Alternate Course of Events
+
 ### No Events Found
 - If the organizer has not created any events, the system displays a message indicating that no events are available.
 
@@ -20,5 +21,6 @@ This is the page that the user must be on at the start to complete the use case.
 
 ### Main Page
 ![Main Page](/02-analysis/UI/organizer/17-view_all_events.png)
+
 ### List My Events
 ![List Events](/02-analysis/UI/organizer/18-list_my_events.png)
