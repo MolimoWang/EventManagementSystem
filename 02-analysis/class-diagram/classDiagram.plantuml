@@ -97,16 +97,12 @@ package "Venue Management" {
         +updateVenue(name: String, venueDetails: VenueDetails): Boolean
         +deleteVenue(name: String): Boolean
         +getVenue(name: String): Venue
-        +getVenueName(name: String)):String
-        +getVenueAddress(name: String):String
-        +getVenueContactName(name: String):String
-        +getVenueContactPhoneNumber(name: String): String
-        +getVenueContactEmail(name: String):String
+        +getVenueName(name: String):String
         +getVenueCapacity(name: String): int
         +saveVenue(name: String):Boolean
         +checkDuplicateVenue(venue: Venue)
         +selectVenue(name: String)
-        +checkVenueusage(name: String)
+        +checkVenueUsage(name: String)
     }
 
 
@@ -142,7 +138,8 @@ package "Event Management" {
         +getEventTime(name: String):Time
         +getEvents():List<Event>
         +saveEvent(eventId: String):Boolean
-        +getVenueUsage(venueName: String): List<Events>
+        +getVenueUsage(venueName: String): List<Event>
+        +getAvailableVenues():List<VenueDetails>
     }
 
 
@@ -232,7 +229,7 @@ class VenueSystem {
     +viewVenue(name: String): VenueDetails
     +updateVenue(name: String, venueDetails: VenueDetails): Boolean
     +deleteVenue(name: String): Boolean
-    +listVenues(): List<Venues>
+    +listVenues(): List<Venue>
 }
 VenueSystem --> VenueService
 
@@ -249,13 +246,14 @@ class EventSystem {
     +displayEventDetails(eventDetails: EventDetails): void
     +getVenueUsage(VenueName: String): List<Event>
     +displayVenueUsage(filterEvents:List<Event>): void
+    +getAvailableVenues(): List<Venue>
 }
 EventSystem --> EventService
 
 class TicketSystem {
     +buyTicket(userEmail: String, eventName: String, ticketType: String): TicketDetails
     +viewTicketDetails(userEmail: String, eventName: String): TicketDetails
-    +listUserTickets(userEmail: String): List<Tickets>
+    +listUserTickets(userEmail: String): List<Ticket>
     +cancelTicket(userEmail: String, eventName: String): Boolean
     +getRegistrations(eventName: event):List<User>
     +displayRegistrations(eventName: event):List<User>
