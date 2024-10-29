@@ -3,41 +3,41 @@ title Organizer View Venue Bookings Process
 actor Organizer
 
 
-boundary VenueSystem
-control VenueService
+boundary EventSystem
+control EventService
 entity Venue
-activate VenueSystem
-Organizer ->> VenueSystem : viewVenue(action)
-note left of VenueSystem:1. The organizer selects the "Event Venue"\n option from the create event page
-activate VenueService
-VenueSystem->>VenueService: listVenue(eventDetails)
+activate EventSystem
+
+note left of EventSystem:1. The organizer selects one specific date and time, \nthen selects the "Event Venue" option \n from the create event page (19-create_event.png).
+Organizer ->> EventSystem : getAvailableVenues(date:Date, time:Time)
+EventSystem->>EventService: getAvailableVenues(date:Date, time:Time)
 
 activate Venue
-VenueService->>Venue: getVenue(venueDetails)
+
 
 
 
 
 loop For every Venues
- VenueService->>Venue: getVenue(name)
-  Venue-->VenueService:return name
- VenueService->>Venue: getVenueAddress(Address)
-  Venue-->VenueService:return address
+ EventService->>Venue: getVenue(name)
+  Venue-->EventService:return name
+ EventService->>Venue: getVenueAddress(name)
+  Venue-->EventService:return address
  end
-  Venue-->VenueService:return corresponding venue list
- VenueService-->VenueSystem:return corresponding venue list
+  Venue-->EventService:return corresponding venue details list
+ EventService-->EventSystem:return corresponding venue details list
 
 
 
  deactivate Venue
 
 
-deactivate VenueService
+deactivate EventService
 
-note over VenueSystem:2. The system displays list of all the venues available for booking \n for the time period which the organizer chosen in this page.
+note over EventSystem:2. The system displays list of all the venues available for booking \n for the time period which the organizer chosen in this page.
 
-VenueSystem->VenueSystem:return corresponding Venue Details list
-VenueSystem-->Organizer:
-deactivate VenueSystem
+EventSystem->EventSystem:return corresponding Venue Details list
+EventSystem-->Organizer:
+deactivate EventSystem
 
-note over VenueSystem:3. Organizer select one available venue from the list \n to be the venue which the events will use.
+note over EventSystem:3. Organizer select one available venue from the list \n to be the venue which the events will use.
