@@ -17,10 +17,12 @@
 
 ## UI Sketches
 This is the page that the user must be on at the start to complete the use case.
+
 ### Main Page
 ![Main Page](/02-analysis/UI/organizer/17-view_all_events.png)
 ### Edit Event
 ![Edit Event](/02-analysis/UI/organizer/20-edit_event.png)
 ### Event Details
 The system shows the created details of the event on the view events page (22-view_event_details).
+
 ![Edit Event](/02-analysis/UI/organizer/20-edit_event.png)

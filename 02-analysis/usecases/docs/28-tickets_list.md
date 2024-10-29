@@ -23,8 +23,10 @@
 
 ### Main Page
 This is the page where the user clicks on 'Tickets' to view their purchased tickets.
+
 ![Main Page](/02-analysis/UI/user/34-view_all_events.png)
 
 ### Ticket List Page
 This page displays all the tickets purchased by the user. If there are no purchased tickets, a message will indicate that there are no tickets available.
+
 ![Ticket List Page](/02-analysis/UI/user/40-view_purchased_tickets.png)

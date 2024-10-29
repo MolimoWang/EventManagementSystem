@@ -13,6 +13,7 @@
 
 ## UI Sketches
 This is the page that the user must be on at the start to complete the use case.
+
 ![My Tickets List](/02-analysis/UI/user/40-view_purchased_tickets.png)
 
 

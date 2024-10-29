@@ -17,6 +17,7 @@
 
 ## UI Sketches
 This is the page that the user must be on at the start to complete the use case.
+
 ### Main Page
 ![Main Page](/02-analysis/UI/organizer/19-create_event.png)
 

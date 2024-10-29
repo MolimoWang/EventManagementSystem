@@ -14,6 +14,7 @@
 
 ### Sequence Diagram
 ![Create Event Page](/02-analysis/sequence-diagrams/Organizer/22-create_event.png)
+
 ## Alternate Course of Events
 - None
 ### Sequence Diagram-- Alternate Course of Events
@@ -21,6 +22,7 @@
 
 ## UI Sketches
 This is the page that the user must be on at the start to complete the use case.
+
 ### Main Page
 ![Main Page](/02-analysis/UI/organizer/17-view_all_events.png)
 ### Create Event

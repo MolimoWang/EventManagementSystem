@@ -8,8 +8,12 @@
 5. The system updates the list of upcoming events and return to the list venues page (25-list_my_venues.png).
 
 ### Sequence Diagram
+
 ![Edit Venue Page](/02-analysis/sequence-diagrams/Common/06-edit_venue.png)
+
 ![Edit Venue Page-alternative](/02-analysis/sequence-diagrams/Common/06-edit_venue_alternative.png)
+
+
 ## Alternate Course of Events
 
 ### Duplicate Venue
@@ -26,10 +30,13 @@
 This is the page that the user must be on at the start to complete the use case
 - The organizer is on my list venues page (25-list_my_venues.png).
 - The administrator is on the all venues page (04-view_all_venues.png).
+- 
 ### List Venue Page
 ![List Venue Page](/02-analysis/UI/organizer/25-list_my_venues.png)
+
 ### Create Venue Page
 ![View All Venues](/02-analysis/UI/admin/04-view_all_venues.png)
+
 ### Edit Venue Page
 ![Edit Venue Page](/02-analysis/UI/organizer/27-edit_venue.png)
 

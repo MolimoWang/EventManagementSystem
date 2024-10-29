@@ -32,6 +32,7 @@
 
 ### View All Venues
 There the pages that the user must be on at the start to complete the use case.
+
 ### View All Venues
 ![view all venues](/02-analysis/UI/admin/04-view_all_venues.png)
 
@@ -43,6 +44,7 @@ There the pages that the user must be on at the start to complete the use case.
 
 ### User
 There the pages that the user must be on at the start to complete the use case.
+
 ### Ticket List Page
  ![Ticket List Page](/02-analysis/UI/user/40-view_purchased_tickets.png)
 
@@ -55,6 +57,7 @@ There the pages that the user must be on at the start to complete the use case.
 
 ### Organizer
 There the pages that the user must be on at the start to complete the use case.
+
 ### Venues list
 ![Venues List](/02-analysis/UI/organizer/25-list_my_venues.png)
 

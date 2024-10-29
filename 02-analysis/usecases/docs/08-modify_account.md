@@ -9,7 +9,9 @@
 - The administrator clicks "Submit" to confirm the modifications.
 - A confirmation message is shown to the administrator.
 - The system back to the view all accounts page(07-view_all_accounts.png)and show the updated account.
+
 ### Sequence Diagram
+
 ### Administrator Modifying Organizer Account
 ![Administrator Modifying Other Accounts](/02-analysis/sequence-diagrams/Common/08-administrator_modify_account_organizer.png)
 
@@ -63,6 +65,7 @@
 
 ### Related UI Prototypes-- Administrator Modifying Other Accounts
 This is the page that the user must be on at the start to complete the use case.
+
 ![View All Accounts](/02-analysis/UI/admin/07-view_all_accounts.png)
 
 ![Edit User Account](/02-analysis/UI/admin/12-edit_user_account.png)
@@ -73,12 +76,14 @@ This is the page that the user must be on at the start to complete the use case.
 ### Related UI Prototypes-- Organizer Modifying Their Accounts
 
 This is the page that the user must be on at the start to complete the use case.
+
 ![View Organizer Accounts](/02-analysis/UI/organizer/30-view_organizer_account.png)
 ![Update Organizer Account](/02-analysis/UI/organizer/31-update_organizer_account.png)
 
 
 ### Related UI Prototypes-- User Modifying Their Accounts
 This is the page that the user must be on at the start to complete the use case.
+
 ![View User Accounts](/02-analysis/UI/user/35-view_user_account.png)
 ![Update User Account](/02-analysis/UI/user/42-edit_user_account.png)
 

@@ -12,6 +12,7 @@
 ![Login](/02-analysis/sequence-diagrams/Common/00-login_basic.png)
 
 ## Alternate Course of Events
+
 ### Wrong email or password
 - 1.The user opens the application.
 - 2.The system presents a login page and prompt the user to enter their email and password
@@ -25,7 +26,9 @@
 This is the page that the user must be on at the start to complete the use case.
 
 ![Login](/02-analysis/UI/00-login.png) 
+
 ### Main Page
+
 ### Administrator
 
 ![Admin Main Page](/02-analysis/UI/admin/01-view_all_events.png)
