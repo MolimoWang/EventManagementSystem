@@ -27,6 +27,7 @@
 - The organizer enters the updated details of the account.
 - The organizer clicks "Save Changes" to confirm the modifications.
 - The system back to the view account page(30-view_organizer_account).
+
 ### Sequence Diagram
 
 ![Organizer Modifying Their Accounts](/02-analysis/sequence-diagrams/Common/08-modify_account_organizer.png)
@@ -39,6 +40,7 @@
    2. Password.
 - The user click the 'Save' option to save the change.
 - The system back to the view account page(35-view_user_account.png).
+
 ### Sequence Diagram
 
 ![User Modifying Their Accounts](/02-analysis/sequence-diagrams/Common/08-modify_account_user.png)
@@ -50,12 +52,16 @@
 - The system displays the modify account page (07-modify-account) which shows the details of the selected account as editable fields
 - The administrator or user enters invalid or incomplete information.
 - The system prompts for corrections and prevents submission until valid data is provided.
+
+
 ### Sequence Diagram-- Alternate Course of Events
 
 ### Missing Required Fields
 - The administrator or user selects the modify account functionality
 - The system displays the modify account page (07-modify-account) which shows the details of the selected account as editable fields
 - If the administrator or user submits the form with missing required fields (e.g., name, password). The system highlights the missing fields and prevents submission until user provides the necessary information.
+
+
 ### Sequence Diagram-- Alternate Course of Events
 
 

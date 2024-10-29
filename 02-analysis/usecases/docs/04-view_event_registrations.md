@@ -19,12 +19,16 @@
 ## UI Sketches
 
 This is the page that the user must be on at the start to complete the use case.
+
+
+
 ![View Event Registration](/02-analysis/UI/organizer/22-view_event_details.png)
 
 ### View Event Registration
 | View Event Registration Page                                                          |
 |---------------------------------------------------------------------------------------|
 | ![View Event Registration](/02-analysis/UI/organizer/23-view_event_registrations.png) |
+
 ## Data Outcome
 - **Read** - The event registrations will be shown on the system and the administrator or organizer can read it.
 - **UPDATE** - None

@@ -7,6 +7,7 @@
 - The system displays the account’s current permission level.
 - The administrator modifies the permission level (e.g., from user to organizer).
 - The system update the view all accounts page(7-view_all_accounts.png) with updated account’s permission.
+
 ### Sequence Diagram
 ![Edit account permission](/02-analysis/sequence-diagrams/Administrator/16-edit_account_permission.png)
 
@@ -34,6 +35,7 @@
 - The administrator selects the account to modify.
 - The administrator attempts to assign a permission level that the account already has.
 - The system displays a message indicating no changes are needed.
+
 ### Sequence Diagram-- Alternate Course of Events
 There is no interaction 
 

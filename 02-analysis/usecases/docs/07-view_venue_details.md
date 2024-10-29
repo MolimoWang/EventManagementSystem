@@ -7,6 +7,8 @@
    - Address
    - Capacity
    - Contact Information (name, phone, email)
+   
+
 ### Sequence Diagram
 
 

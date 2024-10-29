@@ -76,6 +76,7 @@
 - The administrator is on their main page(01-view_all_events.png) or events history page(02-view_events_history.png).
 - The organizer is on their main page(17-view_all_events.png) or their events list page (18-list_my_events.png).
 - The user is on their main page(34-view_all_events.png).
+
 ### Administrator
 
 This is the page that the user must be on at the start to complete the use case.
