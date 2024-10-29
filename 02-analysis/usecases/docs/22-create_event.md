@@ -17,6 +17,7 @@
 
 ## Alternate Course of Events
 - None
+
 ### Sequence Diagram-- Alternate Course of Events
 - None
 
@@ -25,5 +26,6 @@ This is the page that the user must be on at the start to complete the use case.
 
 ### Main Page
 ![Main Page](/02-analysis/UI/organizer/17-view_all_events.png)
+
 ### Create Event
 ![Create Event](/02-analysis/UI/organizer/19-create_event.png)

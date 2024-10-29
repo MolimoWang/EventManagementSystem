@@ -25,6 +25,7 @@
 
 ## Alternate Course of Events
 - None
+
 ### Sequence Diagram-- Alternate Course of Events
 - None
 
@@ -45,6 +46,7 @@ There the pages that the user must be on at the start to complete the use case.
 ![View Venue Details](/02-analysis/UI/organizer/28-view_venue_details.png)
 
 ### User
+
 There the pages that the user must be on at the start to complete the use case.
 
 ### Ticket List Page
@@ -58,6 +60,7 @@ There the pages that the user must be on at the start to complete the use case.
 
 
 ### Organizer
+
 There the pages that the user must be on at the start to complete the use case.
 
 ### Venues list

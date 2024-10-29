@@ -8,6 +8,7 @@
 ![List My Venues Page](/02-analysis/sequence-diagrams/Organizer/24-list_my_venues.png)
 
 ## Alternate Course of Events
+
 ### No Venues Found
 - If the organizer has not created any venues, the system displays a message indicating that no venues are available.
 
@@ -19,5 +20,6 @@ This is the page that the user must be on at the start to complete the use case.
 
 ### Main Page
 ![Main Page](/02-analysis/UI/organizer/17-view_all_events.png)
+
 ### List My Venues
 ![List My Venues](/02-analysis/UI/organizer/25-list_my_venues.png)

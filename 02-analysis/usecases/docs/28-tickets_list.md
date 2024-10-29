@@ -10,6 +10,7 @@
 ![View Purchased Tickets](/02-analysis/sequence-diagrams/User/28-tickets_list.png)
 
 ## Alternate Course of Events
+
 ### No Purchased Tickets
 - The user clicks 'Tickets' on their main page (34-view_all_events.png).
 - The system turns to the ticket list page (40-view_purchased_tickets.png) and requests the purchased tickets associated with the user's email.

@@ -1,6 +1,7 @@
 # 11 Display Date
 
 ## Basic Course of Events
+
 ### Course of Events-- Administrator
 1. The administrator is on their main page(01-view_all_events.png).
 2. The administrator enters the date they want to view.
@@ -26,6 +27,7 @@
 ![Display date](/02-analysis/sequence-diagrams/Common/11-organizer_display_date.png)
 
 ## UI Sketches
+
 ### Administrator
 This is the page that the user must be on at the start to complete the use case.
 

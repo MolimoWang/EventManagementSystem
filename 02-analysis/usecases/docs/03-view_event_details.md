@@ -82,6 +82,7 @@
 This is the page that the user must be on at the start to complete the use case.
 
 ![Main Page](/02-analysis/UI/admin/01-view_all_events.png)
+
 ![View Events History](/02-analysis/UI/admin/02-view_events_history.png)
 
 ### Organizer
@@ -89,6 +90,7 @@ This is the page that the user must be on at the start to complete the use case.
 There the pages that the user must be on at the start to complete the use case.
 
 ![Main Page](/02-analysis/UI/organizer/17-view_all_events.png)
+
 ![List My Events](/02-analysis/UI/organizer/18-list_my_events.png)
 
 ### User
@@ -110,6 +112,7 @@ There the pages that the user must be on at the start to complete the use case.
 | ![View Event Details](/02-analysis/UI/user/43-view_event_details.png) |
 
 ## Data Outcome
+
 - **Read** - The event details will be shown on the system and the administrator, organizer or user can read it.
 - **UPDATE** - None
 
