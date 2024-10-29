@@ -139,7 +139,7 @@ package "Event Management" {
         +getEvents():List<Event>
         +saveEvent(eventId: String):Boolean
         +getVenueUsage(venueName: String): List<Event>
-        +getAvailableVenues():List<VenueDetails>
+        +getAvailableVenues(date: Date,time: Time):List<VenueDetails>
     }
 
 
@@ -246,7 +246,7 @@ class EventSystem {
     +displayEventDetails(eventDetails: EventDetails): void
     +getVenueUsage(VenueName: String): List<Event>
     +displayVenueUsage(filterEvents:List<Event>): void
-    +getAvailableVenues(): List<Venue>
+    +getAvailableVenues(date: Date,time: Time): List<Venue>
 }
 EventSystem --> EventService
 
