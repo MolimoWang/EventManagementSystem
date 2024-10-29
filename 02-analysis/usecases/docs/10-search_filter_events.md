@@ -25,6 +25,7 @@
 - This does not need a sequence diagram because it will be shown in front end.
 
 ## UI Sketches
+
 ### Administrator
 This is the page that the user must be on at the start to complete the use case.
 

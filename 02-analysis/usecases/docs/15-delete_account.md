@@ -19,12 +19,14 @@
 
 ### Sequence Diagram-- Alternate Course of Events
 ![Do not delete](/02-analysis/sequence-diagrams/Administrator/15-delete_account_cancel.png)
+
 ### Event Not Found
 - The administrator tries to delete an event that no longer exists.
 - The system displays an error message.
 
 ### Sequence Diagram-- Alternate Course of Events
 There is no interaction
+
 ## UI Sketches
 This is the page that the user must be on at the start to complete the use case.
 

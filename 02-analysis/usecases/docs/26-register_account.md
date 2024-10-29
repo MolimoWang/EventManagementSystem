@@ -42,6 +42,7 @@
 - The user select **Create**.
 - The service checks if the name and email are unique.
 - Account information is not unique, return failure.
+
 ### Sequence Diagram-- Alternate Course of Events
 ![Register Account Duplicated](/02-analysis/sequence-diagrams/User/26-register_account_duplicated.png)
 
@@ -52,8 +53,12 @@ This is the page that the user must be on at the start to complete the use case.
 
 ### Register Page
 This page is taken to when the user has successfully registered.
+
+
 ![Main Page](/02-analysis/UI/user/34-view_all_events.png)
 
 ### Main Page
 This page is taken to when the user has successfully registered.
+
+
 ![Main Page](/02-analysis/UI/user/34-view_all_events.png)

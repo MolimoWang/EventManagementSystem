@@ -11,7 +11,9 @@
 ## Alternate Course of Events
 - The administrator selects 'View All Accounts' from the main page(01-view_all_events.png).
 - The system shows that no accounts exist in the system.
+
 ### Sequence Diagram-- Alternate Course of Events
+
 There is no interaction
 
 ## UI Sketches

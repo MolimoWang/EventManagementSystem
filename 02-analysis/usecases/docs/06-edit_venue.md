@@ -30,7 +30,8 @@
 This is the page that the user must be on at the start to complete the use case
 - The organizer is on my list venues page (25-list_my_venues.png).
 - The administrator is on the all venues page (04-view_all_venues.png).
-- 
+
+
 ### List Venue Page
 ![List Venue Page](/02-analysis/UI/organizer/25-list_my_venues.png)
 

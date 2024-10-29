@@ -9,7 +9,7 @@
 - The administrator fills out the information.
 - The system validates the change and updates this new user account.
 - A confirmation message is shown to the administrator.
-- 
+
 ### Sequence Diagram
 ![create account for user](/02-analysis/sequence-diagrams/Administrator/12-create_account_user.png)
 
@@ -22,8 +22,8 @@
 - The administrator fills out the information.
 - The system validates the change and updates this new organizer account.
 - A confirmation message is shown to the administrator.
-- 
-### Sequence Diagram
+
+###Sequence Diagram
 ![create account for organizer](/02-analysis/sequence-diagrams/Administrator/12-create_account_organizer.png)
 
 ## Basic Course of Events-- Creating Administrator
@@ -35,7 +35,7 @@
 - The administrator fills out the information.
 - The system validates the change and updates this new administrator account.
 - A confirmation message is shown to the administrator.
-- 
+
 ### Sequence Diagram
 ![create account for administrator](/02-analysis/sequence-diagrams/Administrator/12-create_account_administrator.png)
 
@@ -49,7 +49,7 @@
 - The administrator submits the form using an email that already exists in the system.
 - The system displays an error message indicating that the email is already associated with another account.
 - The system prompts the administrator to use a different email or to edit the existing account instead.
-- 
+
 ### Sequence Diagram
 ![Duplicate email error](/02-analysis/sequence-diagrams/Administrator/12-create_account_Duplicate_Email_Error.txt.png)
 
@@ -68,7 +68,9 @@
 ![Invalid input error](/02-analysis/sequence-diagrams/Administrator/12-create_account_Invalid_Input_Error.txt.png)
 
 ## UI Sketches
+
 ### Related UI Prototypes
+
 ![Main Page](/02-analysis/UI/admin/01-view_all_events.png)
 ![View all accounts](/02-analysis/UI/admin/07-view_all_accounts.png)
 ![Create User Account](/02-analysis/UI/admin/08-create_user_account.png)
