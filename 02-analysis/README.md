@@ -1,3 +1,8 @@
+### Message From Sean
+
+I have now checked out the contents of the repository for grading. Any further details added after the deadline will be ignored.
+
+
 # Team Project: *Group 05*
 This report details the work that was completed by together by all team members for the Analysis phase of the project.
 ## Team Members
