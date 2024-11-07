@@ -1,0 +1,19 @@
+actor "Organizer" as a
+
+control "<link:_>: EventSystem" as ec
+entity "<link:_>event : Event" as e
+participant "<link:_>: EventService" as es
+
+
+
+
+
+==1. The organizer selects the delete event functionality adjacent to the event they want to remove on the list events page==
+
+note over a,es: This is done using javascript
+
+==2. The system asks the organizer to confirm the deletion of the event (03-delete_event.png)\n3. The organizer clicks No==
+
+note over a, es: This part is completed in javascript
+
+==4. The system returns to the list events page (18-list_my_event.png) with no changes==

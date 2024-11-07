@@ -1,0 +1,38 @@
+actor "Administrator" as a
+
+control "<link:_>: EventSystem" as ec
+entity "<link:_>event : Event" as e
+participant "<link:_>: EventService" as es
+
+
+
+
+
+==1. The administrator selects the delete event functionality adjacent to the event they want to remove on the list events page==
+
+note over a,es: This is done using javascript
+
+==2. The system asks the administrator to confirm the deletion of the event (03-delete_event.png)\n3. The administrator clicks OK==
+
+a->ec:deleteEvent(eventName)
+activate ec
+
+ec->es:deleteEvent(eventName)
+activate es
+es->es: event := getEvent(eventName)
+
+es->es:deleteEvent(eventName)
+destroy e
+
+es-->ec: return Error.NONE
+deactivate es
+
+
+ec->es:events := getEvents()
+
+ec->ec:displayListEventsPage(events)
+
+ec-->a:
+deactivate ec
+
+==4. The system returns to the list events page (02-view_events_history.png) and the venue is no longer displayed==
