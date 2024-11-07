@@ -154,8 +154,9 @@ package "Event Management" {
         +deleteEvent(name: String): Boolean
         +updateEvent(name: String, description: String, date: Date, time: Time,venue: Venue,ticketTypes : String[*], ticketPrices : double[*]): Boolean
         +getEvent(name: String):Event
-        +getEvents():Event[*]
+        +getEventDetails(name: String):
         +saveEvent(event: Event):Boolean
+
 
     }
 
@@ -264,7 +265,7 @@ class EventSystem {
     +searchEvents(keyWords:String)
     +displayListEventsPage(Events:Event[*])
     +displayDatePage(date: Date)
-    +displayEventDetailsPage(eventDetails)
+    +displayEventDetailsPage(event: Event)
     +showCreateEventPage()
     +displayViewEventPage(Event: event)
     +showUpdateEvent(name: String)
