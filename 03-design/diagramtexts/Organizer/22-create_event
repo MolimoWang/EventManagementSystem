@@ -1,0 +1,70 @@
+title Organizer Create Event Details
+
+actor Organizer
+
+control "<link:_>: EventSystem" as ec
+participant "<link:_>: VenueService" as VenueService
+participant "<link:_>: EventService" as es
+entity "<link:_>: Venue" as Venue
+participant "<link:_>: AccountService" as AccountService
+entity "<link:_>: TicketAvailabilities" as ta
+entity "<link:_>:TicketQuantity" as tq
+entity "<link:_>: Event" as Event
+entity "<link:_>: TicketInfo" as TicketInfo
+
+==1. The organizer selects the "+" option from the list my events page (18-list_my_events.png)==
+
+Organizer ->> ec :showCreateEventPage()
+activate ec
+ec ->> VenueService:venues: =getVenues()
+
+ec-->Organizer:
+deactivate ec
+
+
+==2. The system turn to create event page (19-create_event.png) which displays a form to enter event details, including:\n·Event Name\n·Date and Time\n·Venue\n·Description\n·Ticket Prices\n·Ticket Types\n·OrganizerEmail==
+
+Organizer ->> ec :createEvent(eventDetails: EventDetails)
+
+
+activate ec
+ec ->> es:        createEvent(name, description, date, time, organizerEmail, venue, ticketTypes, ticketPrices): Boolean
+
+activate es
+
+    es ->> es : venue: getVenue(venue: Venue)
+es->>AccountService: organizer: =getOrganizerAccount(organizerEmail)
+es ->> Venue:getTicketAvaiabilities()
+
+loop for every ticket type
+  es->ta:getName()
+  es->ta:getNumberAvailable()
+es->*tq:TicketQuantity(typeName, numAvailable, price)
+
+end
+
+
+ es ->> *Event :Event(name, description,date,time,venue, ticketQuantity)
+    activate Event
+    Event -->es:return e
+    deactivate Event
+
+
+==3. The organizer fills in the required details and clicks "Submit".==
+    es ->>es:saveEvent(e)
+    activate es
+    es --> es:
+    deactivate es
+
+ es --> ec :return Error.NONE
+    deactivate es
+
+    ec->es:event := getEvent(eventName, eventDate)
+
+    ec->ec:displayViewEventPage(event)
+
+ec --> Organizer :
+deactivate ec
+
+==4. The system updates the list of nupcoming events and\nreturn to the list my events page (18-list_my_events.png).==
+
