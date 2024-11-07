@@ -5,7 +5,6 @@ entity "<link:_>event : Event" as e
 participant "<link:_>: EventService" as es
 
 entity "<link:_>venue : Venue" as v
-participant "<link:_>: AccountService" as as
 entity "<link:_>ta : TicketAvailability" as ta
 entity "<link:_>tq : TicketQuantity" as tq
 
