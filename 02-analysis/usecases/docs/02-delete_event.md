@@ -4,13 +4,11 @@
 ## Basic Course of Events
 
 ### Course of Events -- Administrator
-- 1.The administrator selects the event to delete.
-- 2.The system passes requests to the service.
-- 3.The service queries this event among all events.
-- 4.The service asks the administrator to confirm.
-- 5.The administrator selects **Yes**.
-- 6.The event is deleted.
-- 7.The system displays remaining events to the administrator.
+- 1. The administrator selects the delete event functionality adjacent to the event they want to remove on the list events page
+- 2. The system asks the administrator to confirm the deletion of the event (03-delete_event.png)
+- 3. The administrator clicks OK
+- 4. The system returns to the list events page (02-view_events_history.png) and the venue is no longer displayed
+
 
 ### Sequence Diagram
 
@@ -18,13 +16,10 @@
 
 ### Course of Events -- Organizer
 
-- 1.The organizer selects the event to delete.
-- 2.The system queries this event among all events.
-- 3.The system passes requests to the service.
-- 4.The system asks the organizer to confirm.
-- 5.The organizer selects **Yes**.
-- 6.The event is deleted.
-- 7.The system displays remaining events to the organizer.
+- 1. The organizer selects the delete event functionality adjacent to the event they want to remove on the list events page
+- 2. The system asks the organizer to confirm the deletion of the event (03-delete_event.png)
+- 3. The organizer clicks OK
+- 4. The system returns to the list events page (02-view_events_history.png) and the venue is no longer displayed
 
 ### Sequence Diagram
 ![Delete Event_Organizer](/02-analysis/sequence-diagrams/Common/02-delete_event_organizer.png)
@@ -33,12 +28,11 @@
 
 #### Do Not Delete
 
-- 1.The administrator(organizer) selects an event to delete.
-- 2.The system passes requests to the service.
-- 3.The service queries this event among all events.
-- 4.The system asks the administrator(organizer) to confirm.
-- 5.The administrator(organizer) selects **No**.
-- 6.The system returns to the previous interface, and no event is deleted.
+- 1.The Administrator(organizer) selects the delete event functionality adjacent to the event they want to remove on the list events page
+- 2.The system asks the Administrator(organizer) to confirm the deletion of the event (03-delete_event.png)
+- 3.The Admistrator(organizer) clicks No
+- 4.The system returns to the list events page (18-list_my_event.png) with no changes
+
 
 ### Sequence Diagram -- Alternate Course of Events
 
