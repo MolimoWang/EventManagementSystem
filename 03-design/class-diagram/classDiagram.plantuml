@@ -135,21 +135,24 @@ package "Event Management" {
         - description: String
         - date: Date
         - time: Time
-         _Event(name: String, description: String, date: Date, time: Time,venue: Venue,ticketQuantities: TicketQuantity)_
+        - Venue: Venue
+        _Event(name: String, description: String, date: Date, time: Time,venue: Venue,ticketQuantities: TicketQuantity)
         +getName(): String
         +getDescription():String
         +getDate():Date
         +getTime():Time
+        +getVenue():Venue
         +setName(name: String)
         +setDescription(description: String)
         +setDate(date: Date)
         +setTime(time: Time)
+        +setTicketQuantities(ticketQuantities: int)
     }
 
     class EventService {
-        +createEvent(name: String, description: String, date: Date, time: Time, organizerEmail: String, venue: Venue,ticketTypes : String[*], ticketPrices : double[*]): Boolean
+        +createEvent(name: String, description: String, date: Date, time: Time, venue: Venue,ticketTypes : String[*], ticketPrices : double[*]): Boolean
         +deleteEvent(name: String): Boolean
-        +updateEvent(name: String, description: String, date: Date, time: Time,organizerEmail: String,venue: Venue,ticketTypes : String[*], ticketPrices : double[*]): Boolean
+        +updateEvent(name: String, description: String, date: Date, time: Time,venue: Venue,ticketTypes : String[*], ticketPrices : double[*]): Boolean
         +getEvent(name: String):Event
         +getEvents():Event[*]
         +saveEvent(event: Event):Boolean
@@ -264,6 +267,8 @@ class EventSystem {
     +displayEventDetailsPage(eventDetails)
     +showCreateEventPage()
     +displayViewEventPage(Event: event)
+    +showUpdateEvent(name: String)
+    +displayUpdateEventPage(Event: event)
 }
 
 EventSystem "1"--> "-EventService 1" EventService

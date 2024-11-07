@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5a1a52b4-a804-4c89-8841-a81a5f3284d0" name="更改" comment="delete wrong files">
+      <change beforePath="$PROJECT_DIR$/03-design/class-diagram/classDiagram.plantuml" beforeDir="false" afterPath="$PROJECT_DIR$/03-design/class-diagram/classDiagram.plantuml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2nybaDWYA78ZSkczAcpyUXOUF3R" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Stage3/Gitlab&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="5a1a52b4-a804-4c89-8841-a81a5f3284d0" name="更改" comment="" />
+      <created>1729948324392</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1729948324392</updated>
+      <workItem from="1729948326889" duration="8011000" />
+      <workItem from="1730039757052" duration="5174000" />
+      <workItem from="1730086778209" duration="1089000" />
+      <workItem from="1730088519532" duration="871000" />
+      <workItem from="1730096552103" duration="35000" />
+      <workItem from="1730097689498" duration="441000" />
+      <workItem from="1730270562482" duration="2838000" />
+      <workItem from="1730275177290" duration="974000" />
+      <workItem from="1730961476407" duration="7651000" />
+    </task>
+    <task id="LOCAL-00001" summary="update files">
+      <option name="closed" value="true" />
+      <created>1729955963665</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1729955963665</updated>
+    </task>
+    <task id="LOCAL-00002" summary="update files">
+      <option name="closed" value="true" />
+      <created>1729956077205</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1729956077205</updated>
+    </task>
+    <task id="LOCAL-00003" summary="update README file">
+      <option name="closed" value="true" />
+      <created>1730044047869</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1730044047869</updated>
+    </task>
+    <task id="LOCAL-00004" summary="update png file">
+      <option name="closed" value="true" />
+      <created>1730097758995</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1730097758995</updated>
+    </task>
+    <task id="LOCAL-00005" summary="delete wrong files">
+      <option name="closed" value="true" />
+      <created>1730275977405</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1730275977405</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update files" />
+    <MESSAGE value="update README file" />
+    <MESSAGE value="update png file" />
+    <MESSAGE value="delete wrong files" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete wrong files" />
+  </component>
+</project>
