@@ -47,13 +47,13 @@ class ROLE {
         +setPassword(password: String)
     }
     class Administrator {
-    _Administrator(name: String,email:String,password:String)_
+    {static}Administrator(name: String,email:String,password:String)_
     }
     class Organiser {
         - address: String
         - companyName: String
         - phoneNumber: String
-        _Organiser(name: String,email:String,password:String,address: String,companyName: String,phoneNumber: String)_
+        {static}Organiser(name: String,email:String,password:String,address: String,companyName: String,phoneNumber: String)_
         +getAddress():String
         +getCompanyName():String
         +getPhoneNumber(): String
@@ -62,7 +62,7 @@ class ROLE {
         +setPhoneNumber(phoneNumber: String)
     }
     class Customer {
-    _Customer(name: String,email:String,password:String)_
+    {static}Customer(name: String,email:String,password:String)_
     getTickets():Ticket[*]
     }
 
@@ -96,7 +96,7 @@ package "Venue Management" {
         - contactPhoneNumber: String
         - contactEmail: String
         - capacity: TicketAvailability[*]
-        _Venue(name: String,address: String,contactName: String,contactPhoneNumber: String,contactEmail: String,capacity: TicketAvailability[*])_
+        {static}Venue(name: String,address: String,contactName: String,contactPhoneNumber: String,contactEmail: String,capacity: TicketAvailability[*])_
         +getName():String
         +getAddress():String
         +getContactName():String
@@ -136,7 +136,7 @@ package "Event Management" {
         - date: Date
         - time: Time
         - Venue: Venue
-        _Event(name: String, description: String, date: Date, time: Time,venue: Venue,ticketQuantities: TicketQuantity)
+       {static}Event(name: String, description: String, date: Date, time: Time,venue: Venue,ticketQuantities: TicketQuantity)
         +getName(): String
         +getDescription():String
         +getDate():Date
@@ -177,7 +177,7 @@ package "Ticket Management" {
     class TicketQuantity {
             - numberSold: int
             - price: double
-            _TicketQuantity(ticketTypeName,numberAvailable,price)_
+            {static}TicketQuantity(ticketTypeName,numberAvailable,price)
             +getNumberRemain():int
             +getNumberSold():int
             +getPrice():double
@@ -188,7 +188,7 @@ package "Ticket Management" {
      class TicketAvailability {
                 - ticketTypeName: String
                 - numberAvailable: int
-                _TicketAvailability(ticketTypeName,numberAvailable)_
+                {static}TicketAvailability(ticketTypeName,numberAvailable)
                 +getTicketTypeName():String
                 +getNumberAvailable():int
                 +setTicketTypeName(ticketTypeName: String)
@@ -263,13 +263,13 @@ class EventSystem {
     +listEvents()
     +listMyEvents(customerEmail: String)
     +searchEvents(keyWords:String)
-    +displayListEventsPage(Events:Event[*])
+    +displayListEventsPage(events:Event[*])
     +displayDatePage(date: Date)
     +displayEventDetailsPage(event: Event)
     +showCreateEventPage()
-    +displayViewEventPage(Event: event)
+    +displayViewEventPage(event: Event)
     +showUpdateEvent(name: String)
-    +displayUpdateEventPage(Event: event)
+    +displayUpdateEventPage(event: Event)
 }
 
 EventSystem "1"--> "-EventService 1" EventService
