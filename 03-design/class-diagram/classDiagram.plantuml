@@ -63,7 +63,7 @@ class ROLE {
     }
     class Customer {
     _Customer(name: String,email:String,password:String)_
-    getTickets():List<Ticket>
+    getTickets():Ticket[*]
     }
 
     class AccountService {
@@ -115,16 +115,12 @@ package "Venue Management" {
         +getVenue(venueName: String):Venue
         +getVenues():Venue[*]
         +createVenue(name: String,address: String,contactName: String,contactPhoneNumber: String,contactEmail: String,capacity: TicketAvailability[*]): Boolean
-        +readVenue(name: String): VenueDetails
-        +updateVenue(name: String, venueDetails: VenueDetails): Boolean
-        +deleteVenue(name: String): Boolean
-        +getVenue(name: String): Venue
-        +getVenueName(name: String):String
-        +getVenueCapacity(name: String): int
-        +saveVenue(name: String):Boolean
+        +updateVenue(name: String,address: String,contactName: String,contactPhoneNumber: String,contactEmail: String,capacity: TicketAvailability[*]): Boolean
+        +deleteVenue(venueName: String): Boolean
+        +saveVenue(venue:Venue):Boolean
         +checkDuplicateVenue(venue: Venue)
-        +selectVenue(name: String)
-        +checkVenueUsage(name: String)
+        +getVenueUsage(venueName: String): Event[*]
+        +getAvailableVenues(date: Date,time: Time):Venue[*]
     }
 
 
@@ -139,7 +135,7 @@ package "Event Management" {
         - description: String
         - date: Date
         - time: Time
-         _Event(name: String, description: String, date: Date, time: Time,venue: Venue,ticketQuantities: TicketQuantities)_
+         _Event(name: String, description: String, date: Date, time: Time,venue: Venue,ticketQuantities: TicketQuantity)_
         +getName(): String
         +getDescription():String
         +getDate():Date
@@ -151,35 +147,33 @@ package "Event Management" {
     }
 
     class EventService {
-        +createEvent(name: String, description: String, date: Date, time: Time,venue: Venue,ticketQuantities: TicketQuantities): Boolean
+        +createEvent(name: String, description: String, date: Date, time: Time,venue: Venue,ticketQuantities: TicketQuantity): Boolean
         +deleteEvent(name: String): Boolean
-        +updateEvent(name: String, description: String, date: Date, time: Time,venue: Venue,ticketQuantities: TicketQuantities): Boolean
+        +updateEvent(name: String, description: String, date: Date, time: Time,venue: Venue,ticketQuantities: TicketQuantity): Boolean
         +getEvent(name: String):Event
-        +getEvents():List<Event>
+        +getEvents():Event[*]
         +saveEvent(event: Event):Boolean
-        +getVenueUsage(venueName: String): List<Event>
-        +getAvailableVenues(date: Date,time: Time):List<Venue>
+
     }
 
 
 
-    Venue "1 -venue" <--"1" Event
+    Venue "1 -venue" <--"*" Event
     EventService "1"--> "-events *" Event
 }
 
 ' Ticket Management Group
 package "Ticket Management" {
     class Ticket {
-            ' Ticket class with no attributes, representing a relationship
             - type : String
             - price : Double
 
         }
 
-    class TicketQuantities {
+    class TicketQuantity {
             - numberSold: int
             - price: double
-            _TicketQuantities(ticketTypeName,numberAvailable,price)_
+            _TicketQuantity(ticketTypeName,numberAvailable,price)_
             +getNumberRemain():int
             +getNumberSold():int
             +getPrice():double
@@ -199,24 +193,22 @@ package "Ticket Management" {
             }
 
     class TicketService {
-        +getTicket(userEmail: String, eventName: String): TicketDetails
-        +buyTicket(userEmail: String, eventName: String, ticketType: String): TicketDetails
-        +getCustomerRegistrations(eventName: event):List<Customer>
+        +getTicket(customerEmail: String, eventName: String): Ticket
+        +getMyTicket(customerEmail: String):Ticket[*]
+        +buyTicket(customerEmail: String, eventName: String, ticketQuantity: String): Ticket
+        +getCustomerRegistrations(eventName: event):Customer[*]
         +getTicketOwner(eventName: String):Customer
-        +getTicketEvent(userEmail: String):Event
-        +getTicketInfo(eventName: String,userEmail: String):TicketQuantities
-
+        +getTicketEvent(customerEmail: String):Event
+        +getTicketQuantity(eventName: String,customerEmail: String):TicketQuantity
     }
 
 
-
-
-    Venue "1 -venue" --> "-ticketAvailabilities*" TicketAvailability : creates
-    TicketAvailability --|> TicketQuantities
-    Event "1"--> "1 -TicketQuantities" TicketQuantities: determines price
+    Venue "1 -venue" --> "-ticketAvailabilities *" TicketAvailability : creates
+    TicketAvailability --|> TicketQuantity
+    Event "1"--> "-TicketQuantities *" TicketQuantity: determines price
     Customer "1"--> "-tickets 0..* " Ticket : purchases
     Ticket "1"--> "-event 1" Event : related to
-    Ticket "1"--> "1 -ticketQuantities" TicketQuantities : get Info
+    Ticket "1"--> "1 -ticketQuantity" TicketQuantity : get Info
     TicketService "1"-->"-tickets *" Ticket
 }
 
@@ -226,17 +218,17 @@ class AccountSystem {
     +logout(): void
     +createAccount(accountDetails): Boolean
     +deleteAccount(accountEmail: String): Boolean
+    +selectAccount(accountEmail:String)
     +viewAccount(accountEmail: String): AccountDetails
     +updateAdministratorAccount(newName: String, newPassword:String,newEmail:String)
     +updateCustomerAccount(newName: String, newPassword:String,newEmail:String)
     +updateOrganizerAccount(newName: String, newPassword:String,newEmail:String,newAddress:String,newCompanyName :String, newPhoneNumber:String)
+    +displayMainPage()
     +displayEditAccountPage(selectedAccount)
-    +displayAccounts(accounts:Account[*])
-    +disableAccount(accountEmail:String):Boolean
-    +selectAccount(accountEmail:String)
+    +displayAccountsPage(accounts:Account[*])
+    +disableAccount(accountEmail:String)
     +displayEditAccountPage(accountEmail: String)
     +displayError()
-    +displayMainPage()
     +displayConfirm()
     +displayAccountRoles()
     +updatePermission(accountEmail:String)
@@ -245,42 +237,46 @@ class AccountSystem {
 AccountSystem "1"--> "-AccountService 1" AccountService
 
 class VenueSystem {
-    +displayVenue(venue: Venue)
-    +displayVenues(venues: Venue[*])
-    +createVenue(venueDetails: VenueDetails): Boolean
-    +viewVenue(name: String): VenueDetails
-    +updateVenue(name: String, venueDetails: VenueDetails): Boolean
-    +deleteVenue(name: String): Boolean
-    +listVenues(): List<Venue>
+    +displayVenuePage(venue: Venue)
+    +displayVenuesPage(venues: Venue[*])
+    +createVenue(venueDetails)
+    +viewVenue(name: String)
+    +updateVenue(venueDetails)
+    +deleteVenue(name: String)
+    +listVenues()
+    +listAvailableVenues(date: Date,time: Time)
+    +listVenueUsage(venueName: String)
+    +displayAvailableVenuesPage(availableVenues:Venue[*])
+    +displayVenueUsagePage(pastEvents:Event[*])
 }
 VenueSystem "1"--> "-VenueService 1" VenueService
 
 class EventSystem {
-    +createEvent(eventDetails): Boolean
-    +viewEvent(name: String): EventDetails
-    +deleteEvent(name: String): Boolean
-    +updateEvent(eventDetails): Boolean
-    +listEvents(): List<Event>
-    +listMyEvents(): List<Event>
-    +filterEvents(keyWords:String)
-    +displayEvents(filterEvents:List<Event>): void
-    +displayDate(date: Date): void
-    +displayEventDetails(eventDetails): void
-    +viewVenueUsage(VenueName: String): List<Event>
-    +displayVenueUsage(filterEvents:List<Event>): void
-    +viewAvailableVenues(date: Date,time: Time): List<Venue>
+    +createEvent(eventDetails)
+    +viewEvent(name: String)
+    +deleteEvent(name: String)
+    +updateEvent(eventDetails)
+    +listEvents()
+    +listMyEvents(customerEmail: String)
+    +searchEvents(keyWords:String)
+    +displayListEventsPage(Events:Event[*])
+    +displayDatePage(date: Date)
+    +displayEventDetailsPage(eventDetails)
 }
 
 EventSystem "1"--> "-EventService 1" EventService
 
 
 class TicketSystem {
-    +buyTicket(customerEmail: String, eventName: String, ticketType: String): TicketDetails
-    +viewTicketDetails(customerEmail: String, eventName: String): TicketDetails
-    +cancelTicket(customerEmail: String, eventName: String): Boolean
-    +displayRegistrations(eventName: event):List<Customer>
-    +displayTicketDetails(ticketDetails)
-    +displayUserTickets(customerEmail: String): List<Ticket>
+    +listMyTickets(customerEmail: String)
+    +listTicketDetails(ticket:Ticket)
+    +listRegisteredCustomer(eventName: String)
+    +buyTicket(customerEmail: String, eventName: String, ticketType: String)
+    +viewTicketDetails(customerEmail: String, eventName: String)
+    +cancelTicket(customerEmail: String, eventName: String)
+    +displayRegistrationsPage(registeredCus:Customer[*])
+    +displayTicketDetailsPage(ticketDetails)
+    +displayMyTicketsPage(Ticket[*])
 }
 TicketSystem -->"1..TicketService 1"  TicketService
 
