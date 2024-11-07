@@ -1,0 +1,28 @@
+title Retrieve Event Details
+
+actor "Admin" as a
+control "EventSystem" as s
+participant "EventService" as u
+entity "Event" as e
+entity "Venue" as v
+participant "AccountService" as c
+entity "TicketAvailability" as ta
+entity "TicketQuantity" as tq
+
+note right of a : 1. The administrator wants to retrieve details of a specific event
+a -> s : viewEvent(eventName)
+activate s
+
+note right of s : 2. The system requests the event details from EventService
+s -> u : getEvent(eventName)
+activate u
+
+u --> s : event
+deactivate u
+
+note right of s : 3. The system displays the event details page
+s -> s : displayEventDetailsPage(event)
+
+s --> a :
+deactivate s
+
