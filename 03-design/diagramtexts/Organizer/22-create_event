@@ -16,15 +16,20 @@ entity "<link:_>: TicketInfo" as TicketInfo
 
 Organizer ->> ec :showCreateEventPage()
 activate ec
-ec ->> VenueService:venues: =getVenues()
 
 ec-->Organizer:
+Organizer->> ec: listAvailableVenues(date, time)
+
+ec->>VenueService:getAvailableVenues(date, time)
+
+VenueService--> ec: return Venues[*]
+
+    ec->ec:displayAvailableVenuesPage(availableVenues)
+    ec --> Organizer :
 deactivate ec
 
-
 ==2. The system turn to create event page (19-create_event.png) which displays a form to enter event details, including:\n·Event Name\n·Date and Time\n·Venue\n·Description\n·Ticket Prices\n·Ticket Types\n·OrganizerEmail==
-
-Organizer ->> ec :createEvent(eventDetails: EventDetails)
+Organizer ->> ec :createEvent(eventDetails)
 
 
 activate ec
@@ -37,7 +42,7 @@ es->>AccountService: organizer: =getOrganizerAccount(organizerEmail)
 es ->> Venue:getTicketAvaiabilities()
 
 loop for every ticket type
-  es->ta:getName()
+  es->ta:getTicketTypeName()
   es->ta:getNumberAvailable()
 es->*tq:TicketQuantity(typeName, numAvailable, price)
 
