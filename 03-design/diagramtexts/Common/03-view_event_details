@@ -18,7 +18,7 @@ entity ": <link:_>Event" as e
 == 1. The administrator wants to retrieve details of a specific event, click search and send a GET request to web browser==
 a->w:interact
 activate w
-w->d:GET(uel:String)
+w->d:GET(url:String)
 activate d
 d -> s : viewEvent(eventName)
 activate s
