@@ -19,9 +19,9 @@ activate u
 
 u --> s : event
 deactivate u
-
-note right of s : 3. The system displays the event details page
 s -> s : displayEventDetailsPage(event)
+note right of s : 3. The system displays the event details page
+
 
 s --> a :
 deactivate s
