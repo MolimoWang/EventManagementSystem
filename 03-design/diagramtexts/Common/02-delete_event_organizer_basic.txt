@@ -12,14 +12,14 @@ participant "<link:_>: EventService" as es
 
 note over a,es: This is done using javascript
 
-==2. The system asks the organizer to confirm the deletion of the event (19-delete-event-warning)\n3. The organizer clicks OK==
+==2. The system asks the organizer to confirm the deletion of the event (03-delete_event.png)\n3. The organizer clicks OK==
 
-a->ec:deleteEvent(eventName, eventDate)
+a->ec:deleteEvent(eventName)
 activate ec
 
-ec->es:deleteEvent(eventName, eventDate)
+ec->es:deleteEvent(eventName)
 activate es
-es->es: event := getEvent(eventName, eventDate)
+es->es: event := getEvent(eventName)
 
 es->es:deleteEvent(event)
 destroy e
@@ -28,9 +28,9 @@ es-->ec: return Error.NONE
 deactivate es
 
 
-ec->es:events := getEvents()
+ec->es:events := getMyEvents(organiserEmail: String)
 
-ec->ec:displayListEventsPage(events)
+ec->ec:displayListEventsPage(events:Event[*])
 
 ec-->a:
 deactivate ec

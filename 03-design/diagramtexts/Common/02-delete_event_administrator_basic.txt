@@ -30,7 +30,7 @@ deactivate es
 
 ec->es:events := getEvents()
 
-ec->ec:displayListEventsPage(events)
+ec->ec:displayListEventsPage(events:Event[*])
 
 ec-->a:
 deactivate ec
