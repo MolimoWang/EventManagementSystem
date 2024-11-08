@@ -1,13 +1,13 @@
 title Retrieve Event Details
 
-actor "Admin" as a
-control "EventSystem" as s
-participant "EventService" as u
-entity "Event" as e
-entity "Venue" as v
-participant "AccountService" as c
-entity "TicketAvailability" as ta
-entity "TicketQuantity" as tq
+actor "Customer" as a
+control "<link:_> EventSystem" as s
+participant "<link:_>EventService" as u
+entity "<link:_>Event" as e
+entity "<link:_>Venue" as v
+participant "<link:_>AccountService" as c
+entity "<link:_>TicketAvailability" as ta
+entity "<link:_>TicketQuantity" as tq
 
 note right of a : 1. The administrator wants to retrieve details of a specific event
 a -> s : viewEvent(eventName)
