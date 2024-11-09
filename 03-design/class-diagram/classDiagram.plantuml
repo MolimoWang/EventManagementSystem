@@ -1,21 +1,23 @@
 @startuml
-left to right direction
-skinparam monochrome true
-skinparam backgroundColor white
+!define PLANTUML_LIMIT_SIZE 8192
+top to bottom direction
+
+skinparam layout neato
 skinparam shadowing false
 skinparam linetype ortho
 skinparam lineThickness 3   ' Thickness of line
 skinparam noteMargin 30     ' Margins for comments
-skinparam ranksep 100        ' Control vertical spacing
-skinparam nodesep 200        ' Control horizontal spacing
+skinparam ranksep 100       ' Control vertical spacing
+skinparam nodesep 200       ' Control horizontal spacing
 skinparam classFontSize 12
 skinparam ArrowFontSize 12
 skinparam classBorderThickness 1
-skinparam classAttributeIconSize 0
+skinparam classAttributeIconSize 12
+skinparam ClassFontColor #00008B
 
 hide class circle
 hide empty members
-hide stereotypes
+
 
 skinparam class {
     BorderColor black
@@ -23,22 +25,110 @@ skinparam class {
     FontColor black
     FontName Arial
     FontSize 12
+    classAttributeIconSize 20
+}
+
+package "repositories" #LightYellow {
+    class AccountRepository {
+        +findById(id: Long): Account
+        +findAll(): Account[*]
+        +save(account: Account): Boolean
+        +delete(account: Account): Boolean
+    }
+
+    class VenueRepository {
+        +findById(id: Long): Venue
+        +findAll(): Venue[*]
+        +save(venue: Venue): Boolean
+        +delete(venue: Venue): Boolean
+    }
+
+    class EventRepository {
+        +findById(id: Long): Event
+        +findAll(): Event[*]
+        +save(event: Event): Boolean
+        +delete(event: Event): Boolean
+    }
+
+    class TicketRepository {
+        +findById(id: Long): Ticket
+        +findAll(): Ticket[*]
+        +save(ticket: Ticket): Boolean
+        +delete(ticket: Ticket): Boolean
+    }
+
 }
 
 
+' Event Management Group
+package "services" #LightYellow {
+    class AccountService {
+          +createAdminAccount(name: String,email: String,password:String): Boolean
+          +createCustomerAccount(name: String,email: String,password:String): Boolean
+          +createOrganiserAccount(name: String,email: String,password:String): Boolean
+          +registerAccount(name: String,email: String,password:String): Boolean
+          +getAccount(email: String): Account
+          +getCustomer(customerEmail:String):Customer
+          +getOrganiser(organiserEmail:String):Organiser
+          +getAccounts():Account[*]
+          +deleteAccount(accountEmail: String): Boolean
+          +updateAccount(account: Account): Boolean
+          +checkAccountExist(accountEmail:String):Boolean
+      }
 
-' Account Management Group
-package "Account Management" {
+    class VenueService {
+        +getVenue(venueName: String):Venue
+        +getVenues():Venue[*]
+        +createVenue(name: String,address: String,contactName: String,contactPhoneNumber: String,contactEmail: String,capacity: TicketAvailability[*]): Boolean
+        +updateVenue(name: String,address: String,contactName: String,contactPhoneNumber: String,contactEmail: String,capacity: TicketAvailability[*]): Boolean
+        +deleteVenue(venueName: String): Boolean
+        +saveVenue(venue:Venue):Boolean
+        +checkDuplicateVenue(venue: Venue)
+        +getVenueUsage(venueName: String): Event[*]
+        +getAvailableVenues(date: Date,time: Time):Venue[*]
+    }
+
+    class EventService {
+        +createEvent(name: String, description: String, date: Date, time: Time, venue: Venue,ticketTypes : String[*], ticketPrices : double[*]): Boolean
+        +deleteEvent(name: String): Boolean
+        +updateEvent(name: String, description: String, date: Date, time: Time,venue: Venue,ticketTypes : String[*], ticketPrices : double[*]): Boolean
+        +getEvent(name: String):Event
+        +getEventDetails(name: String):
+        +saveEvent(event: Event):Boolean
+    }
+
+   class TicketService {
+        +getTicket(customerEmail: String, eventName: String): Ticket
+        +getMyTicket(customerEmail: String):Ticket[*]
+        +buyTicket(customerEmail: String, eventName: String, ticketQuantity: String): Ticket
+        +getCustomerRegistrations(eventName: event):Customer[*]
+        +getTicketOwner(eventName: String):Customer
+        +getTicketEvent(customerEmail: String):Event
+        +getTicketQuantity(eventName: String,customerEmail: String):TicketQuantity
+    }
+
+
+}
+
+' Ticket Management Group
+package "models" #LightYellow {
+  interface IAccount {
+        + getName(): String
+        + getEmail(): String
+        + getPassword(): String
+    }
 class ROLE {
         +ADMINISTRATOR
         +ORGANISER
         +CUSTOMER
     }
     class Account {
+        - id: Long
         - name: String
         - email: String
         - password: String
         - role: ROLE
+        +getId():Long
         +getName(): String
         +getEmail(): String
         +getPassword(): String
@@ -47,12 +137,14 @@ class ROLE {
         +setPassword(password: String)
     }
     class Administrator {
+     {static}Administrator()
     {static}Administrator(name: String,email:String,password:String)_
     }
     class Organiser {
         - address: String
         - companyName: String
         - phoneNumber: String
+        {static}Organiser()
         {static}Organiser(name: String,email:String,password:String,address: String,companyName: String,phoneNumber: String)_
         +getAddress():String
         +getCompanyName():String
@@ -62,40 +154,28 @@ class ROLE {
         +setPhoneNumber(phoneNumber: String)
     }
     class Customer {
+    {static}Customer()
     {static}Customer(name: String,email:String,password:String)_
     getTickets():Ticket[*]
     }
 
-    class AccountService {
-        +createAdminAccount(name: String,email: String,password:String): Boolean
-        +createCustomerAccount(name: String,email: String,password:String): Boolean
-        +createOrganiserAccount(name: String,email: String,password:String): Boolean
-        +registerAccount(name: String,email: String,password:String): Boolean
-        +getAccount(email: String): Account
-        +getCustomer(customerEmail:String):Customer
-        +getOrganiser(organiserEmail:String):Organiser
-        +getAccounts():Account[*]
-        +deleteAccount(accountEmail: String): Boolean
-        +updateAccount(account: Account): Boolean
-        +checkAccountExist(accountEmail:String):Boolean
-    }
+
+      Administrator --|> Account
+      Organiser --|> Account
+      Customer --|> Account
+      Organiser "1..*" o--> "0..* -organises" Event
+      Customer "1" o--> "-tickets 0..*" Ticket
 
 
-    Administrator --|> Account
-    Organiser --|> Account
-    Customer --|> Account
-    AccountService "1"--> "-accounts * "Account
-}
-
-' Venue Management Group
-package "Venue Management" {
-    class Venue {
+      class Venue {
+        - id: Long
         - name: String
         - address: String
         - contactName: String
         - contactPhoneNumber: String
         - contactEmail: String
         - capacity: TicketAvailability[*]
+        {static}Venue()
         {static}Venue(name: String,address: String,contactName: String,contactPhoneNumber: String,contactEmail: String,capacity: TicketAvailability[*])_
         +getName():String
         +getAddress():String
@@ -111,31 +191,16 @@ package "Venue Management" {
         +setTicketAvailabilities(ticketAvailabilities:TicketAvailability[*])
     }
 
-    class VenueService {
-        +getVenue(venueName: String):Venue
-        +getVenues():Venue[*]
-        +createVenue(name: String,address: String,contactName: String,contactPhoneNumber: String,contactEmail: String,capacity: TicketAvailability[*]): Boolean
-        +updateVenue(name: String,address: String,contactName: String,contactPhoneNumber: String,contactEmail: String,capacity: TicketAvailability[*]): Boolean
-        +deleteVenue(venueName: String): Boolean
-        +saveVenue(venue:Venue):Boolean
-        +checkDuplicateVenue(venue: Venue)
-        +getVenueUsage(venueName: String): Event[*]
-        +getAvailableVenues(date: Date,time: Time):Venue[*]
-    }
 
-
-
-    VenueService "1"--> "-venues * "Venue
-}
-
-' Event Management Group
-package "Event Management" {
-    class Event {
+    Venue "1 -venue" <--"*" Event
+ class Event {
+        - id: Long
         - name: String
         - description: String
         - date: Date
         - time: Time
         - Venue: Venue
+       {static}Event()
        {static}Event(name: String, description: String, date: Date, time: Time,venue: Venue,ticketQuantities: TicketQuantity)
         +getName(): String
         +getDescription():String
@@ -149,35 +214,22 @@ package "Event Management" {
         +setTicketQuantities(ticketQuantities: int)
     }
 
-    class EventService {
-        +createEvent(name: String, description: String, date: Date, time: Time, venue: Venue,ticketTypes : String[*], ticketPrices : double[*]): Boolean
-        +deleteEvent(name: String): Boolean
-        +updateEvent(name: String, description: String, date: Date, time: Time,venue: Venue,ticketTypes : String[*], ticketPrices : double[*]): Boolean
-        +getEvent(name: String):Event
-        +getEventDetails(name: String):
-        +saveEvent(event: Event):Boolean
-
-
-    }
-
-
-
-    Venue "1 -venue" <--"*" Event
-    EventService "1"--> "-events *" Event
-}
-
-' Ticket Management Group
-package "Ticket Management" {
     class Ticket {
+            - id: Long
             - type : String
             - price : Double
-
+            {static}Ticket()
+            {static}Ticket(type: String, price: Double)
+            +getId():Long
         }
 
     class TicketQuantity {
+            - id: Long
             - numberSold: int
             - price: double
+            {static}TicketQuantity()
             {static}TicketQuantity(ticketTypeName,numberAvailable,price)
+            +getId():Long
             +getNumberRemain():int
             +getNumberSold():int
             +getPrice():double
@@ -186,9 +238,12 @@ package "Ticket Management" {
             +setPrice(price: double)
         }
      class TicketAvailability {
+                - id: Long
                 - ticketTypeName: String
                 - numberAvailable: int
+                {static}TicketAvailability()
                 {static}TicketAvailability(ticketTypeName,numberAvailable)
+                +getId():Long
                 +getTicketTypeName():String
                 +getNumberAvailable():int
                 +setTicketTypeName(ticketTypeName: String)
@@ -196,15 +251,7 @@ package "Ticket Management" {
 
             }
 
-    class TicketService {
-        +getTicket(customerEmail: String, eventName: String): Ticket
-        +getMyTicket(customerEmail: String):Ticket[*]
-        +buyTicket(customerEmail: String, eventName: String, ticketQuantity: String): Ticket
-        +getCustomerRegistrations(eventName: event):Customer[*]
-        +getTicketOwner(eventName: String):Customer
-        +getTicketEvent(customerEmail: String):Event
-        +getTicketQuantity(eventName: String,customerEmail: String):TicketQuantity
-    }
+
 
 
     Venue "1 -venue" --> "-ticketAvailabilities *" TicketAvailability : creates
@@ -216,6 +263,54 @@ package "Ticket Management" {
     TicketService "1"-->"-tickets *" Ticket
 }
 
+package "controllers" #LightYellow{
+
+package "DTOs" #LightYellow {
+
+   class ErrorType <<Enumeration>> {
+    OVERBOOKED_RESERVATION
+    OVERBOOKED_WALK_IN
+    DOUBLE_BOOKED_RESERVATION
+    DOUBLE_BOOKED_WALK_IN
+    OVERBOOKED_ALTERATION
+    DOUBLE_BOOKED_ALTERATION
+    }
+    class ErrorMessageDTO {
+        +type: ErrorType
+        +message: String
+        {static}ErrorDetails()
+        {static}ErrorDetails(type: ErrorType, message: String)
+        getMessage():String
+        getType(): ErrorType
+
+    }
+
+    class AccountDTO {
+        +name: String
+        +email: String
+        +role: ROLE
+    }
+
+    class VenueDTO {
+        +name: String
+        +address: String
+        +capacity: TicketAvailability[*]
+    }
+
+    class EventDTO {
+        +name: String
+        +description: String
+        +date: Date
+        +time: Time
+        +venue: VenueDTO
+    }
+
+    class TicketDTO {
+        +type: String
+        +price: Double
+    }
+
+}
 ' System classes for each module
 class AccountSystem {
     +login(email: String, password: String): Boolean
@@ -227,22 +322,12 @@ class AccountSystem {
     +updateAdministratorAccount(newName: String, newPassword:String,newEmail:String)
     +updateCustomerAccount(newName: String, newPassword:String,newEmail:String)
     +updateOrganizerAccount(newName: String, newPassword:String,newEmail:String,newAddress:String,newCompanyName :String, newPhoneNumber:String)
-    +displayMainPage()
-    +displayEditAccountPage(selectedAccount)
-    +displayAccountsPage(accounts:Account[*])
-    +disableAccount(accountEmail:String)
-    +displayEditAccountPage(accountEmail: String)
-    +displayError()
-    +displayConfirm()
-    +displayAccountRoles()
     +updatePermission(accountEmail:String)
 
 }
 AccountSystem "1"--> "-AccountService 1" AccountService
 
 class VenueSystem {
-    +displayVenuePage(venue: Venue)
-    +displayVenuesPage(venues: Venue[*])
     +createVenue(venueDetails)
     +viewVenue(name: String)
     +updateVenue(venueDetails)
@@ -250,8 +335,6 @@ class VenueSystem {
     +listVenues()
     +listAvailableVenues(date: Date,time: Time)
     +listVenueUsage(venueName: String)
-    +displayAvailableVenuesPage(availableVenues:Venue[*])
-    +displayVenueUsagePage(pastEvents:Event[*])
 }
 VenueSystem "1"--> "-VenueService 1" VenueService
 
@@ -263,13 +346,8 @@ class EventSystem {
     +listEvents()
     +listMyEvents(customerEmail: String)
     +searchEvents(keyWords:String)
-    +displayListEventsPage(events:Event[*])
-    +displayDatePage(date: Date)
-    +displayEventDetailsPage(event: Event)
     +showCreateEventPage()
-    +displayViewEventPage(event: Event)
     +showUpdateEvent(name: String)
-    +displayUpdateEventPage(event: Event)
 }
 
 EventSystem "1"--> "-EventService 1" EventService
@@ -282,13 +360,31 @@ class TicketSystem {
     +buyTicket(customerEmail: String, eventName: String, ticketType: String)
     +viewTicketDetails(customerEmail: String, eventName: String)
     +cancelTicket(customerEmail: String, eventName: String)
-    +displayRegistrationsPage(registeredCus:Customer[*])
-    +displayTicketDetailsPage(ticketDetails)
-    +displayMyTicketsPage(Ticket[*])
 }
 TicketSystem -->"1..TicketService 1"  TicketService
 
-Organiser "1..*" o--> "0..* -organises" Event
-Customer "1" o--> "-tickets 0..*" Ticket
+ErrorMessageDTO ..> ErrorType : <<use>>
+' Connect DTOs with Systems using dashed lines for dependency
+AccountSystem ..> AccountDTO
+VenueSystem ..> VenueDTO
+EventSystem ..> EventDTO
+TicketSystem ..> TicketDTO
+       AccountSystem ..> ErrorMessageDTO
+        VenueSystem ..> ErrorMessageDTO
+        EventSystem ..> ErrorMessageDTO
+        TicketSystem ..> ErrorMessageDTO
+}
+    EventService "1"--> "-events *" EventRepository
+    AccountService "1"--> "-accounts * "AccountRepository
+    VenueService "1"--> "-venues * "VenueRepository
+
+   ' Connect Repositories with Models
+    AccountRepository ..> models.Account : <<import>>
+    VenueRepository ..> models.Venue : <<import>>
+    EventRepository ..> models.Event : <<import>>
+    TicketRepository ..> models.Ticket : <<import>>
+
+
+
 
 @enduml
