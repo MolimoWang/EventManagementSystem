@@ -31,6 +31,7 @@ skinparam class {
 package "repositories" #LightYellow {
     class AccountRepository {
         +findById(id: Long): Account
+        +findByEmail(email: Long): Account
         +findAll(): Account[*]
         +save(account: Account): Boolean
         +delete(account: Account): Boolean
@@ -38,6 +39,7 @@ package "repositories" #LightYellow {
 
     class VenueRepository {
         +findById(id: Long): Venue
+        +findAllByDateTime(date: Date,time: Time) Venue[*]
         +findAll(): Venue[*]
         +save(venue: Venue): Boolean
         +delete(venue: Venue): Boolean
@@ -45,6 +47,7 @@ package "repositories" #LightYellow {
 
     class EventRepository {
         +findById(id: Long): Event
+        +findAllByEmail(email: Long): Event[*]
         +findAll(): Event[*]
         +save(event: Event): Boolean
         +delete(event: Event): Boolean
@@ -52,6 +55,7 @@ package "repositories" #LightYellow {
 
     class TicketRepository {
         +findById(id: Long): Ticket
+        +findAllByEmail(email: Long): Ticket[*]
         +findAll(): Ticket[*]
         +save(ticket: Ticket): Boolean
         +delete(ticket: Ticket): Boolean
