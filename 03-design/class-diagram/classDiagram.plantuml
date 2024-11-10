@@ -379,6 +379,31 @@ package "DTOs" #LightYellow {
         getEmail():String
         getRole():ROLE
     }
+    
+    class AdministratorDTO {
+        {static}AdministratorDTO()
+        {static}AdministratorDTO(name:String,email:String,role:ROLE)
+    }
+
+    class OrganizerDTO {
+        {static}OrganizerDTO()
+        {static}OrganizerrDTO(name:String,email:String,role:ROLE,address:String,companyName:String,phoneNumber:String)
+        +address: String
+        +companyName: String
+        +phoneNumber: String
+        getAddress():String
+        getAddress():String
+        getPhoneNumber():String
+    }
+
+    class CustomerDTO {
+        {static}CustomerDTO()
+        {static}CustomerDTO(name:String,email:String,role:ROLE)
+    }
+
+    AccountDTO <|-- AdministratorDTO
+    AccountDTO <|-- OrganizerDTO
+    AccountDTO <|-- CustomerDTO
 
     class VenueDTO {
         +name: String
@@ -430,12 +455,25 @@ class AccountSystem {
     +deleteAccount(accountEmail: String): Boolean
     +selectAccount(accountEmail:String)
     +viewAccount(accountEmail: String): AccountDetails
-    +updateAdministratorAccount(newName: String, newPassword:String,newEmail:String)
-    +updateCustomerAccount(newName: String, newPassword:String,newEmail:String)
-    +updateOrganizerAccount(newName: String, newPassword:String,newEmail:String,newAddress:String,newCompanyName :String, newPhoneNumber:String)
     +updatePermission(accountEmail:String)
-
 }
+
+ class AdministratorAccountSystem {
+    +updateAdministratorAccount(newName: String, newPassword: String, newEmail: String)
+ }
+
+ class OrganizerAccountSystem {
+    +updateOrganizerAccount(newName: String, newPassword: String, newEmail: String, newAddress: String, newCompanyName: String, newPhoneNumber: String)
+ }
+
+ class CustomerAccountSystem {
+    +updateCustomerAccount(newName: String, newPassword: String, newEmail: String)
+ }
+
+AccountSystem <|-- AdministratorAccountSystem
+AccountSystem <|-- OrganizerAccountSystem
+AccountSystem <|-- CustomerAccountSystem
+
 AccountSystem "1"--> "-AccountService 1" AccountService
 
 class VenueSystem {
