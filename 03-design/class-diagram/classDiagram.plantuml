@@ -276,13 +276,11 @@ package "DTOs" #LightYellow {
 
    class ErrorType <<Enumeration>> {
     OVERBOOKED_RESERVATION
-    OVERBOOKED_WALK_IN
     DOUBLE_BOOKED_RESERVATION
-    DOUBLE_BOOKED_WALK_IN
     OVERBOOKED_ALTERATION
     DOUBLE_BOOKED_ALTERATION
     }
-    class ErrorMessageDTO {
+  class ErrorMessageDTO {
         +type: ErrorType
         +message: String
         {static}ErrorDetails()
@@ -290,18 +288,28 @@ package "DTOs" #LightYellow {
         getMessage():String
         getType(): ErrorType
 
-    }
+  }
 
     class AccountDTO {
         +name: String
         +email: String
         +role: ROLE
+        {static}AccountDTO()
+        {static}AccountDTO(name:String,email:String,role:ROLE)
+        getName():String
+        getEmail():String
+        getRole():ROLE
     }
 
     class VenueDTO {
         +name: String
         +address: String
         +capacity: TicketAvailability[*]
+        {static}VenueDTO()
+        {static}VenueDTO(name:String,address:String,capacity:TicketAvailability[*])
+        getName():String
+        getAddress():String
+        getCapacity():TicketAvailability[*]
     }
 
     class EventDTO {
@@ -309,12 +317,29 @@ package "DTOs" #LightYellow {
         +description: String
         +date: Date
         +time: Time
-        +venue: VenueDTO
+        +venueName: String
+        +venueId:Long
+        {static}EventDTO()
+        {static}EventDTO(name:String,description:String,date:Date,time:Time,venue:VenueDTO)
+        getName():String
+        getDescription():String
+        getDate():Date
+        getTime():Time
+        getVenueName():String
+        getvenueId():Long
     }
 
     class TicketDTO {
         +type: String
         +price: Double
+        +eventName:String
+        +eventId:String
+        {static}TicketDTO()
+        {static}TicketDTO(type:String,price:Double)
+        getType():String
+        getPrice():Double
+        getEventName():String
+        getEventId():String
     }
 
 }
