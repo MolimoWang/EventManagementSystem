@@ -121,6 +121,7 @@ package "services" #LightYellow {
 package "models" #LightYellow {
 package "accounts"{
    interface AccountInterface {
+      + getId():Long
       + getName(): String
       + getEmail(): String
       + getPassword(): String
