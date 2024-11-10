@@ -119,11 +119,24 @@ package "services" #LightYellow {
 
 ' Ticket Management Group
 package "models" #LightYellow {
-  interface IAccount {
-        + getName(): String
-        + getEmail(): String
-        + getPassword(): String
+package "accounts"{
+   interface AccountInterface {
+      + getName(): String
+      + getEmail(): String
+      + getPassword(): String
+      + setName(name: String)
+      + setEmail(email: String)
+      + setPassword(password: String)
     }
+
+  interface OrganiserInterface {
+    + getAddress(): String
+    + getCompanyName(): String
+    + getPhoneNumber(): String
+    + setAddress(address: String)
+    + setCompanyName(companyName: String)
+    + setPhoneNumber(phoneNumber: String)
+  }
 class ROLE {
         +ADMINISTRATOR
         +ORGANISER
@@ -167,13 +180,29 @@ class ROLE {
     }
 
 
-      Administrator --|> Account
-      Organiser --|> Account
-      Customer --|> Account
+  Account ..|> AccountInterface
+  Administrator --|> Account
+  Organiser --|> Account
+  Customer --|> Account
+  Organiser ..|> OrganiserInterface
+}
       Organiser "1..*" o--> "0..* -organises" Event
       Customer "1" o--> "-tickets 0..*" Ticket
 
-
+interface VenueInterface {
+    + getName(): String
+    + getAddress(): String
+    + getContactName(): String
+    + getContactPhoneNumber(): String
+    + getContactEmail(): String
+    + getTicketAvailabilities(): TicketAvailability[*]
+    + setName(name: String)
+    + setAddress(address: String)
+    + setContactName(contactName: String)
+    + setContactPhoneNumber(contactPhoneNumber: String)
+    + setContactEmail(contactEmail: String)
+    + setTicketAvailabilities(ticketAvailabilities: TicketAvailability[*])
+  }
       class Venue {
         - id: Long
         - name: String
@@ -199,7 +228,22 @@ class ROLE {
     }
 
 
+
     Venue "1 -venue" <--"*" Event
+
+interface EventInterface {
+    + getName(): String
+    + getDescription(): String
+    + getDate(): Date
+    + getTime(): Time
+    + getVenue(): Venue
+    + setName(name: String)
+    + setDescription(description: String)
+    + setDate(date: Date)
+    + setTime(time: Time)
+    + setTicketQuantities(ticketQuantities: int)
+  }
+
  class Event {
         - id: Long
         - name: String
@@ -221,6 +265,11 @@ class ROLE {
         +setTicketQuantities(ticketQuantities: int)
     }
 
+interface TicketInterface {
+    + getId(): Long
+    + getType(): String
+    + getPrice(): Double
+  }
     class Ticket {
             - id: Long
             - type : String
@@ -230,6 +279,15 @@ class ROLE {
             +getId():Long
         }
 
+interface TicketQuantityInterface {
+    + getId(): Long
+    + getNumberRemain(): int
+    + getNumberSold(): int
+    + getPrice(): double
+    + setNumberRemain(numberRemain: int)
+    + setNumberSold(numberSold: int)
+    + setPrice(price: double)
+  }
     class TicketQuantity {
             - id: Long
             - numberSold: int
@@ -244,6 +302,14 @@ class ROLE {
             +setNumberSold(numberSold: int)
             +setPrice(price: double)
         }
+
+         interface TicketAvailabilityInterface {
+            + getId(): Long
+            + getTicketTypeName(): String
+            + getNumberAvailable(): int
+            + setTicketTypeName(ticketTypeName: String)
+            + setNumberAvailable(number: int)
+          }
      class TicketAvailability {
                 - id: Long
                 - ticketTypeName: String
@@ -260,6 +326,11 @@ class ROLE {
 
 
 
+  Venue ..|> VenueInterface
+  Event ..|> EventInterface
+  Ticket ..|> TicketInterface
+  TicketQuantity ..|> TicketQuantityInterface
+  TicketAvailability ..|> TicketAvailabilityInterface
 
     Venue "1 -venue" --> "-ticketAvailabilities *" TicketAvailability : creates
     TicketAvailability --|> TicketQuantity
@@ -268,6 +339,13 @@ class ROLE {
     Ticket "1"--> "-event 1" Event : related to
     Ticket "1"--> "1 -ticketQuantity" TicketQuantity : get Info
     TicketService "1"-->"-tickets *" Ticket
+
+         AccountRepository ..> Account : <<import>>
+        VenueRepository ..> Venue : <<import>>
+        EventRepository ..> Event : <<import>>
+        TicketRepository ..> Ticket : <<import>>
+
+
 }
 
 package "controllers" #LightYellow{
@@ -411,11 +489,6 @@ TicketSystem ..> TicketDTO
     VenueService "1"--> "-venues * "VenueRepository
 
    ' Connect Repositories with Models
-    AccountRepository ..> models.Account : <<import>>
-    VenueRepository ..> models.Venue : <<import>>
-    EventRepository ..> models.Event : <<import>>
-    TicketRepository ..> models.Ticket : <<import>>
-
 
 
 
