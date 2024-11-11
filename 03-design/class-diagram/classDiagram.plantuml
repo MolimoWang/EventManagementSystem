@@ -29,15 +29,30 @@ skinparam class {
 }
 
 package "repositories" #LightYellow {
-    class AccountRepository {
+    class CustomerRepository {
         +findById(id: Long): Account
         +findByEmail(email: Long): Account
         +findAll(): Account[*]
-        +save(account: Account): Boolean
-        +delete(account: Account): Boolean
+        +save(customer: Customer): Boolean
+        +delete(customer: Customer): Boolean
         +deleteByEmail(email: Long): Boolean
     }
-
+    class OrganiserRepository {
+        +findById(id: Long): Account
+        +findByEmail(email: Long): Account
+        +findAll(): Account[*]
+        +save(organiser: Organiser): Boolean
+        +delete(organiser: Organiser): Boolean
+        +deleteByEmail(email: Long): Boolean
+    }
+    class AdministratorRepository {
+        +findById(id: Long): Account
+        +findByEmail(email: Long): Account
+        +findAll(): Account[*]
+        +save(administrator: Administrator): Boolean
+        +delete(administrator: Administrator): Boolean
+        +deleteByEmail(email: Long): Boolean
+    }
     class VenueRepository {
         +findById(id: Long): Venue
         +findAllByDateTime(date: Date,time: Time) Venue[*]
@@ -70,20 +85,22 @@ package "repositories" #LightYellow {
 ' Event Management Group
 package "services" #LightYellow {
     class AccountService {
-          +createAdminAccount(name: String,email: String,password:String): Boolean
-          +createCustomerAccount(name: String,email: String,password:String): Boolean
-          +createOrganiserAccount(name: String,email: String,password:String): Boolean
-          +registerAccount(name: String,email: String,password:String): Boolean
-          +getAccount(email: String): Account
-          +getCustomer(customerEmail:String):Customer
-          +getOrganiser(organiserEmail:String):Organiser
-          +getAccounts():Account[*]
-          +deleteAccount(accountEmail: String): Boolean
-          +updateAccount(account: Account): Boolean
-          +checkAccountExist(accountEmail:String):Boolean
+        {static}+AccountService(CustomerRepository,OrganiserRepository,AdministratorRepository)
+         +createAdminAccount(name: String,email: String,password:String): Boolean
+         +createCustomerAccount(name: String,email: String,password:String): Boolean
+         +createOrganiserAccount(name: String,email: String,password:String): Boolean
+         +registerAccount(name: String,email: String,password:String): Boolean
+         +getAccount(email: String): Account
+         +getCustomer(customerEmail:String):Customer
+         +getOrganiser(organiserEmail:String):Organiser
+         +getAccounts():Account[*]
+         +deleteAccount(accountEmail: String): Boolean
+         +updateAccount(account: Account): Boolean
+         +checkAccountExist(accountEmail:String):Boolean
       }
 
     class VenueService {
+        {static}+VenueService(VenueRepository,TicketRepository,OrganiserRepository)
         +getVenue(venueName: String):Venue
         +getVenues():Venue[*]
         +createVenue(name: String,address: String,contactName: String,contactPhoneNumber: String,contactEmail: String,capacity: TicketAvailability[*]): Boolean
@@ -96,6 +113,7 @@ package "services" #LightYellow {
     }
 
     class EventService {
+        {static}+EventService(EventRepository,TicketRepository
         +createEvent(name: String, description: String, date: Date, time: Time, venue: Venue,ticketTypes : String[*], ticketPrices : double[*]): Boolean
         +deleteEvent(name: String): Boolean
         +updateEvent(name: String, description: String, date: Date, time: Time,venue: Venue,ticketTypes : String[*], ticketPrices : double[*]): Boolean
@@ -105,6 +123,7 @@ package "services" #LightYellow {
     }
 
    class TicketService {
+        {static}+TicketService(TicketRepository,CustomerRepository,EventRepository)
         +getTicket(customerEmail: String, eventName: String): Ticket
         +getMyTicket(customerEmail: String):Ticket[*]
         +buyTicket(customerEmail: String, eventName: String, ticketQuantity: String): Ticket
@@ -382,11 +401,15 @@ TicketSystem ..> TicketDTO
         TicketSystem ..> ErrorMessageDTO
 }
     EventService "1"--> "-events *" EventRepository
-    AccountService "1"--> "-accounts * "AccountRepository
+    AccountService "1"--> "-accounts * "CustomerRepository
+    AccountService "1"--> "-accounts * "OrganiserRepository
+    AccountService "1"--> "-accounts * "AdministratorRepository
     VenueService "1"--> "-venues * "VenueRepository
 
    ' Connect Repositories with Models
-    AccountRepository ..> models.Account : <<import>>
+    CustomerRepository ..> models.Account : <<import>>
+    OrganiserRepository ..> models.Account : <<import>>
+    AdministratorRepository ..> models.Account : <<import>>
     VenueRepository ..> models.Venue : <<import>>
     EventRepository ..> models.Event : <<import>>
     TicketRepository ..> models.Ticket : <<import>>
