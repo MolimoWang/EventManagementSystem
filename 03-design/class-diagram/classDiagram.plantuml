@@ -90,13 +90,21 @@ package "services" #LightYellow {
          +createCustomerAccount(name: String,email: String,password:String): Boolean
          +createOrganiserAccount(name: String,email: String,password:String): Boolean
          +registerAccount(name: String,email: String,password:String): Boolean
-         +getAccount(email: String): Account
+         +getAdministrator(AdministratorEmail: String): Administrator
          +getCustomer(customerEmail:String):Customer
          +getOrganiser(organiserEmail:String):Organiser
-         +getAccounts():Account[*]
-         +deleteAccount(accountEmail: String): Boolean
-         +updateAccount(account: Account): Boolean
-         +checkAccountExist(accountEmail:String):Boolean
+         +getAdministrators():Administrator[*]
+         +getCustomers():Customer[*]
+         +getOrganisers():Organiser[*]
+         +deleteCustomer(CustomerEmail: String): Boolean
+         +deleteOrganiser(OrganiserEmail: String): Boolean
+         +deleteAdministrator(AdministratorEmail: String): Boolean
+         +updateCustomer(customer: Customer): Boolean
+         +updateOrganiser(organiser: Organiser): Boolean
+         +updateAdministrator(administrator: Administrator): Boolean
+         +checkCustomerExist(CustomerEmail:String):Boolean
+         +checkOrganiserExist(OrganiserEmail:String):Boolean
+         +checkAdministratorExist(AdministratorEmail:String):Boolean
       }
 
     class VenueService {
