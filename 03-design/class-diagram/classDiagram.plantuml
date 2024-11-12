@@ -30,25 +30,25 @@ skinparam class {
 
 package "repositories" #LightYellow {
     class CustomerRepository {
-        +findById(id: Long): Account
-        +findByEmail(email: Long): Account
-        +findAll(): Account[*]
+        +findById(id: Long): Customer
+        +findByEmail(email: Long): Customer
+        +findAll(): Customer[*]
         +save(customer: Customer): Boolean
         +delete(customer: Customer): Boolean
         +deleteByEmail(email: Long): Boolean
     }
     class OrganiserRepository {
-        +findById(id: Long): Account
-        +findByEmail(email: Long): Account
-        +findAll(): Account[*]
+        +findById(id: Long): Organiser
+        +findByEmail(email: Long): Organiser
+        +findAll(): Organiser[*]
         +save(organiser: Organiser): Boolean
         +delete(organiser: Organiser): Boolean
         +deleteByEmail(email: Long): Boolean
     }
     class AdministratorRepository {
-        +findById(id: Long): Account
-        +findByEmail(email: Long): Account
-        +findAll(): Account[*]
+        +findById(id: Long): Administrator
+        +findByEmail(email: Long): Administrator
+        +findAll(): Administrator[*]
         +save(administrator: Administrator): Boolean
         +delete(administrator: Administrator): Boolean
         +deleteByEmail(email: Long): Boolean
