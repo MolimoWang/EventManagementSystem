@@ -1,0 +1,25 @@
+title View Ticket Details Sequence Diagram
+
+actor User
+boundary TicketSystem
+control TicketService
+entity Ticket
+
+note right of User: 1.The user selects 'View' option of a ticket from \n their ticket list(on the ticket list page(40-view_purchased_tickets.png).
+User ->> TicketSystem : viewTicket(userEmail: String, eventName: String)
+
+activate TicketSystem
+note right of TicketSystem: 2. The system turn to the ticket information page\n(37-view_ticket_details_user.png) which show the ticket details.
+    TicketSystem ->> TicketService : getTicket(userEmail: String, eventName: String)
+    activate TicketService
+
+    TicketService ->> Ticket : getTicketInfo(userEmail: String, eventName: String)
+    activate Ticket
+    Ticket --> TicketService : return TicketInfo
+    deactivate Ticket
+
+    TicketService -->> TicketSystem : return ticketDetails
+
+deactivate TicketService
+
+TicketSystem -->> User : displayTicketDetails(ticketDetails)
