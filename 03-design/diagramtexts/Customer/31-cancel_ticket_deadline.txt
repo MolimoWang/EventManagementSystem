@@ -1,11 +1,10 @@
-title User Cancel Ticket Sequence Diagram
+title User Cancel Ticket Sequence Diagram (Exceeds Cancellation Deadline)
 
 actor User
 boundary TicketSystem
 control TicketService
 entity Ticket
 entity Event
-entity TicketInfo
 
 note right of User: The user selects 'Cancel' option for a ticket on their ticket list page (40-view_purchased_tickets.png).
 User ->> TicketSystem : initiateTicketCancellation(eventName: String)
@@ -24,28 +23,17 @@ activate TicketService
 note right of TicketService: The service checks if the cancellation is within the allowed time frame.
 TicketService ->> Event : checkCancellationTime(eventName: String)
 activate Event
-Event --> TicketService : return isCancellable
+Event --> TicketService : return isCancellable = false
 deactivate Event
 
-alt isCancellable == true
-    note right of TicketService: Cancellation is allowed, proceed with canceling the ticket.
-    TicketService ->> Ticket : cancelTicket(userEmail: String, eventName: String)
-    activate Ticket
-    Ticket --> TicketService : return cancellationSuccess
-    deactivate Ticket
-
-    note right of TicketService: Update ticket information (increment numberAvailable and adjust numberSold).
-    TicketService ->> TicketInfo : updateTicketInfo(numberAvailable: int + 1, numberSold: int - 1)
-    activate TicketInfo
-    TicketInfo --> TicketService : return updateSuccess
-    deactivate TicketInfo
-
-    TicketService -->> TicketSystem : return cancellationSuccess
+alt isCancellable == false
+    note right of TicketService: Cancellation is not allowed as the deadline has passed.
+    TicketService -->> TicketSystem : return cancellationFailed(exceedsDeadline)
 end
 
 deactivate TicketService
 
-note right of TicketSystem: The system updates and displays the ticket list page (40-view_purchased_tickets.png) with the canceled ticket removed.
-TicketSystem -->> User : displayUpdatedTicketList
+note right of TicketSystem: The system displays a message indicating that the ticket cannot be cancelled due to exceeding the deadline.
+TicketSystem -->> User : displayCancellationDeadlineExceededMessage
 
 deactivate TicketSystem

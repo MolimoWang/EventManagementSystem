@@ -3,17 +3,20 @@
 ## Basic Course of Events
 
 ### Course of Events
-- The user/organizer/administrator inputs the name of the event they want to search for in the filter box.
-- The user/organizer/administrator click the 'Search' button.
-- The system displays the search results.
+1. The customer/organizer/administrator is on their main page.
+2. The customer/organizer/administrator clicks the filter box.
+3. The system highlights the box to indicate it is selected(38-search_filter_events.png).
+4. The customer/organizer/administrator inputs the name of the event they want to search for in the filter box.
+5. The customer/organizer/administrator click the 'Search' button.
+6. The system displays the search results(44-filter_events.png).
 
 ### Sequence Diagram
 
 ### Administrator
 ![Administrator](/02-analysis/sequence-diagrams/Common/10-administrator_search_filter_events.png)
 
-### User
-![User](/02-analysis/sequence-diagrams/Common/10-user_search_filter_events.png)
+### Customer
+![Customer](/02-analysis/sequence-diagrams/Common/10-user_search_filter_events.png)
 
 ### Organizer
 ![Organizer](/02-analysis/sequence-diagrams/Common/10-organizer_search_filter_events.png)
@@ -54,8 +57,8 @@ There the pages that the user must be on at the start to complete the use case.
 ### Event Lists
 ![Event Lists](/02-analysis/UI/user/44-filter_events.png)
 
-### User
-There the pages that the user must be on at the start to complete the use case.
+### Customer
+There the pages that the Customer must be on at the start to complete the use case.
 
 ### Main Page
 ![Main Page](/02-analysis/UI/user/34-view_all_events.png)

@@ -63,6 +63,7 @@ package "repositories" #LightYellow {
 
     class EventRepository {
         +findById(id: Long): Event
+        +findByNameContaining(keyWords: String): Event[*]
         +findAllByEmail(email: Long): Event[*]
         +findAll(): Event[*]
         +save(event: Event): Boolean
@@ -126,6 +127,7 @@ package "services" #LightYellow {
         +deleteEvent(name: String): Boolean
         +updateEvent(name: String, description: String, date: Date, time: Time,venue: Venue,ticketTypes : String[*], ticketPrices : double[*]): Boolean
         +getEvent(name: String):Event
+        +getEventsByKeyWords(String keyWords):Event[*]
         +getEventDetails(name: String):
         +saveEvent(event: Event):Boolean
     }
