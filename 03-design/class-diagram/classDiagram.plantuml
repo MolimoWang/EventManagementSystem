@@ -615,7 +615,7 @@ class EventSystem {
     +updateEvent(eventDetails)
     +listEvents()
     +listCurrentEvents(date: Date,time: Time)
-    +listMyEvents(customerEmail: String)
+    +listMyEvents (organizerEmail: String)
     +searchEvents(keyWords:String)
     +showCreateEventPage()
     +showUpdateEvent(name: String)
