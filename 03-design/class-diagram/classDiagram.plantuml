@@ -220,7 +220,7 @@ class ROLE {
   Organiser ..|> OrganiserInterface
 }
       Organiser "1..*" o--> "0..* -organises" Event
-      Customer "1" o--> "-tickets 0..*" Ticket
+
 
 interface VenueInterface {
     + getName(): String
@@ -374,9 +374,9 @@ interface TicketQuantityInterface {
     TicketService "1"-->"-tickets *" TicketRepository
 
 
-        VenueRepository ..> Venue : <<import>>
+
         EventRepository ..> Event : <<import>>
-        TicketRepository ..> Ticket : <<import>>
+
 
 
 }
@@ -665,9 +665,9 @@ TicketSystem ..> ErrorMessageDTO
     VenueService "1"--> "-venues * "VenueRepository
 
    ' Connect Repositories with Models
-    CustomerRepository ..> models.accounts.Account : <<import>>
-    OrganiserRepository ..> models.accounts.Account : <<import>>
-    AdministratorRepository ..> models.accounts.Account : <<import>>
+    CustomerRepository ..> models.accounts.Customer : <<import>>
+    OrganiserRepository ..> models.accounts.Organiser : <<import>>
+    AdministratorRepository ..> models.accounts.Administrator : <<import>>
     VenueRepository ..> models.Venue : <<import>>
     TicketRepository ..> models.Ticket : <<import>>
 
