@@ -1,5 +1,6 @@
 ## Data Persistence
 
+do we remember role?
 
 1. Administrator: id: Long, name: String, email: String, password: String, role: ROLE
 2. Organiser: id: Long, name: String, email: String, password: String, role: ROLE, address: String, companyName: String, phoneNumber: String
