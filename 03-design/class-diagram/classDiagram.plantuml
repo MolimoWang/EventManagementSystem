@@ -138,6 +138,7 @@ package "services" #LightYellow {
         {static}+TicketService(TicketRepository,CustomerRepository,EventRepository)
         +getTicket(ticketId: Long): Ticket
         +getMyTicket(customerEmail: String):Ticket[*]
+        +checkTimeoutCancel(ticketId: Long):Boolean
         +buyTicket(customerEmail: String, eventName: String, ticketQuantity: String): Ticket
         +getCustomerRegistrations(eventName: event):Customer[*]
         +getTicketOwner(eventName: String):Customer
