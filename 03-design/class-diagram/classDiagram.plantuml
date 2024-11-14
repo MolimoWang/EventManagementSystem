@@ -370,7 +370,7 @@ interface TicketQuantityInterface {
     Customer "1"--> "-tickets 0..* " Ticket : purchases
     Ticket "1"--> "-event 1" Event : related to
     Ticket "1"--> "1 -ticketQuantity" TicketQuantity : get Info
-    TicketService "1"-->"-tickets *" Ticket
+    TicketService "1"-->"-tickets *" TicketRepository
 
 
         VenueRepository ..> Venue : <<import>>
@@ -658,9 +658,9 @@ EventSystem ..> ErrorMessageDTO
 TicketSystem ..> ErrorMessageDTO
 }
     EventService "1"--> "-events *" EventRepository
-    AccountService "1"--> "-accounts * "CustomerRepository
-    AccountService "1"--> "-accounts * "OrganiserRepository
-    AccountService "1"--> "-accounts * "AdministratorRepository
+    AccountService "1"--> "-customers * "CustomerRepository
+    AccountService "1"--> "-organisers * "OrganiserRepository
+    AccountService "1"--> "-administrators * "AdministratorRepository
     VenueService "1"--> "-venues * "VenueRepository
 
    ' Connect Repositories with Models
