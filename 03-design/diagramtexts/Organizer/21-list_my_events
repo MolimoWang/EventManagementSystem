@@ -30,7 +30,7 @@ bs<--es:return relevantEvents:Event[*]
 deactivate es
 
 end
-bs-->d:return "orgainizer_dashboard.html"
+bs-->d:return "organizer_dashboard.html"
 deactivate bs
 d->*nv:View(model : Model)
 

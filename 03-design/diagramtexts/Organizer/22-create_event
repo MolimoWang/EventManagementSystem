@@ -42,20 +42,20 @@ deactivate VenueService
     ec --> DispatchServlet :
 deactivate ec
 end
-DispatchServlet-->v:return abailableVenuePages
+DispatchServlet-->v:return availableVenuePages
 
 ==4. The organizer creates new events with multiple variables, including:\n·Event Name\n·Date and Time\n·Venue\n·Description\n·Ticket Prices\n·Ticket Types\n·OrganizerEmail==
 DispatchServlet ->> ec :createEvent(eventDetails)
 
 
 activate ec
-ec ->> es:        createEvent(name, description, date, time, organizerEmail, venue, ticketTypes, ticketPrices): Boolean
+ec ->> es: createEvent(name, description, date, time, organizerEmail, venue, ticketTypes, ticketPrices): Boolean
 
 activate es
 
     es ->> es : venue: getVenue(venue: Venue)
 es->>AccountService: organizer: =getOrganizerAccount(organizerEmail)
-es ->> Venue:getTicketAvaiabilities()
+es ->> Venue:getTicketAvailabilities()
 
 loop for every ticket type
   es->ta:getTicketTypeName()
@@ -81,9 +81,9 @@ end
 
     ec->es:event := getEvent(eventName, eventDate)
 
-    ec->ec:displayViewEventPage(event)
+    ec->ec:addAttribute("events":String, events:Event[*])
 
-ec --> DispatchServlet : return"index.html"(main page)
+ec --> DispatchServlet: return"organizer_dashboard.html"(main page)
 deactivate ec
 
 DispatchServlet -> *ne:

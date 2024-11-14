@@ -32,11 +32,12 @@ bs<--es:return availableVenues:Venue[*]
 deactivate es
 
 end
-bs-->d:return "orgainizer_dashboard.html"(available venues dialog)
+bs-->d:return "organizer_dashboard.html"(available venues dialog)
 deactivate bs
 
 ==2. The system displays list of all the venues available for booking for the time period which the organizer chosen in this page..==
 
+d->d:addAttribute("events":String, events:Event[*])
 d->*nv:View(model : Model)
 activate nv
 

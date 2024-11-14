@@ -31,6 +31,7 @@ deactivate es
 end
 bs-->d:return "orgainizer_dashboard.html"
 deactivate bs
+d->d:addAttribute("events":String, events:Event[*])
 d->*nv:View(model : Model)
 activate nv
 
