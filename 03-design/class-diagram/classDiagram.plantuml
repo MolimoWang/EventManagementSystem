@@ -31,27 +31,27 @@ skinparam class {
 package "repositories" #LightYellow {
     class CustomerRepository {
         +findById(id: Long): Customer
-        +findByEmail(email: Long): Customer
+        +findByEmail(email: String): Customer
         +findAll(): Customer[*]
         +save(customer: Customer): Boolean
         +delete(customer: Customer): Boolean
-        +deleteByEmail(email: Long): Boolean
+        +deleteByEmail(email: String): Boolean
     }
     class OrganiserRepository {
         +findById(id: Long): Organiser
-        +findByEmail(email: Long): Organiser
+        +findByEmail(email: String): Organiser
         +findAll(): Organiser[*]
         +save(organiser: Organiser): Boolean
         +delete(organiser: Organiser): Boolean
-        +deleteByEmail(email: Long): Boolean
+        +deleteByEmail(email: String): Boolean
     }
     class AdministratorRepository {
         +findById(id: Long): Administrator
-        +findByEmail(email: Long): Administrator
+        +findByEmail(email: String): Administrator
         +findAll(): Administrator[*]
         +save(administrator: Administrator): Boolean
         +delete(administrator: Administrator): Boolean
-        +deleteByEmail(email: Long): Boolean
+        +deleteByEmail(email: String): Boolean
     }
     class VenueRepository {
         +findById(id: Long): Venue
@@ -64,7 +64,7 @@ package "repositories" #LightYellow {
     class EventRepository {
         +findById(id: Long): Event
         +findByNameContaining(keyWords: String): Event[*]
-        +findAllByEmail(email: Long): Event[*]
+        +findAllByEmail(email: String): Event[*]
         +findAllByDate(date: Date,time: Time):Event[*]
         +findAll(): Event[*]
         +save(event: Event): Boolean
@@ -73,7 +73,7 @@ package "repositories" #LightYellow {
 
     class TicketRepository {
         +findById(id: Long): Ticket
-        +findAllByEmail(email: Long): Ticket[*]
+        +findAllByEmail(email: String): Ticket[*]
         +findAll(): Ticket[*]
         +save(ticket: Ticket): Boolean
         +delete(ticket: Ticket): Boolean
@@ -136,7 +136,7 @@ package "services" #LightYellow {
 
    class TicketService {
         {static}+TicketService(TicketRepository,CustomerRepository,EventRepository)
-        +getTicket(customerEmail: String, eventName: String): Ticket
+        +getTicket(ticketId: Long): Ticket
         +getMyTicket(customerEmail: String):Ticket[*]
         +buyTicket(customerEmail: String, eventName: String, ticketQuantity: String): Ticket
         +getCustomerRegistrations(eventName: event):Customer[*]
@@ -629,7 +629,7 @@ class TicketSystem {
     +listTicketDetails(ticket:Ticket)
     +listRegisteredCustomer(eventName: String)
     +buyTicket(customerEmail: String, eventName: String, ticketType: String)
-    +viewTicketDetails(customerEmail: String, eventName: String)
+    +viewTicketDetails(ticketId : long, m : Model)
     +cancelTicket(customerEmail: String, eventName: String)
 }
 TicketSystem -->"1..TicketService 1"  TicketService
