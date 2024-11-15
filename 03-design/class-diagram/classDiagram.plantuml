@@ -326,19 +326,17 @@ interface TicketQuantityInterface {
     class TicketQuantity {
             - id: Long
             - numberSold: int
-            - price: double
+            - price: Double
             - ticketTypeName: String
             - numberAvailable: int
             {static}TicketQuantity()
-            {static}TicketQuantity(ticketTypeName,numberAvailable,price)
+            {static}TicketQuantity(ticketTypeName:String,numberAvailable: int,price: Double,ticketTypeName: String,numberAvailable: int)
             +getId():Long
             +getTicketTypeName():String
-             +getNumberAvailable():int
-             +setTicketTypeName(ticketTypeName: String)
-             +setNumberAvailable(number: int)
+            +getNumberAvailable():int
             +getNumberRemain():int
             +getNumberSold():int
-            +getPrice():double
+            +getPrice():Double
             +setNumberRemain(numberRemain: int)
             +setNumberSold(numberSold: int)
             +setPrice(price: double)
@@ -353,18 +351,15 @@ interface TicketQuantityInterface {
           }
 
              class AvailabilityInfo{
-
                   +getTicketTypeName():String
-                     +getNumberAvailable():int
-                     +setTicketTypeName(ticketTypeName: String)
-                     +setNumberAvailable(number: int)
+                  +getNumberAvailable():int
               }
     class TicketAvailability {
                 - id: Long
                 - ticketTypeName: String
                 - numberAvailable: int
                 {static}TicketAvailability()
-                {static}TicketAvailability(ticketTypeName,numberAvailable)
+                {static}TicketAvailability(ticketTypeName: String,numberAvailable: int)
                 +getId():Long
              +getTicketTypeName():String
              +getNumberAvailable():int
