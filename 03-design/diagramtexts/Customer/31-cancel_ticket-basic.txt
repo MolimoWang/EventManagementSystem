@@ -5,13 +5,11 @@ boundary "<link:_>newView : View " as nv
 boundary "<link:_>: DispatchServlet" as d
 entity "<link:_>m : Model" as m
 control "<link:_>: TicketSystem" as ts
-participant "Long" as l
 
 
 participant "<link:_>: TicketService" as tes
 participant "<link:_>: EventRepository" as er
 
-entity "<link:_>: Event" as e
 
 participant "<link:_>: TicketRepository" as tr
 entity "<link:_>: Ticket" as t
@@ -34,7 +32,6 @@ activate d
 d ->> ts :  cancelTicket(ticketId : Long, model : Model)
 activate ts
 
-ts->l:tid : parseLong(id : Long)
 
 
 ts ->> tes : ticket := getTicket(ticketId: Long)
@@ -42,17 +39,15 @@ activate tes
 
 
 
-==3. The service checks if the cancellation is within the allowed time frame.==
 
-ts ->> tes :checkTimeoutCancel(ticketId: Long)
+
 
 tes->er:e:= findById(id: Long)
-er->e:getDate():Date
-activate e
- e-->> tes : return date
-er->e:getTime():Time
- e-->> tes : return time
-   deactivate e
+ tes -->> ts : return t
+ deactivate tes
+==3. The service checks if the cancellation is within the allowed time frame.==
+ts ->> tes :checkTimeoutCancel(ticketId: Long)
+activate tes
 alt Cancellation is allowed
   tes->tr:delete(b : Reservation)
   tr->t:<<destroy>>
@@ -64,11 +59,11 @@ end
 
 
 
-    tes -->> ts : return t
+    tes -->> ts : return tickets
     deactivate tes
 
 
-ts->m: addAttribute("ticket" : String, t : Ticket)
+ts->m: addAttribute("tickets" : String, t : Ticket[*])
 
 ts-->d:return "view_purchased_tickets.html"
 deactivate ts
