@@ -57,6 +57,7 @@ package "repositories" #LightYellow {
         +findById(id: Long): Venue
         +findAllByDateTime(date: Date,time: Time) Venue[*]
         +findAll(): Venue[*]
+        +findAllByEmail(OrganiserEmail: String): Venue[*]
         +save(venue: Venue): Boolean
         +delete(venue: Venue): Boolean
     }
@@ -64,7 +65,7 @@ package "repositories" #LightYellow {
     class EventRepository {
         +findById(id: Long): Event
         +findByNameContaining(keyWords: String): Event[*]
-        +findAllByEmail(email: String): Event[*]
+        +findAllByEmail(OrganiserEmail: String): Event[*]
         +findAllByDate(date: Date,time: Time):Event[*]
         +findAll(): Event[*]
         +save(event: Event): Boolean
@@ -437,7 +438,7 @@ package "DTOs" #LightYellow {
         getAddress():String
         getPhoneNumber():String
     }
-  
+
 
     class CustomerDTO {
         +name: String
@@ -490,7 +491,7 @@ package "DTOs" #LightYellow {
         getEventName():String
         getEventId():String
     }
-    
+
     class TicketAvailabilityDTO{
         +ticketTypeName: String
         +numberAvailable: int
@@ -499,7 +500,7 @@ package "DTOs" #LightYellow {
         getTicketTypeName():String
         getNumberAvailable():int
     }
-    
+
     class TicketQuantityDTO{
         +numberSold:int
         +price:Double
@@ -508,7 +509,7 @@ package "DTOs" #LightYellow {
         getNumberSold():int
         getPrice():Double
     }
-    
+
     class AccountAlterDTO {
         +name:String
         +email: String
@@ -527,7 +528,7 @@ package "DTOs" #LightYellow {
         getPhoneNumber():String
 
     }
-    
+
     class TicketAlterDTO{
           +type : String
           +price : Double
@@ -536,7 +537,7 @@ package "DTOs" #LightYellow {
           getType():String
           getPrice():String
     }
-    
+
     class TicketAvailabilityAlterDTO{
         +ticketTypeName: String
         +numberAvailable: int
@@ -545,7 +546,7 @@ package "DTOs" #LightYellow {
         getTicketTypeName():String
         getNumberAvailable():int
     }
-    
+
     class TicketQuantityAlterDTO{
         +numberSold:int
         +price:Double
@@ -554,7 +555,7 @@ package "DTOs" #LightYellow {
         getNumberSold():int
         getPrice():Double
     }
-    
+
     class VenueAlterDTO{
         +name:String
         +address:String
@@ -571,7 +572,7 @@ package "DTOs" #LightYellow {
         getContactEmail():String
         getTicketAvailabilities():TicketAvailability[*]
     }
-    
+
     class EventAlterDTO{
         +name: String
         +description: String
@@ -594,7 +595,7 @@ class AccountSystem {
     {static}AccountSystem(accountService:AccountService)
     +login(email: String, password: String): Boolean
     +logout(): void
-    +createOrganiserAccount(organizerDTO:OrganizerrDTO,model:Model): Boolean
+    +createOrganiserAccount(organizerDTO:OrganizerDTO,model:Model): Boolean
     +createAdministratorAccount(administratorDTO:AdministratorDTO,model:Model):Boolean
     +createCustomerAccount(customerDTO:customerDTO,model:Model):Boolean
     +deleteAccount(accountEmail: String): Boolean
