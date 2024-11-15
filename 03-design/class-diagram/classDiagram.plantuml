@@ -66,7 +66,8 @@ package "repositories" #LightYellow {
         +findById(id: Long): Event
         +findByNameContaining(keyWords: String): Event[*]
         +findAllByEmail(OrganiserEmail: String): Event[*]
-        +findAllByDate(date: Date,time: Time):Event[*]
+        +findAllByDateTime(date: Date,time: Time):Event[*]
+        +findAllByDate(date: Date):Event[*]
         +findAll(): Event[*]
         +save(event: Event): Boolean
         +delete(event: Event): Boolean
@@ -134,6 +135,7 @@ package "services" #LightYellow {
         +getCurrentEvents(date: Date,time:Time):Event[*]
         +getCustomerRegistrations(eventId: Long):Customer[*]
         +saveEvent(event: Event):Boolean
+        +getEventsByDate(date: Date):Event[*]
     }
 
    class TicketService {
@@ -627,6 +629,7 @@ class EventSystem {
     +viewEvent(eventId: Long, m : Model)
     +deleteEvent(eventId: Long, m : Model)
     +updateEvent(eventDTO: EventDTO, m: Model)
+    +displayDate(date: Date, m: Model)
     +listEvents(m : Model)
     +listCurrentEvents(date: Date,time: Time, m : Model)
     +listMyEvents (organizerEmail: String, m : Model)
