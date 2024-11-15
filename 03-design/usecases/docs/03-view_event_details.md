@@ -97,7 +97,7 @@ There the pages that the user must be on at the start to complete the use case.
 
 There the pages that the user must be on at the start to complete the use case.
 
-![Main Page](/02-analysis/UI/user/34-view_all_events.png)
+![Main Page](/02-analysis/UI/customer/34-view_all_events.png)
 
 #### Related UI Prototypes-- Administrator, Organizer
 
@@ -109,7 +109,7 @@ There the pages that the user must be on at the start to complete the use case.
 
 | View Event Details Page                                               |
 |-----------------------------------------------------------------------|
-| ![View Event Details](/02-analysis/UI/user/43-view_event_details.png) |
+| ![View Event Details](/02-analysis/UI/customer/43-view_event_details.png) |
 
 ## Data Outcome
 

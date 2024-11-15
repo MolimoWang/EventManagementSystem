@@ -39,7 +39,7 @@ This is the page that the user must be on at the start to complete the use case.
 ![Organizer Main Page](/02-analysis/UI/organizer/17-view_all_events.png)
 
 ### User
-![User Main Page](/02-analysis/UI/user/34-view_all_events.png) 
+![User Main Page](/02-analysis/UI/customer/34-view_all_events.png) 
 
 ## Data Outcome
 - **READ** - The details of the selected account in the system will be read and display.

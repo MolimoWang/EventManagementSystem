@@ -38,4 +38,4 @@
 ### Ticket List Page
 This is the page where the user can see their purchased tickets and select the 'Cancel' option to remove a ticket if needed.
 
-![Ticket List Page](/02-analysis/UI/user/40-view_purchased_tickets.png)
+![Ticket List Page](/02-analysis/UI/customer/40-view_purchased_tickets.png)

@@ -26,9 +26,9 @@
 ### Main Page
 This is the page where the user selects the 'Upcoming' option to view their upcoming events.
 
-![Main Page](/02-analysis/UI/user/34-view_all_events.png)
+![Main Page](/02-analysis/UI/customer/34-view_all_events.png)
 
 ### List Upcoming Events Page
 This page displays the user's upcoming events if available. If there are no upcoming events, a message will be shown indicating that no events are available.
 
-![List Upcoming Events Page](/02-analysis/UI/user/36-list_upcoming_events.png)
+![List Upcoming Events Page](/02-analysis/UI/customer/36-list_upcoming_events.png)

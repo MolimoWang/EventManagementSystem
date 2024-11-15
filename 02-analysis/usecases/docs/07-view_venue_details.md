@@ -50,10 +50,10 @@ There the pages that the user must be on at the start to complete the use case.
 There the pages that the user must be on at the start to complete the use case.
 
 ### Ticket List Page
- ![Ticket List Page](/02-analysis/UI/user/40-view_purchased_tickets.png)
+ ![Ticket List Page](/02-analysis/UI/customer/40-view_purchased_tickets.png)
 
 ### View Event Details
- ![View Event Details](/02-analysis/UI/user/43-view_event_details.png)
+ ![View Event Details](/02-analysis/UI/customer/43-view_event_details.png)
 
 ### View Venue Details
 ![View Venue Details](/02-analysis/UI/organizer/28-view_venue_details.png)
