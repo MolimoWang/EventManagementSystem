@@ -599,6 +599,7 @@ class AccountSystem {
     {static}AccountSystem(accountService:AccountService)
     +login(email: String, password: String): Boolean
     +logout(): void
+    +registerCustomer(email : String, name : String, password : String, m : Model)
     +createOrganiserAccount(organizerDTO:OrganizerDTO,model:Model): Boolean
     +createAdministratorAccount(administratorDTO:AdministratorDTO,model:Model):Boolean
     +createCustomerAccount(customerDTO:customerDTO,model:Model):Boolean
