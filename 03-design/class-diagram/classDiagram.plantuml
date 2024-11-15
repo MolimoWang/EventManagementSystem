@@ -78,7 +78,7 @@ package "repositories" #LightYellow {
         +findAll(): Ticket[*]
         +save(ticket: Ticket): Boolean
         +delete(ticket: Ticket): Boolean
-        +findCustomerByEvent(eventName: String): Customer[*]
+        +findCustomerByEvent(eventId: Long): String
         +CountByEvent(eventName: String, contactEmail: String): TicketQuantity
     }
 
@@ -132,6 +132,7 @@ package "services" #LightYellow {
         +getEventsByKeyWords(String keyWords):Event[*]
         +getEventDetails(name: String):
         +getCurrentEvents(date: Date,time:Time):Event[*]
+        +getCustomerRegistrations(eventId: Long):Customer[*]
         +saveEvent(event: Event):Boolean
     }
 
@@ -141,7 +142,6 @@ package "services" #LightYellow {
         +getMyTicket(customerEmail: String):Ticket[*]
         +checkTimeoutCancel(ticketId: Long):Boolean
         +buyTicket(customerEmail: String, eventName: String, ticketQuantity: String): Ticket
-        +getCustomerRegistrations(eventName: event):Customer[*]
         +getTicketOwner(eventName: String):Customer
         +getTicketEvent(customerEmail: String):Event
         +getTicketQuantity(eventName: String,customerEmail: String):TicketQuantity
@@ -610,10 +610,10 @@ class AccountSystem {
 AccountSystem "1"--> "-AccountService 1" AccountService
 
 class VenueSystem {
-    +createVenue(venueDetails)
-    +viewVenue(name: String)
-    +updateVenue(venueDetails)
-    +deleteVenue(name: String)
+    +createVenue(venueDTO: VenueDTO, m : Model)
+    +viewVenue(venueId: Long)
+    +updateVenue(venueDTO: VenueDTO, m : Model)
+    +deleteVenue(venueId: Long)
     +listVenues()
     +listAvailableVenues(date: Date,time: Time)
     +listVenueUsage(venueName: String)
@@ -621,16 +621,16 @@ class VenueSystem {
 VenueSystem "1"--> "-VenueService 1" VenueService
 
 class EventSystem {
-    +createEvent(eventDetails)
+    +createEvent(eventDTO: EventDTO, m: Model)
     +viewEvent(eventId: Long)
-    +deleteEvent(name: String)
-    +updateEvent(eventDetails)
+    +deleteEvent(eventId: Long)
+    +updateEvent(eventDTO: EventDTO, m: Model)
     +listEvents()
     +listCurrentEvents(date: Date,time: Time)
     +listMyEvents (organizerEmail: String)
     +searchEvents(keyWords:String)
     +showCreateEventPage()
-    +showUpdateEvent(name: String)
+    +showUpdateEvent(eventId: Long)
 }
 
 EventSystem "1"--> "-EventService 1" EventService
@@ -642,7 +642,7 @@ class TicketSystem {
     +listRegisteredCustomer(eventName: String)
     +buyTicket(customerEmail: String, eventName: String, ticketType: String)
     +viewTicketDetails(ticketId : long, m : Model)
-    +cancelTicket(customerEmail: String, eventName: String)
+    +cancelTicket(customerId: Long, eventId: Long)
 }
 TicketSystem -->"1..TicketService 1"  TicketService
 
