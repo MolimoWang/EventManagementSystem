@@ -22,7 +22,7 @@ note over w,d:This part of the functionality is completed in Javascript\nIt does
 activate d
 
 
-  d->as: login(email: String, password: String)
+  d->as: login(email: String, password: String, m: Model)
   activate as
 alt The account type is an administrator account
   as -> u: AdministratorAccount :=   getAdministratorAccount(email:String)

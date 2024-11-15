@@ -27,7 +27,7 @@ activate wb
 wb->ds:POST(url:String, payload:json)
 activate ds
 
-ds->ec:deleteEvent(eventID:int, model Model)
+ds->ec:deleteEvent(eventID:int, m: Model)
 activate ec
 
 ec->es: getEvent(eventID:int)

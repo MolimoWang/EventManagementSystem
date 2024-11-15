@@ -22,7 +22,7 @@ w->d:POST(url: String, payload : json)
 activate d
 alt The account type is an administrator account
 
-  d->as: login(email: String, password: String)
+  d->as: login(email: String, password: String m: Model)
   activate as
 
   as -> u: AdministratorAccount :=   getAdministratorAccount(email:String)
@@ -50,7 +50,7 @@ activate nv
     end
 alt The account type is an customer account
 
-  d->as: login(email: String, password: String)
+  d->as: login(email: String, password: String, m: Model)
   activate as
 
   as -> u: CustomerAccount :=   getConsumerAccount(email:String)
@@ -61,7 +61,7 @@ alt The account type is an customer account
   u->cr:e:= findByEmail(email: Long): Customer
   u --> as :return e
   deactivate u
-  as->m:addAtributes("CustomerAccount":String e:CustomerAccount)
+  as->m:addAtributes("CustomerAccount":String e: CustomerAccount)
 
   as-->d : return "index.html"(customer main page)
   deactivate as
@@ -75,7 +75,7 @@ activate nv
     end
 alt The account type is an organizer account
 
-  d->as: login(email: String, password: String)
+  d->as: login(email: String, password: String, m: Model)
   activate as
   as -> u: OrganizerAccount :=   getOrganizerAccount(email:String)
   activate u

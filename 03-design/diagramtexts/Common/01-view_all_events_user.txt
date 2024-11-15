@@ -14,7 +14,7 @@ participant "<link:_>: EventRepository" as er
 a->>w:interact
 activate w
 w->d:GET(url: String)
-d->s:listEvents()
+d->s:listEvents(m: Model)
 activate s
 
 note right of s: 2. The system passes requests to the service.
