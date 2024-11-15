@@ -127,7 +127,7 @@ package "services" #LightYellow {
         +createEvent(name: String, description: String, date: Date, time: Time, venue: Venue,ticketTypes : String[*], ticketPrices : double[*]): Boolean
         +deleteEvent(name: String): Boolean
         +updateEvent(name: String, description: String, date: Date, time: Time,venue: Venue,ticketTypes : String[*], ticketPrices : double[*]): Boolean
-        +getEvent(name: String):Event
+        +getEvent(eventId: Long):Event
         +getEventsByKeyWords(String keyWords):Event[*]
         +getEventDetails(name: String):
         +getCurrentEvents(date: Date,time:Time):Event[*]
@@ -321,16 +321,22 @@ interface TicketQuantityInterface {
     + setNumberSold(numberSold: int)
     + setPrice(price: double)
   }
+
+
     class TicketQuantity {
             - id: Long
             - numberSold: int
-            - price: double
+            - price: Double
+            - ticketTypeName: String
+            - numberAvailable: int
             {static}TicketQuantity()
-            {static}TicketQuantity(ticketTypeName,numberAvailable,price)
+            {static}TicketQuantity(ticketTypeName:String,numberAvailable: int,price: Double,ticketTypeName: String,numberAvailable: int)
             +getId():Long
+            +getTicketTypeName():String
+            +getNumberAvailable():int
             +getNumberRemain():int
             +getNumberSold():int
-            +getPrice():double
+            +getPrice():Double
             +setNumberRemain(numberRemain: int)
             +setNumberSold(numberSold: int)
             +setPrice(price: double)
@@ -343,22 +349,26 @@ interface TicketQuantityInterface {
             + setTicketTypeName(ticketTypeName: String)
             + setNumberAvailable(number: int)
           }
-     class TicketAvailability {
+
+             class AvailabilityInfo{
+                  +getTicketTypeName():String
+                  +getNumberAvailable():int
+              }
+    class TicketAvailability {
                 - id: Long
                 - ticketTypeName: String
                 - numberAvailable: int
                 {static}TicketAvailability()
-                {static}TicketAvailability(ticketTypeName,numberAvailable)
+                {static}TicketAvailability(ticketTypeName: String,numberAvailable: int)
                 +getId():Long
-                +getTicketTypeName():String
-                +getNumberAvailable():int
-                +setTicketTypeName(ticketTypeName: String)
-                +setNumberAvailable(number: int)
-
+             +getTicketTypeName():String
+             +getNumberAvailable():int
+             +setTicketTypeName(ticketTypeName: String)
+             +setNumberAvailable(number: int)
             }
 
 
-
+   AvailabilityInfo      --|>   TicketAvailability
   Venue ..|> VenueInterface
   Event ..|> EventInterface
   Ticket ..|> TicketInterface
@@ -366,7 +376,7 @@ interface TicketQuantityInterface {
   TicketAvailability ..|> TicketAvailabilityInterface
 
     Venue "1 -venue" --> "-ticketAvailabilities *" TicketAvailability : creates
-    TicketAvailability --|> TicketQuantity
+    AvailabilityInfo --|> TicketQuantity
     Event "1"--> "-TicketQuantities *" TicketQuantity: determines price
     Customer "1"--> "-tickets 0..* " Ticket : purchases
     Ticket "1"--> "-event 1" Event : related to
@@ -375,7 +385,7 @@ interface TicketQuantityInterface {
 
 
 
-        EventRepository ..> Event : <<import>>
+    EventRepository ..> Event : <<import>>
 
 
 
@@ -611,7 +621,7 @@ VenueSystem "1"--> "-VenueService 1" VenueService
 
 class EventSystem {
     +createEvent(eventDetails)
-    +viewEvent(name: String)
+    +viewEvent(eventId: Long)
     +deleteEvent(name: String)
     +updateEvent(eventDetails)
     +listEvents()
