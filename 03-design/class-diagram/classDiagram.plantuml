@@ -71,6 +71,8 @@ package "repositories" #LightYellow {
         +findAll(): Event[*]
         +save(event: Event): Boolean
         +delete(event: Event): Boolean
+        +findHistoryByVenue(venue: Venue):Event[*]
+        +findEventsHistoryByDateTime(date: Date, time: Time):Event[*]
     }
 
     class TicketRepository {
@@ -117,10 +119,9 @@ package "services" #LightYellow {
         +getVenues():Venue[*]
         +createVenue(name: String,address: String,contactName: String,contactPhoneNumber: String,contactEmail: String,capacity: TicketAvailability[*]): Boolean
         +updateVenue(name: String,address: String,contactName: String,contactPhoneNumber: String,contactEmail: String,capacity: TicketAvailability[*]): Boolean
-        +deleteVenue(venueName: String): Boolean
+        +deleteVenue(venue: Venue): Boolean
         +saveVenue(venue:Venue):Boolean
         +checkDuplicateVenue(venue: Venue)
-        +getVenueUsage(venueName: String): Event[*]
         +getAvailableVenues(date: Date,time: Time):Venue[*]
     }
 
@@ -136,6 +137,8 @@ package "services" #LightYellow {
         +getCustomerRegistrations(eventId: Long):Customer[*]
         +saveEvent(event: Event):Boolean
         +getEventsByDate(date: Date):Event[*]
+        +getVenueUsage(venue: Venue):Event[*]
+        +getEventsBefore(date: Date, time: Time):Event[*]
     }
 
    class TicketService {
@@ -619,7 +622,6 @@ class VenueSystem {
     +deleteVenue(venueId: Long, m : Model)
     +listVenues(m : Model)
     +listAvailableVenues(date: Date,time: Time, m : Model)
-    +listVenueUsage(venueId: Long, m : Model)
 }
 VenueSystem "1"--> "-VenueService 1" VenueService
 
@@ -635,6 +637,8 @@ class EventSystem {
     +searchEvents(keyWords:String, m : Model)
     +showCreateEventPage(m : Model)
     +showUpdateEvent(eventId: Long, m : Model)
+    +viewVenueUsage(venue: Venue, m: Model)
+    +viewEventsHistory(date: Date, time: Time, m: Model)
 }
 
 EventSystem "1"--> "-EventService 1" EventService
