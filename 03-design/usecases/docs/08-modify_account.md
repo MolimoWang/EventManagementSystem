@@ -2,14 +2,35 @@
 
 ## Basic Course of Events
 
-### Course of Events-- Administrator Modifying Other Accounts
-- The administrator is on the view all accounts page(07-view_all_accounts.png).
-- The administrator selects the account to edit.
-- The system displays the modify account page (12-edit_user_account.png,13-edit_organizer_account.png,14-edit_administrator_account.png) which shows the details of the selected account as editable fields.
+### Course of Events-- Administrator Modifying Administrator Account
+- The administrator is on the view all accounts page(07-view_all_accounts_administrators.png), the default selection area is "Administrator" part.
+- The administrator selects the administrator account from the to edit.
+- The system displays the modify account page (14-edit_administrator_account.png) which shows the details of the selected account as editable fields.
 - The administrator enters the updated details of the account.
 - The administrator clicks "Submit" to confirm the modifications.
 - A confirmation message is shown to the administrator.
-- The system back to the view all accounts page(07-view_all_accounts.png)and show the updated account.
+- The system back to the view all accounts page(07-view_all_accounts_administrators.png) and show the updated account.
+
+### Course of Events-- Administrator Modifying Customer Account
+- The administrator is on the view all accounts page(07-view_all_accounts_administrators.png), the default selection area is "Administrator" part.
+- The administrator select Customer part to see all customer accounts(07-view_all_accounts_customers.png).
+- The administrator selects the customer account from the to edit.
+- The system displays the modify account page (12-edit_customer_account.png) which shows the details of the selected account as editable fields.
+- The administrator enters the updated details of the account.
+- The administrator clicks "Submit" to confirm the modifications.
+- A confirmation message is shown to the administrator.
+- The system back to the view all accounts page(07-view_all_accounts_customers.png) and show the updated account.
+
+### Course of Events-- Administrator Modifying Organiser Account
+- The administrator is on the view all accounts page(07-view_all_accounts_administrators.png), the default selection area is "Administrator" part.
+- The administrator select Customer part to see all organiser accounts(07-view_all_accounts_organisers.png).
+- The administrator selects the customer account from the to edit.
+- The system displays the modify account page (13-edit_organizer_account.png) which shows the details of the selected account as editable fields.
+- The administrator enters the updated details of the account.
+- The administrator clicks "Submit" to confirm the modifications.
+- A confirmation message is shown to the administrator.
+- The system back to the view all accounts page(07-view_all_accounts_organisers.png) and show the updated account.
+
 
 ### Sequence Diagram
 
@@ -75,9 +96,18 @@
 ### Related UI Prototypes-- Administrator Modifying Other Accounts
 This is the page that the user must be on at the start to complete the use case.
 
-![View All Accounts](/02-analysis/UI/admin/07-view_all_accounts.png)
+The administrator is on the "view all accounts" page, which has 3 lists of different types.
 
-![Edit User Account](/02-analysis/UI/admin/12-edit_user_account.png)
+
+![View All Accounts](/02-analysis/UI/admin/07-view_all_accounts_administrators.png)
+
+
+![View All Accounts](/02-analysis/UI/admin/07-view_all_accounts_organisers.png)
+
+
+![View All Accounts](/02-analysis/UI/admin/07-view_all_accounts_customers.png)
+
+![Edit User Account](/02-analysis/UI/admin/12-edit_customer_account.png)
 
 ![Edit Organizer](/02-analysis/UI/admin/13-edit_organizer_account.png)
 
@@ -96,9 +126,9 @@ This is the page that the user must be on at the start to complete the use case.
 ### Related UI Prototypes-- User Modifying Their Accounts
 This is the page that the user must be on at the start to complete the use case.
 
-![View User Accounts](/02-analysis/UI/user/35-view_user_account.png)
+![View User Accounts](/02-analysis/UI/customer/35-view_customer_account.png)
 
-![Update User Account](/02-analysis/UI/user/42-edit_user_account.png)
+![Update User Account](/02-analysis/UI/customer/42-edit_customer_account.png)
 
 ## Related UI Prototypes - Alternate course of events
 

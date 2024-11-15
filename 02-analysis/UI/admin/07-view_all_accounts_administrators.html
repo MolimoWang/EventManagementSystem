@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Account Management - Customer</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; }
+    h1 { font-size: 28px; font-weight: bold; margin-top: 20px; }
+    h2 { font-size: 24px; margin-bottom: 10px; }
+    .role-options { margin-bottom: 15px; }
+    .role-options a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    .role-options a.selected {
+      text-decoration: underline;
+    }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
+    th, td { padding: 10px; text-align: left; }
+    th { background-color: #f2f2f2; }
+    tr:nth-child(even) { background-color: #f9f9f9; }
+    tr:nth-child(odd) { background-color: #ffffff; }
+    .btn { padding: 8px 12px; margin: 5px 5px; text-decoration: none; color: white; border-radius: 5px; }
+    .cancel { background-color: #8c8c8c; }
+    .new-account { background-color: #3a76b6; }
+    .btn:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+
+<h1>Account Management - Customer</h1>
+
+<div class="role-options">
+  <a href="customer_account_management.html" >Customer</a>
+  <a href="organiser_account_management.html">Organiser</a>
+  <a href="administrator_account_management.html"class="selected">Administrator</a>
+</div>
+
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Role</th>
+    <th>Permission</th>
+    <th>Edit</th>
+    <th>Disable</th>
+    <th>Delete</th>
+  </tr>
+  <tr><td>Oliver</td><td>Administrator</td><td><a href="#">Permission</a></td><td><a href="#">Edit</a></td><td><a href="#">Disable</a></td><td><a href="#">Delete</a></td></tr>
+  <tr><td>Oscar</td><td>Administrator</td><td><a href="#">Permission</a></td><td><a href="#">Edit</a></td><td><a href="#">Disable</a></td><td><a href="#">Delete</a></td></tr>
+  <tr><td>Peter</td><td>Administrator</td><td><a href="#">Permission</a></td><td><a href="#">Edit</a></td><td><a href="#">Disable</a></td><td><a href="#">Delete</a></td></tr>
+  <tr><td>Quinn</td><td>Administrator</td><td><a href="#">Permission</a></td><td><a href="#">Edit</a></td><td><a href="#">Disable</a></td><td><a href="#">Delete</a></td></tr>
+  <tr><td>Rachel</td><td>Administrator</td><td><a href="#">Permission</a></td><td><a href="#">Edit</a></td><td><a href="#">Disable</a></td><td><a href="#">Delete</a></td></tr>
+  <tr><td>Sam</td><td>Administrator</td><td><a href="#">Permission</a></td><td><a href="#">Edit</a></td><td><a href="#">Disable</a></td><td><a href="#">Delete</a></td></tr>
+  <tr><td>Tina</td><td>Administrator</td><td><a href="#">Permission</a></td><td><a href="#">Edit</a></td><td><a href="#">Disable</a></td><td><a href="#">Delete</a></td></tr>
+  <tr><td>Uma</td><td>Administrator</td><td><a href="#">Permission</a></td><td><a href="#">Edit</a></td><td><a href="#">Disable</a></td><td><a href="#">Delete</a></td></tr>
+  <tr><td>Violet</td><td>Administrator</td><td><a href="#">Permission</a></td><td><a href="#">Edit</a></td><td><a href="#">Disable</a></td><td><a href="#">Delete</a></td></tr>
+  <tr><td>Will</td><td>Administrator</td><td><a href="#">Permission</a></td><td><a href="#">Edit</a></td><td><a href="#">Disable</a></td><td><a href="#">Delete</a></td></tr>
+
+</table>
+<a href="#" class="btn cancel">Back</a>
+<a href="#" class="btn new-account">New Account</a>
+</body>
+</html>

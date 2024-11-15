@@ -42,9 +42,9 @@
 ### List Upcoming Events Page
 This page displays a list of upcoming events, allowing the user to select 'Buy it!' for ticket purchase.
 
-![List Upcoming Events](/02-analysis/UI/user/36-list_upcoming_events.png)
+![List Upcoming Events](/02-analysis/UI/customer/36-list_upcoming_events.png)
 
 ### Ticket List Page
 This page shows the tickets purchased by the user after a successful purchase.
 
-![Ticket List Page](/02-analysis/UI/user/40-view_purchased_tickets.png)
+![Ticket List Page](/02-analysis/UI/customer/40-view_purchased_tickets.png)
