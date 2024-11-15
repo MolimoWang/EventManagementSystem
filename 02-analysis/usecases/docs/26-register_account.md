@@ -59,10 +59,10 @@ This is the page that the user must be on at the start to complete the use case.
 This page is taken to when the user has successfully registered.
 
 
-![Main Page](/02-analysis/UI/user/34-view_all_events.png)
+![Main Page](/02-analysis/UI/customer/34-view_all_events.png)
 
 ### Main Page
 This page is taken to when the user has successfully registered.
 
 
-![Main Page](/02-analysis/UI/user/34-view_all_events.png)
+![Main Page](/02-analysis/UI/customer/34-view_all_events.png)

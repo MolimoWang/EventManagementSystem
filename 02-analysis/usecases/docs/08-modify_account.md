@@ -77,7 +77,7 @@ This is the page that the user must be on at the start to complete the use case.
 
 ![View All Accounts](/02-analysis/UI/admin/07-view_all_accounts.png)
 
-![Edit User Account](/02-analysis/UI/admin/12-edit_user_account.png)
+![Edit User Account](/02-analysis/UI/admin/12-edit_customer_account.png)
 
 ![Edit Organizer](/02-analysis/UI/admin/13-edit_organizer_account.png)
 
@@ -96,9 +96,9 @@ This is the page that the user must be on at the start to complete the use case.
 ### Related UI Prototypes-- User Modifying Their Accounts
 This is the page that the user must be on at the start to complete the use case.
 
-![View User Accounts](/02-analysis/UI/user/35-view_user_account.png)
+![View User Accounts](/02-analysis/UI/customer/35-view_customer_account.png)
 
-![Update User Account](/02-analysis/UI/user/42-edit_user_account.png)
+![Update User Account](/02-analysis/UI/customer/42-edit_customer_account.png)
 
 ## Related UI Prototypes - Alternate course of events
 
