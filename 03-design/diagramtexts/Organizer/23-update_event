@@ -25,7 +25,7 @@ note over w,d:This part of the functionality is completed in Javascript\nIt does
 
 
 
-==3. The system displays the add event page (18-modify-event) page\n.4. The user updates the details of the event,including: \n    -EventName\n    -EventDescription\n    -Date\n    -Time\n    -Venue\n    -TicketTypes\n    -TicketPrices==
+==3. The system displays the add event page (18-modify-event) page\n4. The user updates the details of the event,including: \n    -EventName\n    -EventDescription\n    -Date\n    -Time\n    -Venue\n    -TicketTypes\n    -TicketPrices==
 
 s->>w:interact
 activate w
@@ -37,12 +37,12 @@ activate ec
 ec->es:b := getEventById(eid : Long)
 ec->es:updateEvent(eventName, newEventDescription, eventDate,newEventTime, \n newVenue, newTicketTypes : String[*], newTicketPrices : double[*])
 
+activate es
 
-
-es->e:setDescription(newEventDescription)
-es->e:setTime(newEventTime)
-es->e:setDate(newEventDate)
-es->e:setTicketQuantities(newTicketQuantities)
+es->e:setDescription(newEventDescription:String)
+es->e:setTime(newEventTime:Time)
+es->e:setDate(newEventDate:Date)
+es->e:setTicketQuantities(newTicketQuantities:int)
 
   alt if e is a event
     es->er:save(e : Event)
@@ -50,12 +50,12 @@ es->e:setTicketQuantities(newTicketQuantities)
   end
 
 es-->ec:
-
+deactivate es
 
 ec->es:event := getEvent(eventName)
 
-ec->ec:addAttribute("events":String, events:Event[*])
-ec-->d:return "index" **(18-list_my_events Page)**
+ec->m:addAttribute("events":String, events:Event[*])
+ec-->d:return organizer view event Page
 deactivate ec
 d->*nv:View(model : Model)
 activate nv
