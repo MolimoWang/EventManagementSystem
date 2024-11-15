@@ -6,15 +6,13 @@ image data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAkCAYAAADl9UilAAAACXBI
 boundary "<link:_>newView : View " as nv
 boundary "<link:_>: DispatchServlet" as d
 entity "<link:_>model : Model" as m
+entity "<link:_>acc : Administrator" as acc
+
 control ": AccountSystem" as as
 participant "<link:_>: AdministratorRepository" as ar
 participant "<link:_>: ConsumerRepository" as cr
 participant "<link:_>: OrganizerRepository" as or
 participant ": AccountService" as u
-
-entity "<link:_>acc : Administrator" as acc
-entity "<link:_>cc : Consumer" as cc
-entity "<link:_>cc : Organizer" as oc
 ==1.The user performs the log in use case (00-login)==
 ==2.The user enters their credentials.==
 us->>w:interact
@@ -23,29 +21,23 @@ w->d:POST(url: String, payload : json)
 
 activate d
 alt The account type is an administrator account
-  note over d: The  DispatchServlet will convert the information from the\nposted from into a AdministratorDTO object because of the\nthymeleaf annotations added to the HTML files
-  d->as: login(administrator:AdministratorDTO, model: Model)
+
+  d->as: login(email: String, password: String)
   activate as
 
-  as->u: login(email: String, password: String)
+  as -> u: AdministratorAccount :=   getAdministratorAccount(email:String)
   activate u
     note right of as: 3.The system passes requests to the service.
 note over w,d:This part of the functionality is completed in Javascript\nIt does not need to be shown here
-  u -> u : null := getAdministratorAccount(email)
-  loop for each account
-  u -> acc: e: =getAdministrator(email: String, password: String)
-  end
-
-  acc--> u:return acc
-  u->ar:findByEmail(email: Long): Administrator
+  u->ar: e:=findByEmail(email: Long): Administrator
 
 
-  u --> as :return Error.NONE
+  u --> as :return e
   deactivate u
-  as -> u: AdministratorAccount :=   getAdministratorAccount(email:String)
-  as->as:displayMainAdministratorPage(account)
 
-  as-->d : return "index.html"(main page)
+  as->m:addAtributes("AdministritorAccount":String e:AdministritorAccount)
+
+  as-->d : return "index.html"(administritor main page)
   deactivate as
   d->*nv:View(model : Model)
 activate nv
@@ -57,26 +49,19 @@ activate nv
 ==4. The system displays the main page of the system (01-main-administrator)==
     end
 alt The account type is an customer account
-  note over d: The  DispatchServlet will convert the information from the\nposted from into a CustomerDTO object because of the\nthymeleaf annotations added to the HTML files
-  d->as: login(customer:CustomerDTO, model: Model)
+
+  d->as: login(email: String, password: String)
   activate as
 
-  as->u: login(email: String, password: String)
+  as -> u: CustomerAccount :=   getConsumerAccount(email:String)
   activate u
     note right of as: 3.The system passes requests to the service.
-  u -> u : null := getCustomerAccount(email)
-  loop for each account
-  u -> cc: e: =getCustomer(email: String, password: String)
-  end
+    note over w,d:This part of the functionality is completed in Javascript\nIt does not need to be shown here
 
-  cc--> u:return cc
-
-
-  u->cr:findByEmail(email: Long): Customer
-  u --> as :return Error.NONE
+  u->cr:e:= findByEmail(email: Long): Customer
+  u --> as :return e
   deactivate u
-  as -> u: CustomerAccount :=   getConsumerAccount(email:String)
-  as->as:displayMainCustomerPage(account)
+  as->m:addAtributes("CustomerAccount":String e:CustomerAccount)
 
   as-->d : return "index.html"(customer main page)
   deactivate as
@@ -89,24 +74,19 @@ activate nv
 ==4. The system displays the main page of the system (01-main-customer)==
     end
 alt The account type is an organizer account
-  note over d: The  DispatchServlet will convert the information from the\nposted from into a OrganizerDTO object because of the\nthymeleaf annotations added to the HTML files
-  d->as: login(customer:OrganizerDTO, model: Model)
-  activate as
 
-  as->u: login(email: String, password: String)
+  d->as: login(email: String, password: String)
+  activate as
+  as -> u: OrganizerAccount :=   getOrganizerAccount(email:String)
   activate u
     note right of as: 3.The system passes requests to the service.
-  u -> u : null := getOrganizerAccount(email)
-  u -> oc: Organizer(email: String, password: String)
-
-  oc--> u:return oc
-  u->or:findByEmail(email: Long): Organizer
+    note over w,d:This part of the functionality is completed in Javascript\nIt does not need to be shown here
+  u->or:e:= findByEmail(email: Long): Organizer
 
 
-  u --> as :return Error.NONE
+  u --> as :return e
   deactivate u
-  as -> u: OrganizerAccount :=   getOrganizerAccount(email:String)
-  as->as:displayMainOrganizerPage(account)
+  as->m:addAtributes("OrganizerAccount":String e:OrganizerAccount)
 
   as-->d : return "index.html"(organizer main page)
   deactivate as
