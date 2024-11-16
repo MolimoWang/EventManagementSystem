@@ -24,7 +24,7 @@
 ### Course of Events-- Administrator Modifying Organiser Account
 - The administrator is on the view all accounts page(07-view_all_accounts_administrators.png), the default selection area is "Administrator" part.
 - The administrator select Customer part to see all organiser accounts(07-view_all_accounts_organisers.png).
-- The administrator selects "edit" option of a customer account from the list.
+- The administrator selects "edit" option of an organiser account from the list.
 - The system displays the modify account page (13-edit_organizer_account.png) which shows the details of the selected account as editable fields.
 - The administrator enters the updated details of the account.
 - The administrator clicks "Submit" to confirm the modifications.
@@ -55,12 +55,10 @@
 ![Organizer Modifying Their Accounts](/02-analysis/sequence-diagrams/Common/08-modify_account_organizer.png)
 
 ### Course of Events-- User Modifying Their Accounts
-- The user click the 'Account' option from the view account page(35-view_user_account.png).
+- The customer click the 'Account' option from the view account page(35-view_user_account.png).
 - The system displays the modify account page(42-edit_user_account.png).
-- The user can change at most two things:
-   1. Name.
-   2. Password.
-- The user click the 'Save' option to save the change.
+- The customer enters the updated details of the account.
+- The customer click the 'Save' option to save the change.
 - The system back to the view account page(35-view_user_account.png).
 
 ### Sequence Diagram
