@@ -8,25 +8,22 @@ entity "<link:_> model2:Model" as m2
 boundary "<link:_>:DispatchServlet" as ds
 
 control "<link:_>: AccountSystem" as ec
-participant ":OrganizerRepository" as or
-participant ":CustomerRepository" as cr
 participant ":AdministratorRepository" as vr
 participant ":AccountService" as as
 entity "<link:_>a:Administrator" as oa
 
-==1. The administrator is on the view all accounts page **(07-view_all_accounts.png)**. 2.The administrator selects the administrator account to edit ==
-
+== 1. The administrator is on the view all accounts page**(07-view_all_accounts_administrators.png)**, the default selection area is "Administrator" part.\n 2. The administrator selects **"Edit"** option of an administrator account from list.==
 a->w:interact
 activate w
 w->ds:POST(url:String, data:josn)
 activate ds
-ds->ec:viewAccount(accountId : Long,model:Model)
+ds->ec:viewAdministratorAccount(accountId: String, m : Model)
 activate ec
 
-ec->as:getAccount(accountId:Long)
+ec->as:getAdministratorById(accountId: Long)
 activate as
 
-as->vr:a:=findAccountById(aid:Long)
+as->vr:a:=findById(aid:Long)
 
 as-->ec:return a
 deactivate as
@@ -52,19 +49,19 @@ deactivate nw
 ds-->w:return newView
 deactivate ds
 
-==3. The administrator selects **Edit** button to enter the customer changed page **(12-edit_user_account)**\n4. The administrator could change relevant information about the selected customer. ==
+==3. The system displays the modify account page **(14-edit_administrator_account.png)** which shows the details of the selected account as editable fields. \n4. The administrator enters the updated details of the account.\n5. The administrator clicks **"Submit"** to confirm the modifications. ==
 
 a->w:click()
 w->ds:POST(url:String, data:JSON)
 
 activate ds
 
-ds->ec:updateAccount(accouontAlterDTO:AccountAlterDTO,model2:Model)
+ds->ec:updateAdministratorAccount(alterDTO:AccountAlterDTO,model:Model)
 activate ec
 
-ec->as:a:=getAccount(id:Long)
+ec->as:a:=getAdministratorById(accountId: Long)
 
-ec->as:updateOrganizerAccount(accountAlterDTO:AccountAlterDTO, a:Administrator)
+ec->as:updateAdministrator(accountAlterDTO:AccountAlterDTO, a:Administrator)
 activate as
 
 as->oa:setName(name:String)
@@ -72,14 +69,14 @@ as->oa:setEmail(email:String)
 as->oa:setPassword(password:String)
 
 
-as->vr:save(c:Customer)
+as->vr:save(a:Administrator)
 
 as-->ec:
 deactivate as
 
 ec->m:addAttribute("account":String, a: Adminisitrator)
 
-ec-->ds:return "index"**(07-view_all_accounts.png)**
+ec-->ds:return "view all accounts"**(07-view_all_accounts_administrators.png)**
 
 deactivate ec
 
@@ -92,4 +89,4 @@ ds-->w:return newView2
 deactivate ds
 
 
-==The system back to the view all accounts page **(07-view_all_accounts.png)** and could show the updated account==
+==6. A confirmation message is shown to the administrator.\n7. The system back to the view all accounts page**(07-view_all_accounts_administrators.png)** and show the updated account.==

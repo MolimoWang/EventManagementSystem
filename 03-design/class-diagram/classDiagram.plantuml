@@ -96,6 +96,9 @@ package "services" #LightYellow {
          +createCustomerAccount(name: String,email: String,password:String): Boolean
          +createOrganiserAccount(name: String,email: String,password:String): Boolean
          +registerAccount(name: String,email: String,password:String): Boolean
+          +getAdministratorById(accountId: Long): Administrator
+          +getCustomerById(accountId: Long):Customer
+          +getOrganiserById(accountId: Long):Organiser
          +getAdministrator(AdministratorEmail: String): Administrator
          +getCustomer(customerEmail:String):Customer
          +getOrganiser(organiserEmail:String):Organiser
@@ -107,9 +110,9 @@ package "services" #LightYellow {
          +deleteAdministrator(AdministratorEmail: String): Boolean
          +updateCustomer(customer: Customer): Boolean
          +updateOrganiser(organiser: Organiser): Boolean
-         +updateAdministrator(administrator: Administrator): Boolean
-         +checkCustomerExist(CustomerEmail:String):Boolean
-         +checkOrganiserExist(OrganiserEmail:String):Boolean
+         +updateAdministrator(accountAlterDTO:AccountAlterDTO, a:Administrator): Boolean
+         +checkCustomerExist(accountAlterDTO:AccountAlterDTO, a:Customer):Boolean
+         +checkOrganiserExist(accountAlterDTO:AccountAlterDTO, a:Organiser):Boolean
          +checkAdministratorExist(AdministratorEmail:String):Boolean
       }
 
@@ -608,7 +611,9 @@ class AccountSystem {
     +createCustomerAccount(customerDTO:customerDTO,model:Model):Boolean
     +deleteAccount(accountEmail: String, m : Model): Boolean
     +selectAccount(accountEmail:String, m : Model)
-    +viewAccount(accountEmail: String, m : Model): AccountDetails
+    +viewAdministratorAccount(accountId: String, m : Model)
+    +viewOrganiserAccount(accountId: String, m : Model)
+    +viewCustomerAccount(accountId: String, m : Model)
     +updatePermission(accountEmail:String, m : Model)
     +updateCustomerAccount(alterDTO:AccountAlterDTO,model:Model)
     +updateAdministratorAccount(alterDTO:AccountAlterDTO,model:Model)

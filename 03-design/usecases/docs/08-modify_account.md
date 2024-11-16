@@ -4,7 +4,7 @@
 
 ### Course of Events-- Administrator Modifying Administrator Account
 - The administrator is on the view all accounts page(07-view_all_accounts_administrators.png), the default selection area is "Administrator" part.
-- The administrator selects the administrator account from the to edit.
+- The administrator selects "edit" option of an administrator account from list.
 - The system displays the modify account page (14-edit_administrator_account.png) which shows the details of the selected account as editable fields.
 - The administrator enters the updated details of the account.
 - The administrator clicks "Submit" to confirm the modifications.
@@ -14,7 +14,7 @@
 ### Course of Events-- Administrator Modifying Customer Account
 - The administrator is on the view all accounts page(07-view_all_accounts_administrators.png), the default selection area is "Administrator" part.
 - The administrator select Customer part to see all customer accounts(07-view_all_accounts_customers.png).
-- The administrator selects the customer account from the to edit.
+- The administrator selects "edit" option of a customer account from the list.
 - The system displays the modify account page (12-edit_customer_account.png) which shows the details of the selected account as editable fields.
 - The administrator enters the updated details of the account.
 - The administrator clicks "Submit" to confirm the modifications.
@@ -24,7 +24,7 @@
 ### Course of Events-- Administrator Modifying Organiser Account
 - The administrator is on the view all accounts page(07-view_all_accounts_administrators.png), the default selection area is "Administrator" part.
 - The administrator select Customer part to see all organiser accounts(07-view_all_accounts_organisers.png).
-- The administrator selects the customer account from the to edit.
+- The administrator selects "edit" option of a customer account from the list.
 - The system displays the modify account page (13-edit_organizer_account.png) which shows the details of the selected account as editable fields.
 - The administrator enters the updated details of the account.
 - The administrator clicks "Submit" to confirm the modifications.
