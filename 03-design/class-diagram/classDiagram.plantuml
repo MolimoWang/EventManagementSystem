@@ -96,6 +96,9 @@ package "services" #LightYellow {
          +createCustomerAccount(name: String,email: String,password:String): Boolean
          +createOrganiserAccount(name: String,email: String,password:String): Boolean
          +registerAccount(name: String,email: String,password:String): Boolean
+          +getAdministratorById(accountId: Long): Administrator
+          +getCustomerById(accountId: Long):Customer
+          +getOrganiserById(accountId: Long):Organiser
          +getAdministrator(AdministratorEmail: String): Administrator
          +getCustomer(customerEmail:String):Customer
          +getOrganiser(organiserEmail:String):Organiser
@@ -105,11 +108,11 @@ package "services" #LightYellow {
          +deleteCustomer(CustomerEmail: String): Boolean
          +deleteOrganiser(OrganiserEmail: String): Boolean
          +deleteAdministrator(AdministratorEmail: String): Boolean
-         +updateCustomer(customer: Customer): Boolean
-         +updateOrganiser(organiser: Organiser): Boolean
-         +updateAdministrator(administrator: Administrator): Boolean
-         +checkCustomerExist(CustomerEmail:String):Boolean
-         +checkOrganiserExist(OrganiserEmail:String):Boolean
+         +updateCustomer(accountAlterDTO:AccountAlterDTO,c: Customer): Boolean
+         +updateOrganiser(accountAlterDTO:AccountAlterDTO,o: Organiser): Boolean
+         +updateAdministrator(accountAlterDTO:AccountAlterDTO, a:Administrator): Boolean
+         +checkCustomerExist(accountAlterDTO:AccountAlterDTO, a:Customer):Boolean
+         +checkOrganiserExist(accountAlterDTO:AccountAlterDTO, a:Organiser):Boolean
          +checkAdministratorExist(AdministratorEmail:String):Boolean
       }
 
@@ -158,7 +161,7 @@ package "services" #LightYellow {
 ' Ticket Management Group
 package "models" #LightYellow {
 package "accounts"{
-   interface AccountInterface {
+   interface AccountInterface<<Interface>> {
       + getId():Long
       + getName(): String
       + getEmail(): String
@@ -168,7 +171,7 @@ package "accounts"{
       + setPassword(password: String)
     }
 
-  interface OrganiserInterface {
+  interface OrganiserInterface <<Interface>>{
     + getAddress(): String
     + getCompanyName(): String
     + getPhoneNumber(): String
@@ -228,7 +231,7 @@ class ROLE {
       Organiser "1..*" o--> "0..* -organises" Event
 
 
-interface VenueInterface {
+interface VenueInterface <<Interface>>{
     + getName(): String
     + getAddress(): String
     + getContactName(): String
@@ -270,7 +273,7 @@ interface VenueInterface {
 
     Venue "1 -venue" <--"*" Event
 
-interface EventInterface {
+interface EventInterface <<Interface>>{
     + getName(): String
     + getDescription(): String
     + getDate(): Date
@@ -304,7 +307,8 @@ interface EventInterface {
         +setTicketQuantities(ticketQuantities: int)
     }
 
-interface TicketInterface {
+package "tickets"{
+interface TicketInterface <<Interface>>{
     + getId(): Long
     + getType(): String
     + getPrice(): Double
@@ -318,8 +322,10 @@ interface TicketInterface {
             +getId():Long
         }
 
-interface TicketQuantityInterface {
+interface TicketQuantityInterface<<Interface>> {
     + getId(): Long
+    +getTicketTypeName():String
+    +getNumberAvailable():int
     + getNumberRemain(): int
     + getNumberSold(): int
     + getPrice(): double
@@ -348,7 +354,7 @@ interface TicketQuantityInterface {
             +setPrice(price: double)
         }
 
-         interface TicketAvailabilityInterface {
+         interface TicketAvailabilityInterface<<Interface>> {
             + getId(): Long
             + getTicketTypeName(): String
             + getNumberAvailable(): int
@@ -356,7 +362,7 @@ interface TicketQuantityInterface {
             + setNumberAvailable(number: int)
           }
 
-             class AvailabilityInfo{
+             class  AvailabilityInfo <<Abstract>>{
                   +getTicketTypeName():String
                   +getNumberAvailable():int
               }
@@ -373,7 +379,7 @@ interface TicketQuantityInterface {
              +setNumberAvailable(number: int)
             }
 
-
+}
    AvailabilityInfo      --|>   TicketAvailability
   Venue ..|> VenueInterface
   Event ..|> EventInterface
@@ -388,8 +394,8 @@ interface TicketQuantityInterface {
     Ticket "1"--> "-event 1" Event : related to
     Ticket "1"--> "1 -ticketQuantity" TicketQuantity : get Info
     TicketService "1"-->"-tickets *" TicketRepository
-    icketService "1"-->"-tickets *" CustomerRepository
-    icketService "1"-->"-tickets *" EventRepository
+    TicketService "1"-->"-customers *" CustomerRepository
+    TicketService "1"-->"-events *" EventRepository
 
 
 
@@ -608,7 +614,9 @@ class AccountSystem {
     +createCustomerAccount(customerDTO:customerDTO,model:Model):Boolean
     +deleteAccount(accountEmail: String, m : Model): Boolean
     +selectAccount(accountEmail:String, m : Model)
-    +viewAccount(accountEmail: String, m : Model): AccountDetails
+    +viewAdministratorAccount(accountId: String, m : Model)
+    +viewOrganiserAccount(accountId: String, m : Model)
+    +viewCustomerAccount(accountId: String, m : Model)
     +updatePermission(accountEmail:String, m : Model)
     +updateCustomerAccount(alterDTO:AccountAlterDTO,model:Model)
     +updateAdministratorAccount(alterDTO:AccountAlterDTO,model:Model)
@@ -687,15 +695,15 @@ TicketSystem ..> ErrorMessageDTO
     AccountService "1"--> "-organisers * "OrganiserRepository
     AccountService "1"--> "-administrators * "AdministratorRepository
     VenueService "1"--> "-venues * "VenueRepository
-    VenueService "1"--> "-venues * " TicketRepository
-    VenueService "1"--> "-venues * " OrganiserRepository
+    VenueService "1"--> "-tickets * " TicketRepository
+    VenueService "1"--> "-organisers* " OrganiserRepository
 
    ' Connect Repositories with Models
     CustomerRepository ..> models.accounts.Customer : <<import>>
     OrganiserRepository ..> models.accounts.Organiser : <<import>>
     AdministratorRepository ..> models.accounts.Administrator : <<import>>
     VenueRepository ..> models.Venue : <<import>>
-    TicketRepository ..> models.Ticket : <<import>>
+    TicketRepository ..> models.tickets.Ticket : <<import>>
 
 
 
