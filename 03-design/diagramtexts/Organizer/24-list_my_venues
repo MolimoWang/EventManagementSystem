@@ -16,11 +16,11 @@ activate w
 w->d:GET(url: String)
 
 activate d
-d->bs:listVenues()
+d->bs:listVenues(m : Model)
 activate bs
 loop for every venue:
 activate es
-bs->es:getVenues():Venue[*]
+bs->es:getVenue(venueName: String):Venue
 
 
 

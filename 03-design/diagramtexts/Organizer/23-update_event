@@ -32,17 +32,17 @@ activate w
 w->>d:POST(url : String, payload : json)
 activate d
 
-d->ec:updateEvent(updateDTO : UpdateDTO, model : Model)
+d->ec:updateEvent(updateDTO : UpdateDTO, m : Model)
 activate ec
-ec->es:b := getEventById(eid : Long)
-ec->es:updateEvent(eventName, newEventDescription, eventDate,newEventTime, \n newVenue, newTicketTypes : String[*], newTicketPrices : double[*])
+ec->es:b := getEvent(eventId: Long):Event
+ec->es:updateEvent(name: String, description: String, date: Date, time: Time,venue: Venue,ticketTypes : String[*], ticketPrices : double[*]): Boolean
 
 activate es
 
-es->e:setDescription(newEventDescription:String)
-es->e:setTime(newEventTime:Time)
-es->e:setDate(newEventDate:Date)
-es->e:setTicketQuantities(newTicketQuantities:int)
+es->e:setDescription(description: String)
+es->e:setTime(time: Time)
+es->e:setDate(date: Date)
+es->e:setTicketQuantities(ticketQuantities: int)
 
   alt if e is a event
     es->er:save(e : Event)
@@ -52,7 +52,7 @@ es->e:setTicketQuantities(newTicketQuantities:int)
 es-->ec:
 deactivate es
 
-ec->es:event := getEvent(eventName)
+ec->es:event := getEvent(eventId: Long):Event
 
 ec->m:addAttribute("events":String, events:Event[*])
 ec-->d:return organizer view event Page
