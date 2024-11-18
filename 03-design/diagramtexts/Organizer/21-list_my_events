@@ -17,12 +17,12 @@ activate w
 w->d:GET(url: String)
 
 activate d
-d->bs:listMyEvents(customerEmail: String)
+d->bs:listMyEvents (organizerEmail: String, m : Model)
 activate bs
 
 loop for every event:
 
-bs->es:getEvent(name: String):Event
+bs->es:getEvent(eventId: Long):Event
 activate es
 
 
