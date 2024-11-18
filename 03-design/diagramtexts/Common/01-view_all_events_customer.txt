@@ -10,7 +10,7 @@ control "<link:_>: EventSystem" as s
 participant "<link:_>: EventService" as u
 participant "<link:_>: EventRepository" as er
 
-==1. The User wants to view all events.==
+==1. The customer seletc the view all events functionality.==
 a->>w:interact
 activate w
 w->d:GET(url: String)
