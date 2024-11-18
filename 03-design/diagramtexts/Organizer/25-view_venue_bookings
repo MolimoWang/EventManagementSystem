@@ -18,12 +18,12 @@ activate w
 w->d:GET(url: String)
 
 activate d
-d->bs:+listAvailableVenues(date: Date,time: Time)
+d->bs:+listAvailableVenues(date: Date,time: Time, m : Model)
 activate bs
 
 loop for every venue:
 activate es
-bs->es:getAvailableVenues(date: Date,time: Time):Venue[*]
+bs->es:getAvailableVenues(date: Date,time: Time, m : Model):Venue[*]
 
 
 

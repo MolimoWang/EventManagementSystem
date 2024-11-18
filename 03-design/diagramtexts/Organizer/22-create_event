@@ -33,30 +33,30 @@ activate DispatchServlet
 
 
 
-DispatchServlet ->> ec :createEvent(eventDTO, m: Model))
+DispatchServlet ->> ec :createEvent(eventDTO: EventDTO, m: Model)
 activate ec
 ec ->> es:createEvent(name: String, description: String, date: Date, time: Time, venue: Venue,ticketTypes : String[*], ticketPrices : double[*]): Boolean
 
 activate es
 
 es->>AccountService:getOrganiser(organiserEmail:String):Organiser
-es ->> Venue:getTicketAvailabilities()
+es ->> Venue:getTicketAvailabilities():TicketAvailability[*]
 
 loop for every ticket type
-  es->ta:getTicketTypeName()
-  es->ta:getNumberAvailable()
+  es->ta:getTicketTypeName():String
+  es->ta:getNumberAvailable():int
 es->*tq:TicketQuantity(ticketTypeName:String,numberAvailable: int,price: Double,ticketTypeName: String,numberAvailable: int)
 end
 
 
- es ->> *Event :Event(name:String, description:String,date:Date,time:Time,venue:Venue, ticketQuantity:int)
+ es ->> *Event :Event(name: String, description: String, date: Date, time: Time,venue: Venue,ticketQuantities: TicketQuantity)
 activate Event
 Event -->es:return e
 deactivate Event
 
 
 ==4. The organizer clicks "Submit" and a new event have been created.==
-    es ->>es:saveEvent(e)
+    es ->>es:saveEvent(event: Event):Boolean
     activate es
     es --> es:
     deactivate es
@@ -64,7 +64,7 @@ deactivate Event
  es --> ec :return Error.NONE
     deactivate es
 
-    ec->es:event := getEvent(eventName:String, eventDate:Date)
+    ec->es:event := getEvent(eventId: Long):Event
 
 
 ec->m:addAttribute("events":String, events:Event[*])
