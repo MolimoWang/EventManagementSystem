@@ -26,7 +26,7 @@ activate ac
 ac -> as: checkCustomerExist(email : String)
 activate as
 as -> cr: customer := findByEmail(email : String)
-cr --> as: return customer
+
 
 
 Customer already exists
