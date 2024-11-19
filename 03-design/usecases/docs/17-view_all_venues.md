@@ -3,14 +3,13 @@
 ## Basic Course of Events
 
 ### Course of events for **administrator**
-- 1.The admin performs the display use case(04-view_all_venues.png)
-- 2.The admin selects "view all venues" from the display
-- 3.The system will display all venues, including:
+- 1.The administrator performs the display use case. **(01-main_page_administrator.png)**
+- 2.The administrator selects "view all venues" from the display
+- 3.The system will display all venues **(04-view_all_venues.png)**, including:
     1.  Venue Name
     2.  Venue Address
     3.  Reservations   
-    4.  Actions (The admin can make some operations on this)
-- 5.The system updates the display to show all venues. (04-view_all_venues.png)
+    4.  Actions (The administrator can make some operations on this)
 
 ### Sequence Diagram
 
