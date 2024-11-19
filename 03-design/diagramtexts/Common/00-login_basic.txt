@@ -34,9 +34,9 @@ note over w,d:This part of the functionality is completed in Javascript\nIt does
   u --> as :return e
   deactivate u
 
-  as->m:addAtributes("AdministritorAccount":String e:AdministritorAccount)
+  as->m:addAtributes("AdministritorAccount":String e:Administritor)
 
-  as-->d : return "view_all_events"
+  as-->d : return "main_page_administrator"
   deactivate as
   d->*nv:View(model : Model)
 activate nv
@@ -45,7 +45,7 @@ activate nv
   deactivate nv
   d-->w:return newView
 
-==4. The system displays the main page of the system (01-view_all_events.png)==
+==4. The system displays the main page of the system (01-main_page_administrator.png)==
     end
 alt The account type is an customer account
 
@@ -60,9 +60,9 @@ alt The account type is an customer account
   u->cr:e:= findByEmail(email: Long): Customer
   u --> as :return e
   deactivate u
-  as->m:addAtributes("CustomerAccount":String e: CustomerAccount)
+  as->m:addAtributes("CustomerAccount":String e: Customer)
 
-  as-->d : return "view_all_events"
+  as-->d : return "main_page_customer"
   deactivate as
   d->*nv:View(model : Model)
 activate nv
@@ -70,7 +70,7 @@ activate nv
   nv-->d:
   deactivate nv
   d-->w:return newView
-==4. The system displays the main page of the system (34-view_all_events.png))==
+==4. The system displays the main page of the system (34-main_page_customer.png))==
     end
 alt The account type is an organizer account
 
@@ -85,9 +85,9 @@ alt The account type is an organizer account
 
   u --> as :return e
   deactivate u
-  as->m:addAtributes("OrganizerAccount":String e:OrganizerAccount)
+  as->m:addAtributes("OrganizerAccount":String e:Organizer)
 
-  as-->d : return "view_all_events"
+  as-->d : return "main_page_organizer"
   deactivate as
   d->*nv:View(model : Model)
 activate nv
@@ -95,6 +95,6 @@ activate nv
   nv-->d:
   deactivate nv
   d-->w:return newView
-==4. The system displays the main page of the system (17-view_all_events.png)==
+==4. The system displays the main page of the system (17-main_page_organizer.png)==
     end
 @enduml
