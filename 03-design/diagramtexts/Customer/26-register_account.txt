@@ -10,7 +10,7 @@ participant "<link:_>: CustomerRepository" as cr
 participant "<link:_>: AccountService" as as
 
 
-==1. The customer enters the required details to create an account==
+==1. The user wants to create an account at login page (00-login.png).==
 
 
 u -> w: click()
@@ -21,6 +21,22 @@ activate d
 
 d->ac:registerCustomer(email : String, name : String, password : String, m : Model)
 activate ac
+
+
+ac -> as: checkCustomerExist(email : String)
+activate as
+as -> cr: customer := findByEmail(email : String)
+cr --> as: return customer
+
+
+Customer already exists
+    as --> ac: return Error.DUPLICATE
+
+deactivate as
+
+
+
+
 
 ac->as: createCustomerAccount(email : String, name : String, password : String)
 activate as
@@ -37,6 +53,19 @@ as->cr:save(c : Customer)
 
 as-->ac:return Error.NONE
 deactivate as
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ac -> as: account := getAccount(email : String)
 activate as
@@ -59,4 +88,4 @@ deactivate nv
 d-->w:return newView
 deactivate d
 
-==2. The system displays the login page of the system ==
+==2. The system displays the main page of the system(01-main_page_customer) ==
