@@ -55,6 +55,7 @@ package "repositories" #LightYellow {
     }
     class VenueRepository {
         +findById(id: Long): Venue
+        +findAllByOrganiserId(organiserId:Long):Venue[*]
         +findAllByDateTime(date: Date,time: Time) Venue[*]
         +findAll(): Venue[*]
         +findAllByEmail(OrganiserEmail: String): Venue[*]
@@ -120,8 +121,9 @@ package "services" #LightYellow {
         {static}+VenueService(VenueRepository,TicketRepository,OrganiserRepository)
         +getVenue(venueName: String):Venue
         +getVenues():Venue[*]
-        +createVenue(name: String,address: String,contactName: String,contactPhoneNumber: String,contactEmail: String,capacity: TicketAvailability[*]): Boolean
-        +updateVenue(name: String,address: String,contactName: String,contactPhoneNumber: String,contactEmail: String,capacity: TicketAvailability[*]): Boolean
+        +getMyVenues(organiserId:Long):Venue[*]
+        +createVenue(name: String,address: String,contactName: String,contactPhoneNumber: String,contactEmail: String,ticketTypeName: String[*], numberAvailable:int[*]): Boolean
+        +updateVenue(name: String,address: String,contactName: String,contactPhoneNumber: String,contactEmail: String,ticketTypeName: String[*], numberAvailable:int[*]): Boolean
         +deleteVenue(venue: Venue): Boolean
         +saveVenue(venue:Venue):Boolean
         +checkDuplicateVenue(venue: Venue)
@@ -134,6 +136,7 @@ package "services" #LightYellow {
         +deleteEvent(name: String): Boolean
         +updateEvent(name: String, description: String, date: Date, time: Time,venue: Venue,ticketTypes : String[*], ticketPrices : double[*]): Boolean
         +getEvent(eventId: Long):Event
+        +getMyEvents(organiserEmail:String)
         +getEventsByKeyWords(String keyWords):Event[*]
         +getEventDetails(name: String):
         +getCurrentEvents(date: Date,time:Time):Event[*]
@@ -179,7 +182,7 @@ package "accounts"{
     + setCompanyName(companyName: String)
     + setPhoneNumber(phoneNumber: String)
   }
-class ROLE {
+enum Role {
         +ADMINISTRATOR
         +ORGANISER
         +CUSTOMER
@@ -189,7 +192,7 @@ class ROLE {
         - name: String
         - email: String
         - password: String
-        - role: ROLE
+        - role: Role
         +getId():Long
         +getName(): String
         +getEmail(): String
@@ -427,7 +430,7 @@ package "DTOs" #LightYellow {
     class AdministratorDTO {
         +name: String
         +email: String
-        +role: ROLE
+        +role: Role
         {static}AdministratorDTO()
         {static}AdministratorDTO(name:String,email:String,role:ROLE)
         getName():String
@@ -438,7 +441,7 @@ package "DTOs" #LightYellow {
     class OrganizerDTO {
         +name: String
         +email: String
-        +role: ROLE
+        +role: Role
         +address: String
         +companyName: String
         +phoneNumber: String
@@ -456,7 +459,7 @@ package "DTOs" #LightYellow {
     class CustomerDTO {
         +name: String
         +email: String
-        +role: ROLE
+        +role: Role
         {static}CustomerDTO()
         {static}CustomerDTO(name:String,email:String,role:ROLE)
         getName():String
@@ -630,6 +633,7 @@ class VenueSystem {
     +viewVenue(venueId: Long, m : Model)
     +updateVenue(venueAlterDTO: VenueDTO, m : Model)
     +deleteVenue(venueId: Long, m : Model)
+    +listMyVenues(organiserId:Long, m: Model)
     +listVenues(m : Model)
     +listAvailableVenues(date: Date,time: Time, m : Model)
 }
@@ -638,8 +642,9 @@ VenueSystem "1"--> "-VenueService 1" VenueService
 class EventSystem {
     +createEvent(eventDTO: EventDTO, m: Model)
     +viewEvent(eventId: Long, m : Model)
+    +viewEventRegistration(eventId: Long, m : Model)
     +deleteEvent(eventId: Long, m : Model)
-    +updateEvent(eventDTO: EventDTO, m: Model)
+    +updateEvent(eventAlterDTO: EventAlterDTO, m: Model)
     +displayDate(date: Date, m: Model)
     +listEvents(m : Model)
     +listCurrentEvents(date: Date,time: Time, m : Model)

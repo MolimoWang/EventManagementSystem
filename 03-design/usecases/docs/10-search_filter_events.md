@@ -37,7 +37,7 @@
 This is the page that the user must be on at the start to complete the use case.
 
 ### Main Page
-![Main Page](/02-analysis/UI/admin/01-view_all_events.png)
+![Main Page](/02-analysis/UI/admin/01-main_page_administrator.png)
 
 ### Search
 ![Search](/02-analysis/UI/customer/38-search_filter_events.png)
@@ -49,7 +49,7 @@ This is the page that the user must be on at the start to complete the use case.
 There the pages that the user must be on at the start to complete the use case.
 
 ### Main Page
-![Main Page](/02-analysis/UI/organizer/17-view_all_events.png)
+![Main Page](/02-analysis/UI/organizer/17-main_page_organiser.png)
 
 ### Search
 ![Search](/02-analysis/UI/customer/38-search_filter_events.png)
@@ -61,7 +61,7 @@ There the pages that the user must be on at the start to complete the use case.
 There the pages that the Customer must be on at the start to complete the use case.
 
 ### Main Page
-![Main Page](/02-analysis/UI/customer/34-view_all_events.png)
+![Main Page](/02-analysis/UI/customer/34-main_page_customer.png)
 
 ### Search
 ![Search](/02-analysis/UI/customer/38-search_filter_events.png)

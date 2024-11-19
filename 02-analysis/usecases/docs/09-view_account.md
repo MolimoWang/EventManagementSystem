@@ -47,7 +47,7 @@ This is the page that the user must be on at the start to complete the use case.
 
 ### Main Page
 
-![Main Page](/02-analysis/UI/admin/01-view_all_events.png)
+![Main Page](/02-analysis/UI/admin/01-main_page_administrator.png)
 
 ### View All Accounts
 ![All accounts](/02-analysis/UI/admin/07-view_all_accounts.png)
@@ -67,7 +67,7 @@ There the pages that the user must be on at the start to complete the use case.
 
 ### Main Page
 
-![Main Page](/02-analysis/UI/organizer/17-view_all_events.png)
+![Main Page](/02-analysis/UI/organizer/17-main_page_organiser.png)
 
 ### View Account
 
@@ -78,7 +78,7 @@ There the pages that the user must be on at the start to complete the use case.
 There the pages that the user must be on at the start to complete the use case.
 
 #### Main Page
-![Main Page](/02-analysis/UI/customer/34-view_all_events.png)
+![Main Page](/02-analysis/UI/customer/34-main_page_customer.png)
 
 ### View Account
 ![All accounts](/02-analysis/UI/customer/35-view_customer_account.png)
