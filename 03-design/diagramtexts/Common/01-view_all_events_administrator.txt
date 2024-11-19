@@ -10,7 +10,7 @@ control "<link:_>: EventSystem" as s
 participant "<link:_>: EventService" as u
 participant "<link:_>: EventRepository" as er
 
-==1. The Administrator selects the view all events functionality.==
+==1. The Administrator selects the view all events functionality or logged in==
 a->>w:interact
 activate w
 w->d:GET(url: String)
@@ -27,7 +27,7 @@ deactivate u
 
 s->mm:addAttributes("events": String, allEvents: Event[*])
 
-s-->d:return "view_all_events"
+s-->d:return "main_page_administrator"
 deactivate s
 d->*nv:View(model : Model)
 activate nv
@@ -35,5 +35,5 @@ nv-->d:
 deactivate nv
 d-->w:return newView
 
-==4. The system displays the view all events page (01-view_all_events.png) which shows the details of all events in the system==
+==4. The system displays the administrator main page (01-main_page_administrator.png) which shows the details of all events in the system==
 @enduml

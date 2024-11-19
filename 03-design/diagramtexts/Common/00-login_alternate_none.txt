@@ -46,7 +46,7 @@ end
   u --> as :return null
   deactivate u
 
-  as->m:addAtributes("errNoUser":String)
+  as->m:addAtributes("error":String,"errNoUser":String)
 
   as-->d : return "login"
   deactivate as
