@@ -8,7 +8,7 @@ participant "<link:_>: EventService" as es
 
 
 
-==1. The organizer selects the delete event functionality  **(01 - Main Page)**\n2. The user selects the relevant booking from the display==
+==1. The organizer selects the delete event functionality  **(21-view_my_events)**\n2. The organizer selects the event from the display==
 
 note over a,es: This part of the functionality is completed in Javascript\nIt does not need to be shown here
 
@@ -16,4 +16,4 @@ note over a,es: This part of the functionality is completed in Javascript\nIt do
 
 note over a, es: This part is completed in javascript\nIt does not need to be shown here
 
-==4. The system returns to the list events page (18-list_my_event.png) with no changes==
+==4. The system returns to the list events page (21-list_my_event.png) with no changes==
