@@ -16,12 +16,13 @@ participant "<link:_>: VenueService" as Vs
 entity "<link:_>: Venue" as Venue
 
 
-participant "<link:_>: TicketRepository" as ta
+
+
 entity "<link:_>:TicketAvailability" as tq
 
 
 
-==1. The admin or organizer logs on and clicks 'venue' button to list current venuess\n2. The organizer selects the "+" option to add a new venue ==
+==1. The admin or organizer logs on and clicks 'venue' button to list current venuess\n2. The organizer selects the "+" option to add a new venue.(25-list_my_venues.png) ==
 
 
 
@@ -36,14 +37,14 @@ DispatchServlet ->> vs:createVenue(venueDTO: VenueDTO, m:Model)
 activate vs
 ==3. The system turn to create venue page(26-create_venue.png) which displays a form to enter venue details,including:\n·Name\n·Address\n·Ticket Types(ticketTypeName, number)\n·Contact information (name, phone, email)==
 
-vs->> Vs:createVenue(name: String,address: String,contactName: String,contactPhoneNumber: String,contactEmail: String,capacity: TicketAvailability[*]):Boolean
+vs->> Vs:createVenue(name: String,address: String,contactName: String,contactPhoneNumber: String,contactEmail: String,ticketTypeName: String[*],numberAvailable:int[*]):Boolean
 
 activate Vs
 
 
 loop for every ticket type
-  Vs->ta:getTicketTypeName()
-  Vs->ta:getNumberAvailable()
+
+
 Vs->*tq:TicketAvailability(ticketTypeName:String,numberAvailable: int)
 
 end

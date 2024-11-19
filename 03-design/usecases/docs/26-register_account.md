@@ -1,17 +1,13 @@
 # 26 Register Account
 
 ## Basic Course of Events
-- A new customer select 'Create User Account' in the account management.
+- A new customer select 'Create User Account' in the Login page.
 - The customer fill in necessary information to create a user, including:
     1. name
     2. email
     3. password
 - The customer selects the 'Create'.
-- The system asks the user to confirm.
-- The customer select **Create**.
-- The service checks if the name and email are unique.
-- Account information is unique, return true.
-- The account is created and the information will be stored in the account management.
+- The system display the customer main page (34-main_page_customer.png).
 
 
 ### Sequence Diagram
@@ -59,10 +55,10 @@ This is the page that the user must be on at the start to complete the use case.
 This page is taken to when the user has successfully registered.
 
 
-![Main Page](/02-analysis/UI/customer/34-view_all_events.png)
+![Main Page](/02-analysis/UI/customer/34-main_page_customer.png)
 
 ### Main Page
 This page is taken to when the user has successfully registered.
 
 
-![Main Page](/02-analysis/UI/customer/34-view_all_events.png)
+![Main Page](/02-analysis/UI/customer/34-main_page_customer.png)

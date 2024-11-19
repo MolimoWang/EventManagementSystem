@@ -5,13 +5,16 @@
 ### Course of Events
 - The administrator is shown the list venues page (04-view_all_venues.png) where system displays a list of existing venues.
 - The administrator selects the venue to delete.
+- The system highlights the venue to indicate it is selected.
+- The admin selects the delete functionality.
 - The system asks the administrator to confirm.
-- The administrator selects **Yes**.
+- The administrator selects **Confirm**.
 - The system update the list venues page (04-view_all_venues.png) with this venue deleted.
+
 
 ### Sequence Diagram
 
-![Delete Venue](/02-analysis/sequence-diagrams/Administrator/18-delete_venue.png)
+![Delete Venue](/03-design/sequence-diagrams/Administrator/18-delete_venue.png)
 
 ## Alternate Course of Events
 
@@ -19,13 +22,14 @@
 
 - The administrator is shown the list venues page (04-view_all_venues.png) where system displays a list of existing venues.
 - The administrator selects the venue to delete.
+- The system highlights the venue to indicate it is selected.
+- The admin selects the delete functionality.
 - The system asks the administrator to confirm.
-- The administrator selects **No**.
-- The system returns to the list venues page (04-view_all_venues.png), and no venue is deleted.
+- The administrator selects **Cancel**.
+- The system update the list venues page (04-view_all_venues.png) with this venue deleted.
 
 ### Sequence Diagram-- Alternate Course of Events
-
-![Do not delete](/02-analysis/sequence-diagrams/Administrator/18-delete_venue_do_not_delete.png)
+![Do not delete](/03-design/sequence-diagrams/Administrator/18-delete_venue_alternative.png)
 
 #### Venue Not Found
 - The administrator tries to delete a venue that does not exist.
@@ -33,7 +37,6 @@
 
 ### Sequence Diagram-- Alternate Course of Events
 There is no interaction
-
 
 ### Venue In Use
 

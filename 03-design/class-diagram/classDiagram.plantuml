@@ -55,6 +55,7 @@ package "repositories" #LightYellow {
     }
     class VenueRepository {
         +findById(id: Long): Venue
+        +findAllByOrganiserId(organiserId:Long):Venue[*]
         +findAllByDateTime(date: Date,time: Time) Venue[*]
         +findAll(): Venue[*]
         +findAllByEmail(OrganiserEmail: String): Venue[*]
@@ -71,6 +72,8 @@ package "repositories" #LightYellow {
         +findAll(): Event[*]
         +save(event: Event): Boolean
         +delete(event: Event): Boolean
+        +findHistoryByVenue(venue: Venue):Event[*]
+        +findEventsHistoryByDateTime(date: Date, time: Time):Event[*]
     }
 
     class TicketRepository {
@@ -94,6 +97,9 @@ package "services" #LightYellow {
          +createCustomerAccount(name: String,email: String,password:String): Boolean
          +createOrganiserAccount(name: String,email: String,password:String): Boolean
          +registerAccount(name: String,email: String,password:String): Boolean
+          +getAdministratorById(accountId: Long): Administrator
+          +getCustomerById(accountId: Long):Customer
+          +getOrganiserById(accountId: Long):Organiser
          +getAdministrator(AdministratorEmail: String): Administrator
          +getCustomer(customerEmail:String):Customer
          +getOrganiser(organiserEmail:String):Organiser
@@ -103,24 +109,24 @@ package "services" #LightYellow {
          +deleteCustomer(CustomerEmail: String): Boolean
          +deleteOrganiser(OrganiserEmail: String): Boolean
          +deleteAdministrator(AdministratorEmail: String): Boolean
-         +updateCustomer(customer: Customer): Boolean
-         +updateOrganiser(organiser: Organiser): Boolean
-         +updateAdministrator(administrator: Administrator): Boolean
-         +checkCustomerExist(CustomerEmail:String):Boolean
-         +checkOrganiserExist(OrganiserEmail:String):Boolean
+         +updateCustomer(accountAlterDTO:AccountAlterDTO,c: Customer): Boolean
+         +updateOrganiser(accountAlterDTO:AccountAlterDTO,o: Organiser): Boolean
+         +updateAdministrator(accountAlterDTO:AccountAlterDTO, a:Administrator): Boolean
+         +checkCustomerExist(accountAlterDTO:AccountAlterDTO, a:Customer):Boolean
+         +checkOrganiserExist(accountAlterDTO:AccountAlterDTO, a:Organiser):Boolean
          +checkAdministratorExist(AdministratorEmail:String):Boolean
       }
 
     class VenueService {
         {static}+VenueService(VenueRepository,TicketRepository,OrganiserRepository)
-        +getVenue(venueName: String):Venue
+        +getVenue(venueId: String):Venue
         +getVenues():Venue[*]
-        +createVenue(name: String,address: String,contactName: String,contactPhoneNumber: String,contactEmail: String,capacity: TicketAvailability[*]): Boolean
-        +updateVenue(name: String,address: String,contactName: String,contactPhoneNumber: String,contactEmail: String,capacity: TicketAvailability[*]): Boolean
-        +deleteVenue(venueName: String): Boolean
+        +getMyVenues(organiserId:Long):Venue[*]
+        +createVenue(name: String,address: String,contactName: String,contactPhoneNumber: String,contactEmail: String,ticketTypeName: String[*], numberAvailable:int[*]): Boolean
+        +updateVenue(name: String,address: String,contactName: String,contactPhoneNumber: String,contactEmail: String,ticketTypeName: String[*], numberAvailable:int[*]): Boolean
+        +deleteVenue(venue: Venue): Boolean
         +saveVenue(venue:Venue):Boolean
         +checkDuplicateVenue(venue: Venue)
-        +getVenueUsage(venueName: String): Event[*]
         +getAvailableVenues(date: Date,time: Time):Venue[*]
     }
 
@@ -130,18 +136,22 @@ package "services" #LightYellow {
         +deleteEvent(name: String): Boolean
         +updateEvent(name: String, description: String, date: Date, time: Time,venue: Venue,ticketTypes : String[*], ticketPrices : double[*]): Boolean
         +getEvent(eventId: Long):Event
+        +getMyEvents(organiserEmail:String)
         +getEventsByKeyWords(String keyWords):Event[*]
         +getEventDetails(name: String):
         +getCurrentEvents(date: Date,time:Time):Event[*]
         +getCustomerRegistrations(eventId: Long):Customer[*]
         +saveEvent(event: Event):Boolean
         +getEventsByDate(date: Date):Event[*]
+        +getVenueUsage(venue: Venue):Event[*]
+        +getEventsBefore(date: Date, time: Time):Event[*]
     }
 
    class TicketService {
         {static}+TicketService(TicketRepository,CustomerRepository,EventRepository)
         +getTicket(ticketId: Long): Ticket
         +getMyTicket(customerEmail: String):Ticket[*]
+        +checkEventHasStarted(eventName: String):Boolean
         +checkTimeoutCancel(ticketId: Long):Boolean
         +buyTicket(customerEmail: String, eventName: String, ticketQuantity: String): Ticket
         +getTicketOwner(eventName: String):Customer
@@ -155,7 +165,7 @@ package "services" #LightYellow {
 ' Ticket Management Group
 package "models" #LightYellow {
 package "accounts"{
-   interface AccountInterface {
+   interface AccountInterface<<Interface>> {
       + getId():Long
       + getName(): String
       + getEmail(): String
@@ -165,7 +175,7 @@ package "accounts"{
       + setPassword(password: String)
     }
 
-  interface OrganiserInterface {
+  interface OrganiserInterface <<Interface>>{
     + getAddress(): String
     + getCompanyName(): String
     + getPhoneNumber(): String
@@ -173,7 +183,7 @@ package "accounts"{
     + setCompanyName(companyName: String)
     + setPhoneNumber(phoneNumber: String)
   }
-class ROLE {
+enum Role {
         +ADMINISTRATOR
         +ORGANISER
         +CUSTOMER
@@ -183,7 +193,7 @@ class ROLE {
         - name: String
         - email: String
         - password: String
-        - role: ROLE
+        - role: Role
         +getId():Long
         +getName(): String
         +getEmail(): String
@@ -225,7 +235,7 @@ class ROLE {
       Organiser "1..*" o--> "0..* -organises" Event
 
 
-interface VenueInterface {
+interface VenueInterface <<Interface>>{
     + getName(): String
     + getAddress(): String
     + getContactName(): String
@@ -267,7 +277,7 @@ interface VenueInterface {
 
     Venue "1 -venue" <--"*" Event
 
-interface EventInterface {
+interface EventInterface <<Interface>>{
     + getName(): String
     + getDescription(): String
     + getDate(): Date
@@ -301,7 +311,8 @@ interface EventInterface {
         +setTicketQuantities(ticketQuantities: int)
     }
 
-interface TicketInterface {
+package "tickets"{
+interface TicketInterface <<Interface>>{
     + getId(): Long
     + getType(): String
     + getPrice(): Double
@@ -310,13 +321,17 @@ interface TicketInterface {
             - id: Long
             - type : String
             - price : Double
+            - customerId : Long
+            - eventId : Long
             {static}Ticket()
-            {static}Ticket(type: String, price: Double)
+            {static}Ticket(type: String, price: Double,customerId : Long,eventId : Long)
             +getId():Long
         }
 
-interface TicketQuantityInterface {
+interface TicketQuantityInterface<<Interface>> {
     + getId(): Long
+    +getTicketTypeName():String
+    +getNumberAvailable():int
     + getNumberRemain(): int
     + getNumberSold(): int
     + getPrice(): double
@@ -345,7 +360,7 @@ interface TicketQuantityInterface {
             +setPrice(price: double)
         }
 
-         interface TicketAvailabilityInterface {
+         interface TicketAvailabilityInterface<<Interface>> {
             + getId(): Long
             + getTicketTypeName(): String
             + getNumberAvailable(): int
@@ -353,7 +368,7 @@ interface TicketQuantityInterface {
             + setNumberAvailable(number: int)
           }
 
-             class AvailabilityInfo{
+             class  AvailabilityInfo <<Abstract>>{
                   +getTicketTypeName():String
                   +getNumberAvailable():int
               }
@@ -370,7 +385,7 @@ interface TicketQuantityInterface {
              +setNumberAvailable(number: int)
             }
 
-
+}
    AvailabilityInfo      --|>   TicketAvailability
   Venue ..|> VenueInterface
   Event ..|> EventInterface
@@ -385,8 +400,8 @@ interface TicketQuantityInterface {
     Ticket "1"--> "-event 1" Event : related to
     Ticket "1"--> "1 -ticketQuantity" TicketQuantity : get Info
     TicketService "1"-->"-tickets *" TicketRepository
-    icketService "1"-->"-tickets *" CustomerRepository
-    icketService "1"-->"-tickets *" EventRepository
+    TicketService "1"-->"-customers *" CustomerRepository
+    TicketService "1"-->"-events *" EventRepository
 
 
 
@@ -418,7 +433,7 @@ package "DTOs" #LightYellow {
     class AdministratorDTO {
         +name: String
         +email: String
-        +role: ROLE
+        +role: Role
         {static}AdministratorDTO()
         {static}AdministratorDTO(name:String,email:String,role:ROLE)
         getName():String
@@ -429,7 +444,7 @@ package "DTOs" #LightYellow {
     class OrganizerDTO {
         +name: String
         +email: String
-        +role: ROLE
+        +role: Role
         +address: String
         +companyName: String
         +phoneNumber: String
@@ -447,7 +462,7 @@ package "DTOs" #LightYellow {
     class CustomerDTO {
         +name: String
         +email: String
-        +role: ROLE
+        +role: Role
         {static}CustomerDTO()
         {static}CustomerDTO(name:String,email:String,role:ROLE)
         getName():String
@@ -605,7 +620,9 @@ class AccountSystem {
     +createCustomerAccount(customerDTO:customerDTO,model:Model):Boolean
     +deleteAccount(accountEmail: String, m : Model): Boolean
     +selectAccount(accountEmail:String, m : Model)
-    +viewAccount(accountEmail: String, m : Model): AccountDetails
+    +viewAdministratorAccount(accountId: String, m : Model)
+    +viewOrganiserAccount(accountId: String, m : Model)
+    +viewCustomerAccount(accountId: String, m : Model)
     +updatePermission(accountEmail:String, m : Model)
     +updateCustomerAccount(alterDTO:AccountAlterDTO,model:Model)
     +updateAdministratorAccount(alterDTO:AccountAlterDTO,model:Model)
@@ -619,17 +636,18 @@ class VenueSystem {
     +viewVenue(venueId: Long, m : Model)
     +updateVenue(venueAlterDTO: VenueDTO, m : Model)
     +deleteVenue(venueId: Long, m : Model)
+    +listMyVenues(organiserId:Long, m: Model)
     +listVenues(m : Model)
     +listAvailableVenues(date: Date,time: Time, m : Model)
-    +listVenueUsage(venueId: Long, m : Model)
 }
 VenueSystem "1"--> "-VenueService 1" VenueService
 
 class EventSystem {
     +createEvent(eventDTO: EventDTO, m: Model)
     +viewEvent(eventId: Long, m : Model)
+    +viewEventRegistration(eventId: Long, m : Model)
     +deleteEvent(eventId: Long, m : Model)
-    +updateEvent(eventDTO: EventDTO, m: Model)
+    +updateEvent(eventAlterDTO: EventAlterDTO, m: Model)
     +displayDate(date: Date, m: Model)
     +listEvents(m : Model)
     +listCurrentEvents(date: Date,time: Time, m : Model)
@@ -637,6 +655,8 @@ class EventSystem {
     +searchEvents(keyWords:String, m : Model)
     +showCreateEventPage(m : Model)
     +showUpdateEvent(eventId: Long, m : Model)
+    +viewVenueUsage(venue: Venue, m: Model)
+    +viewEventsHistory(date: Date, time: Time, m: Model)
 }
 
 EventSystem "1"--> "-EventService 1" EventService
@@ -646,7 +666,7 @@ class TicketSystem {
     +listMyTickets(customerEmail: String, m : Model)
     +listTicketDetails(ticket:Ticket, m : Model)
     +listRegisteredCustomer(eventId: Long, m : Model)
-    +buyTicket(customerEmail: String, eventName: String, ticketType: String, m : Model)
+    +buyTicket(customerEmail: String, eventName: String, ticketTypeName: String, m : Model)
     +viewTicketDetails(ticketId : long, m : Model)
     +cancelTicket(customerId: Long, eventId: Long, m : Model)
 }
@@ -683,15 +703,15 @@ TicketSystem ..> ErrorMessageDTO
     AccountService "1"--> "-organisers * "OrganiserRepository
     AccountService "1"--> "-administrators * "AdministratorRepository
     VenueService "1"--> "-venues * "VenueRepository
-    VenueService "1"--> "-venues * " TicketRepository
-    VenueService "1"--> "-venues * " OrganiserRepository
+    VenueService "1"--> "-tickets * " TicketRepository
+    VenueService "1"--> "-organisers* " OrganiserRepository
 
    ' Connect Repositories with Models
     CustomerRepository ..> models.accounts.Customer : <<import>>
     OrganiserRepository ..> models.accounts.Organiser : <<import>>
     AdministratorRepository ..> models.accounts.Administrator : <<import>>
     VenueRepository ..> models.Venue : <<import>>
-    TicketRepository ..> models.Ticket : <<import>>
+    TicketRepository ..> models.tickets.Ticket : <<import>>
 
 
 

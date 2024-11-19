@@ -20,7 +20,7 @@
 This is the page that the user must be on at the start to complete the use case.
 
 ### Main Page
-![Main Page](/02-analysis/UI/organizer/17-view_all_events.png)
+![Main Page](/02-analysis/UI/organizer/17-main_page_organiser.png)
 
 ### List My Events
 ![List Events](/02-analysis/UI/organizer/18-list_my_events.png)

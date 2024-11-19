@@ -22,11 +22,18 @@ This use case allows an organizer to edit the details of an existing event in th
 #### Course of Events
 1. The organizer selects the "Edit" option of a certain event on list my events page (18-list_my_events.png).
 2. The system displays a form with the current event details(20-edit_event.png).
-3. The organizer updates the necessary fields (name, date, time, venue, ticket information (price)).
-4. The organizer clicks "Save Changes" to confirm the changes.
-5. The system shows the created details of the event on the view events page (22-view_event_details).
-
-
+3. The system displays the update event page(20-edit_event.png)
+4. The user updates the details of the event,including:
+   -EventName
+   -EventDescription
+   -Date
+   -Time
+   -Venue
+   -TicketTypes
+   -TicketPrices 
+5. The organizer clicks "Save Changes" to confirm the changes.
+6. The system shows the created details of the event on the view events page (22-view_event_details).
+ 
 ### 02 - Alternate course of events
 - None
 ## Exceptions
