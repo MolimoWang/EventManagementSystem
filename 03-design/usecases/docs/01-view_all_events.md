@@ -5,7 +5,7 @@
 
 ### Course of Events -- Administrator
 
-1. After logging in, the administrator is presented with the main page(01-view_all_events.png), displaying a table of all scheduled events for the current date.
+1. After logging in or choosing the view all events functionality, the administrator is presented with the main page(01-view_all_events.png), displaying a table of all scheduled events for the current date.
 2. The system passes requests to the service.
 3. The service displays a table showing all events scheduled for the current date.
 4. The administrator can see the following details in the table:
@@ -23,7 +23,7 @@
 
 ### Course of Events -- Organizer
 
-1. After logging in, the organizer is presented with the main page(17-view_all_events.png), displaying a table of all scheduled events for the current date.
+1. After logging in or choosing the view all events functionality, the organizer is presented with the main page(17-view_all_events.png), displaying a table of all scheduled events for the current date.
 2. The system passes requests to the service.
 3. The service displays a table showing all events scheduled for the current date.
 4. The organizer can see the following details in the table:
@@ -41,7 +41,7 @@
  
 ### Course of Events
 
-1. After logging in, the user is presented with the main page(34-view_all_events.png), displaying a table of all scheduled events for the current date.
+1. After logging in or choosing the view all events functionality, the user is presented with the main page(34-view_all_events.png), displaying a table of all scheduled events for the current date.
 2. The system passes requests to the service.
 3. The service displays a table showing all events scheduled for the current date.
 4. The user can see the following details in the table:

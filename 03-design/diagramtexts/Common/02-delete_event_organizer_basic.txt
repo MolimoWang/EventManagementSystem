@@ -64,4 +64,4 @@ deactivate nv
 ds-->wb:return newView
 
 
-==4. The system returns to the view events page (20-view_events_history.png) and the venue is no longer displayed==
+==6. The system returns to the view events page (20-view_events_history.png) and the venue is no longer displayed==

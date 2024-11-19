@@ -13,8 +13,8 @@ participant "<link:_>: EventService" as es
 
 note over a,es: This part of the functionality is completed in Javascript\nIt does not need to be shown here
 
-==2. The system asks the organizer to confirm the deletion of the event **(03-delete_event.png)**\n3. The organizer clicks No==
+==3. The system asks the organizer to confirm the deletion of the event **(03-delete_event.png)**\n4. The organizer clicks No==
 
 note over a, es: This part is completed in javascript\nIt does not need to be shown here
 
-==4. The system returns to the view all events page **(20-view_events_history.png)** with no changes==
+==5. The system returns to the view all events page **(20-view_events_history.png)** with no changes==

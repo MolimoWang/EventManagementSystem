@@ -12,8 +12,7 @@ participant "<link:_>: AdministratorRepository" as ar
 participant "<link:_>: ConsumerRepository" as cr
 participant "<link:_>: OrganizerRepository" as or
 participant "<link:_>: AccountService" as u
-==1.The user performs the log in use case (00-login)==
-==2.The user enters their credentials.==
+==1.The user opens the application.\n2.The system presents a login page and prompt the user to enter their email and password (00-login)\n3.The user enters their credentials.==
 us->>w:interact
 activate w
 w->d:POST(url: String, payload : json)

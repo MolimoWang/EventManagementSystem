@@ -10,7 +10,8 @@ control "<link:_>: EventSystem" as s
 participant "<link:_>: EventService" as u
 participant "<link:_>: EventRepository" as er
 
-==1. The customer seletc the view all events functionality or logged in.==
+==1. After logging in or choosing the view all events functionality, the user is presented with the main page(34-view_all_events.png), displaying a table of all scheduled events for the current date.==
+
 a->>w:interact
 activate w
 w->d:GET(url: String)
