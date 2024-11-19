@@ -2,8 +2,9 @@
 
 ## Basic Course of Events
 
-- 1.The administrator or organizer selects the "View Event Registrations" option from event details page(22-view_event_details.png).
-- 2.The system displays the users who registered for this event to organizer or administrator.
+- 1. The administrator or organizer selects am event to view its details
+- 2. The administrator or organizer selects the "View Event Registrations" option from event details page(22-view_event_details.png).
+-  3. The system displays the users who registered for this event to organizer or administrator.(23-view_event_registrations.png)
     
 ### Sequence Diagram
 ![view_event_registrations](/02-analysis/sequence-diagrams/Common/04-view_event_registrations.png)
