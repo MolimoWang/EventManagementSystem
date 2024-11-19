@@ -1,8 +1,9 @@
-title Organizer Update Event
+title 23-update _event
 actor "Organizer" as s
 image data:image/png;base64,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 "Web Browser" as w
 
-boundary "<link:_>newView : View" as nv
+boundary "<link:_>newView2 : View" as nv2
+boundary "<link:_>newView2 : View" as nv2
 entity "<link:_>model : Model" as m
 boundary "<link:_>:DispatchServlet" as d
 boundary "<link:_>updateDTO : UpdateDTO" as adto
@@ -12,58 +13,93 @@ participant "<link:_>: EventService" as es
 
 entity "<link:_>event : Event" as e
 
+entity "<link:_>:eventAlterDTO:EventAlterDTO" as aad
 
 
 
 
 
 
-
-==1. The user performs the update event use case on list my events page (18-list_my_events Page)\n2. The user selects the relevant event from the display==
-note over w,d:This part of the functionality is completed in Javascript\nIt does not need to be shown here
-
-
-
-
-==3. The system displays the add event page (18-modify-event) page\n4. The user updates the details of the event,including: \n    -EventName\n    -EventDescription\n    -Date\n    -Time\n    -Venue\n    -TicketTypes\n    -TicketPrices==
+==1. The organizer selects the "Edit" option of a certain event on list my events page (18-list_my_events.png).\n2. The system displays a form with the current event details(20-edit_event.png).==
 
 s->>w:interact
 activate w
 w->>d:POST(url : String, payload : json)
 activate d
 
-d->ec:updateEvent(updateDTO : UpdateDTO, m : Model)
+d->ec:viewEvent(eventId: Long, m1 : Model)
 activate ec
-ec->es:b := getEvent(eventId: Long):Event
-ec->es:updateEvent(name: String, description: String, date: Date, time: Time,venue: Venue,ticketTypes : String[*], ticketPrices : double[*]): Boolean
+
+
+
+ec->es:event := getEvent(eventId: Long)
+activate es
+
+
+
+er<--es:findById(id: Long): Event
+es-->ec:return event
+deactivate es
+
+
+ec->m:addAttribute("event":String, event:Event)
+ec-->*aad:EventAlterDTO()
+activate aad
+
+ec<--aad:
+deactivate aad
+m<-ec:addAttribute("eventAlterDTO":String, eventAlterDTO:EventAlterDTO)
+ec-->d:return "organizer view event Page"
+deactivate ec
+d->*nv2:View1(model1 : Model)
+activate nv2
+
+
+nv2-->d:
+deactivate nv2
+
+d-->w:return newView
+deactivate d
+
+
+
+==3. The system displays the update event page(20-edit_event.png)\n4. The user updates the details of the event,including: \n    -EventName\n    -EventDescription\n    -Date\n    -Time\n    -Venue\n    -TicketTypes\n    -TicketPrices==
+
+s->>w:interact
+activate w
+w->>d:POST(url : String, payload : json)
+activate d
+
+d->ec:updateEvent(updateDTO : UpdateDTO, m2 : Model)
+activate ec
+ec->es:event := getEvent(eventId: Long):Event
 
 activate es
+
+ec->es:updateEvent(name: String, description: String, date: Date, time: Time,venue: Venue,ticketTypes : String[*], ticketPrices : double[*]): Boolean
 
 es->e:setDescription(description: String)
 es->e:setTime(time: Time)
 es->e:setDate(date: Date)
 es->e:setTicketQuantities(ticketQuantities: int)
 
-  alt if e is a event
     es->er:save(e : Event)
 
-  end
 
 es-->ec:
 deactivate es
 
-ec->es:event := getEvent(eventId: Long):Event
 
-ec->m:addAttribute("events":String, events:Event[*])
-ec-->d:return organizer view event Page
+ec->m:addAttribute("event":String, event:Event)
+ec-->d:return "organizer view event Page"
 deactivate ec
-d->*nv:View(model : Model)
-activate nv
+d->*nv2:View2(model2 : Model)
+activate nv2
 
 
-nv-->d:
-deactivate nv
+nv2-->d:
+deactivate nv2
 
 d-->w:return newView
 deactivate d
-==5. The system shows the details of the updated event on the view event page (16-view-event)==
+==4. The organizer clicks "Save Changes" to confirm the changes.\n5. The system shows the created details of the event on the view events page (22-view_event_details).==
