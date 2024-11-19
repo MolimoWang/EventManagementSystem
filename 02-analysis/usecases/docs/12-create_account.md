@@ -73,7 +73,7 @@
 
 ### Related UI Prototypes
 
-![Main Page](/02-analysis/UI/admin/01-view_all_events.png)
+![Main Page](/02-analysis/UI/admin/01-main_page_administrator.png)
 
 ![View all accounts](/02-analysis/UI/admin/07-view_all_accounts.png)
 

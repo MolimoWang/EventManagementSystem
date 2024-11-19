@@ -81,7 +81,7 @@
 
 This is the page that the user must be on at the start to complete the use case.
 
-![Main Page](/02-analysis/UI/admin/01-view_all_events.png)
+![Main Page](/02-analysis/UI/admin/01-main_page_administrator.png)
 
 ![View Events History](/02-analysis/UI/admin/02-view_events_history.png)
 
@@ -89,7 +89,7 @@ This is the page that the user must be on at the start to complete the use case.
 
 There the pages that the user must be on at the start to complete the use case.
 
-![Main Page](/02-analysis/UI/organizer/17-view_all_events.png)
+![Main Page](/02-analysis/UI/organizer/17-main_page_organiser.png)
 
 ![List My Events](/02-analysis/UI/organizer/18-list_my_events.png)
 
@@ -97,7 +97,7 @@ There the pages that the user must be on at the start to complete the use case.
 
 There the pages that the user must be on at the start to complete the use case.
 
-![Main Page](/02-analysis/UI/customer/34-view_all_events.png)
+![Main Page](/02-analysis/UI/customer/34-main_page_customer.png)
 
 #### Related UI Prototypes-- Administrator, Organizer
 

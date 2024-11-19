@@ -32,13 +32,13 @@
 This is the page that the user must be on at the start to complete the use case.
 
 ### Main Page
-![Main Page](/02-analysis/UI/admin/01-view_all_events.png)
+![Main Page](/02-analysis/UI/admin/01-main_page_administrator.png)
 
 ### Select Date
 ![Select Date](/02-analysis/UI/customer/33-display_date.png)
 
 ### Selected Date Events
-![Selected Date Events](/02-analysis/UI/admin/01-view_all_events.png)
+![Selected Date Events](/02-analysis/UI/admin/01-main_page_administrator.png)
 
 - **Tips: The events table on the main page shows all the events for the day.**
 
@@ -46,13 +46,13 @@ This is the page that the user must be on at the start to complete the use case.
 There the pages that the user must be on at the start to complete the use case.
 
 ### Main Page
-![Main Page](/02-analysis/UI/organizer/17-view_all_events.png)
+![Main Page](/02-analysis/UI/organizer/17-main_page_organiser.png)
 
 ### Select Date
 ![Select Date](/02-analysis/UI/customer/33-display_date.png)
 
 ### Selected Date Events
-![Selected Date Events](/02-analysis/UI/organizer/17-view_all_events.png)
+![Selected Date Events](/02-analysis/UI/organizer/17-main_page_organiser.png)
 
 - **Tips: The events table on the main page shows all the events for the day.**
 
@@ -60,13 +60,13 @@ There the pages that the user must be on at the start to complete the use case.
 There the pages that the user must be on at the start to complete the use case.
 
 ### Main Page
-![Main Page](/02-analysis/UI/customer/34-view_all_events.png)
+![Main Page](/02-analysis/UI/customer/34-main_page_customer.png)
 
 ### Select Date
 ![Select Date](/02-analysis/UI/customer/33-display_date.png)
 
 ### Selected Date Events
-![Selected Date Events](/02-analysis/UI/customer/34-view_all_events.png)
+![Selected Date Events](/02-analysis/UI/customer/34-main_page_customer.png)
 
 
 - **Tips: The events table on the main page shows all the events for the day.**
