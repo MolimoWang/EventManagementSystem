@@ -33,7 +33,7 @@ This use case allows an organizer to edit the details of an existing event in th
    -TicketPrices 
 5. The organizer clicks "Save Changes" to confirm the changes.
 6. The system shows the created details of the event on the view events page (22-view_event_details).
-
+ 
 ### 02 - Alternate course of events
 - None
 ## Exceptions
