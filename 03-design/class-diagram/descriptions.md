@@ -3,9 +3,9 @@
 
 Q1: is they need types?
 
-1. Administrator: id: Long, name: String, email: String, password: String, role: ROLE
-2. Organiser: id: Long, name: String, email: String, password: String, role: ROLE, address: String, companyName: String, phoneNumber: String
-3. Customer: id: Long, name: String, email: String, password: String, role: ROLE
+1. Administrator: id: Long, name: String, email: String, password: String, role: Role
+2. Organiser: id: Long, name: String, email: String, password: String, role: Role, address: String, companyName: String, phoneNumber: String
+3. Customer: id: Long, name: String, email: String, password: String, role: Role
 4. Ticket: id: Long, type: String, price: Double
 5. TicketQuantity: id: Long, ticketTypeName: String, numberAvailable: int, numberSold: int, price: Double
 6. TicketAvailability: id: Long, ticketTypeName: String, numberAvailable: int

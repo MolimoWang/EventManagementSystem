@@ -122,8 +122,8 @@ package "services" #LightYellow {
         +getVenue(venueName: String):Venue
         +getVenues():Venue[*]
         +getMyVenues(organiserId:Long):Venue[*]
-        +createVenue(name: String,address: String,contactName: String,contactPhoneNumber: String,contactEmail: String,capacity: TicketAvailability[*]): Boolean
-        +updateVenue(name: String,address: String,contactName: String,contactPhoneNumber: String,contactEmail: String,capacity: TicketAvailability[*]): Boolean
+        +createVenue(name: String,address: String,contactName: String,contactPhoneNumber: String,contactEmail: String,ticketTypeName: String[*], numberAvailable:int[*]): Boolean
+        +updateVenue(name: String,address: String,contactName: String,contactPhoneNumber: String,contactEmail: String,ticketTypeName: String[*], numberAvailable:int[*]): Boolean
         +deleteVenue(venue: Venue): Boolean
         +saveVenue(venue:Venue):Boolean
         +checkDuplicateVenue(venue: Venue)
@@ -182,7 +182,7 @@ package "accounts"{
     + setCompanyName(companyName: String)
     + setPhoneNumber(phoneNumber: String)
   }
-class ROLE {
+enum Role {
         +ADMINISTRATOR
         +ORGANISER
         +CUSTOMER
@@ -192,7 +192,7 @@ class ROLE {
         - name: String
         - email: String
         - password: String
-        - role: ROLE
+        - role: Role
         +getId():Long
         +getName(): String
         +getEmail(): String
@@ -430,7 +430,7 @@ package "DTOs" #LightYellow {
     class AdministratorDTO {
         +name: String
         +email: String
-        +role: ROLE
+        +role: Role
         {static}AdministratorDTO()
         {static}AdministratorDTO(name:String,email:String,role:ROLE)
         getName():String
@@ -441,7 +441,7 @@ package "DTOs" #LightYellow {
     class OrganizerDTO {
         +name: String
         +email: String
-        +role: ROLE
+        +role: Role
         +address: String
         +companyName: String
         +phoneNumber: String
@@ -459,7 +459,7 @@ package "DTOs" #LightYellow {
     class CustomerDTO {
         +name: String
         +email: String
-        +role: ROLE
+        +role: Role
         {static}CustomerDTO()
         {static}CustomerDTO(name:String,email:String,role:ROLE)
         getName():String
@@ -642,6 +642,7 @@ VenueSystem "1"--> "-VenueService 1" VenueService
 class EventSystem {
     +createEvent(eventDTO: EventDTO, m: Model)
     +viewEvent(eventId: Long, m : Model)
+    +viewEventRegistration(eventId: Long, m : Model)
     +deleteEvent(eventId: Long, m : Model)
     +updateEvent(eventAlterDTO: EventAlterDTO, m: Model)
     +displayDate(date: Date, m: Model)
