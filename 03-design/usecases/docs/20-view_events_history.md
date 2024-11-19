@@ -3,16 +3,14 @@
 ## Basic Course of Events
 
 ### Course of Events
-- The admin performs the display use case (01-view_all_events.png).
-- The admin selects "Events History" from the display.
-- The system will display all event, including:
+- 1.The administrator performs the display use case (01-main_page_administrator.png).
+- 2.The administrator selects "Events History" from the display.
+- 3.The system will display all related events **(02-view_events_history.png)**, including:
     1.  Event Name   
     2.  Event Date   
     3.  Venue Name   
     4.  The number of Reservation   
-    5.  Delete (The admin can delete this event)
-- The system updates the display to show events history(01-view_all_events.png)
-
+    5.  Delete (The administrator can delete this event)
 
 ### Sequence Diagram
 
