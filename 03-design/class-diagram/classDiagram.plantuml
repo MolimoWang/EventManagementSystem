@@ -119,7 +119,7 @@ package "services" #LightYellow {
 
     class VenueService {
         {static}+VenueService(VenueRepository,TicketRepository,OrganiserRepository)
-        +getVenue(venueName: String):Venue
+        +getVenue(venueId: String):Venue
         +getVenues():Venue[*]
         +getMyVenues(organiserId:Long):Venue[*]
         +createVenue(name: String,address: String,contactName: String,contactPhoneNumber: String,contactEmail: String,ticketTypeName: String[*], numberAvailable:int[*]): Boolean
@@ -151,6 +151,7 @@ package "services" #LightYellow {
         {static}+TicketService(TicketRepository,CustomerRepository,EventRepository)
         +getTicket(ticketId: Long): Ticket
         +getMyTicket(customerEmail: String):Ticket[*]
+        +checkEventHasStarted(eventName: String):Boolean
         +checkTimeoutCancel(ticketId: Long):Boolean
         +buyTicket(customerEmail: String, eventName: String, ticketQuantity: String): Ticket
         +getTicketOwner(eventName: String):Customer
@@ -320,8 +321,10 @@ interface TicketInterface <<Interface>>{
             - id: Long
             - type : String
             - price : Double
+            - customerId : Long
+            - eventId : Long
             {static}Ticket()
-            {static}Ticket(type: String, price: Double)
+            {static}Ticket(type: String, price: Double,customerId : Long,eventId : Long)
             +getId():Long
         }
 
@@ -663,7 +666,7 @@ class TicketSystem {
     +listMyTickets(customerEmail: String, m : Model)
     +listTicketDetails(ticket:Ticket, m : Model)
     +listRegisteredCustomer(eventId: Long, m : Model)
-    +buyTicket(customerEmail: String, eventName: String, ticketType: String, m : Model)
+    +buyTicket(customerEmail: String, eventName: String, ticketTypeName: String, m : Model)
     +viewTicketDetails(ticketId : long, m : Model)
     +cancelTicket(customerId: Long, eventId: Long, m : Model)
 }

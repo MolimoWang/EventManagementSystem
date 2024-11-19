@@ -1,10 +1,9 @@
 # 28 View Purchased Tickets
 
 ## Basic Course of Events
-- The user clicks 'Tickets' on their main page (34-view_all_events.png).
+- The user clicks 'Tickets' on their main page (34-main_page_customer.png).
 - The system turns to the ticket list page (40-view_purchased_tickets.png) and displays all tickets purchased by the user.
-- The system retrieves the purchased tickets associated with the user's email from the database.
-- If there are purchased tickets, the system proceeds to display them on the ticket list page.
+
 
 ### Sequence Diagram
 ![View Purchased Tickets](/02-analysis/sequence-diagrams/User/28-tickets_list.png)

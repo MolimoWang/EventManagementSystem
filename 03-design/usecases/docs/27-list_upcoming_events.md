@@ -1,11 +1,9 @@
 # 27 List Upcoming Events
 
 ## Basic Course of Events
-- The customer selects 'Upcoming' option from the main page (34-view_all_events.png).
+- The customer selects 'Upcoming' option from the main page (34-main_page_customer.png).
 - The system turns to the list upcoming events page (36-list_upcoming_events.jpg) and displays the user's upcoming events.
-- The system retrieves the upcoming events from the database.
-- For each event in the upcoming events list, the system fetches event details.
-- If there are upcoming events, the system proceeds to display them.
+
 
 ### Sequence Diagram
 ![List Upcoming Events](/02-analysis/sequence-diagrams/User/27-list_upcoming_events.png)
