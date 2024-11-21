@@ -1,4 +1,4 @@
-# 24 List My Venues
+# 23 List My Venues
 
 ## Basic Course of Events
 1. The organizer selects the "My Venues" option from the main page.

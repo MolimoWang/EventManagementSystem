@@ -1,4 +1,4 @@
-# 29 User Purchase Ticket
+# 28 User Purchase Ticket
 
 ## Basic Course of Events
 - The user selects 'Buy it!' option for an event on the list upcoming events page (36-list_upcoming_events.jpg).

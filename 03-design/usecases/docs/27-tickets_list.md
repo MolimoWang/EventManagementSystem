@@ -1,4 +1,4 @@
-# 28 View Purchased Tickets
+# 27 View Purchased Tickets
 
 ## Basic Course of Events
 - The user clicks 'Tickets' on their main page (34-main_page_customer.png).

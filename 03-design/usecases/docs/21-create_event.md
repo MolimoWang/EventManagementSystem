@@ -1,4 +1,4 @@
-# 22 Create Event
+# 21 Create Event
 
 ## Basic Course of Events
 1. The organizer selects the "+" option from the list my events page (18-list_my_events.png).

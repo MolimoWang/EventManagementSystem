@@ -43,33 +43,30 @@ file and is linked below.
 14. [View All Accounts](/03-design/usecases/docs/13-view_all_accounts.md)
 15. [Disable Account](/03-design/usecases/docs/14-disable_account.md)
 16. [Delete Account](/03-design/usecases/docs/15-delete_account.md)
-17. [Edit Account Permission](/03-design/usecases/docs/16-edit_account_permission.md)
-18. [View All Venues](/03-design/usecases/docs/16-view_all_venues.md)
-19. [Delete Venue](/03-design/usecases/docs/17-delete_venue.md)
-20. [View Venue Usage History](/03-design/usecases/docs/18-view_venue_usage_history.md)
-21. [View Events History](/03-design/usecases/docs/19-view_events_history.md)
-22. [List My Events](/03-design/usecases/docs/20-list_my_events.md)
-23. [Create Event](/03-design/usecases/docs/21-create_event.md)
-24. [Edit Event](/03-design/usecases/docs/22-edit_event.md)
-25. [List My Venues](/03-design/usecases/docs/23-list_my_venues.md)
-26. [View Venue Bookings](/03-design/usecases/docs/24-view_venue_bookings.md)
-27. [Register Account](/03-design/usecases/docs/25-register_account.md)
-28. [List Upcoming Events](/03-design/usecases/docs/26-list_upcoming_events.md)
-29. [Tickets List](/03-design/usecases/docs/27-tickets_list.md)
-30. [Purchase Ticket](/03-design/usecases/docs/28-purchase_ticket.md)
-31. [View Ticket Details](/03-design/usecases/docs/29-view_ticket_details.md)
-32. [Cancel Ticket](/03-design/usecases/docs/30-cancel_ticket.md)
+17. [View All Venues](/03-design/usecases/docs/16-view_all_venues.md)
+18. [Delete Venue](/03-design/usecases/docs/17-delete_venue.md)
+19. [View Venue History](/03-design/usecases/docs/18-view_venue_usage_history.md)
+20. [View Events History](/03-design/usecases/docs/19-view_events_history.md)
+21. [List My Events](/03-design/usecases/docs/20-list_my_events.md)
+22. [Create Event](/03-design/usecases/docs/21-create_event.md)
+23. [Edit Event](/03-design/usecases/docs/22-edit_event.md)
+24. [List My Venues](/03-design/usecases/docs/23-list_my_venues.md)
+25. [View Venue Bookings](/03-design/usecases/docs/24-view_venue_bookings.md)
+26. [Register Account](/03-design/usecases/docs/25-register_account.md)
+27. [List Upcoming Events](/03-design/usecases/docs/26-list_upcoming_events.md)
+28. [Tickets List](/03-design/usecases/docs/27-tickets_list.md)
+29. [Purchase Ticket](/03-design/usecases/docs/28-purchase_ticket.md)
+30. [View Ticket Details](/03-design/usecases/docs/29-view_ticket_details.md)
+31. [Cancel Ticket](/03-design/usecases/docs/30-cancel_ticket.md)
 
 ## Class Diagram
 
 The class diagram represents the information gained about the system by completing the use case realisations.
 
-[//]: # (这个不是最终的图,需要进一步调整)
 ![class diagram](class-diagram/class-diagram.svg)
 
 ## Data Persistence
 
-[//]: # (这个也要改)
 Within the restaurant the following classes should be maintained between executions.
 
 1. Customer - id, name, phone number
@@ -79,12 +76,10 @@ Within the restaurant the following classes should be maintained between executi
 
 ### Relationships
 
-[//]: # (要改)
-
 1. Customer - Reservation (1 to many)
 2. Reservation - Customer (1 to 1)
-2. Table - Booking (1 to many)
-3. Booking - Table (1 to 1)
+3. Table - Booking (1 to many)
+4. Booking - Table (1 to 1)
 
 ## Milestone 3 Design
 
@@ -122,33 +117,32 @@ Special note: the task of each use case includes: sequence diagrams(png and txt 
 | Use Case 13: "View All Accounts"        | TM8            |             |             |          |
 | Use Case 14: "Disable Account"          | TM8            |             |             |          |
 | Use Case 15: "Delete Account"           | TM8            |             |             |          |
-| Use Case 16: "Edit Account Permission"  | TM8            |             |             |          |
-| Use Case 17: "View All Venues"          | TM7            |             |             |          |
-| Use Case 18: "Delete Venue"             | TM7            |             |             |          |
-| Use Case 19: "View Venue Usage History" | TM7            |             |             |          |
-| Use Case 20: "View Events History"      | TM7            |             |             |          |
-| Use Case 21: "List My Events"           | TM6            |             |             |          |
-| Use Case 22: "Create Event"             | TM6            |             |             |          |
-| Use Case 23: "Edit Event"               | TM6            |             |             |          |
-| Use Case 24: "List My Venues"           | TM6            |             |             |          |
-| Use Case 25: "View Venue Bookings"      | TM6            |             |             |          |
-| Use Case 26: "Register Account"         | TM1            |             |             |          |
-| Use Case 27: "List Upcoming Events"     | TM1            |             |             |          |
-| Use Case 28: "Tickets List"             | TM1            |             |             |          |
-| Use Case 29: "Purchase Ticket"          | TM1            |             |             |          |
-| Use Case 30: "View Ticket Details"      | TM2            |             |             |          |
-| Use Case 31: "Cancel Ticket"            | TM2            |             |             |          |
+| Use Case 16: "View All Venues"          | TM7            |             |             |          |
+| Use Case 17: "Delete Venue"             | TM7            |             |             |          |
+| Use Case 18: "View Venue Usage History" | TM7            |             |             |          |
+| Use Case 19: "View Events History"      | TM7            |             |             |          |
+| Use Case 20: "List My Events"           | TM6            |             |             |          |
+| Use Case 21: "Create Event"             | TM6            |             |             |          |
+| Use Case 22: "Edit Event"               | TM6            |             |             |          |
+| Use Case 23: "List My Venues"           | TM6            |             |             |          |
+| Use Case 24: "View Venue Bookings"      | TM6            |             |             |          |
+| Use Case 25: "Register Account"         | TM1            |             |             |          |
+| Use Case 26: "List Upcoming Events"     | TM1            |             |             |          |
+| Use Case 27: "Tickets List"             | TM1            |             |             |          |
+| Use Case 28: "Purchase Ticket"          | TM1            |             |             |          |
+| Use Case 29: "View Ticket Details"      | TM2            |             |             |          |
+| Use Case 30: "Cancel Ticket"            | TM2            |             |             |          |
 
 #### Reflection Statements
 
 | Team Member | Contribution Reflection Statement                                             |
 |-------------|-------------------------------------------------------------------------------|
-| TM1         | <*Required*: Completed the 11,26,27,28,29 use case. >                         |
+| TM1         | <*Required*: Completed the 11,25,26,27,28 use case. >                         |
 | TM2         | <*Required*: Completed the 10,30,11 use case and class diagram.>              |
 | TM3         | <*Required*: Completed the 07,08,09 use case and class diagram. >             |
 | TM4         | <*Required*: Completed the 00,01,02 use case and class diagram. >             |
 | TM5         | <*Required*: Completed the 03,04,05,06 use case. >                            |
-| TM6         | <*Required*: Completed the 21,22,23,24,25 use case. >                         |
-| TM7         | <*Required*: Completed the 17,18,19,20 use case and write basic README file.> |
+| TM6         | <*Required*: Completed the 20,21,22,23,24 use case. >                         |
+| TM7         | <*Required*: Completed the 16,17,18,19 use case and write basic README file.> |
 | TM8         | <*Required*: Completed the 12,13,14,15,16 use case. >                         |
 

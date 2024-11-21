@@ -1,4 +1,4 @@
-# 17 View All Venues
+# 16 View All Venues
 
 ## Basic Course of Events
 
@@ -13,7 +13,7 @@
 
 ### Sequence Diagram
 
-![view all venues for administrator](/03-design/sequence-diagrams/Administrator/17-view_all_venues.png)
+![view all venues for administrator](/03-design/sequence-diagrams/Administrator/16-view_all_venues.png)
 
 ## Alternate Course of Events
 - None.

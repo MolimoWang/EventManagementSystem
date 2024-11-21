@@ -1,4 +1,4 @@
-# 19 View Venue Usage History
+# 18 View Venue Usage History
 
 
 ## Basic Course of Events
@@ -9,7 +9,7 @@
 - 4.The system updates the display to show all related events. **(05-view_venue_usage_history.png)**
 
 ### Sequence Diagram
-![view_venue_usage_history](/03-design/sequence-diagrams/Administrator/19-view_venue_usage_history.png)
+![view_venue_usage_history](/03-design/sequence-diagrams/Administrator/18-view_venue_usage_history.png)
 
 ## Alternate Course of Events
 

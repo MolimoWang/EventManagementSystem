@@ -1,4 +1,4 @@
-# 26 Register Account
+# 25 Register Account
 
 ## Basic Course of Events
 - A new customer select 'Create User Account' in the Login page.
