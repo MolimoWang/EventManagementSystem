@@ -31,17 +31,28 @@ end
 alt the account is Customer
 activate as
   as->cr:allaccounts：=findAll()
+  as-->ac: return customerAccounts
 else the account is Administrator
 as->ar:allaccounts：=findAll()
+as-->ac: return administratorAccounts
 else the account is Organizer
 as->or:allaccounts：=findAll()
+as-->ac: return organizerAccounts
 end
-as-->ac: return allAccounts
 
 deactivate as
 
-ac -> m: addAttribute("accounts" : List<Account>, accounts)
-ac --> d: return "view-all-accounts"
+alt the class of allAccounts is Administrator[*]
+ac->m: addAttribute("accounts" : String, administratorAccounts : Administrator[*])
+ac-->d:return "view_all_accounts_administrator"
+
+else the class of allAccounts is Customer[*]
+ac->m: addAttribute("accounts" : String, customerAccounts : Customer[*])
+ac-->d:return "view_all_accounts_customer"
+else the class of allAccounts is Organiser[*]
+ac->m: addAttribute("accounts" : String, organizerAccounts : Organiser[*])
+ac-->d:return "view_all_accounts_organizer"
+end
 deactivate ac
 
 d->*nv: View(model : Model)
