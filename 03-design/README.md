@@ -85,54 +85,54 @@ The class diagram represents the information gained about the system by completi
 
 Special note: the task of each use case includes: sequence diagrams(png and txt files).
 
-| Item                                    | Primary Author | Contributor | Contributor | Reviewer |
-|-----------------------------------------|----------------|-------------|-------------|----------|
-| Modify use cases based on feedback      | TM             |             |             |          |
-| Class Diagram                           | TM2&TM4&TM3    |             |             |          |
-| Class Diagram Document                  | TM             |             |             |          |
-| Final README file                       | TM7            |             |             |          |
-| Use Case 00: "Login"                    | TM4            |             |             |          |
-| Use Case 01: "View All Events"          | TM4            |             |             |          |
-| Use Case 02: "Delete Event"             | TM4            |             |             |          |
-| Use Case 03: "View Event Details"       | TM5            |             |             |          |
-| Use Case 04: "View Event Registrations" | TM5            |             |             |          |
-| Use Case 05: "Create Venue"             | TM5            |             |             |          |
-| Use Case 06: "Edit Venue"               | TM5            |             |             |          |
-| Use Case 07: "View Venue Details"       | TM3            |             |             |          |
-| Use Case 08: "Modify Account"           | TM3            |             |             |          |
-| Use Case 09: "View Account"             | TM3            |             |             |          |
-| Use Case 10: "Search Filter Events"     | TM2            |             |             |          |
-| Use Case 11: "Display date"             | TM1            |             |             |          |
-| Use Case 12: "Create Account"           | TM8            |             |             |          |
-| Use Case 13: "View All Accounts"        | TM8            |             |             |          |
-| Use Case 14: "Disable Account"          | TM8            |             |             |          |
-| Use Case 15: "Delete Account"           | TM8            |             |             |          |
-| Use Case 16: "View All Venues"          | TM7            |             |             |          |
-| Use Case 17: "Delete Venue"             | TM7            |             |             |          |
-| Use Case 18: "View Venue Usage History" | TM7            |             |             |          |
-| Use Case 19: "View Events History"      | TM7            |             |             |          |
-| Use Case 20: "List My Events"           | TM6            |             |             |          |
-| Use Case 21: "Create Event"             | TM6            |             |             |          |
-| Use Case 22: "Edit Event"               | TM6            |             |             |          |
-| Use Case 23: "List My Venues"           | TM6            |             |             |          |
-| Use Case 24: "View Venue Bookings"      | TM6            |             |             |          |
-| Use Case 25: "Register Account"         | TM1            |             |             |          |
-| Use Case 26: "List Upcoming Events"     | TM1            |             |             |          |
-| Use Case 27: "Tickets List"             | TM1            |             |             |          |
-| Use Case 28: "Purchase Ticket"          | TM1            |             |             |          |
-| Use Case 29: "View Ticket Details"      | TM2            |             |             |          |
-| Use Case 30: "Cancel Ticket"            | TM2            |             |             |          |
+| Item                                    | Primary Author | Contributor | Contributor | Reviewer    |
+|-----------------------------------------|----------------|-------------|-------------|-------------|
+| Class Diagram                           | TM2            | TM3         | TM4         | TM2&TM3&TM4 |
+| Responsibilities of Classes             | TM8            | TM3         |             | TM2         |
+| Description of Database                 | TM2            | TM3         |             | TM4         |
+| Final README file                       | TM7            | TM2         | TM1         | TM1         |
+| Use Case 00: "Login"                    | TM4            | TM2         |             | TM2         |
+| Use Case 01: "View All Events"          | TM4            | TM2         |             | TM2         |
+| Use Case 02: "Delete Event"             | TM4            | TM5         |             | TM2         |
+| Use Case 03: "View Event Details"       | TM5            | TM6         |             | TM2         |
+| Use Case 04: "View Event Registrations" | TM5            | TM6         |             | TM2         |
+| Use Case 05: "Create Venue"             | TM5            | TM6         |             | TM2         |
+| Use Case 06: "Edit Venue"               | TM5            | TM2         |             | TM2         |
+| Use Case 07: "View Venue Details"       | TM3            | TM7         |             | TM2         |
+| Use Case 08: "Modify Account"           | TM3            | TM2         |             | TM2         |
+| Use Case 09: "View Account"             | TM3            | TM7         |             | TM2         |
+| Use Case 10: "Search Filter Events"     | TM2            |             |             | TM2         |
+| Use Case 11: "Display date"             | TM1            |             |             | TM2         |
+| Use Case 12: "Create Account"           | TM8            |             |             | TM2&TM3     |
+| Use Case 13: "View All Accounts"        | TM8            | TM3         |             | TM2&TM3     |
+| Use Case 14: "Disable Account"          | TM8            | TM3         |             | TM2&TM3     |
+| Use Case 15: "Delete Account"           | TM8            | TM3         |             | TM2&TM3     |
+| Use Case 16: "View All Venues"          | TM7            |             |             | TM2&TM3     |
+| Use Case 17: "Delete Venue"             | TM7            |             |             | TM2&TM3     |
+| Use Case 18: "View Venue Usage History" | TM7            |             |             | TM2         |
+| Use Case 19: "View Events History"      | TM7            |             |             | TM2         |
+| Use Case 20: "List My Events"           | TM6            |             |             | TM2         |
+| Use Case 21: "Create Event"             | TM6            | TM5         |             | TM2         |
+| Use Case 22: "Edit Event"               | TM6            | TM5         |             | TM2         |
+| Use Case 23: "List My Venues"           | TM6            | TM5         |             | TM2         |
+| Use Case 24: "View Venue Bookings"      | TM6            | TM5         |             | TM2         |
+| Use Case 25: "Register Account"         | TM1            |             |             | TM2         |
+| Use Case 26: "List Upcoming Events"     | TM1            |             |             | TM2         |
+| Use Case 27: "Tickets List"             | TM1            |             |             | TM2         |
+| Use Case 28: "Purchase Ticket"          | TM1            |             |             | TM2         |
+| Use Case 29: "View Ticket Details"      | TM2            |             |             | TM2         |
+| Use Case 30: "Cancel Ticket"            | TM2            |             |             | TM2         |
 
 #### Reflection Statements
 
-| Team Member | Contribution Reflection Statement                                             |
-|-------------|-------------------------------------------------------------------------------|
-| TM1         | <*Required*: Completed the 11,25,26,27,28 use case. >                         |
-| TM2         | <*Required*: Completed the 10,30,11 use case and class diagram.>              |
-| TM3         | <*Required*: Completed the 07,08,09 use case and class diagram. >             |
-| TM4         | <*Required*: Completed the 00,01,02 use case and class diagram. >             |
-| TM5         | <*Required*: Completed the 03,04,05,06 use case. >                            |
-| TM6         | <*Required*: Completed the 20,21,22,23,24 use case. >                         |
-| TM7         | <*Required*: Completed the 16,17,18,19 use case and write basic README file.> |
-| TM8         | <*Required*: Completed the 12,13,14,15,16 use case. >                         |
+| Team Member | Contribution Reflection Statement                                                                                                                                   |
+|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| TM1         | <*Required*: Assist with final inspection. Completed the 11,25,26,27,28 use case. >                                                                                 |
+| TM2         | <*Required*: Assign tasks to everyone and give regular feedback on all sequence diagrams. Completed the 10,30,11 use case, class diagram and database description.> |
+| TM3         | <*Required*: Assist with final inspection. Completed the 07,08,09 use case and class diagram. >                                                                     |
+| TM4         | <*Required*: Completed the 00,01,02 use case, class diagram, database description, fix up classes description. >                                                    |
+| TM5         | <*Required*: Completed the 03,04,05,06 use case. >                                                                                                                  |
+| TM6         | <*Required*: Completed the 20,21,22,23,24 use case. >                                                                                                               |
+| TM7         | <*Required*: Assist with final inspection. Completed the 16,17,18,19 use case and write basic README file.>                                                         |
+| TM8         | <*Required*: Completed the 12,13,14,15,16 use case. >                                                                                                               |
 
