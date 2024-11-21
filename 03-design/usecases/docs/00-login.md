@@ -1,9 +1,9 @@
 # 00 Login
 
 ## Basic Course of Events
-- 1.The customer opens the application.
+- 1.The user opens the application.
 - 2.The system presents a login page and prompt the user to enter their email and password
-- 3.The customer enters their credentials.
+- 3.The user enters their credentials.
 - 4.The system passes requests to the service.
 - 5.Service queries all accounts and returns results.
 - 6.The system displays the main page of the system. The administrator is on their main page(01-view_all_events.png). The organizer is on their main page(17-view_all_events.png). The customer is on their main page(34-view_all_events.png).
