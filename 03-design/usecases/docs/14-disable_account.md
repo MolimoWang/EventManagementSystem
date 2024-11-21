@@ -31,7 +31,7 @@
 - The system displays a message indicating the account is already inactive.
 
 ### Sequence Diagram-- Alternate Course of Events
-![Account already disabled](/02-analysis/sequence-diagrams/Administrator/14-disable_account_Account_already_Disabled.png)
+
 
 ## UI Sketches
 This is the page that the user must be on at the start to complete the use case.
