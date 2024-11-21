@@ -1,4 +1,4 @@
-# 22 Create Event
+# 21 Create Event
 
 ## Basic Course of Events
 1. The organizer selects the "+" option from the list my events page (18-list_my_events.png).
@@ -13,7 +13,7 @@
 
 
 ### Sequence Diagram
-![Create Event Page](/02-analysis/sequence-diagrams/Organizer/22-create_event.png)
+![Create Event Page](/02-analysis/sequence-diagrams/Organizer/21-create_event.png)
 
 ## Alternate Course of Events
 - None

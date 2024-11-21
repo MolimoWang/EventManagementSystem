@@ -1,4 +1,4 @@
-# 23 Edit Event
+# 22 Edit Event
 
 ## Basic Course of Events
 1. The organizer selects the "Edit" option of a certain event on list my events page (18-list_my_events.png).
@@ -8,7 +8,7 @@
 5. The system shows the created details of the event on the view events page (22-view_event_details).
 
 ### Sequence Diagram
-![Edit Event Page](/02-analysis/sequence-diagrams/Organizer/23-edit_event.png)
+![Edit Event Page](/02-analysis/sequence-diagrams/Organizer/22-edit_event.png)
 
 ## Alternate Course of Events
 - None

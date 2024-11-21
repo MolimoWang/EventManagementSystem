@@ -1,4 +1,4 @@
-# 25 View Venue Bookings
+# 24 View Venue Bookings
 
 ## Basic Course of Events
 1. The organizer selects one specific date and time, then selects the "Event Venue" option from the create event page (19-create_event.png).
@@ -6,7 +6,7 @@
 3. Organizer select one available venue from the list to be the venue which the events will use.
 
 ### Sequence Diagram
-![View Venues Bookings](/02-analysis/sequence-diagrams/Organizer/25-view_venue_bookings.png)
+![View Venues Bookings](/02-analysis/sequence-diagrams/Organizer/24-view_venue_bookings.png)
 
 ## Alternate Course of Events
 

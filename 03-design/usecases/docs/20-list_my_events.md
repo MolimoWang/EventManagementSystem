@@ -1,4 +1,4 @@
-# 21 List My Events
+# 20 List My Events
 
 ## Basic Course of Events
 - The organizer click the 'My Events' on their main page(17-view_all_events.png).
@@ -6,7 +6,7 @@
 
 
 ### Sequence Diagram
-![Edit Venue Page](/02-analysis/sequence-diagrams/Organizer/21-list_my_events.png)
+![Edit Venue Page](/02-analysis/sequence-diagrams/Organizer/20-list_my_events.png)
 
 ## Alternate Course of Events
 
