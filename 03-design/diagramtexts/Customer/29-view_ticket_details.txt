@@ -1,4 +1,4 @@
-title 30-View Ticket Details Basic
+title 29-View Ticket Details Basic
 
 actor "Customer" as u
 
@@ -13,7 +13,7 @@ participant "<link:_>: TicketRepository" as tr
 participant "<link:_>: TicketService" as tes
 
 
-==1.The customer selects 'View' option of a ticket from \n their ticket list(on the ticket list page(40-view_purchased_tickets.png).==
+==1.The customer selects 'View' option of a ticket from \n their ticket list(on the ticket list page**(40-view_purchased_tickets.png)**.==
 
 
 u -> w: click()
@@ -47,5 +47,5 @@ deactivate nv
 
 d-->w:return newView
 deactivate d
-== 2. The system turn to the ticket information page\n(37-view_ticket_details_user.png) which show the ticket details.==
+== 2. The system turn to the ticket information page\n**(37-view_ticket_details_user.png)** which show the ticket details.==
 

@@ -5,7 +5,8 @@
 - The system turn to the ticket information page(37-view_ticket_details_user.png) which show the ticket details.
 
 ### Sequence Diagram
-![View Ticket Details](/02-analysis/sequence-diagrams/User/30-view_ticket_details.png)
+
+![View Ticket Details](/03-design/sequence-diagrams/Customer/29-view_ticket_details-basic.png)
 
 ## Alternate Course of Events
 -None

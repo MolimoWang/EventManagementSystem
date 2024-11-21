@@ -1,23 +1,14 @@
 # 26 List Upcoming Events
 
 ## Basic Course of Events
+
 - The customer selects 'Upcoming' option from the main page (34-main_page_customer.png).
 - The system turns to the list upcoming events page (36-list_upcoming_events.jpg) and displays the user's upcoming events.
 
 
 ### Sequence Diagram
-![List Upcoming Events](/02-analysis/sequence-diagrams/User/27-list_upcoming_events.png)
 
-## Alternate Course of Events
-
-### No Upcoming Events
-- The user selects 'Upcoming' option from the user management menu.
-- The system forwards the request to the EventService to retrieve upcoming events.
-- The service checks for upcoming events in the database and finds none.
-- The system prompts the user that there are no upcoming events.
-
-### Sequence Diagram -- Alternate Course of Events
-![No Upcoming Events](/02-analysis/sequence-diagrams/User/27-list_upcoming_evnets_no.png)
+![List Upcoming Events](/03-design/sequence-diagrams/Customer/26-list_upcoming_events-basic.png)
 
 ## UI Sketches
 

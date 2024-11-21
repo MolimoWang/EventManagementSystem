@@ -10,7 +10,8 @@
 - The system displays the tickets purchased by the user.
 
 ### Sequence Diagram
-![User Purchase Ticket](/02-analysis/sequence-diagrams/User/29-purchase_ticket.png)
+
+![User Purchase Ticket](/03-design/sequence-diagrams/Customer/28-purchase_ticket-basic.png)
 
 ## Alternate Course of Events
 
@@ -23,19 +24,7 @@
 - The service checks ticket availability and finds no tickets are available (due to synchronization issues).
 - The system prompts the user that the tickets are sold out.
 
-### Sequence Diagram -- Alternate Course of Events
-![Insufficient Tickets](/02-analysis/sequence-diagrams/User/29-purchase_ticket_insufficient.png)
 
-### Select No
-- The user selects an event from the list of events.
-- The system displays the event interface with a 'Purchase' option.
-- The user selects 'Purchase'.
-- The system asks the user to confirm.
-- The user selects **No** to cancel the purchase.
-- The system returns to the previous interface without purchasing a ticket.
-
-### Sequence Diagram -- Alternate Course of Events
-![Select No](/02-analysis/sequence-diagrams/User/29-purchase_ticket_no.png)
 
 ## UI Sketches
 

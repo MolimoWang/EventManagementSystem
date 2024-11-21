@@ -54,7 +54,7 @@ file and is linked below.
 25. [View Venue Bookings](/03-design/usecases/docs/24-view_venue_bookings.md)
 26. [Register Account](/03-design/usecases/docs/25-register_account.md)
 27. [List Upcoming Events](/03-design/usecases/docs/26-list_upcoming_events.md)
-28. [Tickets List](/03-design/usecases/docs/27-tickets_list.md)
+28. [Tickets List](/03-design/usecases/docs/27-view_purchased_tickets.md)
 29. [Purchase Ticket](/03-design/usecases/docs/28-purchase_ticket.md)
 30. [View Ticket Details](/03-design/usecases/docs/29-view_ticket_details.md)
 31. [Cancel Ticket](/03-design/usecases/docs/30-cancel_ticket.md)

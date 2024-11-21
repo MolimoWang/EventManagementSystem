@@ -6,18 +6,8 @@
 
 
 ### Sequence Diagram
-![View Purchased Tickets](/02-analysis/sequence-diagrams/User/28-tickets_list.png)
 
-## Alternate Course of Events
-
-### No Purchased Tickets
-- The user clicks 'Tickets' on their main page (34-view_all_events.png).
-- The system turns to the ticket list page (40-view_purchased_tickets.png) and requests the purchased tickets associated with the user's email.
-- The service checks for any purchased tickets associated with the user and finds none.
-- The system displays a message to the user indicating that there are no purchased tickets.
-
-### Sequence Diagram -- Alternate Course of Events
-![No Purchased Tickets](/02-analysis/sequence-diagrams/User/28-tickets_list_empty.png)
+![View Purchased Tickets](/03-design/sequence-diagrams/Customer/27-view_purchased_tickets-basic.png)
 
 ## UI Sketches
 
