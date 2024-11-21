@@ -37,3 +37,8 @@ This page displays a list of upcoming events, allowing the user to select 'Buy i
 This page shows the tickets purchased by the user after a successful purchase.
 
 ![Ticket List Page](/02-analysis/UI/customer/40-view_purchased_tickets.png)
+
+## Data Outcome
+- **READ** - The details of the target ticket will be read and displayed.
+- **UPDATE** - The selected event will be added into the account system.
+

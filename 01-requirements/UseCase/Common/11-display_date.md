@@ -46,5 +46,5 @@ None
 
 ## Data Outcome
 - **READ** - The schedule will be read and displayed.
-- **CREARE** - The event of the selected date will be created.
+- **CREATE** - The event of the selected date will be created.
 - **UPDATE** - The event of the selected date will be updated.

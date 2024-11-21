@@ -58,3 +58,8 @@ This page is taken to when the user has successfully registered.
 This page is taken to when the user has successfully registered.
 
 ![Main Page](/02-analysis/UI/customer/34-main_page_customer.png)
+
+
+## Data Outcome
+- **CREATE**  - A new account will be created and added to the system.
+- **READ** - The details of the newly created account will be read and displayed.

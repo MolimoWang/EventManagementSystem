@@ -20,3 +20,6 @@ This is the page where the user clicks on 'Tickets' to view their purchased tick
 This page displays all the tickets purchased by the user. If there are no purchased tickets, a message will indicate that there are no tickets available.
 
 ![Ticket List Page](/02-analysis/UI/customer/40-view_purchased_tickets.png)
+
+## Data Outcome
+- **READ** - The purchased tickets in the ticket management will be read and displayed.

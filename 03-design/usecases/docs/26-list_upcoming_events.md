@@ -21,3 +21,6 @@ This is the page where the user selects the 'Upcoming' option to view their upco
 This page displays the user's upcoming events if available. If there are no upcoming events, a message will be shown indicating that no events are available.
 
 ![List Upcoming Events Page](/02-analysis/UI/customer/36-list_upcoming_events.png)
+
+## Data Outcome
+- **READ** - The list of the all upcoming events will be read and displayed.
