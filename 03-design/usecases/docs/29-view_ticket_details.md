@@ -24,3 +24,6 @@ This is the page that the user must be on at the start to complete the use case.
 | Ticket Information                                                             |
 |--------------------------------------------------------------------------------|
 | ![Cancel Ticket](/02-analysis/UI/customer/37-view_ticket_details_customer.png) |
+
+## Data Outcome
+- **Read** - The details of the ticket will be shown on the system and can be read.
