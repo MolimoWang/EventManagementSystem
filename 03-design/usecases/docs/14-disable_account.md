@@ -11,7 +11,7 @@
 
 ### Sequence Diagram
 
-![Disable account](/02-analysis/sequence-diagrams/Administrator/14-disable_account.png)
+![Disable account](/03-design/sequence-diagrams/Administrator/14-disable_account-Alternative_Do_Not_Disable.png)
 
 
 ## Alternate Course of Events
@@ -24,7 +24,7 @@
 
 ### Sequence Diagram-- Alternate Course of Events
 
-![Do not Disable](/02-analysis/sequence-diagrams/Administrator/14-disable_account_Do_not_Disable.png)
+![Do not Disable](/03-design/sequence-diagrams/Administrator/14-disable_account-Alternative_Do_Not_Disable.png)
 
 ### Account Already Disabled
 - The administrator selects an account to disable, but the account is already disabled.

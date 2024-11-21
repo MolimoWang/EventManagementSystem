@@ -11,7 +11,7 @@
 
 ### Sequence Diagram
 
-![Delete Account](/03-design/sequence-diagrams/Administrator/15-delete_account.png)
+![Delete Account](/03-design/sequence-diagrams/Administrator/15-delete_account-basic.png)
 
 ## Alternate Course of Events
 
@@ -24,7 +24,7 @@
 
 ### Sequence Diagram-- Alternate Course of Events
 
-![Do not delete](/02-analysis/sequence-diagrams/Administrator/15-delete_account_cancel.png)
+![Do not delete](/03-design/sequence-diagrams/Administrator/15-delete_account-Alternative_Do_Not_Delete.png)
 
 ### Event Not Found
 
