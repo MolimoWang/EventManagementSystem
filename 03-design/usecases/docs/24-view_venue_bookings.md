@@ -6,7 +6,7 @@
 3. Organizer select one available venue from the list to be the venue which the events will use.
 
 ### Sequence Diagram
-![View Venues Bookings](/02-analysis/sequence-diagrams/Organizer/24-view_venue_bookings.png)
+![View Venues Bookings](/03-design/sequence-diagrams/Organizer/24-view_venue_bookings.png)
 
 ## Alternate Course of Events
 
