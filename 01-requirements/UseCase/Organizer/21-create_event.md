@@ -20,16 +20,17 @@ This use case allows an organizer to create a new event to the system by providi
 ### 01 - Basic course of events
 
 #### Course of Events
-1. The organizer selects the "+" option from the list my events page (18-list_my_events.png).
-2. The system turn to create event page (19-create_event.png) which displays a form to enter event details, including:
+1. The organizer logs on and clicks 'event' button to list current events
+2. The organizer selects the "+" option from the list my events page (18-list_my_events.png)3
+3. The system turns to create event page (19-create_event.png) which displays a form to enter event details
+4. The system turn to create event page (19-create_event.png) which displays a form to enter event details, including:
    - Event Name
    - Date and Time
    - Venue
    - Description
    - Ticket Information (price)
-3. The organizer fills in the required details and clicks "Submit".
-4. The system updates the list of upcoming events and return to the list my events page (18-list_my_events.png).
-
+5. The organizer clicks "Submit" and a new event have been created.
+6. 5. The system updates the list of nupcoming events and\nreturn to the list my events page (18-list_my_events.png).
 
 
 
