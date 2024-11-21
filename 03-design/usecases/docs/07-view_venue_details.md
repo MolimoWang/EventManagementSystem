@@ -9,13 +9,13 @@
 
 
 ### Organizer
-![View All Events](/02-analysis/sequence-diagrams/Common/07-view_venue_details_organizer.png)
+![View All Events](/03-design/sequence-diagrams/Common/07-view_venue_details_organizer_basic.png)
 
 ### Administrator
-![View All Events](/02-analysis/sequence-diagrams/Common/07-view_venue_details_administrator.png)
+![View All Events](/03-design/sequence-diagrams/Common/07-view_venue_details_administrator_basic.png)
 
-### User
-![View All Events](/02-analysis/sequence-diagrams/Common/07-view_venue_details_user.png)
+### Customer
+![View All Events](/03-design/sequence-diagrams/Common/07-view_venue_details_customer_basic.png)
 
 
 
