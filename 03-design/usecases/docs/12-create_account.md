@@ -2,43 +2,14 @@
 
 ## Basic Course of Events-- Creating User
 - The administrator navigates to the 'View All Accounts' page, which displaying all existing accounts in the system.
-- The system displays a list of existing accounts.
+- The system displays three different types of user lists based on the administrator's selection at "view all accounts page".(07-view_all_accounts_administrators.png)(07-view_all_accounts_customers.png)(07-view_all_accounts_organisers.png)
 - The administrator selects 'New Account'.
-- The administrator selects the type of account : User.
-- The system presents a form for entering account information (Name, Email, Password).
+- The administrator selects the type of account.
+- The system presents a form for entering account information.
 - The administrator fills out the information.
 - The system validates the change and updates this new user account.
 - A confirmation message is shown to the administrator.
 
-### Sequence Diagram
-![create account for user](/03-design/sequence-diagrams/Administrator/12-create_account-basic.png)
-
-## Basic Course of Events-- Creating Organizer
-- The administrator navigates to the 'View All Accounts' page, which displaying all existing accounts in the system.
-- The system displays a list of existing accounts.
-- The administrator selects 'New Account'.
-- The administrator selects the type of account : Organizer.
-- The system presents a form for entering account information (Name, Email, Password, Address, Company Name, Phone Number).
-- The administrator fills out the information.
-- The system validates the change and updates this new organizer account.
-- A confirmation message is shown to the administrator.
-
-### Sequence Diagram
-
-![create account for organizer](/03-design/sequence-diagrams/Administrator/12-create_account-basic.png)
-
-## Basic Course of Events-- Creating Administrator
-- The administrator navigates to the 'View All Accounts' page, which displaying all existing accounts in the system.
-- The system displays a list of existing accounts.
-- The administrator selects 'New Account'.
-- The administrator selects the type of account : Administrator.
-- The system presents a form for entering account information (Name, Email, Password).
-- The administrator fills out the information.
-- The system validates the change and updates this new administrator account.
-- A confirmation message is shown to the administrator.
-
-### Sequence Diagram
-![create account for administrator](/03-design/sequence-diagrams/Administrator/12-create_account-basic.png)
 
 ## Alternate Course of Events-- Duplicate Email Error
 - The administrator navigates to the 'View All Accounts' page, which displaying all existing accounts in the system.

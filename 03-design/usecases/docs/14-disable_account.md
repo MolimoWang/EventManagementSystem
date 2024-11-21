@@ -3,11 +3,11 @@
 ## Basic Course of Events
 
 ### Course of Events
-
-- The administrator selects the account of the accounts list to disable in view all accounts page(7-view_all_accounts.png).
+- The system displays three different types of user lists based on the administrator's selection at "view all accounts page".(07-view_all_accounts_administrators.png)(07-view_all_accounts_customers.png)(07-view_all_accounts_organisers.png)
+- The administrator selects an account from one of the lists displaying all accounts of that type and chooses to disable it.
 - The system asks the administrator to confirm.
 - The administrator selects **Yes**.
-- The system update the view all accounts page(7-view_all_accounts.png) with this account disable.
+- The system update the view all accounts page with this account disable.
 
 ### Sequence Diagram
 
