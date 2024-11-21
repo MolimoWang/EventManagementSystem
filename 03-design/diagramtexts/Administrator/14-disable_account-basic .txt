@@ -25,62 +25,51 @@ activate d
 d->ac:disableAccount(accountId : Long, m : Model)
 activate ac
 
-ac -> as: getAccount(email : String)
+alt the selected account is a customer account
+ac -> as: getCustomer(email : String)
 activate as
 as->cr:a := findByEmail(email : String)
-alt the value of a is null
-  as->ar:a := findByEmail(email : String)
-end
-alt the value of a is null
-  as->or:a := findByEmail(email : String)
-end
 as-->ac:return a
 deactivate as
-
-ac -> as: disableAccount(a : Account)
+ac -> as: disableAccount(a : Customer)
 activate as
-alt the account is a customer
   as->cr:disableAccount(a : Customer)
-else the account is an organizer
-  as->or:disableAccount(a : Organizer)
-end
 as->a:<<disable>>
 destroy a
 as-->ac:
 deactivate as
-alt the account is a customer
 ac -> as: getCustomerAccounts()
-else the account is a administrator
-ac -> as:getAdministratorAccounts()
-else the account is a organizer
-ac -> as:getOrganizerAccounts()
-end
-alt the account is Customer
 activate as
-  as->cr:allaccounts：=findAll()
+  as->cr:customerAccounts：=findAll()
   as-->ac: return customerAccounts
-else the account is Administrator
-as->ar:allaccounts：=findAll()
-as-->ac: return administratorAccounts
-else the account is Organizer
-as->or:allaccounts：=findAll()
-as-->ac: return organizerAccounts
-
-end
-
 deactivate as
-alt the class of allAccounts is Administrator[*]
-ac->m: addAttribute("accounts" : String, administratorAccounts : Administrator[*])
-ac-->d:return "view_all_accounts_administrator"
-
-else the class of allAccounts is Customer[*]
 ac->m: addAttribute("accounts" : String, customerAccounts : Customer[*])
 ac-->d:return "view_all_accounts_customer"
-else the class of allAccounts is Organiser[*]
-ac->m: addAttribute("accounts" : String, organizerAccounts : Organiser[*])
-ac-->d:return "view_all_accounts_organizer"
-end
 
+
+
+
+else the selected account is a organiser account
+ac -> as: getOrganiser(email : String)
+activate as
+as->or:a := findByEmail(email : String)
+as-->ac:return a
+deactivate as
+ac -> as: disableOrganizer(a : Organiser)
+activate as
+  as->or:disableOrganiser(a : Organiser)
+as->a:<<disable>>
+destroy a
+as-->ac:
+deactivate as
+ac -> as: getOrganiserAccounts()
+activate as
+  as->or:organiserAccounts：=findAll()
+  as-->ac: return organiserAccounts
+  deactivate as
+ac->m: addAttribute("accounts" : String, organiserAccounts : Organiser[*])
+ac-->d:return "view_all_accounts_organisser"
+end
 
 deactivate ac
 d->*nv:View(model : Model)
@@ -93,4 +82,4 @@ deactivate nv
 d-->w:return newView
 deactivate d
 
-==4. The system update the view all accounts page(7-view_all_accounts.png) with this account disable.==
+==4. The system update the view all accounts page(7-view_all_accounts.png) with this account disabled.==
