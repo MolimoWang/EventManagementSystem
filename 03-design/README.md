@@ -65,21 +65,11 @@ The class diagram represents the information gained about the system by completi
 
 ![class diagram](class-diagram/class-diagram.svg)
 
-## Data Persistence
+## Description of Database
+[Description of Database](/03-design/class-diagram/descriptions.md)
 
-Within the restaurant the following classes should be maintained between executions.
-
-1. Customer - id, name, phone number
-2. Table - id, number, places
-3. WalkIn - id, table, date, time, covers, is overfull
-4. Reservation - id, customer, table, date, time, covers, is overfull
-
-### Relationships
-
-1. Customer - Reservation (1 to many)
-2. Reservation - Customer (1 to 1)
-3. Table - Booking (1 to many)
-4. Booking - Table (1 to 1)
+## Responsibilities of Classes
+[Responsibilities of Classes](/03-design/class-diagram/class_diagram_descriptions.md)
 
 ## Milestone 3 Design
 
@@ -89,7 +79,7 @@ Within the restaurant the following classes should be maintained between executi
 
 | Team Member | TM1 | TM2 | TM3 | TM4 | TM5 | TM6 | TM7 | TM8 |
 |-------------|-----|-----|-----|-----|-----|-----|-----|-----|
-| Percentage  | 12% | 12% | 12% | 12% | 12% | 12% | 12% | 12% |
+| Percentage  | 13% | 13% | 13% | 13% | 12% | 12% | 12% | 12% |
 
 #### Task Allocation
 
