@@ -43,3 +43,6 @@ This is the page that the user must be on at the start to complete the use case.
 ![Disable account](/02-analysis/UI/admin/15-disable_account.png)
 
 ![Already disabled](/02-analysis/UI/admin/Alternative/disable_account_already_disabled.jpg)
+
+## Data Outcome
+- **Update** - The login privileges of the selected account will be restricted

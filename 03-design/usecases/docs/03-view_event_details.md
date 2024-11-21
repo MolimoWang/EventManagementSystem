@@ -67,5 +67,5 @@ There the pages that the user must be on at the start to complete the use case.
 ## Data Outcome
 
 - **Read** - The event details will be shown on the system and the administrator, organizer or user can read it.
-- **UPDATE** - None
+
 

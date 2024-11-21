@@ -35,13 +35,13 @@
 ### Sequence Diagram
 
 ### Administrator Modifying Organizer Account
-![Administrator Modifying Other Accounts](/02-analysis/sequence-diagrams/Common/08-administrator_modify_account_organizer.png)
+![Administrator Modifying Other Accounts](/03-design/sequence-diagrams/Common/08-administrator_modify_account_organizer.png)
 
-### Administrator Modifying User Account
-![Administrator Modifying Other Accounts](/02-analysis/sequence-diagrams/Common/08-administrator_modify_account_user.png)
+### Administrator Modifying Customer Account
+![Administrator Modifying Other Accounts](/03-design/sequence-diagrams/Common/08-administrator_modify_account_customer.png)
 
 ### Administrator Modifying Administrator Account
-![Administrator Modifying Other Accounts](/02-analysis/sequence-diagrams/Common/08-modify_account_administrator.png)
+![Administrator Modifying Other Accounts](/03-design/sequence-diagrams/Common/08-administrator_modify_account_administrator.png)
 
 ### Course of Events-- Organizer Modifying Their Accounts
 - The organizer selects the "Edit" option from view account page(30-view_organizer_account).
@@ -52,9 +52,9 @@
 
 ### Sequence Diagram
 
-![Organizer Modifying Their Accounts](/02-analysis/sequence-diagrams/Common/08-modify_account_organizer.png)
+![Organizer Modifying Their Accounts](/03-design/sequence-diagrams/Common/08-modify_account_organizer.png)
 
-### Course of Events-- User Modifying Their Accounts
+### Course of Events-- Customer Modifying Their Accounts
 - The customer click the 'Account' option from the view account page(35-view_user_account.png).
 - The system displays the modify account page(42-edit_user_account.png).
 - The customer enters the updated details of the account.
@@ -63,15 +63,15 @@
 
 ### Sequence Diagram
 
-![User Modifying Their Accounts](/02-analysis/sequence-diagrams/Common/08-modify_account_user.png)
+![User Modifying Their Accounts](/03-design/sequence-diagrams/Common/08-modify_account_customer.png)
 
 ## Alternate Course of Events
 
 ### Invalid Password
 
-- The administrator or user selects the modify account functionality
+- The user selects the modify account functionality
 - The system displays the modify account page (07-modify-account) which shows the details of the selected account as editable fields
-- The administrator or user enters invalid or incomplete information.
+- The user enters invalid or incomplete information.
 - The system prompts for corrections and prevents submission until valid data is provided.
 
 
@@ -79,9 +79,9 @@
 
 ### Missing Required Fields
 
-- The administrator or user selects the modify account functionality
+- The user selects the modify account functionality
 - The system displays the modify account page (07-modify-account) which shows the details of the selected account as editable fields
-- If the administrator or user submits the form with missing required fields (e.g., name, password). The system highlights the missing fields and prevents submission until user provides the necessary information.
+- If the user submits the form with missing required fields (e.g., name, password). The system highlights the missing fields and prevents submission until user provides the necessary information.
 
 
 ### Sequence Diagram-- Alternate Course of Events
@@ -92,7 +92,7 @@
 
 
 ### Related UI Prototypes-- Administrator Modifying Other Accounts
-This is the page that the user must be on at the start to complete the use case.
+This is the page that the administrator must be on at the start to complete the use case.
 
 The administrator is on the "view all accounts" page, which has 3 lists of different types.
 
@@ -105,7 +105,7 @@ The administrator is on the "view all accounts" page, which has 3 lists of diffe
 
 ![View All Accounts](/02-analysis/UI/admin/07-view_all_accounts_customers.png)
 
-![Edit User Account](/02-analysis/UI/admin/12-edit_customer_account.png)
+![Edit Customer Account](/02-analysis/UI/admin/12-edit_customer_account.png)
 
 ![Edit Organizer](/02-analysis/UI/admin/13-edit_organizer_account.png)
 
@@ -114,19 +114,19 @@ The administrator is on the "view all accounts" page, which has 3 lists of diffe
 
 ### Related UI Prototypes-- Organizer Modifying Their Accounts
 
-This is the page that the user must be on at the start to complete the use case.
+This is the page that the uorganiser must be on at the start to complete the use case.
 
 ![View Organizer Accounts](/02-analysis/UI/organizer/30-view_organizer_account.png)
 
 ![Update Organizer Account](/02-analysis/UI/organizer/31-update_organizer_account.png)
 
 
-### Related UI Prototypes-- User Modifying Their Accounts
-This is the page that the user must be on at the start to complete the use case.
+### Related UI Prototypes-- Customer Modifying Their Accounts
+This is the page that the customer must be on at the start to complete the use case.
 
-![View User Accounts](/02-analysis/UI/customer/35-view_customer_account.png)
+![View Customer Accounts](/02-analysis/UI/customer/35-view_customer_account.png)
 
-![Update User Account](/02-analysis/UI/customer/42-edit_customer_account.png)
+![Update Customer Account](/02-analysis/UI/customer/42-edit_customer_account.png)
 
 ## Related UI Prototypes - Alternate course of events
 

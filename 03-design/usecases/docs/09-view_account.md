@@ -10,15 +10,15 @@
 
 ### View Organizer
 
-![Main Page](/02-analysis/sequence-diagrams/Common/09-Administrator_view_organizer_acccount.png)
+![Main Page](/03-design/sequence-diagrams/Common/09-administrator_view_organizer_account_basic.png)
 
-### View User
+### View Customer
 
-![Main Page](/02-analysis/sequence-diagrams/Common/09-administrator_view_user_acccount.png)
+![Main Page](/03-design/sequence-diagrams/Common/09-administrator_view_customer_account_basic.png)
 
 ### Course of Events-- Any User Viewing Their Account
 
-- The organizer or user is on their main page(17-view_all_events.png,34-view_all_events.png) and press **Account** button.
+- The organizer or customer is on their main page(17-view_all_events.png,34-view_all_events.png) and press **Account** button.
 - The system displays the view account page (30-view_organizer_account.png,35-view_user_account.png) which shows the details of the selected account
 
 ### Sequence Diagram
@@ -27,8 +27,8 @@
 
 ![Main Page](/02-analysis/sequence-diagrams/Common/09-organizer_view_account.png)
 
-### User
-![Main Page](/02-analysis/sequence-diagrams/Common/09-user_view_account.png)
+### Customer
+![Main Page](03-design/sequence-diagrams/Common/09-customer_view_account_basic.png)
 
 ## Alternate Course of Events
 
@@ -43,7 +43,7 @@
 ## UI Sketches
 
 ### Administrator
-This is the page that the user must be on at the start to complete the use case.
+This is the page that the administrator must be on at the start to complete the use case.
 
 ### Main Page
 
@@ -54,16 +54,16 @@ This is the page that the user must be on at the start to complete the use case.
 
 ### View Selected Account
 
-### User
+### Customer
 
-![User Account](/02-analysis/UI/customer/35-view_customer_account.png)
+![Customer Account](/02-analysis/UI/customer/35-view_customer_account.png)
 
 ### Organizer
 
 ![Organizer Account](/02-analysis/UI/organizer/30-view_organizer_account.png)
 
 ### Organizer
-There the pages that the user must be on at the start to complete the use case.
+There the pages that the organiser must be on at the start to complete the use case.
 
 ### Main Page
 
@@ -73,12 +73,15 @@ There the pages that the user must be on at the start to complete the use case.
 
 ![All accounts](/02-analysis/UI/organizer/30-view_organizer_account.png)
 
-### User
+### Customer
 
-There the pages that the user must be on at the start to complete the use case.
+There the pages that the customer must be on at the start to complete the use case.
 
 #### Main Page
 ![Main Page](/02-analysis/UI/customer/34-main_page_customer.png)
 
 ### View Account
 ![All accounts](/02-analysis/UI/customer/35-view_customer_account.png)
+
+## Data Outcome
+- **READ** - The details of the selected account in the system will be read and display.

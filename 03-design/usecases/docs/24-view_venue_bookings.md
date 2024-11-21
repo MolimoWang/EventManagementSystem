@@ -24,3 +24,6 @@ This is the page that the user must be on at the start to complete the use case.
 
 ### View Venue Bookings
 ![View Venue Bookings](/02-analysis/UI/organizer/29-view_venue_bookings.png)
+
+## Data Outcome
+- **READ** - The system displays list of all the venues available for booking for the time period which the organizer chosen.

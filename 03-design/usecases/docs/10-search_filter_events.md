@@ -68,3 +68,7 @@ There the pages that the Customer must be on at the start to complete the use ca
 
 ### Event Lists
 ![Event Lists](/02-analysis/UI/customer/44-filter_events.png)
+
+## Data Outcome
+- **READ** - The corresponding events in the system will be read and display.
+

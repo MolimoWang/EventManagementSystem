@@ -46,3 +46,6 @@ This is the page that the user must be on at the start to complete the use case
 ### Create Venue Duplicate Page
 ![List Venue Page](/01-requirements/UI/organizer/Alternative/add_venue-duplicate.png)
 
+## Data Outcome
+
+- **Update** - The details of selected venue will be updated.

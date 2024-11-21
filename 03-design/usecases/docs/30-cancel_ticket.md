@@ -40,3 +40,7 @@
 This is the page where the user can see their purchased tickets and select the 'Cancel' option to remove a ticket if needed.
 
 ![Ticket List Page](/02-analysis/UI/customer/40-view_purchased_tickets.png)
+
+## Data Outcome
+- **Delete** - The selected ticket will be removed from the customer account.
+- **Update** - The number of the ticket in the system will be updated

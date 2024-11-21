@@ -71,6 +71,6 @@ This is the page that the user must be on at the start to complete the use case.
 ![Delete Event](/02-analysis/UI/organizer/21-delete_event.png)
 
 ## Data Outcome
-
-- **Read** - The selected event will be deleted in the system.
+- **Delete** - The selected event will be deleted in the system.
+- **Read** - The rest of events will be deleted in the system.
 - **UPDATE** - The number of events will be changed.
