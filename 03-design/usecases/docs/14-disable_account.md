@@ -11,7 +11,7 @@
 
 ### Sequence Diagram
 
-![Disable account](/03-design/sequence-diagrams/Administrator/14-disable_account-Alternative_Do_Not_Disable.png)
+![Disable account](/03-design/sequence-diagrams/Administrator/14-disable_account-basic.png)
 
 
 ## Alternate Course of Events
