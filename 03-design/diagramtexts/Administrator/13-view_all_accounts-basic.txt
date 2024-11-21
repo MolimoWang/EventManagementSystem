@@ -11,10 +11,10 @@ participant "<link:_>: AdminRepository" as ar
 participant "<link:_>: OrganiserRepository" as or
 participant "<link:_>: AccountService" as as
 
-==1. The administrator selects 'View All Accounts' from the main page==
 admin -> browser: click()
 activate browser
 
+==1. The administrator selects 'View All Accounts' from the main page==
 browser->d: GET(url : String)
 activate d
 
@@ -22,32 +22,32 @@ d->ac: displayAllAccounts(m : Model)
 activate ac
 
 alt the account is a customer
-ac -> as: getCustomerAccounts()
+ac -> as:viewCustomerAccount(accountld: String, m : Model)
 else the account is a administrator
-ac -> as:getAdministratorAccounts()
+ac -> as:viewAdministratorAccount(accountld: String, m : odel)
 else the account is a organizer
-ac -> as:getOrganizerAccounts()
+ac -> as:viewOrganiserAccount(accountld: String, m : Model)
 end
 alt the account is Customer
 activate as
-  as->cr:allaccounts：=findAll()
+  as->cr:account：=getCustomers
   as-->ac: return customerAccounts
 else the account is Administrator
-as->ar:allaccounts：=findAll()
+as->ar:account：=getAdministrators()
 as-->ac: return administratorAccounts
 else the account is Organizer
-as->or:allaccounts：=findAll()
+as->or: account：=getOrganizers()
 as-->ac: return organizerAccounts
 end
 
 deactivate as
 
 alt the class of allAccounts is Administrator[*]
-ac->m: addAttribute("accounts" : String, administratorAccounts : Administrator[*])
+ac->m: addAttribute("alladministrator":String,alladministrator.Administrator[*])
 ac-->d:return "view_all_accounts_administrator"
 
 else the class of allAccounts is Customer[*]
-ac->m: addAttribute("accounts" : String, customerAccounts : Customer[*])
+ac->m: addAttribute("allcustomer":String,allcustomer.Customer[*])
 ac-->d:return "view_all_accounts_customer"
 else the class of allAccounts is Organiser[*]
 ac->m: addAttribute("accounts" : String, organizerAccounts : Organiser[*])
