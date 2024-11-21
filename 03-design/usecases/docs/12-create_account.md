@@ -11,7 +11,7 @@
 - A confirmation message is shown to the administrator.
 
 ### Sequence Diagram
-![create account for user](/02-analysis/sequence-diagrams/Administrator/12-create_account_user.png)
+![create account for user](/03-design/sequence-diagrams/Administrator/12-create_account.png)
 
 ## Basic Course of Events-- Creating Organizer
 - The administrator navigates to the 'View All Accounts' page, which displaying all existing accounts in the system.
@@ -25,7 +25,7 @@
 
 ### Sequence Diagram
 
-![create account for organizer](/02-analysis/sequence-diagrams/Administrator/12-create_account_organizer.png)
+![create account for organizer](/03-design/sequence-diagrams/Administrator/12-create_account.png)
 
 ## Basic Course of Events-- Creating Administrator
 - The administrator navigates to the 'View All Accounts' page, which displaying all existing accounts in the system.
@@ -38,7 +38,7 @@
 - A confirmation message is shown to the administrator.
 
 ### Sequence Diagram
-![create account for administrator](/02-analysis/sequence-diagrams/Administrator/12-create_account_administrator.png)
+![create account for administrator](/03-design/sequence-diagrams/Administrator/12-create_account.png)
 
 ## Alternate Course of Events-- Duplicate Email Error
 - The administrator navigates to the 'View All Accounts' page, which displaying all existing accounts in the system.
