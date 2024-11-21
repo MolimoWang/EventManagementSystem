@@ -17,12 +17,12 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/user")
-public class UserController {
+public class CustomerController {
     private final RestaurantService restaurantService;
 
     // 构造方法，添加调试信息
     @Autowired
-    public UserController(RestaurantService restaurantService) {
+    public CustomerController(RestaurantService restaurantService) {
         System.out.println("UserController 被创建");
         this.restaurantService = restaurantService;
     }

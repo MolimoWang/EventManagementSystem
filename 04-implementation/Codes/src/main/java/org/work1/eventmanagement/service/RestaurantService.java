@@ -136,11 +136,14 @@ public class RestaurantService {
     private Customer getCustomer(String customerName, String customerPhoneNumber) {
         Customer customer = customers.findByPhoneNumber(customerPhoneNumber);
         if (customer == null) {
-            customer = new Customer(customerName, customerPhoneNumber);
+            customer = new Customer();
+            customer.setUsername(customerName);
+            customer.setPhoneNumber(customerPhoneNumber);
             customers.save(customer);
         }
         return customer;
     }
+
 
 }
 

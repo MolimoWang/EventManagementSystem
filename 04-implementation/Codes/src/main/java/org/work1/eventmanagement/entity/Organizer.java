@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Customer {
+public class Organizer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,22 +19,22 @@ public class Customer {
     public String getPhoneNumber() {
         return phoneNumber;
     }
-    public Customer(String username, String email, String phoneNumber, String password) {
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+    public Organizer(String username, String email, String phoneNumber, String password) {
         this.username = username;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.password = password;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
     // 默认构造函数
-    public Customer() {}
+    public Organizer() {}
 
     // 带参数的构造函数
-    public Customer(String username, String email, String password) {
+    public Organizer(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;

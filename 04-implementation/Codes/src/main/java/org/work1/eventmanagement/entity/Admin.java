@@ -6,49 +6,25 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Customer {
+public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String username;
     private String email;
     private String password;
-    // 在 Customer 和 Organizer 实体类中
-    private String phoneNumber;
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-    public Customer(String username, String email, String phoneNumber, String password) {
-        this.username = username;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.password = password;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
 
     // 默认构造函数
-    public Customer() {}
+    public Admin() {}
 
     // 带参数的构造函数
-    public Customer(String username, String email, String password) {
+    public Admin(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
     }
 
     // Getter 和 Setter 方法
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getUsername() {
         return username;
     }
