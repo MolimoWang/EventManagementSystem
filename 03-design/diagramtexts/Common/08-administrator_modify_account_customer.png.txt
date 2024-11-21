@@ -77,8 +77,14 @@ as->vr:save(c:Customer)
 
 as-->ec:
 deactivate as
+ec->as:getCustomers()
+activate as
 
-ec->m2:addAttribute("account":String, c: Customer)
+vr<-as:findAll()
+
+ec<--as:return allCustomers
+deactivate as
+ec->m2:addAttribute("allCustomers":String, c: Customer[*])
 
 ec-->ds:return "view_all_accounts"**(07-view_all_accounts_customers.png)**
 

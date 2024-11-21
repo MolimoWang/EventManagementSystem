@@ -691,7 +691,6 @@ EventSystem ..> EventAlterDTO
 TicketSystem ..> TicketDTO
 TicketSystem ..> TicketAlterDTO
 TicketSystem ..> TicketDTO
-TicketSystem ..> TicketAlterDTO
 TicketSystem ..> TicketAvailabilityDTO
 TicketSystem ..> TicketQuantityDTO
 TicketSystem ..> TicketAvailabilityAlterDTO

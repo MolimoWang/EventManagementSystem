@@ -79,9 +79,15 @@ as->vr:save(o:Organiser)
 
 as-->ec:
 deactivate as
+ec->as:getOrganisers
+activate as
 
+vr<-as:findAll()
 
-ec->m2:addAttribute("account":String, o: Organizer)
+ec<--as:return allOrganisers
+deactivate as
+
+ec->m2:addAttribute("allOrganisers":String, o: Organiser[*])
 ec-->ds:return "view_all_accounts"**(view_all_accounts_organisers.png)**
 
 deactivate ec

@@ -76,7 +76,14 @@ as-->ec:
 deactivate as
 
 
-ec->m2:addAttribute("account":String, a: Adminisitrator)
+ec->as:getAdministrators()
+activate as
+
+vr<-as:findAll()
+
+ec<--as:return allAdministrators
+deactivate as
+ec->m2:addAttribute("allAdministrators":String, a:Administrator[*] )
 ec-->ds:return "view all accounts"**(07-view_all_accounts_administrators.png)**
 
 deactivate ec
