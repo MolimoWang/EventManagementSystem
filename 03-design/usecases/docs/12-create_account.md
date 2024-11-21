@@ -11,7 +11,7 @@
 - A confirmation message is shown to the administrator.
 
 ### Sequence Diagram
-![create account for user](/03-design/sequence-diagrams/Administrator/12-create_account.png)
+![create account for user](/03-design/sequence-diagrams/Administrator/12-create_account-basic.png)
 
 ## Basic Course of Events-- Creating Organizer
 - The administrator navigates to the 'View All Accounts' page, which displaying all existing accounts in the system.

@@ -10,7 +10,7 @@
 - The system updates and displays the ticket list page with the canceled ticket removed.
 
 ### Sequence Diagram
-![User Cancel Ticket](/02-analysis/sequence-diagrams/User/31-cancel_ticket.png)
+![User Cancel Ticket](/03-design/sequence-diagrams/Customer/30-cancel_ticket-basic.png)
 
 ## Alternate Course of Events
 

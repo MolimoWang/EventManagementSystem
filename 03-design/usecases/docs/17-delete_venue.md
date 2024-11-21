@@ -38,13 +38,6 @@
 ### Sequence Diagram-- Alternate Course of Events
 There is no interaction
 
-### Venue In Use
-
-- The administrator attempts to delete a venue that is still associated with upcoming events.
-- The system displays a warning indicating that the venue is still in use and cannot be deleted.
-
-### Sequence Diagram-- Alternate Course of Events
-[Venue in use](/02-analysis/sequence-diagrams/Administrator/18-delete_venue_in_use.png)
 
 ## UI Sketches
 

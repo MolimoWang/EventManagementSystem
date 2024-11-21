@@ -7,7 +7,7 @@
 
 ### Sequence Diagram
 
-![view all accounts for administrator](/03-design/sequence-diagrams/Administrator/13-view_all_accounts.png)
+![view all accounts for administrator](/03-design/sequence-diagrams/Administrator/13-view_all_accounts-basic.png)
 
 ## Alternate Course of Events
 - The administrator selects 'View All Accounts' from the main page(01-view_all_events.png).
