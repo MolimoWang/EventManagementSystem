@@ -48,7 +48,7 @@ as --> ac: return a
 deactivate as
 
 ac -> m: addAttribute("account", a)
-ac --> d: return "view_all_accounts"
+ac --> d:return "view_all_accounts_customer"
 deactivate ac
 
 end
@@ -73,7 +73,7 @@ as --> ac: return a
 deactivate as
 
 ac -> m: addAttribute("account", a)
-ac --> d: return "view_all_accounts"
+ac --> d:return "view_all_accounts_administrator"
 
 end
 
@@ -97,7 +97,7 @@ as --> ac: return a
 deactivate as
 
 ac -> m: addAttribute("account", a)
-ac --> d: return "view_all_accounts"
+ac --> d: return "view_all_accounts_organizer"
 
 end
 
