@@ -8,15 +8,24 @@
 3. The system displays the events scheduled for that date, including details such as event name, time, and venue(01-main_page_administrator.png).
 
 ### Sequence Diagram
-![Date](/02-analysis/sequence-diagrams/Common/11-administrator_display_date.png)
+![Date](/03-design/sequence-diagrams/Common/11-administrator_display_date.png)
 
-### Course of Events-- User
+
+
+
+
+### Course of Events-- Customer
 1. The user is on their main page(34-main_page_customer.png).
 2. The user enters the date they want to view.
 3. The system displays the events scheduled for that date, including details such as event name, time, and venue(34-main_page_customer.png).
 
 ### Sequence Diagram
-![Display Date](/02-analysis/sequence-diagrams/Common/11-user_display_date.png)
+
+![Display Date](/03-design/sequence-diagrams/Common/11-customer_display_date.png)
+
+
+
+
 
 ### Course of Events-- Organizer
 1. The organizer is on their main page(17-main_page_organiser.png).
@@ -24,7 +33,8 @@
 3. The system displays the events scheduled for that date, including details such as event name, time, and venue(17-main_page_organiser.png).
 
 ### Sequence Diagram
-![Display date](/02-analysis/sequence-diagrams/Common/11-organizer_display_date.png)
+
+![Display date](/03-design/sequence-diagrams/Common/11-organizer_display_date.png)
 
 ## UI Sketches
 

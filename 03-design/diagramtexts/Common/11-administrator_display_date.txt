@@ -10,7 +10,7 @@ control "<link:_> EventSystem" as s
 participant "<link:_> EventService" as u
 participant "<link:_>: EventRepository" as er
 
-==1. The administrator is on their main page(01-main_page_administrator)==
+==1. The administrator is on their main page**(01-main_page_administrator)**==
 a->>w:interact
 activate w
 w->d:GET(url: String)
@@ -23,7 +23,7 @@ s->u: getEventsByDate(date: Date)
 activate u
   u->er:findAllByDate(date: Date)
 u-->s: return dateEvents
-
+deactivate u
 
 s->s:displayEvents(dateEvents)
 s->mm:addAttributes("events": String, dateEvents: Event[*])
@@ -46,4 +46,4 @@ nv-->w:
 deactivate nv
 
 
-==2. The system displays the events scheduled for that date, including details such as event name, time, and venue.==
+==2. The system displays the events scheduled for that date, including details such as event name, time, and venue**(01-main_page_administrator.png)**.==
