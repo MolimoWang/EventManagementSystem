@@ -7,8 +7,7 @@
 - The administrator selects the type of account.
 - The system presents a form for entering account information.
 - The administrator fills out the information.
-- The system validates the change and updates this new user account.
-- A confirmation message is shown to the administrator.
+- The system display the "view all accounts" page with a new account.(07-view_all_accounts_administrators.png)(07-view_all_accounts_customers.png)(07-view_all_accounts_organisers.png)
 
 
 ## Alternate Course of Events-- Duplicate Email Error
