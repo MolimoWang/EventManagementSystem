@@ -1,4 +1,4 @@
-# 27 List Upcoming Events
+# 26 List Upcoming Events
 
 ## Basic Course of Events
 - The customer selects 'Upcoming' option from the main page (34-main_page_customer.png).

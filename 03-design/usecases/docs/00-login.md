@@ -1,16 +1,16 @@
 # 00 Login
 
 ## Basic Course of Events
-- 1.The user opens the application.
+- 1.The customer opens the application.
 - 2.The system presents a login page and prompt the user to enter their email and password
-- 3.The user enters their credentials.
+- 3.The customer enters their credentials.
 - 4.The system passes requests to the service.
 - 5.Service queries all accounts and returns results.
-- 6.The system displays the main page of the system. The administrator is on their main page(01-view_all_events.png). The organizer is on their main page(17-view_all_events.png). The user is on their main page(34-view_all_events.png).
+- 6.The system displays the main page of the system. The administrator is on their main page(01-view_all_events.png). The organizer is on their main page(17-view_all_events.png). The customer is on their main page(34-view_all_events.png).
 
 ### Sequence Diagram
 
-![Login](/02-analysis/sequence-diagrams/Common/00-login_basic.png)
+![Login](/03-design/sequence-diagrams/Common/00-login_basic.png)
 
 ## Alternate Course of Events
 
@@ -23,8 +23,9 @@
 
 
 ### Sequence Diagram -- Alternate Course of Events
-![Login](/02-analysis/sequence-diagrams/Common/00-login_alternate_wrong.png)
 
+![Login](/03-design/sequence-diagrams/Common/00-Login_alternate_wrong.png)
+![Login](/03-design/sequence-diagrams/Common/00-Login_alternate_none.png)
 ## UI Sketches
 This is the page that the user must be on at the start to complete the use case.
 
@@ -39,8 +40,8 @@ This is the page that the user must be on at the start to complete the use case.
 ### Organizer
 ![Organizer Main Page](/02-analysis/UI/organizer/17-main_page_organiser.png)
 
-### User
-![User Main Page](/02-analysis/UI/customer/34-main_page_customer.png) 
+### Customer
+![Customer Main Page](/02-analysis/UI/customer/34-main_page_customer.png) 
 
 ## Data Outcome
 - **READ** - The details of the selected account in the system will be read and display.

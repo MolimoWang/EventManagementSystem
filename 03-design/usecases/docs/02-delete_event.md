@@ -14,7 +14,8 @@
 
 ### Sequence Diagram
 
-![Delete Event_Administrator](/02-analysis/sequence-diagrams/Common/02-delete_event_administrator.png)
+![Delete Event_Administrator](/03-design/sequence-diagrams/Common/02-delete_event_administrator_basic.png)
+
 
 ### Course of Events -- Organizer
 
@@ -24,10 +25,14 @@
 - 4. The system asks the organizer to confirm(03-delete_event)
 - 5. The organizer selectes “Yes”
 - 6. The system returns to the view events page (20-view_events_history.png) and the venue is no longer displayed
+
 ### Sequence Diagram
-![Delete Event_Organizer](/02-analysis/sequence-diagrams/Common/02-delete_event_organizer.png)
+![Delete Event_Organizer](/03-design/sequence-diagrams/Common/02-delete_event_organizer_basic.png)
  
 ## Alternate Course of Events
+
+![Delete Event_Administrator Alternate](/03-design/sequence-diagrams/Common/02-delete_event_administrator_alternate.png)
+![Delete Event_Organizer Alternate](/03-design/sequence-diagrams/Common/02-delete_event_organizer_alternate.png)
 
 #### Do Not Delete
 

@@ -1,4 +1,4 @@
-# 30 View Ticket Details
+# 29 View Ticket Details
 
 ## Basic Course of Events
 - The user selects 'View' option of a ticket from their ticket list(on the ticket list page(40-view_purchased_tickets.png).

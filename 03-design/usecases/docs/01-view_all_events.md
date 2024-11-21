@@ -19,7 +19,7 @@
 
 ## Sequence Diagram
 
-![view_all_events_Admin](/02-analysis/sequence-diagrams/Common/01-view_all_events_administrator.png)
+![view_all_events_Admin](/03-design/sequence-diagrams/Common/01-view_all_events_administrator.png)
 
 ### Course of Events -- Organizer
 
@@ -37,7 +37,7 @@
 
 ## Sequence Diagram
 
-![view_all_events_Organizer](/02-analysis/sequence-diagrams/Common/01-view_all_events_organizer.png)
+![view_all_events_Organizer](/03-design/sequence-diagrams/Common/01-view_all_events_organizer.png)
  
 ### Course of Events
 
@@ -55,7 +55,7 @@
 
 ### Sequence Diagram
 
-![view_all_events_User](/02-analysis/sequence-diagrams/Common/01-view_all_events_user.png)
+![view_all_events_Customer](/03-design/sequence-diagrams/Common/01-view_all_events_customer.png)
 
 ## Alternate Course of Events
 
