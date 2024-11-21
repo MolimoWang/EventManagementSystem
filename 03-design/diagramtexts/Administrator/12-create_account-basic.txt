@@ -18,7 +18,7 @@ participant "<link:_>OrganizerRepository" as or
 participant "<link:_>AccountService" as as
 boundary "View" as nv
 
-== 1. The administrator navigates to the 'View All Accounts' page ==
+== 1.The administrator navigates to the 'View All Accounts' page, which displaying all existing accounts in the system.\n 2.The system displays three different types of user lists based on the administrator's selection at "view all accounts page".(07-view_all_accounts_administrators.png)(07-view_all_accounts_customers.png)(07-view_all_accounts_organisers.png) ==
 admin -> w: click()
 activate w
 
@@ -28,7 +28,7 @@ activate d
 d -> ac: registerAccount(email: String, name: String, password: String, m: Model)
 activate ac
 
-== 2. The administrator selects 'New Account' ==
+== 3. The administrator selects 'New Account'. ==
 alt Customer
 ac -> as: createCustomerAccount(email, name, role)
 activate as
@@ -41,13 +41,13 @@ as -> cr: save(new Customer(email, name, role))
 as --> ac: return Error.NONE
 deactivate as
 
-ac -> as: account := getCustomerAccount(email)
+ac -> as: account := getCustomers()
 activate as
 as -> cr: a := findByEmail(email)
 as --> ac: return a
 deactivate as
 
-ac -> m: addAttribute("account", a)
+ac -> m: addAttribute("allcustomer":String,allcustomer.Customer[*])
 ac --> d:return "view_all_accounts_customer"
 deactivate ac
 
@@ -65,14 +65,14 @@ as -> ar: save(new Administrator(email, name, role))
 as --> ac: return Error.NONE
 deactivate as
 
-ac -> as: account := getAdministratorAccount(email)
+ac -> as: account := getAdministrators()
 activate as
 as -> ar: a := findByEmail(email)
 
 as --> ac: return a
 deactivate as
 
-ac -> m: addAttribute("account", a)
+ac -> m: addAttribute("alladministrator":String,alladministrator.Administrator[*])
 ac --> d:return "view_all_accounts_administrator"
 
 end
@@ -89,19 +89,19 @@ as -> or: save(new Organizer(email, name, role))
 as --> ac: return Error.NONE
 deactivate as
 
-ac -> as: account := getOrganizerAccount(email)
+ac -> as: account := getOrganizers()
 activate as
 as -> or: a := findByEmail(email)
 
 as --> ac: return a
 deactivate as
 
-ac -> m: addAttribute("account", a)
+ac -> m:"allorganizer":String,allorganizer.Organizer[*]
 ac --> d: return "view_all_accounts_organizer"
 
 end
 
-== 3. The system validates the change and updates the new user account ==
+== 4.The system display the "view all accounts" page with a new account.(07-view_all_accounts_administrators.png) ==
 d -> *nv: View(model: Model)
 activate nv
 
