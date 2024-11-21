@@ -109,6 +109,7 @@ package "services" #LightYellow {
          +deleteCustomer(CustomerEmail: String): Boolean
          +deleteOrganiser(OrganiserEmail: String): Boolean
          +deleteAdministrator(AdministratorEmail: String): Boolean
+         +disableAccount(accountId: Long):Boolean
          +updateCustomer(accountAlterDTO:AccountAlterDTO,c: Customer): Boolean
          +updateOrganiser(accountAlterDTO:AccountAlterDTO,o: Organiser): Boolean
          +updateAdministrator(accountAlterDTO:AccountAlterDTO, a:Administrator): Boolean
@@ -119,7 +120,7 @@ package "services" #LightYellow {
 
     class VenueService {
         {static}+VenueService(VenueRepository,TicketRepository,OrganiserRepository)
-        +getVenue(venueName: String):Venue
+        +getVenue(venueId: String):Venue
         +getVenues():Venue[*]
         +getMyVenues(organiserId:Long):Venue[*]
         +createVenue(name: String,address: String,contactName: String,contactPhoneNumber: String,contactEmail: String,ticketTypeName: String[*], numberAvailable:int[*]): Boolean
@@ -151,8 +152,10 @@ package "services" #LightYellow {
         {static}+TicketService(TicketRepository,CustomerRepository,EventRepository)
         +getTicket(ticketId: Long): Ticket
         +getMyTicket(customerEmail: String):Ticket[*]
+        +checkEventHasStarted(eventName: String):Boolean
         +checkTimeoutCancel(ticketId: Long):Boolean
-        +buyTicket(customerEmail: String, eventName: String, ticketQuantity: String): Ticket
+        +cancelTicket(ticketId: Long)
+        +createTicket(customerEmail: String, eventName: String, ticketQuantity: String): Ticket
         +getTicketOwner(eventName: String):Customer
         +getTicketEvent(customerEmail: String):Event
         +getTicketQuantity(eventName: String,customerEmail: String):TicketQuantity
@@ -193,13 +196,16 @@ enum Role {
         - email: String
         - password: String
         - role: Role
+        - is_active : Boolean
         +getId():Long
         +getName(): String
         +getEmail(): String
         +getPassword(): String
+        +getIsActive(): Boolean
         +setName(name: String)
         +setEmail(email: String)
         +setPassword(password: String)
+        +setIsActive(is_active: Boolean)
     }
     class Administrator {
      {static}Administrator()
@@ -320,8 +326,10 @@ interface TicketInterface <<Interface>>{
             - id: Long
             - type : String
             - price : Double
+            - customerId : Long
+            - eventId : Long
             {static}Ticket()
-            {static}Ticket(type: String, price: Double)
+            {static}Ticket(type: String, price: Double,customerId : Long,eventId : Long)
             +getId():Long
         }
 
@@ -621,6 +629,7 @@ class AccountSystem {
     +viewOrganiserAccount(accountId: String, m : Model)
     +viewCustomerAccount(accountId: String, m : Model)
     +updatePermission(accountEmail:String, m : Model)
+    +disableAccount(accountId: Long, m :Model)
     +updateCustomerAccount(alterDTO:AccountAlterDTO,model:Model)
     +updateAdministratorAccount(alterDTO:AccountAlterDTO,model:Model)
     +updateOrganiserAccount(alterDTO:AccountAlterDTO,model:Model)
@@ -663,7 +672,7 @@ class TicketSystem {
     +listMyTickets(customerEmail: String, m : Model)
     +listTicketDetails(ticket:Ticket, m : Model)
     +listRegisteredCustomer(eventId: Long, m : Model)
-    +buyTicket(customerEmail: String, eventName: String, ticketType: String, m : Model)
+    +buyTicket(customerEmail: String, eventName: String, ticketTypeName: String, m : Model)
     +viewTicketDetails(ticketId : long, m : Model)
     +cancelTicket(customerId: Long, eventId: Long, m : Model)
 }

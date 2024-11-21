@@ -3,11 +3,10 @@
 
 ## Basic Course of Events
 
-- 1.The admin performs the display use case (01-view_all_events.png).
-- 2.The admin selects "Usage History" from a displayed venue.
-- 3.The service queries this usage history among all events.
-- 4.The system retrieves and displays a list of events that have been hosted at that venue.
-
+- 1.The administrator performs the display use case. **(01-main_page_administrator.png)**
+- 2.The administrator selects "Usage History" from a displayed venue.
+- 3.The system will display all events held at this venue.
+- 4.The system updates the display to show all related events. **(05-view_venue_usage_history.png)**
 
 ### Sequence Diagram
 ![view_venue_usage_history](/03-design/sequence-diagrams/Administrator/19-view_venue_usage_history.png)

@@ -21,6 +21,7 @@
 - 3.The user enters their credentials
 - 4.The system informs the user that their combination of email and password was incorrect and returns to the log-in page.
 
+
 ### Sequence Diagram -- Alternate Course of Events
 ![Login](/02-analysis/sequence-diagrams/Common/00-login_alternate_wrong.png)
 

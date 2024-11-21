@@ -3,13 +3,13 @@
 ## Basic Course of Events
 
 ### Course of Events
-- The administrator is shown the list venues page (04-view_all_venues.png) where system displays a list of existing venues.
-- The administrator selects the venue to delete.
-- The system highlights the venue to indicate it is selected.
-- The admin selects the delete functionality.
-- The system asks the administrator to confirm.
-- The administrator selects **Confirm**.
-- The system update the list venues page (04-view_all_venues.png) with this venue deleted.
+- 1.The administrator performs the display use case **(01-main_page_administrator.png)**.
+- 2.The administrator selects a venue to delete.
+- 3.The system highlights the venue to indicate it is selected.
+- 4.The administrator selects the delete functionality.
+- 5.The system asks the administrator to confirm **(Delete Venue)**.
+- 6.The administrator selects **Confirm**.
+- 7.The system updates the display to show the remaining venues to administrator, with the deleted venue absent. **(04-view_all_venues.png)**
 
 
 ### Sequence Diagram
@@ -20,13 +20,13 @@
 
 ### Do Not Delete
 
-- The administrator is shown the list venues page (04-view_all_venues.png) where system displays a list of existing venues.
+- The administrator is shown the list venues page (01-main_page_administrator.png) where system displays a list of existing venues.
 - The administrator selects the venue to delete.
 - The system highlights the venue to indicate it is selected.
-- The admin selects the delete functionality.
+- The administrator selects the delete functionality.
 - The system asks the administrator to confirm.
 - The administrator selects **Cancel**.
-- The system update the list venues page (04-view_all_venues.png) with this venue deleted.
+- The system updates the display to show all venues to administrator. **(04-view_all_venues.png)**
 
 ### Sequence Diagram-- Alternate Course of Events
 ![Do not delete](/03-design/sequence-diagrams/Administrator/18-delete_venue_alternative.png)

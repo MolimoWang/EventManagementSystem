@@ -1,4 +1,4 @@
-title Search Filter Events -10 Organiser
+title 10-Search Filter Events -Organiser
 
 
 actor "Organiser" as a
@@ -32,11 +32,11 @@ u -> er: findByNameContaining(keyWords: String)
 u-->s:return relevantEvents:Event[*]
 deactivate u
 
-s->s:addAttribute("events": String, events : Event[*])
+s->m:addAttribute("events": String, events : Event[*])
 
 
 
-s-->d:return "index.html" **(44-filter_events.png)**
+s-->d:return "search results" **(44-filter_events.png)**
 deactivate s
 
 d->*nv:View(model : Model)
