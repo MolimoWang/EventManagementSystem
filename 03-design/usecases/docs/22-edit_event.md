@@ -1,4 +1,4 @@
-# 23 Edit Event
+# 22 Edit Event
 
 ## Basic Course of Events
 1. The organizer selects the "Edit" option of a certain event on list my events page (18-list_my_events.png).

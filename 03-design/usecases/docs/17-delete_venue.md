@@ -1,4 +1,4 @@
-# 18 Delete Venue
+# 17 Delete Venue
 
 ## Basic Course of Events
 
@@ -14,7 +14,7 @@
 
 ### Sequence Diagram
 
-![Delete Venue](/03-design/sequence-diagrams/Administrator/18-delete_venue.png)
+![Delete Venue](/03-design/sequence-diagrams/Administrator/17-delete_venue.png)
 
 ## Alternate Course of Events
 
@@ -29,7 +29,7 @@
 - The system updates the display to show all venues to administrator. **(04-view_all_venues.png)**
 
 ### Sequence Diagram-- Alternate Course of Events
-![Do not delete](/03-design/sequence-diagrams/Administrator/18-delete_venue_alternative.png)
+![Do not delete](/03-design/sequence-diagrams/Administrator/17-delete_venue_alternative.png)
 
 #### Venue Not Found
 - The administrator tries to delete a venue that does not exist.

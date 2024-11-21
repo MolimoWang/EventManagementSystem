@@ -1,4 +1,4 @@
-# 25 View Venue Bookings
+# 24 View Venue Bookings
 
 ## Basic Course of Events
 1. The organizer selects one specific date and time, then selects the "Event Venue" option from the create event page (19-create_event.png).
