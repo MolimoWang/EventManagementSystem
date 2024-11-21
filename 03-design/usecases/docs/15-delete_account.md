@@ -37,6 +37,8 @@ There is no interaction
 ## UI Sketches
 This is the page that the user must be on at the start to complete the use case.
 
-![Main Page](/02-analysis/UI/admin/07-view_all_accounts.png)
+![All Administrator](/02-analysis/UI/admin/07-view_all_accounts_administrators.png)
+![All Customers](/02-analysis/UI/admin/07-view_all_accounts_customers.png)
+![All Organisers](/02-analysis/UI/admin/07-view_all_accounts_organisers.png)
 
 ![Delete Account](/02-analysis/UI/admin/16-delete_account.png)

@@ -14,7 +14,7 @@
 
 ### Sequence Diagram
 
-![View events history](/03-design/sequence-diagrams/Administrator/19-view_events_history.png)
+![View events history](/03-design/sequence-diagrams/Administrator/19-view_events_history-basic.png)
 
 ## Alternate Course of Events
 

@@ -7,7 +7,7 @@
 -  3. The system displays the users who registered for this event to organizer or administrator.(23-view_event_registrations.png)
     
 ### Sequence Diagram
-![view_event_registrations](/03-design/sequence-diagrams/Common/04-view_event_registrations.png)
+![view_event_registrations](/03-design/sequence-diagrams/Common/04-view_event_registrations_basic.png)
 
 ## Alternate Course of Events
 

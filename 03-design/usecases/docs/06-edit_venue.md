@@ -10,10 +10,7 @@
 
 ### Sequence Diagram
 
-![Edit Venue Page](/02-analysis/sequence-diagrams/Common/06-edit_venue.png)
-
-![Edit Venue Page-alternative](/02-analysis/sequence-diagrams/Common/06-edit_venue_alternative.png)
-
+![Edit Venue Page](/03-design/sequence-diagrams/Common/06-edit_venue-basic.png)
 
 ## Alternate Course of Events
 

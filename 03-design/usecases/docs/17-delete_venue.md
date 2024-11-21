@@ -14,7 +14,7 @@
 
 ### Sequence Diagram
 
-![Delete Venue](/03-design/sequence-diagrams/Administrator/17-delete_venue.png)
+![Delete Venue](/03-design/sequence-diagrams/Administrator/17-delete_venue-basic.png)
 
 ## Alternate Course of Events
 

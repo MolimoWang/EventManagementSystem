@@ -13,7 +13,7 @@
 
 ### Sequence Diagram
 
-![view all venues for administrator](/03-design/sequence-diagrams/Administrator/16-view_all_venues.png)
+![view all venues for administrator](/03-design/sequence-diagrams/Administrator/16-view_all_venues-basic.png)
 
 ## Alternate Course of Events
 - None.
