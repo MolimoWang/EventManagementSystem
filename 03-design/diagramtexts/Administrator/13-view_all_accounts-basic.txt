@@ -20,39 +20,54 @@ activate d
 
 d->ac: displayAllAccounts(m : Model)
 activate ac
-
 alt the account is a customer
 ac -> as:viewCustomerAccount(accountld: String, m : Model)
-else the account is a administrator
-ac -> as:viewAdministratorAccount(accountld: String, m : odel)
-else the account is a organizer
-ac -> as:viewOrganiserAccount(accountld: String, m : Model)
-end
-alt the account is Customer
 activate as
   as->cr:account：=getCustomers
   as-->ac: return customerAccounts
-else the account is Administrator
-as->ar:account：=getAdministrators()
-as-->ac: return administratorAccounts
-else the account is Organizer
-as->or: account：=getOrganizers()
-as-->ac: return organizerAccounts
-end
-
-deactivate as
-
-alt the class of allAccounts is Administrator[*]
-ac->m: addAttribute("alladministrator":String,alladministrator.Administrator[*])
-ac-->d:return "view_all_accounts_administrator"
-
-else the class of allAccounts is Customer[*]
 ac->m: addAttribute("allcustomer":String,allcustomer.Customer[*])
 ac-->d:return "view_all_accounts_customer"
-else the class of allAccounts is Organiser[*]
+end
+
+alt the account is an administrator
+ac -> as:viewAdministratorAccount(accountld: String, m : odel)
+as->ar:account：=getAdministrators()
+as-->ac: return administratorAccounts
+ac->m: addAttribute("alladministrator":String,alladministrator.Administrator[*])
+ac-->d:return "view_all_accounts_administrator"
+end
+
+alt the account is an Organizer
+ac -> as:viewOrganiserAccount(accountld: String, m : Model)
+as->or: account：=getOrganizers()
+as-->ac: return organizerAccounts
 ac->m: addAttribute("accounts" : String, organizerAccounts : Organiser[*])
 ac-->d:return "view_all_accounts_organizer"
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+deactivate as
+
+
 deactivate ac
 
 d->*nv: View(model : Model)
