@@ -35,5 +35,6 @@ activate nv
 nv-->d:
 deactivate nv
 d-->w: return newView
-
+deactivate d
+deactivate w
 ==2. The system turns to the list upcoming events page **(36-list_upcoming_events.jpg)** and displays the user's upcoming events.==

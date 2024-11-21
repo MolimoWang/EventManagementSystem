@@ -65,6 +65,6 @@ nv --> d:
 deactivate nv
 d --> v: return newView
 deactivate d
-
+deactivate v
 == The system displays the tickets purchased by the user ==
 @
