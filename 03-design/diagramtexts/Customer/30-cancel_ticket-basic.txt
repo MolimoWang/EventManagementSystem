@@ -48,22 +48,30 @@ tes->er:e:= findById(id: Long)
 ==3. The service checks if the cancellation is within the allowed time frame.==
 ts ->> tes :checkTimeoutCancel(ticketId: Long)
 activate tes
-alt Cancellation is allowed
-  tes->tr:delete(b : Reservation)
-  tr->t:<<destroy>>
-  destroy t
-else Cancellation is not allowed as the deadline has passed.
-
-end
 
 
 
+ts<--tes:return Error.TimeOut
 
-    tes -->> ts : return tickets
-    deactivate tes
+deactivate tes
 
 
-ts->m: addAttribute("tickets" : String, t : Ticket[*])
+ts->tes:cancelTicket(ticketId: Long)
+activate tes
+tes->tr:delete(b : Reservation)
+tes->t:<<destroy>>
+    destroy t
+ts<--tes:
+
+
+deactivate tes
+ts->tes:getMyTicket(customerEmail: String)
+activate tes
+tes->tr:findAllByEmail(email: String)
+ts<--tes:return allPurchasedTickets
+deactivate tes
+
+ts->m:addAttribute("allPurchasedTickets" : String, t : Ticket[*])
 
 ts-->d:return "view_purchased_tickets.html"
 deactivate ts

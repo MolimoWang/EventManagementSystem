@@ -19,7 +19,7 @@ a->w:interact
 activate w
 w->ds:POST(url:String, data:josn)
 activate ds
-ds->ec:viewCustomerAccount(accountId: String, m : Model)
+ds->ec:viewCustomerAccount(accountId: Long, m : Model)
 activate ec
 
 ec->as:getCustomerById(accountId: Long)
@@ -34,7 +34,7 @@ ec->m:addAttribute("account":String, c: Customer)
 
 entity "<link:_>:accountAlterDTO:AccountAlterDTO" as aad
 
-ec-->*aad:AccountAlterDTO()**
+ec->*aad:AccountAlterDTO()**
 activate aad
 aad --> ec:
 deactivate aad
