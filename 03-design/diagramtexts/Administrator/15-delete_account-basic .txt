@@ -22,7 +22,7 @@ activate w
 w->d:POST(url : String, data : JSON)
 activate d
 
-d->ac:deleteAccount(accountEamil : String, m : Model)
+d->ac:deleteAccount(accountId : Long, m : Model)
 activate ac
 
 ac -> as: getAccount(email : String)
@@ -40,13 +40,13 @@ deactivate as
 ac -> as: deleteAccount(a : Account)
 activate as
 alt the account is a customer
-  as->cr:delete(a : Customer)
+  as->cr:deleteCustomer(a : Customer)
 else the account is an administrator
-  as->ar:deleteAdmin(a : Administrator)
+  as->ar:deleteAdministrator(a : Administrator)
 else the account is an organizer
-  as->or:deleteOrganizerAccount(a : Organizer)
+  as->or:deleteOrganizer(a : Organizer)
 end
-as->a:<<destroy>>
+as->a:<<disable>>
 destroy a
 as-->ac:
 deactivate as
@@ -60,23 +60,30 @@ end
 alt the account is Customer
 activate as
   as->cr:allaccounts：=findAll()
+  as-->ac: return customerAccounts
 else the account is Administrator
 as->ar:allaccounts：=findAll()
+as-->ac: return administratorAccounts
 else the account is Organizer
 as->or:allaccounts：=findAll()
+as-->ac: return organizerAccounts
 
 end
-as-->ac: return allAccounts
+
 deactivate as
 alt the class of allAccounts is Administrator[*]
-ac->m: addAttribute("accounts" : String, allAccounts : Administrator[*])
+ac->m: addAttribute("accounts" : String, administratorAccounts : Administrator[*])
+ac-->d:return "view_all_accounts_administrator"
+
 else the class of allAccounts is Customer[*]
-ac->m: addAttribute("accounts" : String, allAccounts : Customer[*])
+ac->m: addAttribute("accounts" : String, customerAccounts : Customer[*])
+ac-->d:return "view_all_accounts_customer"
 else the class of allAccounts is Organiser[*]
-ac->m: addAttribute("accounts" : String, allAccounts : Organiser[*])
+ac->m: addAttribute("accounts" : String, organizerAccounts : Organiser[*])
+ac-->d:return "view_all_accounts_organizer"
 end
 
-ac-->d:return "list-accounts"
+
 deactivate ac
 d->*nv:View(model : Model)
 activate nv
@@ -88,4 +95,4 @@ deactivate nv
 d-->w:return newView
 deactivate d
 
-==4. The system displays the list accounts page (04-list-accounts) which shows the details of all accounts in the system==
+==4. The system update the view all accounts page(7-view_all_accounts.png) with this account deleted.==

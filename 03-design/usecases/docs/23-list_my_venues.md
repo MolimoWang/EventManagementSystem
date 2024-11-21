@@ -5,7 +5,7 @@
 2. The system turn my venues page(25-list_my_venues.png) to the displays a list of all the venues created.
 
 ### Sequence Diagram
-![List My Venues Page](/02-analysis/sequence-diagrams/Organizer/24-list_my_venues.png)
+![List My Venues Page](/03-design/sequence-diagrams/Organizer/23-list_my_venues-basic.png)
 
 ## Alternate Course of Events
 

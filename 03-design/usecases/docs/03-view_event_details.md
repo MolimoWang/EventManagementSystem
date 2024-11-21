@@ -9,7 +9,7 @@
  
 ### Sequence Diagram
 
-![view_event_details](03-design/sequence-diagrams/Common/03-view_event_details.png)
+![view_event_details](/03-design/sequence-diagrams/Common/03-view_event_details_basic.png)
 
 
 ## Alternate Course of Events

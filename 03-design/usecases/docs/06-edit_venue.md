@@ -5,14 +5,12 @@
 2. The system displays a form with the current venue details (27-edit_venue.png).
 3. The organiser or administrator updates the information (Name, Address, Ticket Types(ticketTypeName, number),Contact information (name, phone, email)).
 4. The organiser or administrator clicks "Save Changes" to confirm the modifications.
-5. The system updates the list of upcoming events and return to the list venues page (25-list_my_venues.png).
+5. The system displays view venue details page(28-view_venue_details.png) which updated details.
+
 
 ### Sequence Diagram
 
-![Edit Venue Page](/02-analysis/sequence-diagrams/Common/06-edit_venue.png)
-
-![Edit Venue Page-alternative](/02-analysis/sequence-diagrams/Common/06-edit_venue_alternative.png)
-
+![Edit Venue Page](/03-design/sequence-diagrams/Common/06-edit_venue-basic.png)
 
 ## Alternate Course of Events
 
@@ -41,6 +39,9 @@ This is the page that the user must be on at the start to complete the use case
 
 ### Edit Venue Page
 ![Edit Venue Page](/02-analysis/UI/organizer/27-edit_venue.png)
+
+### View Venue Details
+![View Venue Details](/02-analysis/UI/organizer/28-view_venue_details.png)
 
 ### Create Venue Duplicate Page
 ![List Venue Page](/01-requirements/UI/organizer/Alternative/add_venue-duplicate.png)

@@ -1,13 +1,11 @@
 # 13 View All Accounts
 
 ## Basic Course of Events
-- The administrator selects 'View All Accounts' from the main page(01-view_all_events.png).
-- The administrator turn to view all accounts page(07-view_all_accounts.png).
-- The system retrieves and displays a list of all existing accounts (administrators, organizers, users).
-
+- The administrator selects 'View All Accounts' from the main page(01-main_page_administrator.png).
+- The system displays three different types of user lists based on the administrator's selection at "view all accounts page".(07-view_all_accounts_administrators.png)(07-view_all_accounts_customers.png)(07-view_all_accounts_organisers.png)
 ### Sequence Diagram
 
-![view all accounts for administrator](/03-design/sequence-diagrams/Administrator/13-view_all_accounts.png)
+![view all accounts for administrator](/03-design/sequence-diagrams/Administrator/13-view_all_accounts-basic.png)
 
 ## Alternate Course of Events
 - The administrator selects 'View All Accounts' from the main page(01-view_all_events.png).
@@ -22,4 +20,6 @@ This is the page that the user must be on at the start to complete the use case.
 
 ![Main Page](/02-analysis/UI/admin/01-main_page_administrator.png)
 
-![View all accounts](/02-analysis/UI/admin/07-view_all_accounts.png)
+![All Administrator](/02-analysis/UI/admin/07-view_all_accounts_administrators.png)
+![All Customers](/02-analysis/UI/admin/07-view_all_accounts_customers.png)
+![All Organisers](/02-analysis/UI/admin/07-view_all_accounts_organisers.png)

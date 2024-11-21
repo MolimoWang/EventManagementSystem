@@ -31,7 +31,7 @@ public class Reservation extends BookingImp {
 
     @Transient
     public String getDetails() {
-        String details = customer.getName() +
+        String details = customer.getUsername() +
                 " " +
                 customer.getPhoneNumber() +
                 " (" +

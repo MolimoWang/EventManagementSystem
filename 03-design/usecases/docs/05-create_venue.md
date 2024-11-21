@@ -13,7 +13,7 @@
 
 
 ### Sequence Diagram
-![Create Venue Page](03-design/sequence-diagrams/Common/05-create_venue.png)
+![Create Venue Page](/03-design/sequence-diagrams/Common/05-create_venue_basic.png)
 
 
 ### Duplicate Venue
