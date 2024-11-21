@@ -96,7 +96,7 @@ as -> or: a := findByEmail(email)
 as --> ac: return a
 deactivate as
 
-ac -> m:"allorganizer":String,allorganizer.Organizer[*]
+ac -> m: addAttribute("allorganizer":String,allorganizer.Organizer[*])
 ac --> d: return "view_all_accounts_organizer"
 
 end
