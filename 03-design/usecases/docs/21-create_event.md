@@ -29,3 +29,6 @@ This is the page that the user must be on at the start to complete the use case.
 
 ### Create Event
 ![Create Event](/02-analysis/UI/organizer/19-create_event.png)
+
+## Data Outcome
+- **Create** - The event will be created and added into the system.

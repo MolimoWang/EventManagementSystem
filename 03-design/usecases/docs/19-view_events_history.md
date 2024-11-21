@@ -30,3 +30,6 @@ This is the page that the user must be on at the start to complete the use case.
 ![Main Page](/02-analysis/UI/admin/01-main_page_administrator.png)
 
 ![View events history](/02-analysis/UI/admin/02-view_events_history.png)
+
+## Data Outcome
+- **READ** - The events history will be shown on the system and the administrator can read it.

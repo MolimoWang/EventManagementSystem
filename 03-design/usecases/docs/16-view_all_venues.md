@@ -30,3 +30,5 @@ This is the page that the user must be on at the start to complete the use case.
 
 ![View All Venues](/02-analysis/UI/admin/04-view_all_venues.png)
 
+## Data Outcome
+- **Read** - All venues will be read and displayed.

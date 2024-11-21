@@ -70,3 +70,6 @@ There the pages that the user must be on at the start to complete the use case.
 
 
 - **Tips: The events table on the main page shows all the events for the day.**
+
+## Data Outcome
+- **READ** - The corresponding events in the system will be read and display.

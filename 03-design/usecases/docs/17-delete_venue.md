@@ -48,3 +48,6 @@ This is the page that the user must be on at the start to complete the use case.
 ![Delete Venue](/02-analysis/UI/admin/06-delete_venue.png)
 
 ![Venue in use](/02-analysis/UI/admin/Alternative/delete_venue_in_use.png)
+
+## Data Outcome
+- **Delete** - The selected venue will be removed from the system

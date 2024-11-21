@@ -33,4 +33,4 @@ This is the page that the user must be on at the start to complete the use case.
 
 ## Data Outcome
 - **Read** - The event registrations will be shown on the system and the administrator or organizer can read it.
-- **UPDATE** - None
+

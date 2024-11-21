@@ -82,3 +82,6 @@ There the pages that the customer must be on at the start to complete the use ca
 
 ### View Account
 ![All accounts](/02-analysis/UI/customer/35-view_customer_account.png)
+
+## Data Outcome
+- **READ** - The details of the selected account in the system will be read and display.

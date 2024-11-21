@@ -67,3 +67,6 @@ There the pages that the user must be on at the start to complete the use case.
 
 ### Venue Details
 ![View Venue Details](/02-analysis/UI/organizer/28-view_venue_details.png)
+
+## Data Outcome
+- **Read** - The details of selected venue will be shown.

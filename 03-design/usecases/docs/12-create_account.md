@@ -61,3 +61,5 @@
 ### Invalide Input Error
 ![Invalid Input Error](/02-analysis/UI/admin/Alternative/create_account_invalid_input.png)
 
+## Data Outcome
+- **Create** - The account will be displayed and added into the system.

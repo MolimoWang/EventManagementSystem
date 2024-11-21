@@ -44,5 +44,4 @@ This is the page that the user must be on at the start to complete the use case.
 ![Customer Main Page](/02-analysis/UI/customer/34-main_page_customer.png) 
 
 ## Data Outcome
-- **READ** - The details of the selected account in the system will be read and display.
-- **UPDATE** - The details of the selected account will be changed.
+- **READ** - The details of the selected account in the system will be read and display after login successfully.

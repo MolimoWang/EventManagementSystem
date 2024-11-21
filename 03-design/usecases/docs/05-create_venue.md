@@ -45,3 +45,6 @@ This is the page that the user must be on at the start to complete the use case
 ### Error: Duplicate Venue                                               
  ![Add Venue](/02-analysis/UI/organizer/Alternative/add_venue-duplicate.png)
 
+## Data Outcome
+- **Create** - The venue will be created.
+- **Update** - The number of venues will be updated

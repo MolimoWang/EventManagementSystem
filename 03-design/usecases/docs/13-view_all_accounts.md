@@ -23,3 +23,6 @@ This is the page that the user must be on at the start to complete the use case.
 ![All Administrator](/02-analysis/UI/admin/07-view_all_accounts_administrators.png)
 ![All Customers](/02-analysis/UI/admin/07-view_all_accounts_customers.png)
 ![All Organisers](/02-analysis/UI/admin/07-view_all_accounts_organisers.png)
+
+## Data Outcome
+- **Read** - All accounts in the system will be read and display.

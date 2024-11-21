@@ -23,3 +23,6 @@ This is the page that the user must be on at the start to complete the use case.
 
 ### List My Venues
 ![List My Venues](/02-analysis/UI/organizer/25-list_my_venues.png)
+
+## Data Outcome
+- **Read** - The venues used of the organiser will be shown on the system and the organiser can read it.

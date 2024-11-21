@@ -24,3 +24,6 @@ This is the page that the user must be on at the start to complete the use case.
 
 ### List My Events
 ![List Events](/02-analysis/UI/organizer/18-list_my_events.png)
+
+## Data Outcome
+- **READ** - The events of the organiser will be shown on the system and the organiser can read it.
