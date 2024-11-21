@@ -7,7 +7,7 @@
 - The administrator selects the account of the accounts list to disable in view all accounts page(7-view_all_accounts.png).
 - The system asks the administrator to confirm.
 - The administrator selects **Yes**.
-- The system update the view all accounts page(7-view_all_accounts.png) with this account deleted.
+- The system update the view all accounts page(7-view_all_accounts.png) with this account disable.
 
 ### Sequence Diagram
 

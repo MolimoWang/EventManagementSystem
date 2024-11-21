@@ -154,6 +154,7 @@ package "services" #LightYellow {
         +getMyTicket(customerEmail: String):Ticket[*]
         +checkEventHasStarted(eventName: String):Boolean
         +checkTimeoutCancel(ticketId: Long):Boolean
+        +cancelTicket(ticketId: Long)
         +createTicket(customerEmail: String, eventName: String, ticketQuantity: String): Ticket
         +getTicketOwner(eventName: String):Customer
         +getTicketEvent(customerEmail: String):Event
