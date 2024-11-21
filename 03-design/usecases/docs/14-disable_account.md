@@ -11,7 +11,7 @@
 
 ### Sequence Diagram
 
-![Disable account](/02-analysis/sequence-diagrams/Administrator/14-disable_account.png)
+![Disable account](/03-design/sequence-diagrams/Administrator/14-disable_account-Alternative_Do_Not_Disable.png)
 
 
 ## Alternate Course of Events
@@ -21,6 +21,16 @@
 - The system asks the administrator to confirm.
 - The administrator selects **No**.
 - The system update the view all accounts page(7-view_all_accounts.png) with no changes.
+
+### Sequence Diagram-- Alternate Course of Events
+
+![Do not Disable](/03-design/sequence-diagrams/Administrator/14-disable_account-Alternative_Do_Not_Disable.png)
+
+### Account Already Disabled
+- The administrator selects an account to disable, but the account is already disabled.
+- The system displays a message indicating the account is already inactive.
+
+### Sequence Diagram-- Alternate Course of Events
 
 
 ## UI Sketches

@@ -8,7 +8,7 @@
 5. The system shows the created details of the event on the view events page (22-view_event_details).
 
 ### Sequence Diagram
-![Edit Event Page](/03-design/sequence-diagrams/Organizer/22-update_event-basic.png)
+![Edit Event Page](/02-analysis/sequence-diagrams/Organizer/22-edit_event.png)
 
 ## Alternate Course of Events
 - None

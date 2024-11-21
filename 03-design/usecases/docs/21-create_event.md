@@ -13,7 +13,7 @@
 
 
 ### Sequence Diagram
-![Create Event Page](/03-design/sequence-diagrams/Organizer/21-create_event-basic.png)
+![Create Event Page](/02-analysis/sequence-diagrams/Organizer/21-create_event.png)
 
 ## Alternate Course of Events
 - None

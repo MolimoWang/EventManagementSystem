@@ -22,6 +22,10 @@
 - The administrator selects **No**.
 - The system returns to the view all accounts page(7-view_all_accounts.png) with no changes.
 
+### Sequence Diagram-- Alternate Course of Events
+
+![Do not delete](/03-design/sequence-diagrams/Administrator/15-delete_account-Alternative_Do_Not_Delete.png)
+
 ### Event Not Found
 
 - The administrator tries to delete an event that no longer exists.

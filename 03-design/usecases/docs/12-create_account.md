@@ -25,7 +25,7 @@
 
 ### Sequence Diagram
 
-![create account for organizer](/03-design/sequence-diagrams/Administrator/12-create_account.png)
+![create account for organizer](/03-design/sequence-diagrams/Administrator/12-create_account-basic.png)
 
 ## Basic Course of Events-- Creating Administrator
 - The administrator navigates to the 'View All Accounts' page, which displaying all existing accounts in the system.
@@ -38,7 +38,7 @@
 - A confirmation message is shown to the administrator.
 
 ### Sequence Diagram
-![create account for administrator](/03-design/sequence-diagrams/Administrator/12-create_account.png)
+![create account for administrator](/03-design/sequence-diagrams/Administrator/12-create_account-basic.png)
 
 ## Alternate Course of Events-- Duplicate Email Error
 - The administrator navigates to the 'View All Accounts' page, which displaying all existing accounts in the system.
@@ -52,7 +52,7 @@
 - The system prompts the administrator to use a different email or to edit the existing account instead.
 
 ### Sequence Diagram
-![Duplicate email error](/02-analysis/sequence-diagrams/Administrator/12-create_account_Duplicate_Email_Error.txt.png)
+![Duplicate email error](/03-design/sequence-diagrams/Administrator/12-create_account-Alternate_Duplicate_Email.png)
 
 ## Alternate Course of Events-- Invalid Input Error
 
@@ -67,7 +67,7 @@
 - The system prompts the administrator to correct the input and resubmit.
 
 ### Sequence Diagram
-![Invalid input error](/02-analysis/sequence-diagrams/Administrator/12-create_account_Invalid_Input_Error.txt.png)
+![Invalid input error](/03-design/sequence-diagrams/Administrator/12-create_account-Alternate_Invalid_Input.png)
 
 ## UI Sketches
 
