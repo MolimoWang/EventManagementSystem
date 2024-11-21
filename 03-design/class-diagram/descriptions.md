@@ -1,8 +1,5 @@
 ## Data Persistence
 
-
-Q1: is they need types?
-
 1. Administrator: id: Long, name: String, email: String, password: String, role: Role,is_active : Boolean
 2. Organiser: id: Long, name: String, email: String, password: String, role: Role, address: String, companyName: String, phoneNumber: String,is_active : Boolean
 3. Customer: id: Long, name: String, email: String, password: String, role: Role,is_active : Boolean
