@@ -33,14 +33,14 @@ activate as
 as->cr:a := findByEmail(email : String)
 as-->ac:return a
 deactivate as
-ac -> as: deleteOrganiser(a : Organiser)
+ac -> as: deleteCustomer(a : Organiser)
 activate as
   as->cr:delete(a : Customer)
 as->c:<<delete>>
-destroy a
+destroy c
 as-->ac:
 deactivate as
-ac -> as: getCustomerAccounts()
+ac -> as: getCustomers()
 activate as
   as->cr:customerAccounts：=findAll()
   as-->ac: return customerAccounts
@@ -62,7 +62,7 @@ as->a:<<delete>>
 destroy a
 as-->ac:
 deactivate as
-ac -> as: getAdministratorAccounts()
+ac -> as: getAdministrators()
 activate as
   as->ar:administratorAccounts：=findAll()
   as-->ac: return administratorAccounts
@@ -81,10 +81,10 @@ ac -> as: deleteOrganiser(a : Organiser)
 activate as
   as->or:delete(a : Organiser)
 as->o:<<delete>>
-destroy a
+destroy o
 as-->ac:
 deactivate as
-ac -> as: getOrganiserAccounts()
+ac -> as: getOrganisers()
 activate as
   as->or:organiserAccounts：=findAll()
   as-->ac: return organiserAccounts
