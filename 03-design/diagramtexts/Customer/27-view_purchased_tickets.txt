@@ -36,6 +36,6 @@ nv-->d:
 deactivate nv
 d-->w: return newView
 deactivate d
-deactivate w
+
 ==2. The system turns to the ticket list page **(40-view_purchased_tickets.png)** and displays all tickets purchased by the user..==
 

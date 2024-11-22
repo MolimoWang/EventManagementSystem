@@ -87,6 +87,5 @@ nv-->d:
 deactivate nv
 
 d-->w:return newView
-deactivate w
 deactivate d
 ==2. The system displays the main page of the system(01-main_page_customer) ==
