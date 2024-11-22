@@ -637,6 +637,9 @@ class AccountSystem {
     +updateCustomerAccount(alterDTO:AccountAlterDTO,model:Model)
     +updateAdministratorAccount(alterDTO:AccountAlterDTO,model:Model)
     +updateOrganiserAccount(alterDTO:AccountAlterDTO,model:Model)
+    addAttributes("AdministritorAccount":String e:Administritor)
+    addAttributes("CustomerAccount":String e: Customer)
+    addAttributes("OrganiserAccount":String e:Organiser)
 }
 
 AccountSystem "1"--> "-AccountService 1" AccountService
@@ -667,6 +670,9 @@ class EventSystem {
     +showUpdateEvent(eventId: Long, m : Model)
     +viewVenueUsage(venue: Venue, m: Model)
     +viewEventsHistory(date: Date, time: Time, m: Model)
+    +addAttributes("events": String, allEvents: Event[*])
+    +addAttributes("event":String, event:Event)
+    +addAttributes("customers": String, customers: Customer[*] )
 }
 
 EventSystem "1"--> "-EventService 1" EventService

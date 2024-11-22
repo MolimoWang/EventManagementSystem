@@ -15,6 +15,7 @@ participant "<link:_>: EventRepository" as er
 a->>w:interact
 activate w
 w->d:GET(url: String)
+activate d
 d->s:listEvents(m: Model)
 activate s
 
@@ -22,8 +23,9 @@ note right of s: 2. The system passes requests to the service.
 s->u: getEvents()
 activate u
   u->er:findAll()
+  note right of u: 3. The service return the list of events.
 u-->s: return allEvents
-note right of u: 3. The service return the list of events.
+
 deactivate u
 
 s->mm:addAttributes("events": String, allEvents: Event[*])
@@ -35,6 +37,7 @@ activate nv
 nv-->d:
 deactivate nv
 d-->w:return newView
+deactivate d
 
 ==4. The system displays the customer main page (34-main_page_customer.png) which shows the details of all events in the system==
 @enduml

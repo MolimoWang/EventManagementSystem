@@ -49,7 +49,7 @@ end
 
 u --> s : return customers
 deactivate u
-s->model:addAttribute("customer" : String, customer : Customer[*])
+s->model:addAttribute("customers" : String, customers : Customer[*])
 d<--s:return event registrations page
 deactivate s
 d->*nv:View(model : Model)

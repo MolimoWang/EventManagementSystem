@@ -26,14 +26,14 @@ alt The account type is an administrator account
   as -> u: AdministratorAccount :=   getAdministratorAccount(email:String)
   activate u
     note right of as: 3.The system passes requests to the service.
-note over w,d:This part of the functionality is completed in Javascript\nIt does not need to be shown here
+
   u->ar: e:=findByEmail(email: Long): Administrator
 
 
   u --> as :return e
   deactivate u
 
-  as->m:addAtributes("AdministritorAccount":String e:Administritor)
+  as->m:addAttributes("AdministritorAccount":String e:Administritor)
 
   as-->d : return "main_page_administrator"
   deactivate as
@@ -54,12 +54,12 @@ alt The account type is an customer account
   as -> u: CustomerAccount :=   getConsumerAccount(email:String)
   activate u
     note right of as: 3.The system passes requests to the service.
-    note over w,d:This part of the functionality is completed in Javascript\nIt does not need to be shown here
+
 
   u->cr:e:= findByEmail(email: Long): Customer
   u --> as :return e
   deactivate u
-  as->m:addAtributes("CustomerAccount":String e: Customer)
+  as->m:addAttributes("CustomerAccount":String e: Customer)
 
   as-->d : return "main_page_customer"
   deactivate as
@@ -78,13 +78,13 @@ alt The account type is an organizer account
   as -> u: OrganizerAccount :=   getOrganizerAccount(email:String)
   activate u
     note right of as: 3.The system passes requests to the service.
-    note over w,d:This part of the functionality is completed in Javascript\nIt does not need to be shown here
+
   u->or:e:= findByEmail(email: Long): Organizer
 
 
   u --> as :return e
   deactivate u
-  as->m:addAtributes("OrganizerAccount":String e:Organizer)
+  as->m:addAttributes("OrganiserAccount":String e:Organiser)
 
   as-->d : return "main_page_organizer"
   deactivate as
@@ -94,6 +94,7 @@ activate nv
   nv-->d:
   deactivate nv
   d-->w:return newView
+  deactivate d
 ==4. The system displays the main page of the system (17-main_page_organizer.png)==
     end
 @enduml

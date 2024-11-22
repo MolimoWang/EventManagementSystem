@@ -16,7 +16,7 @@ participant "<link:_>: AccountService" as u
 us->>w:interact
 activate w
 w->d:POST(url: String, payload : json)
-note over w,d:This part of the functionality is completed in Javascript\nIt does not need to be shown here
+
 activate d
 
 
@@ -45,7 +45,7 @@ end
   u --> as :return false
   deactivate u
 
-  as->m:addAtributes("error":String,"errWrongPassword":String)
+  as->m:addAttributes("error":String,"errWrongPassword":String)
 
   as-->d : return "login"
   deactivate as
@@ -56,7 +56,7 @@ activate nv
   deactivate nv
   d-->w:return newView
 
-
+deactivate d
 ==4. The system displays the login page of the system (00-login)==
 
 @enduml
