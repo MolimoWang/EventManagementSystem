@@ -53,7 +53,6 @@ package "repositories" #LightYellow {
         +findAll(): Administrator[*]
         +save(administrator: Administrator): Boolean
         +delete(administrator: Administrator): Boolean
-        +disable(administrator: Administrator): Boolean
         +deleteByEmail(email: String): Boolean
     }
     class VenueRepository {
@@ -285,7 +284,7 @@ interface VenueInterface <<Interface>>{
 
 
 
-    Venue "1 -venue" <--"*" Event
+    Venue "1 -venue" <-- "*" Event
 
 interface EventInterface <<Interface>>{
     + getName(): String

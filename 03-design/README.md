@@ -66,10 +66,9 @@ The class diagram represents the information gained about the system by completi
 ![class diagram](class-diagram/classDiagram.svg)
 
 ## Description of Database
+
 [Description of Database](/03-design/class-diagram/descriptions.md)
 
-## Responsibilities of Classes
-[Responsibilities of Classes](/03-design/class-diagram/class_diagram_descriptions.md)
 
 ## Milestone 3 Design
 
