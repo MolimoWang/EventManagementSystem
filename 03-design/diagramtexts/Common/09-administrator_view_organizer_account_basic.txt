@@ -26,7 +26,7 @@ activate vs
 vs->vr:account :=findAccountById(accountId:Long)
 vs-->ec:return account
 deactivate vs
-ec->m:addAttribute("account":String,account:Organizer)
+ec->m:addAttributes("organiser":String o:Organiser)
 
 
 ec-->ds:return "30-view_organizer_account"

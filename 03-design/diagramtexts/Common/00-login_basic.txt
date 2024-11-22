@@ -33,7 +33,7 @@ alt The account type is an administrator account
   u --> as :return e
   deactivate u
 
-  as->m:addAttributes("AdministritorAccount":String e:Administritor)
+  as->m:addAttributes("administrator":String a:Administrator)
 
   as-->d : return "main_page_administrator"
   deactivate as
@@ -59,7 +59,7 @@ alt The account type is an customer account
   u->cr:e:= findByEmail(email: Long): Customer
   u --> as :return e
   deactivate u
-  as->m:addAttributes("CustomerAccount":String e: Customer)
+  as->m:addAttributes("customer":String c: Customer)
 
   as-->d : return "main_page_customer"
   deactivate as
@@ -84,7 +84,7 @@ alt The account type is an organizer account
 
   u --> as :return e
   deactivate u
-  as->m:addAttributes("OrganiserAccount":String e:Organiser)
+  as->m:addAttributes("organiser":String o:Organiser)
 
   as-->d : return "main_page_organizer"
   deactivate as

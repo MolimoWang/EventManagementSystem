@@ -24,7 +24,7 @@ activate vs
 vs->vr:account :findAccountById(accountId:Long)
 vs-->ec:return account
 deactivate vs
-ec->m:addAttribute("account":String,account:Customer)
+ec->m:addAttributes("customer":String c: Customer)
 
 ec-->ds:return "view_user_account"
 deactivate ec

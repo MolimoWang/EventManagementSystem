@@ -637,9 +637,15 @@ class AccountSystem {
     +updateCustomerAccount(alterDTO:AccountAlterDTO,model:Model)
     +updateAdministratorAccount(alterDTO:AccountAlterDTO,model:Model)
     +updateOrganiserAccount(alterDTO:AccountAlterDTO,model:Model)
-    addAttributes("AdministritorAccount":String e:Administritor)
-    addAttributes("CustomerAccount":String e: Customer)
-    addAttributes("OrganiserAccount":String e:Organiser)
+    +addAttributes("administrator":String a:Administrator)
+    +addAttributes("customer":String c: Customer)
+    +addAttributes("organiser":String o:Organiser)
+    +addAttribute("allAdministrators":String, a:Administrator[*] )
+    +addAttribute("allCustomers":String, c: Customer[*])
+    +addAttribute("allOrganisers":String, o: Organiser[*])
+    +addAttributes("error":String,"errNoUser":String)
+    +addAttributes("error":String,"errWrongPassword":String)
+    +addAttribute("accountAlterDTO":String,accountAlterDTO: AccountAlterDTO)
 }
 
 AccountSystem "1"--> "-AccountService 1" AccountService
@@ -652,6 +658,9 @@ class VenueSystem {
     +listMyVenues(organiserId:Long, m: Model)
     +listVenues(m : Model)
     +listAvailableVenues(date: Date,time: Time, m : Model)
+    +addAttributes("venues":String,venues:Venue[*])
+    +addAttributes("venue":String, venue:Venue)
+    +addAttributes("venueAlterDTO":String, venueAlterDTO:venueAlterDTO)
 }
 VenueSystem "1"--> "-VenueService 1" VenueService
 
@@ -671,6 +680,8 @@ class EventSystem {
     +viewVenueUsage(venue: Venue, m: Model)
     +viewEventsHistory(date: Date, time: Time, m: Model)
     +addAttributes("events": String, allEvents: Event[*])
+    +addAttributes("events": String, events: Event[*])
+    +addAttributes("events": String, dateEvents: Event[*])
     +addAttributes("event":String, event:Event)
     +addAttributes("customers": String, customers: Customer[*] )
 }

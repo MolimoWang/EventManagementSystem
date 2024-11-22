@@ -29,7 +29,7 @@ as->vr:a:=findById(aid:Long)
 as-->ec:return a
 deactivate as
 
-ec->m:addAttribute("account":String, a:Administrator)
+ec->m:addAttributes("administrator":String a:Administrator)
 
 entity "<link:_>:accountAlterDTO:AccountAlterDTO" as aad
 

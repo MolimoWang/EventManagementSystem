@@ -30,7 +30,7 @@ as->vr:ol:=findById(aid:Long)
 as-->ec:return o
 deactivate as
 
-ec->m:addAttribute("account":String, c: Organiser)
+ec->m:addAttributes("organiser":String o:Organiser)
 
 entity "<link:_>:accountAlterDTO:AccountAlterDTO" as aad
 
@@ -81,7 +81,7 @@ as-->ec:
 deactivate as
 
 
-ec->m2:addAttribute("account":String, o: Organizer)
+ec->m2:addAttributes("organiser":String o:Organiser)
 ec-->ds:return "view_organiser_account"**(30-view_organizer_account.png)**
 
 deactivate ec
