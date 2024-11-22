@@ -33,9 +33,7 @@ deactivate tsr
 ts -> es: getEvent(eventName: String)
 activate es
 es -> er: findByName(eventName: String)
-activate er
-er --> es: return Event
-deactivate er
+
 es --> ts: return Event
 deactivate es
 
@@ -65,6 +63,6 @@ nv --> d:
 deactivate nv
 d --> v: return newView
 deactivate d
-deactivate v
+
 == The system displays the tickets purchased by the user ==
 @
