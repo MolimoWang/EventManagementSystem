@@ -11,10 +11,16 @@
 
 ## Relationships
 
-1. Customer - Ticket (1 to many)
-2. Ticket - Event (1 to 1)
-3. Ticket - TicketQuantity (1 to 1)
-4. Venue - TicketAvailability (1 to many)
-5. Venue - Event (1 to many)
-6. Event - TicketQuantity (1 to many)
-7. Organiser - Event (1 to many)
+1. Customer -> Ticket (1 to many)
+2. Ticket -> Customer (1 to 1)
+3. Ticket -> Event (1 to 1)
+4. Event -> Ticket (1 to many)
+5. Ticket <-> TicketQuantity (1 to 1)
+6. Venue -> TicketAvailability (1 to many)
+7. TicketAvailability -> Venue (1 to 1)
+8. Venue -> Event (1 to many)
+9. Event -> Venue (1 to 1)
+10. Event -> TicketQuantity (1 to many)
+11. TicketQuantity -> Event (1 to 1)
+12. Organiser -> Event (1 to many)
+13. Event -> Organiser (1 to 1)

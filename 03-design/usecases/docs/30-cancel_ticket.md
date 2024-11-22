@@ -23,6 +23,7 @@
 - The system displays a message indicating that the ticket cannot be cancelled due to exceeding the deadline.
 
 ### Sequence Diagram -- Alternate Course of Events
+
 ![Exceeds Cancellation Deadline](/02-analysis/sequence-diagrams/User/31-cancel_ticket_deadline.png)
 
 ### Do Not Cancel
@@ -32,6 +33,7 @@
 - The system returns to the ticket list page without making any changes.
 
 ### Sequence Diagram -- Alternate Course of Events
+
 ![Do Not Cancel](/02-analysis/sequence-diagrams/User/31-cancel_ticket_no.png)
 
 ## UI Sketches

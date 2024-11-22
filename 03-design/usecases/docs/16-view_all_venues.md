@@ -24,6 +24,7 @@
 This is the page that the user must be on at the start to complete the use case.
 
 ### Main page
+
 ![Main Page](/02-analysis/UI/admin/04-view_all_venues.png)
 
 ### View All Venues

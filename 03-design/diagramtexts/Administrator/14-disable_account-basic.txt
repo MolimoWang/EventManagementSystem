@@ -11,7 +11,8 @@ participant "<link:_>: CustomerRepository" as cr
 participant "<link:_>: AdminRepository" as ar
 participant "<link:_>: OrganizerRepository" as or
 participant "<link:_>: AccountService" as as
-entity "<link:_>: Account" as a
+entity "<link:_>: Customer" as c
+entity "<link:_>: Organiser" as o
 
 ==1. The administrator selects an account to disable on view all accounts page(7-view_all_accounts.png).\n2.The system asks the administrator to confirm.\n3. The administrator selects **Yes**.==
 
@@ -26,19 +27,19 @@ d->ac:disableAccount(accountId : Long, m : Model)
 activate ac
 
 alt the selected account is a customer account
-ac -> as: getCustomer(email : String)
+ac -> as: getCustomer(customerEmail : String)
 activate as
 as->cr:a := findByEmail(email : String)
 as-->ac:return a
 deactivate as
-ac -> as: disableAccount(a : Customer)
+ac -> as: disableCustomer(a : Customer)
 activate as
-  as->cr:disableAccount(a : Customer)
-as->a:<<disable>>
-destroy a
+  as->cr:disable(a : Customer)
+as->c:<<disable>>
+destroy c
 as-->ac:
 deactivate as
-ac -> as: getCustomerAccounts()
+ac -> as: getCustomers()
 activate as
   as->cr:customerAccounts：=findAll()
   as-->ac: return customerAccounts
@@ -50,19 +51,19 @@ ac-->d:return "view_all_accounts_customer"
 
 
 else the selected account is a organiser account
-ac -> as: getOrganiser(email : String)
+ac -> as: getOrganiser(organiserEmail : String)
 activate as
 as->or:a := findByEmail(email : String)
 as-->ac:return a
 deactivate as
 ac -> as: disableOrganizer(a : Organiser)
 activate as
-  as->or:disableOrganiser(a : Organiser)
-as->a:<<disable>>
-destroy a
+  as->or:disable(a : Organiser)
+as->o:<<disable>>
+destroy o
 as-->ac:
 deactivate as
-ac -> as: getOrganiserAccounts()
+ac -> as: getOrganisers()
 activate as
   as->or:organiserAccounts：=findAll()
   as-->ac: return organiserAccounts

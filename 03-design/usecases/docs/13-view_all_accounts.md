@@ -21,7 +21,9 @@ This is the page that the user must be on at the start to complete the use case.
 ![Main Page](/02-analysis/UI/admin/01-main_page_administrator.png)
 
 ![All Administrator](/02-analysis/UI/admin/07-view_all_accounts_administrators.png)
+
 ![All Customers](/02-analysis/UI/admin/07-view_all_accounts_customers.png)
+
 ![All Organisers](/02-analysis/UI/admin/07-view_all_accounts_organisers.png)
 
 ## Data Outcome

@@ -28,6 +28,7 @@
 ![Main Page](/02-analysis/sequence-diagrams/Common/09-organizer_view_account.png)
 
 ### Customer
+
 ![Main Page](03-design/sequence-diagrams/Common/09-customer_view_account_basic.png)
 
 ## Alternate Course of Events
@@ -50,6 +51,7 @@ This is the page that the administrator must be on at the start to complete the 
 ![Main Page](/02-analysis/UI/admin/01-main_page_administrator.png)
 
 ### View All Accounts
+
 ![All accounts](/02-analysis/UI/admin/07-view_all_accounts.png)
 
 ### View Selected Account
@@ -78,9 +80,11 @@ There the pages that the organiser must be on at the start to complete the use c
 There the pages that the customer must be on at the start to complete the use case.
 
 #### Main Page
+
 ![Main Page](/02-analysis/UI/customer/34-main_page_customer.png)
 
 ### View Account
+
 ![All accounts](/02-analysis/UI/customer/35-view_customer_account.png)
 
 ## Data Outcome

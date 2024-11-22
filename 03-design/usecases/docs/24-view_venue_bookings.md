@@ -6,6 +6,7 @@
 3. Organizer select one available venue from the list to be the venue which the events will use.
 
 ### Sequence Diagram
+
 ![View Venues Bookings](/03-design/sequence-diagrams/Organizer/24-view_venue_bookings-basic.png)
 
 ## Alternate Course of Events
@@ -20,9 +21,11 @@
 This is the page that the user must be on at the start to complete the use case.
 
 ### Main Page
+
 ![Main Page](/02-analysis/UI/organizer/19-create_event.png)
 
 ### View Venue Bookings
+
 ![View Venue Bookings](/02-analysis/UI/organizer/29-view_venue_bookings.png)
 
 ## Data Outcome

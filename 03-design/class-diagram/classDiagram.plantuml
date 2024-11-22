@@ -35,6 +35,7 @@ package "repositories" #LightYellow {
         +findAll(): Customer[*]
         +save(customer: Customer): Boolean
         +delete(customer: Customer): Boolean
+        +disable(customer: Customer): Boolean
         +deleteByEmail(email: String): Boolean
     }
     class OrganiserRepository {
@@ -43,6 +44,7 @@ package "repositories" #LightYellow {
         +findAll(): Organiser[*]
         +save(organiser: Organiser): Boolean
         +delete(organiser: Organiser): Boolean
+        +disable(organiser: Organiser): Boolean
         +deleteByEmail(email: String): Boolean
     }
     class AdministratorRepository {
@@ -109,7 +111,9 @@ package "services" #LightYellow {
          +deleteCustomer(CustomerEmail: String): Boolean
          +deleteOrganiser(OrganiserEmail: String): Boolean
          +deleteAdministrator(AdministratorEmail: String): Boolean
-         +disableAccount(accountId: Long):Boolean
+         +disableCustomer(accountId: Long):Boolean
+         +disableOrganiser(accountId: Long):Boolean
+         +disableAdministrator(accountId: Long):Boolean
          +updateCustomer(accountAlterDTO:AccountAlterDTO,c: Customer): Boolean
          +updateOrganiser(accountAlterDTO:AccountAlterDTO,o: Organiser): Boolean
          +updateAdministrator(accountAlterDTO:AccountAlterDTO, a:Administrator): Boolean
@@ -280,7 +284,7 @@ interface VenueInterface <<Interface>>{
 
 
 
-    Venue "1 -venue" <--"*" Event
+    Venue "1 -venue" <-- "*" Event
 
 interface EventInterface <<Interface>>{
     + getName(): String

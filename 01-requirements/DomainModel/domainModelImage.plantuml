@@ -1,111 +1,111 @@
-@startuml
-skinparam monochrome true
-skinparam backgroundColor white
-skinparam shadowing false
-skinparam linetype ortho
-skinparam lineThickness 3   ' Thickness of line
-skinparam noteMargin 30     ' Margins for comments
-skinparam ranksep 100        ' Control vertical spacing
-skinparam nodesep 200        ' Control horizontal spacing
-skinparam classFontSize 12
-skinparam ArrowFontSize 12
-skinparam classBorderThickness 1
-skinparam classAttributeIconSize 0
+v@startuml
+ skinparam monochrome true
+ skinparam backgroundColor white
+ skinparam shadowing false
+ skinparam linetype ortho
+ skinparam lineThickness 3   ' Thickness of line
+ skinparam noteMargin 30     ' Margins for comments
+ skinparam ranksep 100        ' Control vertical spacing
+ skinparam nodesep 200        ' Control horizontal spacing
+ skinparam classFontSize 12
+ skinparam ArrowFontSize 12
+ skinparam classBorderThickness 1
+ skinparam classAttributeIconSize 0
 
-hide class circle
-hide empty members
-hide methods
-hide stereotypes
+ hide class circle
+ hide empty members
+ hide methods
+ hide stereotypes
 
-skinparam class {
-    BorderColor black
-    ArrowColor black
-    FontColor black
-    FontName Arial
-    FontSize 12
-}
-
-
-
-together{
-    class User
-    class Ticket
-}
-
-' Define user roles in the second row
-
-    class Administrator {
-    }
-
-    class Organiser {
-        - address: String
-        - companyName: String
-        - phoneNumber: String
-    }
-
-    class User {
-
-    }
-
-    ' Using direction to control layout
-    class Account {
-        - name: String
-        - email: String
-        - password: String
-    }
-
-together{
-class Venue
-class Event
-}
-
-' Define the entities in the third row
-
-    class Venue {
-        - name: String
-        - address: String
-        - contactName: String
-        - contactPhoneNumber: String
-        - contactEmail: String
-        - capacity: int
-    }
-
-    class Event {
-        - name: String
-        - description: String
-        - date: Date
-        - time: Time
-        ' Event can only be deleted by Administrator
-    }
-
-    class Ticket {
-        - type: String
-        - price: double
-        - available_number: int
-        - sold_number: int
-    }
+ skinparam class {
+     BorderColor black
+     ArrowColor black
+     FontColor black
+     FontName Arial
+     FontSize 12
+ }
 
 
-' -------------------Inheritance relations-------------------
-Administrator --|> Account
-Organiser --|> Account
-User --|> Account
+
+ together{
+     class User
+     class Ticket
+ }
+
+ ' Define user roles in the second row
+
+     class Administrator {
+     }
+
+     class Organiser {
+         - address: String
+         - companyName: String
+         - phoneNumber: String
+     }
+
+     class User {
+
+     }
+
+     ' Using direction to control layout
+     class Account {
+         - name: String
+         - email: String
+         - password: String
+     }
+
+ together{
+ class Venue
+ class Event
+ }
+
+ ' Define the entities in the third row
+
+     class Venue {
+         - name: String
+         - address: String
+         - contactName: String
+         - contactPhoneNumber: String
+         - contactEmail: String
+         - capacity: int
+     }
+
+     class Event {
+         - name: String
+         - description: String
+         - date: Date
+         - time: Time
+         ' Event can only be deleted by Administrator
+     }
+
+     class Ticket {
+         - type: String
+         - price: double
+         - available_number: int
+         - sold_number: int
+     }
 
 
-' -------------------Organiser Section ------------------
-Organiser "1..*" o--> "0..* -organises" Event
+ ' -------------------Inheritance relations-------------------
+ Administrator --|> Account
+ Organiser --|> Account
+ User --|> Account
 
 
-' -------------------User Section -----------------------
-User "1" o--> "-tickets 0..*" Ticket
+ ' -------------------Organiser Section ------------------
+ Organiser "1..*" o--> "0..* -organises" Event
 
 
-' -------------------Aggregation & Composition-------------
-Venue "1 -venue" <--   Event
-Venue  -->  "0..* -events" Event
-
-Event  --> "0..* -tickets" Ticket
-Event "1 -event" <-- Ticket
+ ' -------------------User Section -----------------------
+ User "1" o--> "-tickets 0..*" Ticket
 
 
-@enduml
+ ' -------------------Aggregation & Composition-------------
+ Venue "1 -venue" <--   Event
+ Venue  -->  "0..* -events" Event
+
+ Event  --> "0..* -tickets" Ticket
+ Event "1 -event" <-- Ticket
+
+
+ @enduml

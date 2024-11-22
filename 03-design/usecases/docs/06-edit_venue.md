@@ -32,18 +32,23 @@ This is the page that the user must be on at the start to complete the use case
 
 
 ### List Venue Page
+
 ![List Venue Page](/02-analysis/UI/organizer/25-list_my_venues.png)
 
 ### Create Venue Page
+
 ![View All Venues](/02-analysis/UI/admin/04-view_all_venues.png)
 
 ### Edit Venue Page
+
 ![Edit Venue Page](/02-analysis/UI/organizer/27-edit_venue.png)
 
 ### View Venue Details
+
 ![View Venue Details](/02-analysis/UI/organizer/28-view_venue_details.png)
 
 ### Create Venue Duplicate Page
+
 ![List Venue Page](/01-requirements/UI/organizer/Alternative/add_venue-duplicate.png)
 
 ## Data Outcome
