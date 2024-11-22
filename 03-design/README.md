@@ -63,7 +63,7 @@ file and is linked below.
 
 The class diagram represents the information gained about the system by completing the use case realisations.
 
-![class diagram](class-diagram/class-diagram.svg)
+![class diagram](class-diagram/classDiagram.svg)
 
 ## Description of Database
 [Description of Database](/03-design/class-diagram/descriptions.md)
