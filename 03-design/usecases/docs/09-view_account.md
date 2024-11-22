@@ -25,11 +25,11 @@
 
 ### Organizer
 
-![Main Page](/02-analysis/sequence-diagrams/Common/09-organizer_view_account.png)
+![Main Page](/03-design/sequence-diagrams/Common/09-organizer_view_account_basic.png)
 
 ### Customer
 
-![Main Page](03-design/sequence-diagrams/Common/09-customer_view_account_basic.png)
+![Main Page](/03-design/sequence-diagrams/Common/09-customer_view_account_basic.png)
 
 ## Alternate Course of Events
 
@@ -52,7 +52,9 @@ This is the page that the administrator must be on at the start to complete the 
 
 ### View All Accounts
 
-![All accounts](/02-analysis/UI/admin/07-view_all_accounts.png)
+![All accounts](/02-analysis/UI/admin/07-view_all_accounts_administrators.png)
+![All accounts](/02-analysis/UI/admin/07-view_all_accounts_organisers.png)
+![All accounts](/02-analysis/UI/admin/07-view_all_accounts_customers.png)
 
 ### View Selected Account
 

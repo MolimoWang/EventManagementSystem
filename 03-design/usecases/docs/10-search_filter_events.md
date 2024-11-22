@@ -14,15 +14,15 @@
 
 ### Administrator
 
-![Administrator](/02-analysis/sequence-diagrams/Common/10-administrator_search_filter_events.png)
+![Administrator](/03-design/sequence-diagrams/Common/10-administrator_search_filter_events.png)
 
 ### Customer
 
-![Customer](/02-analysis/sequence-diagrams/Common/10-user_search_filter_events.png)
+![Customer](/03-design/sequence-diagrams/Common/10-customer_search_filter_events.png)
 
 ### Organizer
 
-![Organizer](/02-analysis/sequence-diagrams/Common/10-organizer_search_filter_events.png)
+![Organizer](/03-design/sequence-diagrams/Common/10-organizer_search_filter_events.png)
 
 ## Alternate Course of Events
 
@@ -37,7 +37,7 @@
 ## UI Sketches
 
 ### Administrator
-This is the page that the user must be on at the start to complete the use case.
+This is the page that the administrator must be on at the start to complete the use case.
 
 ### Main Page
 
@@ -52,7 +52,7 @@ This is the page that the user must be on at the start to complete the use case.
 ![Event Lists](/02-analysis/UI/customer/44-filter_events.png)
 
 ### Organizer
-There the pages that the user must be on at the start to complete the use case.
+There the pages that the organizer must be on at the start to complete the use case.
 
 ### Main Page
 

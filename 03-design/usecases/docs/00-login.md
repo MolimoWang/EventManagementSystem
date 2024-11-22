@@ -6,7 +6,7 @@
 - 3.The user enters their credentials.
 - 4.The system passes requests to the service.
 - 5.Service queries all accounts and returns results.
-- 6.The system displays the main page of the system. The administrator is on their main page(01-view_all_events.png). The organizer is on their main page(17-view_all_events.png). The customer is on their main page(34-view_all_events.png).
+- 6.The system displays the main page of the system. The administrator is on their main page(01-main_page_administrator.png). The organizer is on their main page(17-main_page_organiser.png). The customer is on their main page(34-main_page_customer.png).
 
 ### Sequence Diagram
 

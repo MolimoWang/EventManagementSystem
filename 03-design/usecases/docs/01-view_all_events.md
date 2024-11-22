@@ -39,18 +39,18 @@
 
 ![view_all_events_Organizer](/03-design/sequence-diagrams/Common/01-view_all_events_organizer.png)
  
-### Course of Events
+### Course of Events -- Customer
 
-1. After logging in or choosing the view all events functionality, the user is presented with the main page(34-view_all_events.png), displaying a table of all scheduled events for the current date.
+1. After logging in or choosing the view all events functionality, the customer is presented with the main page(34-view_all_events.png), displaying a table of all scheduled events for the current date.
 2. The system passes requests to the service.
 3. The service displays a table showing all events scheduled for the current date.
-4. The user can see the following details in the table:
+4. The customer can see the following details in the table:
     - Event Name
     - Time Slots (e.g., 2:00, 4:00, 6:00, etc.)
     - Available Seats for Each Event
     - Event Type (e.g., Concert, Sports, Theater)
     - Venue Name
-5. The user can use the navigation buttons (left, right) or date picker to change the date and view events scheduled on different dates.
+5. The customer can use the navigation buttons (left, right) or date picker to change the date and view events scheduled on different dates.
 6. If there are no events for the selected date, the system displays an empty table or a "No Events Scheduled" message.
 
 ### Sequence Diagram
