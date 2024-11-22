@@ -85,7 +85,7 @@ There the pages that the user must be on at the start to complete the use case.
 ![Main Page](/02-analysis/UI/organizer/17-main_page_organiser.png)
 
 
-### User
+### Customer
 
 There the pages that the user must be on at the start to complete the use case.
 

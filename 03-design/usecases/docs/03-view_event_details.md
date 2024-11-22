@@ -46,7 +46,7 @@ There the pages that the user must be on at the start to complete the use case.
 
 ![List My Events](/02-analysis/UI/organizer/18-list_my_events.png)
 
-### User
+### Customer
 
 There the pages that the user must be on at the start to complete the use case.
 
@@ -58,7 +58,7 @@ There the pages that the user must be on at the start to complete the use case.
 |----------------------------------------------------------------------------|
 | ![View Event Details](/02-analysis/UI/organizer/22-view_event_details.png) |
 
-#### Related UI Prototypes-- User
+#### Related UI Prototypes-- Customer
 
 | View Event Details Page                                               |
 |-----------------------------------------------------------------------|

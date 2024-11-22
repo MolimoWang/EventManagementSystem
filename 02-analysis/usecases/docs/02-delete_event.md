@@ -7,7 +7,7 @@
 - 1. The administrator selects the delete event functionality adjacent to the event they want to remove on the list events page
 - 2. The system asks the administrator to confirm the deletion of the event (03-delete_event.png)
 - 3. The administrator clicks OK
-- 4. The system returns to the list events page (02-view_events_history.png) and the venue is no longer displayed
+1. The system returns to the list events page (02-view_events_history.png) and the venue is no longer displayed
 
 
 ### Sequence Diagram

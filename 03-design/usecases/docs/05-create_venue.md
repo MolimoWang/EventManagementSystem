@@ -3,7 +3,7 @@
 ## Basic Course of Events
 - 1. The admin or organizer logs on and clicks 'venue' button to list current venuess
 - 2. The organizer selects the "+" option to add a new venue.(25-list_my_venues.png) 
-- 3. 3. The system turn to create venue page(26-create_venue.png) which displays a form to enter venue details,including:
+- 3. The system turn to create venue page(26-create_venue.png) which displays a form to enter venue details,including:
 ·Name
 ·Address
 ·Ticket Types(ticketTypeName, number)

@@ -48,7 +48,7 @@ There the pages that the user must be on at the start to complete the use case.
 
 ![View Venue Details](/02-analysis/UI/organizer/28-view_venue_details.png)
 
-### User
+### Customer
 
 There the pages that the user must be on at the start to complete the use case.
 
