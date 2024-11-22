@@ -13,6 +13,7 @@
 
 
 ### Sequence Diagram
+
 ![Create Venue Page](/03-design/sequence-diagrams/Common/05-create_venue_basic.png)
 
 
@@ -34,15 +35,19 @@
 This is the page that the user must be on at the start to complete the use case
 
 ### Create Venue Page
+
 ![Create Venue Page](/02-analysis/UI/organizer/26-create_venue.png)
 
 ### List Venue Page
+
 ![List Venue Page](/02-analysis/UI/organizer/25-list_my_venues.png)
 
 ### Create Venue
+
  ![Add Venue](/02-analysis/UI/organizer/26-create_venue.png)    
 
-### Error: Duplicate Venue                                               
+### Error: Duplicate Venue  
+
  ![Add Venue](/02-analysis/UI/organizer/Alternative/add_venue-duplicate.png)
 
 ## Data Outcome

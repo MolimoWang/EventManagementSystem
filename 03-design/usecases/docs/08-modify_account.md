@@ -35,12 +35,15 @@
 ### Sequence Diagram
 
 ### Administrator Modifying Organizer Account
+
 ![Administrator Modifying Other Accounts](/03-design/sequence-diagrams/Common/08-administrator_modify_account_organizer.png)
 
 ### Administrator Modifying Customer Account
+
 ![Administrator Modifying Other Accounts](/03-design/sequence-diagrams/Common/08-administrator_modify_account_customer.png)
 
 ### Administrator Modifying Administrator Account
+
 ![Administrator Modifying Other Accounts](/03-design/sequence-diagrams/Common/08-administrator_modify_account_administrator.png)
 
 ### Course of Events-- Organizer Modifying Their Accounts
@@ -131,9 +134,11 @@ This is the page that the customer must be on at the start to complete the use c
 ## Related UI Prototypes - Alternate course of events
 
 ### Invalid Password
+
 ![Invalid Password](/02-analysis/UI/organizer/Alternative/update_organizer_account_Invalid Email or Password.png)
 
 ### Missing Required Fields
+
 ![Missing Required Fields](/02-analysis/UI/organizer/Alternative/update_organizer_account_Invalid Email or Password.png)
 
 ## Data Outcome

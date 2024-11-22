@@ -8,6 +8,7 @@
 5. The system shows the created details of the event on the view events page (22-view_event_details).
 
 ### Sequence Diagram
+
 ![Edit Event Page](/03-design/sequence-diagrams/Organizer/22-update_event-basic.png)
 
 ## Alternate Course of Events
@@ -20,9 +21,11 @@
 This is the page that the user must be on at the start to complete the use case.
 
 ### Main Page
+
 ![Main Page](/02-analysis/UI/organizer/17-main_page_organiser.png)
 
 ### Edit Event
+
 ![Edit Event](/02-analysis/UI/organizer/20-edit_event.png)
 
 ### Event Details

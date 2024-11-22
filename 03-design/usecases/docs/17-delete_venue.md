@@ -29,6 +29,7 @@
 - The system updates the display to show all venues to administrator. **(04-view_all_venues.png)**
 
 ### Sequence Diagram-- Alternate Course of Events
+
 ![Do not delete](/03-design/sequence-diagrams/Administrator/17-delete_venue_alternative.png)
 
 #### Venue Not Found

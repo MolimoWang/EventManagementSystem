@@ -8,6 +8,7 @@
 3. The system displays the events scheduled for that date, including details such as event name, time, and venue(01-main_page_administrator.png).
 
 ### Sequence Diagram
+
 ![Date](/03-design/sequence-diagrams/Common/11-administrator_display_date.png)
 
 
@@ -42,12 +43,15 @@
 This is the page that the user must be on at the start to complete the use case.
 
 ### Main Page
+
 ![Main Page](/02-analysis/UI/admin/01-main_page_administrator.png)
 
 ### Select Date
+
 ![Select Date](/02-analysis/UI/customer/33-display_date.png)
 
 ### Selected Date Events
+
 ![Selected Date Events](/02-analysis/UI/admin/01-main_page_administrator.png)
 
 - **Tips: The events table on the main page shows all the events for the day.**
@@ -56,12 +60,15 @@ This is the page that the user must be on at the start to complete the use case.
 There the pages that the user must be on at the start to complete the use case.
 
 ### Main Page
+
 ![Main Page](/02-analysis/UI/organizer/17-main_page_organiser.png)
 
 ### Select Date
+
 ![Select Date](/02-analysis/UI/customer/33-display_date.png)
 
 ### Selected Date Events
+
 ![Selected Date Events](/02-analysis/UI/organizer/17-main_page_organiser.png)
 
 - **Tips: The events table on the main page shows all the events for the day.**
@@ -70,12 +77,15 @@ There the pages that the user must be on at the start to complete the use case.
 There the pages that the user must be on at the start to complete the use case.
 
 ### Main Page
+
 ![Main Page](/02-analysis/UI/customer/34-main_page_customer.png)
 
 ### Select Date
+
 ![Select Date](/02-analysis/UI/customer/33-display_date.png)
 
 ### Selected Date Events
+
 ![Selected Date Events](/02-analysis/UI/customer/34-main_page_customer.png)
 
 

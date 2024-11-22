@@ -21,7 +21,9 @@
 - The system displays an error message indicating that the email is already associated with another account.
 - The system prompts the administrator to use a different email or to edit the existing account instead.
 
+
 ### Sequence Diagram
+
 ![Duplicate email error](/03-design/sequence-diagrams/Administrator/12-create_account-Alternate_Duplicate_Email.png)
 
 ## Alternate Course of Events-- Invalid Input Error
@@ -37,6 +39,7 @@
 - The system prompts the administrator to correct the input and resubmit.
 
 ### Sequence Diagram
+
 ![Invalid input error](/03-design/sequence-diagrams/Administrator/12-create_account-Alternate_Invalid_Input.png)
 
 ## UI Sketches
@@ -46,8 +49,12 @@
 ![Main Page](/02-analysis/UI/admin/01-main_page_administrator.png)
 
 ![All Administrator](/02-analysis/UI/admin/07-view_all_accounts_administrators.png)
+
 ![All Customers](/02-analysis/UI/admin/07-view_all_accounts_customers.png)
+
 ![All Organisers](/02-analysis/UI/admin/07-view_all_accounts_organisers.png)
+
+### Create Account
 
 ![Create User Account](/02-analysis/UI/admin/08-create_customer_account.png)
 

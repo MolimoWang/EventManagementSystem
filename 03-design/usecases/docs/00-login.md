@@ -25,7 +25,9 @@
 ### Sequence Diagram -- Alternate Course of Events
 
 ![Login](/03-design/sequence-diagrams/Common/00-Login_alternate_wrong.png)
+
 ![Login](/03-design/sequence-diagrams/Common/00-Login_alternate_none.png)
+
 ## UI Sketches
 This is the page that the user must be on at the start to complete the use case.
 
@@ -38,9 +40,11 @@ This is the page that the user must be on at the start to complete the use case.
 ![Admin Main Page](/02-analysis/UI/admin/01-main_page_administrator.png)
 
 ### Organizer
+
 ![Organizer Main Page](/02-analysis/UI/organizer/17-main_page_organiser.png)
 
 ### Customer
+
 ![Customer Main Page](/02-analysis/UI/customer/34-main_page_customer.png) 
 
 ## Data Outcome

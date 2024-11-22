@@ -12,7 +12,9 @@
 4. The system updates the list of upcoming events and return to the list my events page (18-list_my_events.png).
 
 
+
 ### Sequence Diagram
+
 ![Create Event Page](/03-design/sequence-diagrams/Organizer/21-create_event-basic.png)
 
 ## Alternate Course of Events
@@ -25,9 +27,11 @@
 This is the page that the user must be on at the start to complete the use case.
 
 ### Main Page
+
 ![Main Page](/02-analysis/UI/organizer/17-main_page_organiser.png)
 
 ### Create Event
+
 ![Create Event](/02-analysis/UI/organizer/19-create_event.png)
 
 ## Data Outcome

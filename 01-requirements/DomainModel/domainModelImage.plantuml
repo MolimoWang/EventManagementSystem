@@ -1,111 +1,28 @@
 @startuml
-skinparam monochrome true
-skinparam backgroundColor white
-skinparam shadowing false
-skinparam linetype ortho
-skinparam lineThickness 3   ' Thickness of line
-skinparam noteMargin 30     ' Margins for comments
-skinparam ranksep 100        ' Control vertical spacing
-skinparam nodesep 200        ' Control horizontal spacing
-skinparam classFontSize 12
-skinparam ArrowFontSize 12
-skinparam classBorderThickness 1
-skinparam classAttributeIconSize 0
+left to right direction
+actor BankSystem
+actor Customer
 
-hide class circle
-hide empty members
-hide methods
-hide stereotypes
+actor Technician
 
-skinparam class {
-    BorderColor black
-    ArrowColor black
-    FontColor black
-    FontName Arial
-    FontSize 12
+
+rectangle "ATM System" as ATM {
+    Customer --> (Withdraw Cash)
+    Customer --> (Deposit Funds)
+    Customer --> (Transfer Funds)
+    Customer --> (Check Balance)
+    Technician --> (Perform Maintenance)
+    Technician --> (Restock Cash)
+    BankSystem --> (Validate Account Status)
+    BankSystem --> (Verify Account Balance)
+
+
+    (Withdraw Cash) ..> (Validate Account Status) : <<include>>
+    (Deposit Funds) ..> (Validate Account Status) : <<include>>
+    (Transfer Funds) ..> (Validate Account Status) : <<include>>
+    (Check Balance) ..> (Verify Account Balance) : <<include>>
+    (Perform Maintenance) ..> (Suspend Customer Interaction) : <<include>>
+    (Restock Cash) ..> (Suspend Customer Interaction) : <<include>>
 }
-
-
-
-together{
-    class User
-    class Ticket
-}
-
-' Define user roles in the second row
-
-    class Administrator {
-    }
-
-    class Organiser {
-        - address: String
-        - companyName: String
-        - phoneNumber: String
-    }
-
-    class User {
-
-    }
-
-    ' Using direction to control layout
-    class Account {
-        - name: String
-        - email: String
-        - password: String
-    }
-
-together{
-class Venue
-class Event
-}
-
-' Define the entities in the third row
-
-    class Venue {
-        - name: String
-        - address: String
-        - contactName: String
-        - contactPhoneNumber: String
-        - contactEmail: String
-        - capacity: int
-    }
-
-    class Event {
-        - name: String
-        - description: String
-        - date: Date
-        - time: Time
-        ' Event can only be deleted by Administrator
-    }
-
-    class Ticket {
-        - type: String
-        - price: double
-        - available_number: int
-        - sold_number: int
-    }
-
-
-' -------------------Inheritance relations-------------------
-Administrator --|> Account
-Organiser --|> Account
-User --|> Account
-
-
-' -------------------Organiser Section ------------------
-Organiser "1..*" o--> "0..* -organises" Event
-
-
-' -------------------User Section -----------------------
-User "1" o--> "-tickets 0..*" Ticket
-
-
-' -------------------Aggregation & Composition-------------
-Venue "1 -venue" <--   Event
-Venue  -->  "0..* -events" Event
-
-Event  --> "0..* -tickets" Ticket
-Event "1 -event" <-- Ticket
-
 
 @enduml
