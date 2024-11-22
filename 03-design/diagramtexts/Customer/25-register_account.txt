@@ -75,7 +75,7 @@ as->cr:a := findByEmail(email : String)
 as-->ac:return a
 deactivate as
 
-ac->m: addAttribute("account" : String, a : Account)
+ac->m:addAttributes("customer":String c: Customer)
 
 ac-->d:return "main-customer"
 deactivate ac

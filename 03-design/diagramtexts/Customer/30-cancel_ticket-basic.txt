@@ -71,7 +71,7 @@ tes->tr:findAllByEmail(email: String)
 ts<--tes:return allPurchasedTickets
 deactivate tes
 
-ts->m:addAttribute("allPurchasedTickets" : String, t : Ticket[*])
+ts->m:addAttributes("tickets": String, myTickets: Ticket[*])
 
 ts-->d:return "view_purchased_tickets.html"
 deactivate ts

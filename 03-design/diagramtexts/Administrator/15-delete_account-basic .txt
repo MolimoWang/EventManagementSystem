@@ -15,7 +15,7 @@ entity "<link:_>: Administrator" as a
 entity "<link:_>: Customer" as c
 entity "<link:_>: Organiser" as o
 
-==1. The administrator selects an account to delete on view all accounts page(7-view_all_accounts.png).\n2.The system asks the administrator to confirm.\n3. The administrator selects **Yes**.==
+==1. The system displays three different types of user lists based on the administrator's selection at **"view all accounts page".(07-view_all_accounts_administrators.png)(07-view_all_accounts_customers.png)(07-view_all_accounts_organisers.png)**\n2. The administrator selects an account from one of the lists displaying all accounts of that type and chooses to delete it.\n3. The system asks the administrator to confirm.\n4. The administrator selects **Yes**.==
 
 
 u -> w: click()
@@ -45,7 +45,7 @@ activate as
   as->cr:customerAccounts：=findAll()
   as-->ac: return customerAccounts
 deactivate as
-ac->m: addAttribute("accounts" : String, customerAccounts : Customer[*])
+ac->m:addAttribute("allCustomers":String, c: Customer[*])
 ac-->d:return "view_all_accounts_customer"
 
 
@@ -67,7 +67,7 @@ activate as
   as->ar:administratorAccounts：=findAll()
   as-->ac: return administratorAccounts
   deactivate as
-ac->m: addAttribute("accounts" : String, administratorAccounts : Administrator[*])
+ac->m:addAttribute("allAdministrators":String, a:Administrator[*] )
 ac-->d:return "view_all_accounts_administrator"
 
 
@@ -89,7 +89,7 @@ activate as
   as->or:organiserAccounts：=findAll()
   as-->ac: return organiserAccounts
   deactivate as
-ac->m: addAttribute("accounts" : String, organiserAccounts : Organiser[*])
+ac->m:addAttribute("allOrganisers":String, o: Organiser[*])
 ac-->d:return "view_all_accounts_organiser"
 end
 
@@ -104,4 +104,4 @@ deactivate nv
 d-->w:return newView
 deactivate d
 
-==4. The system update the view all accounts page(7-view_all_accounts.png) with this account deleted.==
+==4. The system update the view all accounts page with this account deleted.**(07-view_all_accounts_administrators.png)(07-view_all_accounts_customers.png)(07-view_all_accounts_organisers.png)**==

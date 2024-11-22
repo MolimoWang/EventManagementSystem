@@ -14,7 +14,7 @@ participant "<link:_>: AccountService" as as
 admin -> browser: click()
 activate browser
 
-==1. The administrator selects 'View All Accounts' from the main page==
+==1. The administrator selects 'View All Accounts' from the **main page(01-main_page_administrator.png)**.==
 browser->d: GET(url : String)
 activate d
 
@@ -25,7 +25,7 @@ ac -> as:getCustomers()
 activate as
   as->cr:customerAccount：=findAll()
   as-->ac: return customerAccounts
-ac->m: addAttribute("allcustomer":String,allcustomer.Customer[*])
+ac->m:addAttribute("allCustomers":String, c: Customer[*])
 ac-->d:return "view_all_accounts_customer"
 end
 
@@ -33,7 +33,7 @@ alt the account is an administrator
 ac -> as:getAdministrators()
 as->ar:administratorAccount：=findAll()
 as-->ac: return administratorAccounts
-ac->m: addAttribute("alladministrator":String,alladministrator.Administrator[*])
+ac->m:addAttribute("allAdministrators":String, a:Administrator[*] )
 ac-->d:return "view_all_accounts_administrator"
 end
 
@@ -41,7 +41,7 @@ alt the account is an Organizer
 ac -> as:getOrganisers()
 as->or: organiserAccount：=findAll()
 as-->ac: return organizerAccounts
-ac->m: addAttribute("accounts" : String, organizerAccounts : Organiser[*])
+ac->m:addAttribute("allOrganisers":String, o: Organiser[*])
 ac-->d:return "view_all_accounts_organizer"
 end
 
@@ -60,4 +60,4 @@ deactivate nv
 d --> browser: return newView
 deactivate d
 
-==2. The system displays the view all accounts page (07-view_all_accounts) which shows the details of all accounts==
+==2. The system displays three different types of user lists based on the administrator's selection at **"view all accounts page".(07-view_all_accounts_administrators.png)(07-view_all_accounts_customers.png)(07-view_all_accounts_organisers.png)**\n==

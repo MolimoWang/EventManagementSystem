@@ -29,7 +29,7 @@ r->rr:findAll(): Venue[*]
 r-->bs:return allVenues
 deactivate r
 
-bs->m:addAttributes("Venues" : String, venues : Venue[*])
+bs->m:addAttributes("allVenues":String,venues:Venue[*])
 
 bs-->d:return "view_all_venues.html"
 deactivate bs

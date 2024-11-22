@@ -645,6 +645,8 @@ class AccountSystem {
     +addAttribute("allOrganisers":String, o: Organiser[*])
     +addAttributes("error":String,"errNoUser":String)
     +addAttributes("error":String,"errWrongPassword":String)
+    +addAttribute("error":String, "duplicateEmail:String")
+    +addAttribute("error":String, "Invalid Input:String")
     +addAttribute("accountAlterDTO":String,accountAlterDTO: AccountAlterDTO)
 }
 
@@ -659,6 +661,7 @@ class VenueSystem {
     +listVenues(m : Model)
     +listAvailableVenues(date: Date,time: Time, m : Model)
     +addAttributes("venues":String,venues:Venue[*])
+    +addAttributes("allVenues":String,venues:Venue[*])
     +addAttributes("venue":String, venue:Venue)
     +addAttributes("venueAlterDTO":String, venueAlterDTO:venueAlterDTO)
 }
@@ -682,7 +685,11 @@ class EventSystem {
     +addAttributes("events": String, allEvents: Event[*])
     +addAttributes("events": String, events: Event[*])
     +addAttributes("events": String, dateEvents: Event[*])
+    +addAttributes("events": String, upcomingEvents: Event[*])
+    +addAttributes("Events": String, usageHistory: Event[*])
+    +addAttributes("Events": String, pastEvents: Event[*])
     +addAttributes("event":String, event:Event)
+    +addAttribute("eventAlterDTO":String, eventAlterDTO:EventAlterDTO)
     +addAttributes("customers": String, customers: Customer[*] )
 }
 
@@ -696,6 +703,9 @@ class TicketSystem {
     +buyTicket(customerEmail: String, eventName: String, ticketTypeName: String, m : Model)
     +viewTicketDetails(ticketId : long, m : Model)
     +cancelTicket(customerId: Long, eventId: Long, m : Model)
+    +addAttributes("ticket" : String, t: Ticket)
+    +addAttributes("tickets": String, myTickets: Ticket[*])
+    +addAttributes("purchaseStatus":"Success", "tickets":Ticket)
 }
 TicketSystem -->"1..TicketService 1"  TicketService
 

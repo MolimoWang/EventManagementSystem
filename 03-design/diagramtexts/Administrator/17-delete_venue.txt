@@ -57,7 +57,7 @@ r-->bs: return allVenues
 
 deactivate r
 
-bs->m:addAttributes("Venues" : String, allVenues : Venue[*])
+bs->m:addAttributes("allVenues":String,venues:Venue[*])
 
 bs-->d:return "view_all_venues.html"
 

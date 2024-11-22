@@ -18,7 +18,8 @@ participant "<link:_>OrganizerRepository" as or
 participant "<link:_>AccountService" as as
 boundary "View" as nv
 
-== 1. The administrator navigates to the 'View All Accounts' page ==
+==1. The administrator navigates to the **'View All Accounts'** page, which displaying all existing accounts in the system.\n2. The system displays three different types of user lists based on the administrator's selection at **"view all accounts page".(07-view_all_accounts_administrators.png)(07-view_all_accounts_customers.png)(07-view_all_accounts_organisers.png)**\n3. The administrator selects 'New Account'.\n4. The administrator selects the type of account.\n5. The system presents a form for entering account information.\n6. The administrator fills out the information.==
+
 admin -> w: click()
 activate w
 
@@ -28,7 +29,6 @@ activate d
 d -> ac: registerAccount(email: String, name: String, password: String, m: Model)
 activate ac
 
-== 2. The administrator selects 'New Account' ==
 alt Customer
 ac -> as: createCustomerAccount(email, name, role)
 activate as
@@ -89,7 +89,6 @@ ac --> d: return "view_all_accounts_organizer"
 
 end
 
-== 3. The system validates the change and updates the new user account ==
 d -> *nv: View(model: Model)
 activate nv
 
@@ -98,3 +97,5 @@ deactivate nv
 
 d --> w: return newView
 deactivate d
+
+==7. The system display the **"view all accounts"** page with no changes.**(07-view_all_accounts_administrators.png)(07-view_all_accounts_customers.png)(07-view_all_accounts_organisers.png)**==
