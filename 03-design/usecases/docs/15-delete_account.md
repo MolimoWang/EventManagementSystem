@@ -12,7 +12,7 @@
 
 ### Sequence Diagram
 
-![Delete Account](/03-design/sequence-diagrams/Administrator/15-delete_account-basic.png)
+![Delete Account](./03-design/sequence-diagrams/Administrator/15-delete_account-basic.png)
 
 ## Alternate Course of Events
 
