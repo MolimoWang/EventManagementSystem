@@ -1,3 +1,8 @@
+### Message From Sean
+
+I have now checked out the contents of the repository for grading. Any further details added after the deadline will be ignored.
+
+
 # Team Project: *Group 05*
 
 ## Team Members
@@ -63,7 +68,7 @@ file and is linked below.
 
 The class diagram represents the information gained about the system by completing the use case realisations.
 
-![class diagram](class-diagram/classDiagram.svg)
+![class diagram](/03-design/class-diagram/classDiagram.svg)
 
 ## Description of Database
 
