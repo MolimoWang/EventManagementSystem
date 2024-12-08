@@ -32,9 +32,10 @@ mvn package
 (Due to the problem of the Chinese mirror source, it takes a very long time to download, about ten minutes for the first time(Related to the network))
 ```bash
 docker-compose up --build -d
+docker-compose up --build
 ```
 
-This will build the application and run it on port 8080. You can then access the application by navigating to `localhost:8080` in your browser. This also starts the database, as such any changes you make shoudl persist between runs.
+This will build the application and run it on port 8000. You can then access the application by navigating to `localhost:8000` in your browser. This also starts the database, as such any changes you make shoudl persist between runs.
 
 ## Stopping the Application
 When you are finished and want to stop the application, you can use the following command:
