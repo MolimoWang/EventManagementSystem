@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8">
+    <title>list_my_venues</title>
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+</head>
+
+<body>
+
+<div class="header">
+    <!-- backbutton -->
+    <button class="back-button" onclick="goBack()">←</button>
+    <!-- My Venues title -->
+    <h1 th:if="${role} eq 'ORGANIZER'">Manager Venues</h1>
+    <h1 th:if="${role} eq 'CUSTOMER'">My Venues</h1>
+</div>
+
+<div th:if="${message}" class="success-message">
+    <p th:text="${message}"></p>
+</div>
+<div th:if="${error}" class="error-message">
+    <p th:text="${error}"></p>
+</div>
+<!-- TableList-->
+<table style="width: 100%; border-collapse: collapse;">
+    <thead>
+    <tr>
+        <th
+                style="background-color: #007bff; color: white; padding: 10px; border: 1px solid #ddd; font-size: 30px; text-align: center;">
+            Venue</th>
+        <th
+                style="background-color: #007bff; color: white; padding: 10px; border: 1px solid #ddd; font-size: 30px; text-align: center;">
+            Address</th>
+        <th
+                style="background-color: #007bff; color: white; padding: 10px; border: 1px solid #ddd; font-size: 30px; text-align: center;">
+            Reservations</th>
+        <th
+                style="background-color: #007bff; color: white; padding: 10px; border: 1px solid #ddd; font-size: 30px; text-align: center;">
+            Options</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="venue : ${venues}">
+        <td th:text="${venue.name}"></td>
+        <td th:text="${venue.address}"></td>
+        <td th:text="${venue.contactName}"></td>
+        <td>
+            <button  type="button" class="button-style" th:attr="data-id=${venue.id}"
+                    onclick="viewDetails(this)">Details</button>
+            <button th:if="${role} eq 'ORGANIZER'" type="button" class="button-style" th:attr="data-id=${venue.id}"
+                    onclick="openEditModal(this)">
+                Edit
+            </button>
+            <a th:if="${role} eq 'ADMIN'" class="button-style button-style-danger" th:href="@{'/delete/'+${venue.id}}">DELETE</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Create Venue Button -->
+<div style="text-align: center; margin-top: 20px;" th:if="${role} eq 'ORGANIZER'">
+    <button data-bs-toggle="modal" data-bs-target="#create-venue" onclick="openModal()"
+            style="font-size: 30px; padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        Create Venue
+    </button>
+</div>
+
+<!-- Create Venue Dialog -->
+<dialog id="create-venue">
+    <article>
+        <a style="margin-top: 0px;" href="#close" aria-label="Close" class="close" data-target="create-venue" onClick="closeModal()"></a>
+        <h3>Venue Details</h3>
+        <form method="post" th:action="@{/venue}" id="createVenueForm" th:object="${venueForm}">
+            <input type="hidden" id="venueId" name="venueId" th:field="*{id}">
+            <label for="venueName">
+                Venue Name
+                <input type="text" id="venueName" name="venueName" required th:field="*{name}">
+            </label>
+            <label for="venueAddress">
+                Venue Address
+                <input type="text" id="venueAddress" name="address" required th:field="*{address}">
+            </label>
+
+            <h3>Local Contact Details</h3>
+
+            <label for="contactName">
+                Contact Name
+                <input type="text" id="contactName" name="contactName" min="1" required th:field="*{contactName}">
+            </label>
+            <label for="contactPhoneNumber">
+                Phone Number
+                <input type="number" id="contactPhoneNumber" name="contactPhoneNumber" min="1" required
+                       th:field="*{contactPhoneNumber}">
+            </label>
+            <label for="contactEmail">
+                Email
+                <input type="email" id="contactEmail" name="contactEmail" min="1" required
+                       th:field="*{contactEmail}">
+            </label>
+
+            <h3>Tickets Types Availables</h3>
+
+
+            <div style="display: flex; gap: 20px; margin-top: 10px;">
+                <label for="ticketTypeName1">
+                    Ticket Type
+                    <input type="text" id="ticketTypeName1" name="ticketTypeName1" required
+                           th:field="*{ticketTypeName1}">
+                </label>
+
+                <label for="availableNumber1">
+                    Available Number
+                    <input type="number" id="availableNumber1" name="availableNumber1" min="0" required
+                           th:field="*{availableNumber1}">
+                </label>
+            </div>
+
+            <div style="display: flex; gap: 20px; margin-top: 10px;">
+                <label for="ticketTypeName2">
+                    Ticket Type
+                    <input type="text" id="ticketTypeName2" name="ticketTypeName2" required
+                           th:field="*{ticketTypeName2}">
+                </label>
+
+                <label for="availableNumber2">
+                    Available Number
+                    <input type="number" id="availableNumber2" name="availableNumber2" min="0" required
+                           th:field="*{availableNumber2}">
+                </label>
+            </div>
+
+
+
+            <footer>
+                <a role="button" class="secondary" onClick="closeModal()">Cancel</a>
+                <a href="#" role="button"
+                   onClick="javascript: document.getElementById('createVenueForm').submit();">Submit</a>
+
+            </footer>
+        </form>
+    </article>
+</dialog>
+
+
+<!-- View Venue Details Modal -->
+<dialog id="viewDetailsModal">
+    <article>
+        <a style="margin-top: 0px;" href="#close" aria-label="Close" class="close" data-target="create-venue" onClick="closeViewModal()"></a>
+        <div style="margin: 5px">
+            <h3 style="padding-top: 5px">Venue Details</h3>
+            <div class="modal-body">
+                <p><strong>Venue Name:</strong> <span class="detail-val" id="detailName"></span></p>
+                <p><strong>Address:</strong> <span class="detail-val" id="detailAddress"></span></p>
+            </div>
+            <h3 style="padding-top: 5px">Local Contact Details</h3>
+            <div class="modal-body">
+                <p><strong>Contact Name:</strong> <span class="detail-val" id="detailContactName"></span></p>
+                <p><strong>Phone Number:</strong> <span class="detail-val" id="detailContactPhoneNumber"></span></p>
+                <p><strong>Email:</strong> <span id="detailContactEmail"></span></p>
+            </div>
+            <p><strong>Total Capacity:</strong><span class="detail-val" id="detailTotalCapacity"></span></p>
+            <h3 style="margin-top: -3px;">Ticket Breakdown</h3>
+            <div style="width: 100% ;display: flex; margin-bottom: 15px;">
+                <div style="width:350px">
+                    <strong>Ticket Type:</strong><span class="detail-val" id="detailTicketTypeName1"></span>
+                </div>
+                <div style="float: left">
+                    <strong style="margin-left: 100px">Available:</strong> <span id="detailAvailableNumber1"></span>
+                </div>
+            </div>
+            <div style="width: 100% ;display: flex;">
+                <div style="width:350px">
+                    <strong>Ticket Type:</strong>
+                    <span class="detail-val" id="detailTicketTypeName2"></span>
+                </div>
+                <div style="float: left">
+                    <strong style="margin-left: 100px">Available:</strong>
+                    <span class="detail-val" id="detailAvailableNumber2"></span>
+                </div>
+            </div>
+
+            <p style="color:#a91e1e;margin-top: 20px;font-size: 19px;">
+                <span style="font-size: medium;">Note:</span> Venues can only be removed from the system by administrators</p>
+        </div>
+    </article>
+</dialog>
+
+
+<script>
+    // return button
+    function goBack() {
+        window.location.href = '/dashboard';
+    }
+
+    // open edit window
+    function openEditModal(button) {
+        // Get venueId from the button's data-id attribute
+        const venueId = button.getAttribute('data-id');
+        console.log(venueId);
+        if (venueId) {
+            // Use jQuery to send a GET request to fetch venue data
+            $.get('/edit/' + venueId, function (response) {
+                // Fill the modal form with the data
+                $('#venueId').val(response.id);
+                $('#venueName').val(response.name);
+                $('#venueAddress').val(response.address);
+                $('#contactPhoneNumber').val(response.contactPhoneNumber);
+                $('#contactEmail').val(response.contactEmail);
+                $('#contactName').val(response.contactName);
+                $('#ticketTypeName1').val(response.ticketTypeName1);
+                $('#ticketTypeName2').val(response.ticketTypeName2);
+                $('#availableNumber1').val(response.availableNumber1);
+                $('#availableNumber2').val(response.availableNumber2);
+                $('#date').val(response.dateStr);
+                $('#time').val(response.time);
+            });
+        } else {
+            const form = document.getElementById('createVenueForm');
+            form.reset();
+        }
+        // Open the window
+        $('#create-venue').modal('show');
+    }
+
+    // open create window
+    function openModal() {
+        // Clear data
+        const form = document.getElementById('createVenueForm');
+        form.reset();
+        $('#venueId').val();
+        // Open the window
+        $('#create-venue').modal('show');
+    }
+
+    // close window
+    function closeModal() {
+        $('#create-venue').modal('hide');
+    }
+
+    // View venue details in a modal
+    function viewDetails(button) {
+        // Get venueId from the button's data-id attribute
+        const venueId = button.getAttribute('data-id');
+        console.log(venueId);
+        $.get('/edit/' + venueId, function (response) {
+            $('#detailName').text(response.name);
+            $('#detailAddress').text(response.address);
+            $('#detailContactName').text(response.contactName);
+            $('#detailContactPhoneNumber').text(response.contactPhoneNumber);
+            $('#detailContactEmail').text(response.contactEmail);
+            $('#detailTicketTypeName1').text(response.ticketTypeName1);
+            $('#detailAvailableNumber1').text(response.availableNumber1);
+            $('#detailTicketTypeName2').text(response.ticketTypeName2);
+            $('#detailAvailableNumber2').text(response.availableNumber2);
+            $('#detailTotalCapacity').text(response.totalCapacity);
+            $('#viewDetailsModal').modal('show');
+        });
+    }
+
+    // close window
+    function closeViewModal() {
+        $('#viewDetailsModal').modal('hide');
+    }
+
+</script>
+
+<style>
+    .button-style {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #007bff;
+        text-decoration: none;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .button-style:hover {
+        background-color: #0056b3;
+    }
+
+    .button-style-danger {
+        background-color: #dc3545;
+    }
+
+    .button-style-danger:hover {
+        background-color: #c82333;
+    }
+
+    .button-style-success {
+        background-color: #28a745;
+    }
+
+    .button-style-success:hover {
+        background-color: #218838;
+    }
+
+    .button-style-secondary {
+        background-color: #6c757d;
+    }
+
+    .button-style-secondary:hover {
+        background-color: #5a6268;
+    }
+
+    .success-message,
+    .error-message {
+        margin-bottom: 15px;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    .success-message {
+        background-color: #e6f7e6;
+        color: #2d862d;
+    }
+
+    .error-message {
+        background-color: #ffe6e6;
+        color: #cc0000;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+    }
+
+    .header h1 {
+        margin-top: 20px;
+    }
+
+    .back-button {
+        padding: 12px 20px;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-right: 15px;
+    }
+
+    .back-button:hover {
+        background-color: #0056b3;
+    }
+
+    .detail-val {
+        margin-left: 5px;
+    }
+</style>
+</body>
+
+</html>

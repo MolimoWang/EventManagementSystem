@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8">
+    <title>list_my_tickets</title>
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+</head>
+
+<body>
+
+<div class="header">
+    <!-- backbutton -->
+    <button class="back-button" onclick="goBack()">←</button>
+    <!-- My events title -->
+    <h1 th:if="${role} eq 'ORGANIZER'">Manager tickets</h1>
+    <h1 th:if="${role} eq 'CUSTOMER'">My tickets</h1>
+</div>
+
+<div th:if="${message}" class="success-message">
+    <p th:text="${message}"></p>
+</div>
+<div th:if="${error}" class="error-message">
+    <p th:text="${error}"></p>
+</div>
+<!-- TableList-->
+<table style="width: 100%; border-collapse: collapse;">
+    <thead>
+    <tr>
+        <th
+                style="background-color: #007bff; color: white; padding: 10px; border: 1px solid #ddd; font-size: 30px; text-align: center;">
+            eventName</th>
+        <th
+                style="background-color: #007bff; color: white; padding: 10px; border: 1px solid #ddd; font-size: 30px; text-align: center;">
+            description</th>
+        <th
+                style="background-color: #007bff; color: white; padding: 10px; border: 1px solid #ddd;font-size: 30px; text-align: center;">
+            eventDate</th>
+        <th
+                style="background-color: #007bff; color: white; padding: 10px; border: 1px solid #ddd; font-size: 30px; text-align: center;">
+            eventTime</th>
+        <th
+                style="background-color: #007bff; color: white; padding: 10px; border: 1px solid #ddd; font-size: 30px; text-align: center;">
+            organiser</th>
+        <th
+                style="background-color: #007bff; color: white; padding: 10px; border: 1px solid #ddd; font-size: 30px; text-align: center;">
+            venue</th>
+        <th
+                style="background-color: #007bff; color: white; padding: 10px; border: 1px solid #ddd; font-size: 30px; text-align: center;">
+            price</th>
+        <th style="background-color: #007bff; color: white; padding: 10px; border: 1px solid #ddd; font-size: 30px; text-align: center;">
+            ticketTypeName</th>
+        <th
+                style="background-color: #007bff; color: white; padding: 10px; border: 1px solid #ddd; font-size: 30px; text-align: center;">
+            customerName</th>
+        <th  style="background-color: #007bff; color: white; padding: 10px; border: 1px solid #ddd; font-size: 30px; text-align: center;">
+            picture</th>
+        <th
+                style="background-color: #007bff; color: white; padding: 10px; border: 1px solid #ddd; font-size: 30px; text-align: center;">
+            Options</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="event : ${events}">
+        <td th:text="${event.eventName}"></td>
+        <td th:text="${event.description}"></td>
+        <td th:text="${event.date}"></td>
+        <td th:text="${event.time}"></td>
+        <td th:text="${event.organiser}"></td>
+        <td th:text="${event.venue}"></td>
+        <td th:text="${event.price}"></td>
+        <td th:text="${event.ticketTypeName}"></td>
+        <td th:text="${event.customerName}"></td>
+
+
+        <td>
+            <img style="width:80px;height:80px" th:src="@{(${event.picture})}"></img>
+        </td>
+
+        <td>
+            <button  type="button" class="button-style" th:attr="data-id=${event.id}"
+                     onclick="viewDetails(this)">Details</button>
+            <button  type="button" class="button-style" th:attr="data-id=${event.id}"
+                     onclick="refundTicket(this)">Refund</button>
+        </td>
+
+
+
+    </tr>
+    </tbody>
+</table>
+
+
+<!-- View Venue Details Modal -->
+<dialog id="viewDetailsModal">
+    <article>
+        <a style="margin-top: 0px;" href="#close" aria-label="Close" class="close" data-target="create-event" onClick="closeViewModal()"></a>
+        <div style="margin: 5px">
+            <h3 style="padding-top: 5px">Event Details</h3>
+            <div class="modal-body">
+                <p><strong>Name:</strong> <span class="detail-val" id="detailName"></span></p>
+                <p><strong>Description:</strong> <span class="detail-val" id="detailDescription"></span></p>
+                <p><strong>DateTime:</strong> <span class="detail-val" id="DateTime"></span></p>
+            </div>
+            <h3 style="padding-top: 5px">Local Contact Details</h3>
+            <div class="modal-body">
+                <p><strong>organizer:</strong> <span class="detail-val" id="organizerDetail"></span></p>
+                <p><strong>venue:</strong> <span class="detail-val" id="venueDetail"></span></p>
+
+            </div>
+            <h3 style="margin-top: -3px;">Ticket Breakdown</h3>
+            <div style="width: 100% ;display: flex; margin-bottom: 15px;">
+                <div style="width:350px">
+                    <strong>Type:</strong><span class="detail-val" id="detailTicketTypeName"></span>
+                </div>
+
+                <div style="float: left;display:flex">
+                    <strong style="margin-left: 100px">price:</strong>
+                    <span style="margin-left: 20px" class="detail-val" id="detailPrice1"></span>
+                </div>
+            </div>
+
+        </div>
+    </article>
+</dialog>
+
+
+
+
+<script>
+
+    const typeVal = [[${type}]];
+    // 返回按钮功能
+    function goBack() {
+        window.location.href = '/dashboard';
+    }
+
+    // 取消门票
+    function refundTicket(button){
+        // 获取 venueId 从按钮的 data-id 属性中
+        const ticketId = button.getAttribute('data-id');
+        if(confirm("Are you sure you want to refund this ticket ?")) {
+        $.ajax({
+            url: '/apis/deleteTicket?ticketId=' + ticketId, // 替换为你的API端点
+            type: 'DELETE', //
+            dataType: 'text', // 指定返回数据类型为JSON
+            success: function(data) {
+                // 请求成功时的回调函数
+                // 'data' 是从服务器返回的JSON对象
+                if('refund success' === data){
+                    alert(data);
+                    console.log(typeVal);
+                    setTimeout(function(){
+                    console.log('typeVal:' + typeVal);
+                        window.location.href = '/apis/tickets?typeVal=' + typeVal;
+                    }, 10);
+
+                }else{
+                     alert(data);
+                }
+
+            }
+
+    });
+    }
+}
+
+
+
+
+
+    function deleteById(button){
+     const eventId = button.getAttribute('data-id');
+      $.get('/apis/delete/' + eventId, function (response) {
+        window.location.href = '/apis/events'
+      })
+    }
+
+
+
+
+    // 打开创建窗口
+    function openModal() {
+        // 数据清空
+        const form = document.getElementById('createEventForm');
+        form.reset();
+        $('#venueId').val();
+        // 打开窗口
+        $('#create-event').modal('show');
+    }
+
+    // 关闭窗口
+    function closeModal() {
+        $('#create-event').modal('hide');
+    }
+
+     // 关闭窗口
+    function closeModal2() {
+        $('#edit-ticket-event').modal('hide');
+    }
+
+      // 关闭窗口
+    function closeModal3() {
+        $('#order-ticket-event').modal('hide');
+    }
+
+    // View venue details in a modal
+    function viewDetails(button) {
+        // 获取 venueId 从按钮的 data-id 属性中
+        const eventId = button.getAttribute('data-id');
+        console.log(eventId);
+        $.get('/apis/ticket/edit/' + eventId, function (response) {
+            // 将数据填充到 modal 表单中
+                $('#eventId').text(response.id);
+                $('#detailName').text(response.eventName);
+                $('#detailDescription').text(response.description);
+                $('#DateTime').text(response.date + '  ' +response.time );
+                $('#organizerDetail').text(response.organiser);
+                $('#venueDetail').text(response.venue);
+                $('#detailTicketTypeName').text(response.ticketTypeName);
+                $('#detailAvailableNumber1').text(response.availableNumber1);
+                $('#detailPrice1').text(response.price);
+                $('#remainNum1').text(response.remainNum1);
+                $('#detailTicketTypeName2').text(response.ticketTypeName2);
+                $('#detailAvailableNumber2').text(response.availableNumber2);
+                $('#detailPrice2').text(response.price2);
+                $('#remainNum2').text(response.remainNum2);
+
+                $('#viewDetailsModal').modal('show');
+
+
+        });
+         $('#viewDetailsModal').modal('show');
+    }
+
+    // 关闭窗口
+    function closeViewModal() {
+        $('#viewDetailsModal').modal('hide');
+    }
+</script>
+
+<style>
+    .button-style {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #007bff;
+        /* 默认蓝色按钮 */
+        text-decoration: none;
+        border-radius: 5px;
+        /* 圆角效果 */
+        border: none;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .button-style:hover {
+        background-color: #0056b3;
+        /* 深蓝色，鼠标悬浮效果 */
+    }
+
+    .button-style-danger {
+        background-color: #dc3545;
+        /* 红色按钮，表示危险操作 */
+    }
+
+    .button-style-danger:hover {
+        background-color: #c82333;
+        /* 深红色，鼠标悬浮效果 */
+    }
+
+    .button-style-success {
+        background-color: #28a745;
+        /* 绿色按钮，表示成功操作 */
+    }
+
+    .button-style-success:hover {
+        background-color: #218838;
+        /* 深绿色，鼠标悬浮效果 */
+    }
+
+    .button-style-secondary {
+        background-color: #6c757d;
+        /* 灰色按钮，次要操作 */
+    }
+
+    .button-style-secondary:hover {
+        background-color: #5a6268;
+        /* 深灰色，鼠标悬浮效果 */
+    }
+
+    .success-message,
+    .error-message {
+        margin-bottom: 15px;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    .success-message {
+        background-color: #e6f7e6;
+        color: #2d862d;
+    }
+
+    .error-message {
+        background-color: #ffe6e6;
+        color: #cc0000;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+    }
+
+    .header h1 {
+        margin-top: 20px;
+    }
+
+    .back-button {
+        padding: 12px 20px;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-right: 15px;
+        /* 给标题和按钮之间加间距 */
+    }
+
+    .back-button:hover {
+        background-color: #0056b3;
+    ;
+    }
+
+    .detail-val {
+        margin-left: 5px;
+    }
+</style>
+</body>
+
+</html>

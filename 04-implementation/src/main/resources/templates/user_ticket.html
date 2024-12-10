@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tickets</title>
+    <link rel="stylesheet" href="/src/main/resources/css/user_ticket_style.css">
+</head>
+
+<body>
+<!-- Header Section -->
+<header class="header">
+    <h1>My Tickets</h1>
+</header>
+
+<!-- Success/Error messages -->
+<div th:if="${message}" class="message success-message">
+    <p th:text="${message}"></p>
+</div>
+<div th:if="${error}" class="message error-message">
+    <p th:text="${error}"></p>
+</div>
+
+<!-- Ticket List -->
+<section class="ticket-list">
+    <div th:each="ticket : ${userTickets}" class="ticket-card">
+        <div class="ticket-info">
+            <p><strong>Event:</strong> <span th:text="${ticket.eventName}">Event Name</span></p>
+            <p><strong>Date:</strong> <span th:text="${ticket.eventDate}">Event Date</span></p>
+            <p><strong>Venue:</strong> <span th:text="${ticket.venue}">Venue Name</span></p>
+            <p><strong>Section:</strong> <span th:text="${ticket.Section}">Section</span></p>
+        </div>
+
+        <!-- Action Buttons (View and Cancel) -->
+        <div class="ticket-actions">
+            <button class="button-style">
+                <a class="button-link" th:href="@{/tickets/view/${ticket.id}}">View</a>
+            </button>
+            <button class="button-style button-style-danger">
+                <a class="button-link" th:href="@{/tickets/cancel/${ticket.id}}">Cancel</a>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Back Button -->
+<div class="back-button-container">
+    <button class="back-button" onclick="goBack()">← Back</button>
+</div>
+
+<script>
+    // Function for going back to the previous page
+    function goBack() {
+        window.location.href = '/user/dashboard'; // Adjust the URL to match the correct path
+    }
+</script>
+</body>
+
+</html>

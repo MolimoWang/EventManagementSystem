@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Information</title>
+    <link rel="stylesheet" href="/css/user_ticket_style.css">
+</head>
+
+<body>
+<!-- Header Section -->
+<header class="header">
+    <h1>Ticket Information</h1>
+</header>
+
+<!-- Success/Error messages -->
+<div th:if="${message}" class="message success-message">
+    <p th:text="${message}"></p>
+</div>
+<div th:if="${error}" class="message error-message">
+    <p th:text="${error}"></p>
+</div>
+
+<!-- Ticket Information Section -->
+<section class="ticket-detail">
+    <div class="ticket-card">
+        <p>Event: <span th:text="${ticket.eventName}">Event Name</span></p>
+        <p><strong>Date:</strong> <span th:text="${ticket.eventDate}">Event Date</span></p>
+        <p><strong>Venue:</strong> <span th:text="${ticket.venue}">Venue Name</span></p>
+        <p><strong>Section:</strong> <span th:text="${ticket.section}">Section Number</span></p>
+        <p><strong>Type:</strong> <span th:text="${ticket.type}">Ticket Type</span></p>
+        <p><strong>Username:</strong> <span th:text="${ticket.username}">Username</span></p>
+        <p><strong>Price:</strong> <span th:text="${ticket.price}">Ticket Price</span></p>
+        <!-- Additional Details can be added here -->
+    </div>
+</section>
+
+<!-- Back Button -->
+<div class="back-button-container">
+    <button class="back-button" onclick="goBack()">← Back</button>
+</div>
+
+<script>
+    // Function for going back to the previous page
+    function goBack() {
+        window.location.href = '/user/my-tickets'; // Adjust the URL to match the correct path
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8">
+    <title>admin_my_venues</title>
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+</head>
+
+<body>
+
+<div class="header">
+    <!-- backbutton -->
+    <button class="back-button" onclick="goBack()">←</button>
+    <!-- My Venues title -->
+    <h1>All Venues</h1>
+</div>
+
+<div th:if="${message}" class="success-message">
+    <p th:text="${message}"></p>
+</div>
+<div th:if="${error}" class="error-message">
+    <p th:text="${error}"></p>
+</div>
+<!-- TableList-->
+<table style="width: 100%; border-collapse: collapse;">
+    <thead>
+    <tr>
+        <th
+                style="background-color: #007bff; color: white; padding: 10px; border: 1px solid #ddd; font-size: 30px; text-align: center;">
+            Venue</th>
+        <th
+                style="background-color: #007bff; color: white; padding: 10px; border: 1px solid #ddd; font-size: 30px; text-align: center;">
+            Address</th>
+        <th
+                style="background-color: #007bff; color: white; padding: 10px; border: 1px solid #ddd; font-size: 30px; text-align: center;">
+            Reservations</th>
+        <th
+                style="background-color: #007bff; color: white; padding: 10px; border: 1px solid #ddd; font-size: 30px; text-align: center;">
+            Options</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="venue : ${venues}">
+        <td th:text="${venue.name}"></td>
+        <td th:text="${venue.address}"></td>
+        <td th:text="${venue.contactName}"></td>
+        <td>
+            <a class="button-style button-style-danger" th:href="@{'/admin/delete/'+${venue.id}}">DELETE</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<script>
+        // return button
+        function goBack() {
+            window.location.href = '/admin/dashboard';
+        }
+
+    </script>
+
+<style>
+    .button-style {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #007bff;
+        text-decoration: none;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .button-style:hover {
+        background-color: #0056b3;
+    }
+
+    .button-style-danger {
+        background-color: #dc3545;
+    }
+
+    .button-style-danger:hover {
+        background-color: #c82333;
+    }
+
+    .button-style-success {
+        background-color: #28a745;
+    }
+
+    .button-style-success:hover {
+        background-color: #218838;
+    }
+
+    .button-style-secondary {
+        background-color: #6c757d;
+    }
+
+    .button-style-secondary:hover {
+        background-color: #5a6268;
+    }
+
+    .success-message,
+    .error-message {
+        margin-bottom: 15px;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    .success-message {
+        background-color: #e6f7e6;
+        color: #2d862d;
+    }
+
+    .error-message {
+        background-color: #ffe6e6;
+        color: #cc0000;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+    }
+
+    .header h1 {
+        margin-top: 20px;
+    }
+
+    .back-button {
+        padding: 12px 20px;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-right: 15px;
+    }
+
+    .back-button:hover {
+        background-color: #0056b3;
+    ;
+    }
+
+    .detail-val {
+        margin-left: 5px;
+    }
+</style>
+</body>
+
+</html>

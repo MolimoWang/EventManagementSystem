@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{css/common.css}" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+
+    <style>
+        .shou_1 {
+            width: calc(100vw - 282px);
+            margin-left:300px;
+        }
+
+        .glass {
+            width: 90px;
+            height: 60px;
+            border: 1px solid black;
+            border-collapse: collapse;
+
+        }
+
+        .glass-child {
+            width: 78px;
+            height: 55px;
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin-top: 1px;
+        }
+
+        .bgc1{
+            background-color: #645815;
+        }
+
+        .bgc2{
+            background-color: #d7ff49;
+        }
+
+        .bgc3{
+            background-color: #ffdb23;
+        }
+
+        .bgc4{
+            background-color: #9f5854;
+        }
+
+        .bgc5{
+            background-color: #27ff38;
+        }
+
+        .bgc6{
+            background-color: #ede1ff;
+        }
+
+        .bgc7{
+            background-color: #acffec;
+        }
+
+        .bgc8{
+            background-color: #a26aff;
+        }
+
+        .center {
+            width: 1321px;
+            height: 660px;
+            margin-top: 20px;
+            margin-left: 41px;
+        }
+
+        .center title {
+            width: 400px;
+            height: 60px;
+        }
+
+        .service {
+            width: 1114px;
+            height: 500px;
+            margin: 88px auto 0;
+            position: relative;
+        }
+
+        .slist {
+            width: 1060px;
+            height: 104px;
+            position: absolute;
+            left: 50%;
+            margin-left: -540px;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .slist li {
+            float: left;
+            margin-right: 30px;
+        }
+
+        .box {
+            width: 104px;
+            height: 104px;
+        }
+
+        .ser {
+            width: 104px;
+            height: 280px;
+        }
+
+        .ser p {
+            font-size: 14px;
+            color: #666;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .ce-box {
+            width: 940px;
+            height: 400px;
+            margin-left: 20px;
+            display: flex;
+        }
+
+        .ce-box1 {
+            width: 270px;
+            height: 370px;
+            margin: 10px 40px 10px 226px;
+        }
+
+        .ce-box1 img {
+            margin: 5px 10px;
+        }
+
+        .ce-box1 h2 {
+            font-size: 20px;
+            color: #000;
+            text-align: center;
+        }
+
+        .ce-box1 p {
+            font-size: 18px;
+            margin: 5px 0px;
+            color: #95999c;
+            text-align: center;
+        }
+
+        .ce-box2 {
+            width: 270px;
+            height: 370px;
+            /*display: inline-block;*/
+            margin: 0px 40px 20px 40px;
+        }
+
+        .ce-box2 img {
+            margin: 5px 10px;
+        }
+
+        .ce-box2 h2 {
+            font-size: 20px;
+            color: #000;
+            text-align: center;
+        }
+
+        .ce-box2 p {
+            font-size: 18px;
+            margin: 5px 0px;
+            color: #95999c;
+            text-align: center;
+        }
+
+        .ce-box3 {
+            width: 270px;
+            height: 370px;
+            /*display: inline-block;*/
+            margin: 0px 20px 10px 40px;
+        }
+
+        .ce-box3 img {
+            margin: 5px 10px;
+        }
+
+        .ce-box3 h2 {
+            font-size: 20px;
+            color: #000;
+            text-align: center;
+        }
+
+        .ce-box3 p {
+            font-size: 18px;
+            margin: 5px 0px;
+            color: #95999c;
+            text-align: center;
+        }
+
+        .bottom {
+            width: 400px;
+            height: 40px;
+            margin: 0 auto;
+        }
+
+        .bottom a {
+            font-size: 18px;
+            color: #95999c;
+            margin: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container" style="margin: 0;padding: 0">
+    <!--    logo-->
+    <div class="row" style="margin-left: 300px">
+<!--        <input id="dateShow" type="hidden" value="${}">-->
+        <div class="col-2"><img src="image/logo.png"></div>
+        <div class="col-6"></div>
+
+        <div class="col-2" style="width:100px" th:if="${role} eq ADMIN"><a href="/login"
+                                                                           style="color: black;width:100px;font-size: 20px">welcome
+            ADMIN</a></div>
+        <div class="col-2" style="width:100px" th:if="${role} eq ORGANIZER"><a href="/login"
+                                                                               style="color: black;width:100px;font-size: 20px">welcome
+            ORGANIZER </a></div>
+        <div class="col-2" style="width:100px" th:if="${role} eq CUSTOMER"><a href="/login"
+                                                                              style="color: black;width:100px;font-size: 20px">welcome
+            CUSTOMER </a></div>
+
+        <div class="col-1"><a href="/login" style="color: black;font-size: 20px">quit</a></div>
+        <div class="col-2"><a th:text="${name}" href="/person" style="color: black;font-size: 20px"></a></div>
+    </div>
+    <!--    导航栏-->
+    <div th:replace="~{commonPage/common::nav}"></div>
+    <div class="shou_1">
+        <!--        <img src="image/background.png" style="width: 100%;margin-top: 20px" >-->
+        choose time <input type="date" id="walkInDate"  th:value="${date}" name="walkInDate"  style="margin-bottom:30px">
+        <div style="display: flex">
+            <div th:each="time : ${times}" class="glass" style="background-color:#fff184;" >
+                <span  th:text="${time}"></span>
+            </div>
+        </div>
+
+        <h3 th:if="${noData}" style="text-align: center;margin: auto">no venuns have event to show today</h3>
+
+        <div style="display: flex" th:each="venue : ${venues}">
+
+            <div class="glass" style="background-color:#f1f8e7;" th:text="${venue.name}">
+
+            </div>
+            <div th:id="${venue.id}" class="glass" style="position: relative">
+
+            </div>
+            <div  class="glass"></div>
+            <div  class="glass"></div>
+            <div  class="glass"></div>
+            <div  class="glass"></div>
+            <div  class="glass"></div>
+            <div  class="glass"></div>
+            <div  class="glass"></div>
+            <div  class="glass"></div>
+            <div  class="glass"></div>
+            <div  class="glass"></div>
+            <div  class="glass"></div>
+            <div  class="glass"></div>
+        </div>
+    </div>
+</div>
+<!--center-->
+<script>
+
+
+
+    document.getElementById('walkInDate').addEventListener('input', function(event) {
+        console.log('Input value changed to: ' + event.target.value);
+        window.location.href = '/home?date='+ event.target.value;
+
+    });
+
+    // 生成一个随机的RGB颜色代码
+    function generateRandomColor() {
+        var r = Math.floor(Math.random() * 256); // 0到255之间的随机整数
+        var g = Math.floor(Math.random() * 256); // 0到255之间的随机整数
+        var b = Math.floor(Math.random() * 256); // 0到255之间的随机整数
+
+        var colorCode = "rgb(" + r + ", " + g + ", " + b + ")";
+        return colorCode;
+    }
+    
+    $(document).ready(function () {
+
+        setTimeout(function () {
+            let date = $('#walkInDate').val()
+
+            $.ajax({
+                url: '/getOverView?date='+date,
+                type: 'GET',
+                dataType: 'json',
+                success: function(venues) {
+                    for (let venuekey in venues) {
+                        let venue = venues[venuekey]
+                        let eventList = venue.eventList;
+                        let html = ''
+                        let row =  {}
+                        for (let eventKey in eventList) {
+                            let event = eventList[eventKey]
+                            row = document.getElementById(venue.id);
+                            const width = row.offsetWidth;
+                            let rgbColor = generateRandomColor()
+                            html += `<div style="position: absolute;left:`+ event.scale * width *12 /86400 +`px;background-color: `+ rgbColor +`" class="glass-child ">`+event.name+`</div> \n`
+                        }
+                        row.innerHTML = html
+                    }
+
+                }
+            });
+
+        }, 20);
+
+    });
+
+
+</script>
+
+</body>
+</html>

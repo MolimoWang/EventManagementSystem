@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background: url("../image/background.png") no-repeat;
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+}
+
+body {
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    height: 100%;
+}
+.header{
+    width: 1300px;
+    height: 60px;
+    margin-top: 20px;
+    margin-left: 69px;
+}
+h1{
+    color: #000000;
+    text-align: center;
+}
+#center{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    background-color: rgba(238, 238, 238, 0.4);
+    box-shadow: 7px 7px 17px rgba(45, 45, 45, 0.5);
+    border-radius: 5px;
+    margin: 63px 67px 40px 353px;
+}
+input[name="Name"], input[name="phone"] , input[name="address"]{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+button[type="submit"] {
+    width: 177px;
+    height: 40px;
+    padding: 10px;
+    margin: 10px 50px;
+    border: none;
+    background-color: #7fe2e8;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 5px;
+}

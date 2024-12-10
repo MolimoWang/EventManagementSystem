@@ -1,0 +1,25 @@
+
+.col-3-nav{
+   width:282px !important;
+   max-width:282px !important;
+   height:50px;
+   background-color:rgb(240, 240, 240);
+   line-height:50px;
+}
+
+.col-3-nav>a{
+   margin-left:30px;
+}
+
+.col-3-nav:hover{
+   background-color:rgb(224, 224, 229);
+}
+
+.page{
+   text-align:center;
+   border:1px solid black;
+   color: black;
+   width:30px;
+   height:30px;
+   background-color:rgb(240, 240, 240);
+}

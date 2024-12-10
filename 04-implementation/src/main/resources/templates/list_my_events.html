@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8">
+    <title>list_my_events</title>
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+</head>
+
+<body>
+
+<div class="header">
+    <!-- backbutton -->
+    <button class="back-button" onclick="goBack()">←</button>
+    <!-- My events title -->
+    <h1 th:if="${role} eq 'ORGANIZER'">Manager events</h1>
+    <h1 th:if="${role} eq 'CUSTOMER'">My events</h1>
+</div>
+
+<div th:if="${message}" class="success-message">
+    <p th:text="${message}"></p>
+</div>
+<div th:if="${error}" class="error-message">
+    <p th:text="${error}"></p>
+</div>
+<!-- TableList-->
+<table style="width: 100%; border-collapse: collapse;">
+    <thead>
+    <tr>
+        <th
+                style="background-color: #007bff; color: white; padding: 10px; border: 1px solid #ddd; font-size: 30px; text-align: center;">
+            name</th>
+        <th
+                style="background-color: #007bff; color: white; padding: 10px; border: 1px solid #ddd; font-size: 30px; text-align: center;">
+            description</th>
+        <th
+                style="background-color: #007bff; color: white; padding: 10px; border: 1px solid #ddd; font-size: 30px; text-align: center;">
+            date</th>
+        <th
+                style="background-color: #007bff; color: white; padding: 10px; border: 1px solid #ddd; font-size: 30px; text-align: center;">
+            time</th>
+        <th
+            style="background-color: #007bff; color: white; padding: 10px; border: 1px solid #ddd; font-size: 30px; text-align: center;">
+        organiser</th>
+        <th
+            style="background-color: #007bff; color: white; padding: 10px; border: 1px solid #ddd; font-size: 30px; text-align: center;">
+        venue</th>
+        <th  style="background-color: #007bff; color: white; padding: 10px; border: 1px solid #ddd; font-size: 30px; text-align: center;">
+            picture</th>
+        <th
+                style="background-color: #007bff; color: white; padding: 10px; border: 1px solid #ddd; font-size: 30px; text-align: center;">
+            Options</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="event : ${events}">
+        <td th:text="${event.name}"></td>
+        <td th:text="${event.description}"></td>
+        <td th:text="${event.date}"></td>
+        <td th:text="${event.time}"></td>
+        <td th:text="${event.organiser}"></td>
+        <td th:text="${event.venue}"></td>
+        <td>
+            <img style="width:80px;height:80px" th:src="@{(${event.picture})}"></img>
+        </td>
+
+        <td>
+            <button  type="button" class="button-style" th:attr="data-id=${event.id}"
+                    onclick="viewDetails(this)">Details</button>
+
+            <button th:if="${role} eq 'ORGANIZER'"  type="button" class="button-style" th:attr="data-id=${event.id}"
+                    onclick="openEditModal(this)">
+                Edit
+            </button>
+
+            <button th:if="${role} eq 'ORGANIZER'"  type="button" class="button-style" th:attr="data-id=${event.id}"
+                    onclick="openEditTicketModal(this)">
+                Edit Ticket
+            </button>
+
+            <button th:if="${role} eq 'ADMIN'" type="button" class="button-style button-style-danger" th:attr="data-id=${event.id}"
+                    onclick="deleteById(this)">
+                DELETE
+            </button>
+
+
+            <button th:if="${role} eq 'CUSTOMER'" type="button" class="button-style button-style-danger" th:attr="data-id=${event.id}"
+                    onclick="openOrderTicketModel(this)">
+                ORDER
+            </button>
+
+        </td>
+
+
+
+    </tr>
+    </tbody>
+</table>
+
+<!-- Create Venue Button -->
+<div style="text-align: center; margin-top: 20px;" th:if="${role} eq 'ORGANIZER'" >
+    <button  data-bs-toggle="modal" data-bs-target="#create-event" onclick="openModal()"
+            style="font-size: 30px; padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        Create Event
+    </button>
+</div>
+
+
+<!-- Create event Dialog -->
+<dialog id="create-event">
+    <article>
+        <a style="margin-top: 0px;" href="#close" aria-label="Close" class="close" data-target="create-event" onClick="closeModal()"></a>
+        <h3>Event Details</h3>
+        <form method="post" th:action="@{/apis/event}" id="createEventForm" th:object="${eventForm}">
+            <input type="hidden" id="eventId" name="eventId" th:field="*{id}">
+            <label for="eventName">
+                event Name
+                <input type="text" id="eventName" name="eventName"  required th:field="*{name}">
+            </label>
+            <label for="description">
+                event description
+                <input type="text" id="description" name="description" required th:field="*{description}">
+            </label>
+
+            <h3>Local Contact Details</h3>
+
+            <label for ="walkInDate">
+                Date
+                <input type="date" id="walkInDate"  th:field="*{date}" name="walkInDate"  required>
+            </label>
+            <label for="walkInTime">
+                Time
+                <input type="time" id="walkInTime"  th:field="*{time}" name="walkInTime"  required>
+            </label>
+
+            <label for="venue">
+                venue
+                <select id="venue" th:field="*{venueId}">
+                    <option th:each="venue:${venues}" th:value="${venue.id}" th:text="${venue.name}"></option>
+                </select>
+            </label>
+
+            <label for="organiser">
+                organiser
+                <select id="organiser"   th:field="*{organizerId}">
+                    <option th:each="organiser:${organisers}" th:value="${organiser.id}" th:text="${organiser.username}"></option>
+                </select>
+            </label>
+
+            <label for="picture">
+                organiser
+                <select id="picture"   th:field="*{picture}">
+                    <option th:value="'images/event/1.webp'" th:text="picture1"></option>
+                    <option th:value="'images/event/2.webp'" th:text="picture2"></option>
+                    <option th:value="'images/event/3.webp'" th:text="picture3"></option>
+                    <option th:value="'images/event/4.webp'" th:text="picture4"></option>
+                    <option th:value="'images/event/5.webp'" th:text="picture5"></option>
+                </select>
+            </label>
+
+            <footer>
+                <a role="button" class="secondary" onClick="closeModal()">Cancel</a>
+                <a href="#" role="button"
+                   onClick="javascript: document.getElementById('createEventForm').submit();">Submit</a>
+
+            </footer>
+        </form>
+    </article>
+</dialog>
+
+<dialog id="edit-ticket-event">
+    <article>
+        <a style="margin-top: 0px;" href="#close" aria-label="Close" class="close" data-target="edit-ticket-event" onClick="closeModal2()"></a>
+        <h3>Event Ticket edit </h3>
+        <form method="post"  th:action="@{/apis/updateTicket}" id="editTicketForm" th:object="${eventForm}">
+            <input type="hidden" id="eventId2" name="id" th:field="*{id}">
+            <div style="display: flex; gap: 20px; margin-top: 10px;" id="editTicket1">
+                <label for="ticketTypeName1">
+                    Ticket Type
+                    <input type="text" id="ticketTypeName1" name="ticketTypeName1" required
+                           th:field="*{ticketTypeName1}">
+                </label>
+
+                <label for="availableNumber1">
+                    Available Number
+                    <input type="number" readonly id="availableNumber1" name="availableNumber1" min="0" required
+                           th:field="*{availableNumber1}">
+                </label>
+
+
+
+                <label for="price1">
+                    price1
+                    <input type="number" id="price1" name="price1" min="0" required
+                           th:field="*{price1}">
+                </label>
+            </div>
+
+            <div style="display: flex; gap: 20px; margin-top: 10px;"  id="editTicket2">
+                <label for="ticketTypeName2">
+                    Ticket Type
+                    <input type="text" id="ticketTypeName2" name="ticketTypeName2" required
+                           th:field="*{ticketTypeName2}">
+                </label>
+
+                <label for="availableNumber2">
+                    Available Number
+                    <input type="number" readonly id="availableNumber2" name="availableNumber2" min="0" required
+                           th:field="*{availableNumber2}">
+                </label>
+
+
+
+                <label for="price2">
+                    price2
+                    <input type="number" id="price2" name="price2" min="0" required
+                           th:field="*{price2}">
+                </label>
+            </div>
+
+
+
+            <footer>
+                <a role="button" class="secondary" onClick="closeModal2()">Cancel</a>
+                <a href="#" role="button"
+                   onClick="javascript: document.getElementById('editTicketForm').submit();">Submit</a>
+
+            </footer>
+        </form>
+    </article>
+</dialog>
+
+<!-- View Venue Details Modal -->
+<dialog id="viewDetailsModal">
+    <article>
+        <a style="margin-top: 0px;" href="#close" aria-label="Close" class="close" data-target="create-event" onClick="closeViewModal()"></a>
+        <div style="margin: 5px">
+            <h3 style="padding-top: 5px">Event Details</h3>
+            <div class="modal-body">
+                <p><strong>Name:</strong> <span class="detail-val" id="detailName"></span></p>
+                <p><strong>Description:</strong> <span class="detail-val" id="detailDescription"></span></p>
+                <p><strong>DateTime:</strong> <span class="detail-val" id="DateTime"></span></p>
+            </div>
+            <h3 style="padding-top: 5px">Local Contact Details</h3>
+            <div class="modal-body">
+                <p><strong>organizer:</strong> <span class="detail-val" id="organizerDetail"></span></p>
+                <p><strong>venue:</strong> <span class="detail-val" id="venueDetail"></span></p>
+
+            </div>
+            <h3 style="margin-top: -3px;">Ticket Breakdown</h3>
+            <div style="width: 100% ;display: flex; margin-bottom: 15px;">
+                <div style="width:350px">
+                    <strong>Type:</strong><span class="detail-val" id="detailTicketTypeName1"></span>
+                </div>
+                <div style="float: left">
+                    <strong  style="margin-left: 100px">Total:</strong>
+                    <span  style="margin-left: 100px" id="detailAvailableNumber1"></span>
+                </div>
+                <div style="float: left">
+                    <strong style="margin-left: 100px">price:</strong>
+                    <span style="margin-left: 100px" class="detail-val" id="detailPrice1"></span>
+                </div>
+                <div style="float: left">
+                    <strong style="margin-left: 100px">remain:</strong>
+                    <span style="margin-left: 100px" class="detail-val" id="remainNum1"></span>
+                </div>
+            </div>
+            <div style="width: 100% ;display: flex;">
+                <div style="width:350px">
+                    <strong>Type:</strong>
+                    <span class="detail-val" id="detailTicketTypeName2"></span>
+                </div>
+                <div style="float: left">
+                    <strong style="margin-left: 100px">Total:</strong>
+                    <span style="margin-left: 100px" class="detail-val" id="detailAvailableNumber2"></span>
+                </div>
+                <div style="float: left">
+                    <strong style="margin-left: 100px">price:</strong>
+                    <span style="margin-left: 100px" class="detail-val" id="detailPrice2"></span>
+                </div>
+                <div style="float: left">
+                    <strong style="margin-left: 100px">remain:</strong>
+                    <span style="margin-left: 100px" class="detail-val" id="remainNum2"></span>
+                </div>
+            </div>
+
+        </div>
+    </article>
+</dialog>
+
+
+<dialog id="order-ticket-event">
+    <article>
+        <a style="margin-top: 0px;" href="#close" aria-label="Close" class="close" data-target="order-ticket-event" onClick="closeModal3()"></a>
+        <h3>Event Ticket edit </h3>
+        <form method="post"  th:action="@{/apis/orderTicket}" id="orderTicketForm" th:object="${eventForm}">
+            <input type="hidden" id="orderEventId2" name="id" th:field="*{id}">
+            <div style="display: flex; gap: 20px; margin-top: 10px;" id="orderTicket1">
+                <label for="ticketTypeName1">
+                    Ticket Type
+                    <input type="text" id="orderTicketTypeName1" name="ticketTypeName1" required disabled="disabled"
+                           th:field="*{ticketTypeName1}">
+                </label>
+
+                <label for="availableNumber1">
+                    Remain Number
+                    <input type="number" readonly id="orderAvailableNumber1" name="remainNum2" min="0" required disabled="disabled"
+                           th:field="*{availableNumber1}">
+                </label>
+
+                <label for="price1">
+                    price1
+                    <input type="number" id="orderPrice1" name="price1" min="0" required disabled="disabled"
+                           th:field="*{price1}">
+                </label>
+
+                <button th:if="${role} eq 'CUSTOMER'" id="orderTicket1But"  type="button" style="height:65px;margin:auto" class="button-style button-style-danger"
+                        onclick="orderTicket(1)">
+                    ORDER
+                </button>
+            </div>
+
+            <div style="display: flex; gap: 20px; margin-top: 10px;"  id="orderTicket2">
+                <label for="ticketTypeName2">
+                    Ticket Type
+                    <input type="text" id="orderTicketTypeName2" name="ticketTypeName2" required disabled="disabled"
+                           th:field="*{ticketTypeName2}">
+                </label>
+
+                <label for="availableNumber2">
+                    Remain Number
+                    <input type="number" readonly id="orderAvailableNumber2" name="remainNum2" min="0" required disabled="disabled"
+                           th:field="*{availableNumber2}">
+                </label>
+
+
+
+                <label for="price2">
+                    price2
+                    <input type="number" id="orderPrice2" name="price2" min="0" required disabled="disabled"
+                           th:field="*{price2}">
+                </label>
+
+                <button th:if="${role} eq 'CUSTOMER'"  id="orderTicket2But"  style="height:65px;margin:auto" type="button" class="button-style button-style-danger"
+                        onclick="orderTicket(2)">
+                    ORDER
+                </button>
+            </div>
+
+        </form>
+    </article>
+</dialog>
+
+
+
+<script>
+    // 返回按钮功能
+    function goBack() {
+        window.location.href = '/dashboard';
+    }
+
+    //预定门票
+    function orderTicket(type){
+        let eventId;
+        if(type === 1){
+          eventId = $('#orderTicket1But').val();
+        }
+        if(type === 2){
+          eventId = $('#orderTicket2But').val();
+        }
+
+        $.ajax({
+            url: '/apis/orderTicket?eventId=' + eventId + '&ticketType='+ type, // 替换为你的API端点
+            type: 'GET', // 或者 'POST'，取决于你的请求类型
+            dataType: 'text', // 指定返回数据类型为JSON
+            success: function(data) {
+                // 请求成功时的回调函数
+                // 'data' 是从服务器返回的JSON对象
+                if('order success' === data){
+                    alert(data);
+                    setTimeout(function(){
+                        window.location.href = '/apis/events'
+                    }, 10);
+
+                }else{
+                     alert(data);
+                }
+
+            }
+    });
+
+
+    }
+
+
+
+
+    //打开预定票窗口
+    function openOrderTicketModel(button){
+
+    // 获取 eventId 从按钮的 data-id 属性中
+        const eventId = button.getAttribute('data-id');
+        console.log(eventId);
+         if (eventId) {
+            // 根据活动查询对应场馆的门票信息
+            $.get('/apis/edit/' + eventId, function (response) {
+               $('#orderEventId2').val(response.id);
+               $('#orderTicket1But').val(eventId);
+               $('#orderTicket2But').val(eventId);
+                if(response.t1Exist === 1){
+                  $('#orderTicketTypeName1').val(response.ticketTypeName1);
+                  $('#orderAvailableNumber1').val(response.remainNum1);
+
+                  $('#orderPrice1').val(response.price1);
+                }else{
+                    $('#orderEditTicket1').remove();
+                }
+
+                if(response.t2Exist === 1){
+                  $('#orderTicketTypeName2').val(response.ticketTypeName2);
+                  $('#orderAvailableNumber2').val(response.remainNum2);
+
+                    $('#orderPrice2').val(response.price2);
+                }else{
+                    $('#orderEditTicket2').remove();
+                }
+            })
+            }
+            $('#order-ticket-event').modal('show');
+
+
+    }
+
+    function deleteById(button){
+     const eventId = button.getAttribute('data-id');
+      $.get('/apis/delete/' + eventId, function (response) {
+        window.location.href = '/apis/events'
+      })
+    }
+
+    // 打开编辑门票
+    function openEditTicketModal(button){
+     // 获取 eventId 从按钮的 data-id 属性中
+        const eventId = button.getAttribute('data-id');
+        console.log(eventId);
+         if (eventId) {
+            // 根据活动查询对应场馆的门票信息
+            $.get('/apis/edit/' + eventId, function (response) {
+               $('#eventId2').val(response.id);
+                if(response.t1Exist === 1){
+                  $('#ticketTypeName1').val(response.ticketTypeName1);
+                  $('#availableNumber1').val(response.availableNumber1);
+
+                  $('#price1').val(response.price1);
+                }else{
+                    $('#editTicket1').remove();
+                }
+
+                if(response.t2Exist === 1){
+                  $('#ticketTypeName2').val(response.ticketTypeName2);
+                  $('#availableNumber2').val(response.availableNumber2);
+
+                    $('#price2').val(response.price2);
+                }else{
+                    $('#editTicket2').remove();
+                }
+            })
+            }
+            $('#edit-ticket-event').modal('show');
+
+    }
+
+    // 打开编辑窗口
+    function openEditModal(button) {
+        // 获取 eventId 从按钮的 data-id 属性中
+        const eventId = button.getAttribute('data-id');
+        console.log(eventId);
+        if (eventId) {
+            // 使用 jQuery 发送 GET 请求获取 venue 数据
+            $.get('/apis/edit/' + eventId, function (response) {
+
+                // 将数据填充到 modal 表单中
+                $('#eventId').val(response.id);
+                $('#eventName').val(response.name);
+                $('#description').val(response.description);
+                $('#walkInDate').val(response.date);
+                $('#walkInTime').val(response.time);
+                $('#venue').val(response.venueId);
+                $('#organiser').val(response.organizerId);
+                $('#picture').val(response.picture);
+
+                //todo  门票信息
+                 $('#create-event').modal('show');
+
+
+            });
+        } else {
+            const form = document.getElementById('createEventForm');
+            form.reset();
+        }
+        // 打开窗口
+        $('#create-event').modal('show');
+    }
+
+    // 打开创建窗口
+    function openModal() {
+        // 数据清空
+        const form = document.getElementById('createEventForm');
+        form.reset();
+        $('#venueId').val();
+        // 打开窗口
+        $('#create-event').modal('show');
+    }
+
+    // 关闭窗口
+    function closeModal() {
+        $('#create-event').modal('hide');
+    }
+
+     // 关闭窗口
+    function closeModal2() {
+        $('#edit-ticket-event').modal('hide');
+    }
+
+      // 关闭窗口
+    function closeModal3() {
+        $('#order-ticket-event').modal('hide');
+    }
+
+    // View venue details in a modal
+    function viewDetails(button) {
+        // 获取 venueId 从按钮的 data-id 属性中
+        const eventId = button.getAttribute('data-id');
+        console.log(eventId);
+        $.get('/apis/edit/' + eventId, function (response) {
+            // 将数据填充到 modal 表单中
+                $('#eventId').text(response.id);
+                $('#detailName').text(response.name);
+                $('#detailDescription').text(response.description);
+                $('#DateTime').text(response.date + '  ' +response.time );
+                $('#organizerDetail').text(response.organiser);
+                $('#venueDetail').text(response.venue);
+                $('#detailTicketTypeName1').text(response.ticketTypeName1);
+                $('#detailAvailableNumber1').text(response.availableNumber1);
+                $('#detailPrice1').text(response.price1);
+                $('#remainNum1').text(response.remainNum1);
+                $('#detailTicketTypeName2').text(response.ticketTypeName2);
+                $('#detailAvailableNumber2').text(response.availableNumber2);
+                $('#detailPrice2').text(response.price2);
+                $('#remainNum2').text(response.remainNum2);
+
+                $('#viewDetailsModal').modal('show');
+
+
+        });
+         $('#viewDetailsModal').modal('show');
+    }
+
+    // 关闭窗口
+    function closeViewModal() {
+        $('#viewDetailsModal').modal('hide');
+    }
+</script>
+
+<style>
+    .button-style {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #007bff;
+        /* 默认蓝色按钮 */
+        text-decoration: none;
+        border-radius: 5px;
+        /* 圆角效果 */
+        border: none;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .button-style:hover {
+        background-color: #0056b3;
+        /* 深蓝色，鼠标悬浮效果 */
+    }
+
+    .button-style-danger {
+        background-color: #dc3545;
+        /* 红色按钮，表示危险操作 */
+    }
+
+    .button-style-danger:hover {
+        background-color: #c82333;
+        /* 深红色，鼠标悬浮效果 */
+    }
+
+    .button-style-success {
+        background-color: #28a745;
+        /* 绿色按钮，表示成功操作 */
+    }
+
+    .button-style-success:hover {
+        background-color: #218838;
+        /* 深绿色，鼠标悬浮效果 */
+    }
+
+    .button-style-secondary {
+        background-color: #6c757d;
+        /* 灰色按钮，次要操作 */
+    }
+
+    .button-style-secondary:hover {
+        background-color: #5a6268;
+        /* 深灰色，鼠标悬浮效果 */
+    }
+
+    .success-message,
+    .error-message {
+        margin-bottom: 15px;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    .success-message {
+        background-color: #e6f7e6;
+        color: #2d862d;
+    }
+
+    .error-message {
+        background-color: #ffe6e6;
+        color: #cc0000;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+    }
+
+    .header h1 {
+        margin-top: 20px;
+    }
+
+    .back-button {
+        padding: 12px 20px;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-right: 15px;
+        /* 给标题和按钮之间加间距 */
+    }
+
+    .back-button:hover {
+        background-color: #0056b3;
+    ;
+    }
+
+    .detail-val {
+        margin-left: 5px;
+    }
+</style>
+</body>
+
+</html>

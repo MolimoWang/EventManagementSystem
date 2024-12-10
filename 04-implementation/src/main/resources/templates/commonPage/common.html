@@ -1,0 +1,42 @@
+<!--    导航栏-->
+<div th:fragment="nav" style="display: flex">
+    <div class="nav" style="position:absolute;width:282px;height:calc(100vh);left:0;display:block;background-color:rgb(240, 240, 240);top:0">
+        <div class="col-3-nav"><a href="/home">Overview</a></div>
+        <div th:if="${role} eq 'ADMIN'" class="col-3-nav"><a href="/api/accounts/viewAllAdmins">Account Management</a></div>
+        <div th:if="${role} eq 'ADMIN'"  class="col-3-nav"><a href="/venue">Venues Management</a></div>
+        <div th:if="${role} eq 'ADMIN'"  class="col-3-nav"><a href="/apis/events">Events Management</a></div>
+        <div th:if="${role} eq 'ADMIN'"  class="col-3-nav"><a href="/apis/tickets?type=admin">Ticket Management</a></div>
+
+
+        <div th:if="${role} eq 'ORGANIZER'"  class="col-3-nav"><a href="/venue">Venues Management</a></div>
+        <div th:if="${role} eq 'ORGANIZER'"  class="col-3-nav"><a href="/apis/events">Events Management</a></div>
+        <div th:if="${role} eq 'ORGANIZER'"  class="col-3-nav"><a href="/apis/tickets?type=myOrg">Ticket Management</a></div>
+        <div th:if="${role} eq 'ORGANIZER'" class="col-3-nav">
+            <a href="/api/accounts/myAccount?type=organizer/">My Account</a>
+        </div>
+
+
+
+        <div th:if="${role} eq 'CUSTOMER'"  class="col-3-nav"><a href="/apis/events">View Events</a></div>
+        <div th:if="${role} eq 'CUSTOMER'"  class="col-3-nav"><a href="/apis/tickets?type=my">MY Ticket</a></div>
+        <div th:if="${role} eq 'CUSTOMER'" class="col-3-nav">
+            <a href="/api/accounts/myAccount?type=customer">My Account</a>   </div>
+
+
+        <!--        <div th:style="'display:' + @{(${roleType} == 1 ? 'none' : 'inline-block')} + ''" class="col-3-nav"><a-->
+<!--                href="/getUserList">用户</a></div>-->
+    </div>
+</div>
+
+
+<!--    分页-->
+<div th:fragment="page(url)">
+    <div style="display:flex;margin-top:30px" class="page-box">
+        <p class="page" style="margin-left:0" th:each="index:${page}"
+           th:onclick="~(location.href=${url})"
+           th:text="${index}"></p>
+    </div>
+</div>
+
+
+

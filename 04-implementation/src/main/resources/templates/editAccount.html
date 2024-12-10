@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Account</title>
+    <link rel="stylesheet" th:href="@{/css/editAccount.css}">
+</head>
+<body>
+<h1>Edit Account</h1>
+
+<form id="editForm">
+    <div id="error-message" style="color: red; display: none;"></div>
+    <label for="editUsername">Username</label>
+    <input type="text" id="editUsername" name="username" th:value="${account.username}" required><br>
+
+    <label for="editEmail">Email</label>
+    <input type="email" id="editEmail" name="email" th:value="${account.email}" required><br>
+
+    <label for="editPassword">Password</label>
+    <input type="password" id="editPassword" name="password" placeholder="Enter new password (Leave empty to keep the current password)"><br>
+
+    <!-- Phone number field, rendered but hidden for non-organizer roles -->
+    <div id="phoneNumberField" th:classappend="${role == 'organizer' ? '' : 'hidden'}">
+        <label for="editPhoneNumber">Phone Number</label>
+        <input type="text" id="editPhoneNumber" name="phoneNumber"
+               th:value="${account.phoneNumber != null ? account.phoneNumber : ''}">
+    </div>
+    <!-- Address field, rendered but hidden for non-organizer roles -->
+    <div id="addressField" th:classappend="${role == 'organizer' ? '' : 'hidden'}">
+        <label for="editAddress">Address</label>
+        <input type="text" id="editAddress" name="address"
+               th:value="${account.address != null ? account.address : ''}">
+    </div>
+
+    <!-- Company Name field, rendered but hidden for non-organizer roles -->
+    <div id="companyNameField" th:classappend="${role == 'organizer' ? '' : 'hidden'}">
+        <label for="editCompanyName">Company Name</label>
+        <input type="text" id="editCompanyName" name="companyName"
+               th:value="${account.companyName != null ? account.companyName : ''}">
+    </div>
+    <input type="hidden" id="accountId" th:value="${accountId}">
+    <input type="hidden" id="role" name="role" th:value="${role}">
+
+    <button type="submit">Save</button>
+</form>
+
+<a href="/api/accounts/viewAllAdmins" class="btn cancel">Back</a>
+
+<script>
+    // Ensure role and accountId are correctly passed from the backend
+    const role = document.getElementById('role') ? document.getElementById('role').value : null;
+    let accountId = document.getElementById('accountId') ? document.getElementById('accountId').value : null;
+    accountId = Number(accountId);
+
+    // Error handling if role or accountId is missing
+    if (!role || !accountId || isNaN(accountId)) {
+        console.error('Invalid role or accountId:', role, accountId);
+        alert('Error: Missing role or accountId');
+    }
+
+    // Always render the fields but only show them for 'organizer'
+    const phoneNumberField = document.getElementById('phoneNumberField');
+    const addressField = document.getElementById('addressField');
+    const companyNameField = document.getElementById('companyNameField');
+
+    if (phoneNumberField) {
+        if (role === "organizer") {
+            phoneNumberField.style.display = 'block'; // Show field for 'organizer'
+            phoneNumberField.classList.remove('hidden'); // Ensure it's not hidden
+        } else {
+            phoneNumberField.style.display = 'none'; // Hide for other roles
+        }
+    } else {
+        console.error('Phone number field not found.');
+    }
+    if (addressField) {
+        if (role === "organizer") {
+            addressField.style.display = 'block'; // Show field for 'organizer'
+            addressField.classList.remove('hidden'); // Ensure it's not hidden
+        } else {
+            addressField.style.display = 'none'; // Hide for other roles
+        }
+    }
+
+    if (companyNameField) {
+        if (role === "organizer") {
+            companyNameField.style.display = 'block'; // Show field for 'organizer'
+            companyNameField.classList.remove('hidden'); // Ensure it's not hidden
+        } else {
+            companyNameField.style.display = 'none'; // Hide for other roles
+        }
+    }
+
+
+    if (role === "organizer") {
+        phoneNumberField.classList.remove('hidden');
+        companyNameField.classList.remove('hidden');
+        addressField.classList.remove('hidden');
+    } else {
+        phoneNumberField.classList.add('hidden');
+        companyNameField.classList.add('hidden');
+        addressField.classList.add('hidden');
+    }
+
+    console.log('Account ID from template:', accountId);
+
+    // Handle form submission to update account
+    document.getElementById('editForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        console.log("Form submitted");
+
+        // Gather form data
+        const accountDTO = {
+            username: document.getElementById('editUsername').value,
+            email: document.getElementById('editEmail').value,
+            password: document.getElementById('editPassword').value.trim() === "" ? null : document.getElementById('editPassword').value,  // If no new password, don't include it
+            phoneNumber: document.getElementById('editPhoneNumber') ? document.getElementById('editPhoneNumber').value : null,
+            address: document.getElementById('editAddress') ? document.getElementById('editAddress').value : null,
+            companyName: document.getElementById('editCompanyName') ? document.getElementById('editCompanyName').value : null
+        };
+
+        console.log("Account DTO to be sent:", accountDTO);
+
+        // Send updated account data to the backend
+        fetch(`/api/accounts/update/${role}/${accountId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(accountDTO)
+        })
+            .then(response => {
+                console.log("Response received:", response);
+
+                // First, get the raw response as text
+                return response.text();  // Get text response
+            })
+            .then(text => {
+                try {
+                    // Try parsing the response text as JSON
+                    const json = JSON.parse(text);
+                    console.log("Updated account:", json);
+
+                    // If successful, display success message and reload page
+                    alert('Account updated successfully!');
+                    location.reload(); // Reload the page to reflect changes
+                } catch (e) {
+                    // If parsing fails, display the raw text response
+                    console.error('Error parsing response:', e);
+                    alert(text);  // Fallback: show the raw text response
+                }
+            })
+            .catch(error => {
+                console.error('Error updating account:', error);
+                const errorMessageElement = document.getElementById('error-message');
+                errorMessageElement.textContent = error.message;
+                errorMessageElement.style.display = 'block';
+            });
+
+    });
+</script>
+</body>
+</html>

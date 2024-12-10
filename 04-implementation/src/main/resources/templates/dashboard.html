@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>backend manage</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{css/common.css}" rel="stylesheet">
+    <style>
+        .kuang{
+            width: 1140px;
+            height: 80px;
+            background-color: #c6f2fa;
+            margin-top: 20px ;
+        }
+        p{
+            font-size: 20px;
+            margin-top: 5px;
+            color: black;
+            margin-left: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container" style="margin: 0;padding: 0">
+    <!--    logo-->
+    <div class="row" style="margin-left: 282px">
+        <div class="col-2"><img src="image/logo.png"></div>
+        <div class="col-6"></div>
+
+        <div class="col-2" style="width:100px" th:if="${role} eq 'ADMIN'">
+            <span style="color: black;width:100px;font-size: 20px">welcome ADMIN</span>
+        </div>
+        <div class="col-2" style="width:100px" th:if="${role} eq 'ORGANIZER'">
+            <span style="color: black;width:100px;font-size: 20px">welcome ORGANIZER</span>
+        </div>
+        <div class="col-2" style="width:100px" th:if="${role} eq 'CUSTOMER'">
+            <span style="color: black;width:100px;font-size: 20px">welcome CUSTOMER</span>
+        </div>
+        <div class="col-1"><a href="/login" style="color: black;font-size: 20px">quit</a></div>
+        <div class="col-2"><a th:text="${name}" href="/person" style="color: black;font-size: 20px"></a></div>
+    </div>
+
+    <div th:replace="~{commonPage/common::nav}"></div>
+    <div class="row" style="margin-left: 300px">
+        <div class="kuang">
+            <p>welcome to Event management System!</p>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
