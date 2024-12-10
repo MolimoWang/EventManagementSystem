@@ -1,4 +1,3 @@
-
 # Team Project: *Group 05*
 
 ## Team Members
@@ -100,26 +99,26 @@ http://localhost:8000
 | Database initialization        | TM1            | TM7         |             | TM8      |
 | SecurityConfig setup           | TM1            |             |             | TM3      |
 | 00-login.md                    | TM1            | TM2         |             | TM2      |
-| 01-view_all_events.md          | TM3            | TM8         |             | TM1      |
+| 01-view_all_events.md          | TM3            | TM8         | TM4         | TM1      |
 | 02-delete_event.md             | TM3            | TM8         |             | TM2      |
-| 03-view_event_details.md       | TM3            | TM8         |             | TM3      |
+| 03-view_event_details.md       | TM3            | TM8         | TM6         | TM3      |
 | 04-view_event_registrations.md | TM3            | TM8         |             | TM3      |
-| 05-create_venue.md             | TM5            | TM4         |             | TM3      |
-| 06-edit_venue.md               | TM6            | TM5         |             | TM1      |
-| 07-view_venue_details.md       | TM4            | TM6         |             | TM1      |
+| 05-create_venue.md             | TM5            | TM4         | TM6         | TM3      |
+| 06-edit_venue.md               | TM6            | TM5         | TM4         | TM1      |
+| 07-view_venue_details.md       | TM4            | TM6         | TM5         | TM1      |
 | 08-modify_account.md           | TM2            | TM1         |             | TM3      |
 | 09-view_account.md             | TM2            | TM1         |             | TM3      |
-| 10-search_filter_events.md     | TM3            | TM8         |             | TM3      |
+| 10-search_filter_events.md     | TM3            | TM8         | TM456       | TM3      |
 | 11-display_date.md             | TM1            | TM2         |             | TM2      |
 | 12-create_account.md           | TM2            | TM1         |             | TM1      |
 | 13-view_all_accounts.md        | TM2            | TM1         |             | TM1      |
 | 14-delete_account.md           | TM2            | TM2         |             | TM1      |
-| 15-view_all_venues.md          | TM5            | TM6         |             | TM2      |
-| 16-delete_venue.md             | TM4            | TM5         |             | TM2      |
+| 15-view_all_venues.md          | TM5            | TM6         | TM4         | TM2      |
+| 16-delete_venue.md             | TM4            | TM5         | TM6         | TM2      |
 | 17-view_venue_usage_history.md | TM7            | TM3         |             | TM8      |
 | 18-view_events_history.md      | TM7            | TM3         |             | TM8      |
-| 19-list_my_events.md           | TM7            | TM3         |             | TM8      |
-| 20-create_event.md             | TM7            | TM3         |             | TM8      |
+| 19-list_my_events.md           | TM7            | TM3         | TM456       | TM8      |
+| 20-create_event.md             | TM7            | TM3         | TM5         | TM8      |
 | 22-list_my_venues.md           | TM6            | TM4         |             | TM5      |
 | 23-view_venue_bookings.md      | TM3            | TM7         |             | TM2      |
 | 24-register_account.md         | TM1            | TM2         |             | TM3      |
