@@ -1,5 +1,25 @@
 package org.work1.eventmanagement.config;
-
+/**
+ * Package: org.work1.eventmanagement.config
+ *
+ * Custom Authentication Provider for Spring Security.
+ *
+ * <p>This class provides a custom implementation of the {@link AuthenticationProvider}
+ * interface to authenticate users of different roles (Admin, Organizer, Customer)
+ * based on their username and password. It checks their credentials against the database
+ * and assigns appropriate roles upon successful authentication.
+ *
+ * Responsibilities:
+ * - Authenticate users by verifying their credentials.
+ * - Fetch user details from the appropriate repository (Admin, Organizer, Customer).
+ * - Assign roles based on the type of user (ADMIN, ORGANIZER, CUSTOMER).
+ *
+ * Dependencies:
+ * - Repositories: AdminRepository, OrganizerRepository, CustomerRepository.
+ * - Password Encoder: BCryptPasswordEncoder.
+ *
+ * This implementation throws a {@link BadCredentialsException} if authentication fails.
+ */
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -34,6 +54,13 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
+    /**
+     * Authenticates a user by verifying username and password against the database.
+     *
+     * @param authentication The authentication request object containing credentials.
+     * @return An authenticated {@link UsernamePasswordAuthenticationToken} with the user's role.
+     * @throws AuthenticationException If authentication fails.
+     */
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String username = authentication.getName();
@@ -98,7 +125,12 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
     }
 
 
-
+    /**
+     * Determines if this provider supports the specified authentication type.
+     *
+     * @param authentication The authentication type.
+     * @return True if the authentication type is {@link UsernamePasswordAuthenticationToken}.
+     */
     @Override
     public boolean supports(Class<?> authentication) {
         return authentication.equals(UsernamePasswordAuthenticationToken.class);

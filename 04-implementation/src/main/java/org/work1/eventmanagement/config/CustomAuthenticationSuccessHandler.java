@@ -1,5 +1,24 @@
 package org.work1.eventmanagement.config;
-
+/**
+ * Package: org.work1.eventmanagement.config
+ *
+ * Custom Authentication Success Handler for Spring Security.
+ *
+ * <p>This class implements {@link AuthenticationSuccessHandler} to handle successful
+ * authentication events. Based on the user's role (ADMIN, ORGANIZER, CUSTOMER),
+ * it sets session attributes and redirects the user to an appropriate dashboard.
+ *
+ * Responsibilities:
+ * - Extract user roles from the {@link Authentication} object.
+ * - Set session attributes for the authenticated user (username and role).
+ * - Redirect the user to the appropriate page based on their role.
+ *
+ * Redirect Logic:
+ * - ADMIN: Redirects to `/dashboard?role=1`.
+ * - ORGANIZER: Redirects to `/dashboard?role=2`.
+ * - CUSTOMER: Redirects to `/dashboard?role=3`.
+ * - If no role matches, redirects to the login page with an error.
+ */
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -12,7 +31,15 @@ import java.io.IOException;
 import java.util.Collection;
 
 public class CustomAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
-
+    /**
+     * Handles successful authentication events.
+     *
+     * @param request        The HTTP request.
+     * @param response       The HTTP response.
+     * @param authentication The authentication object containing the user's details.
+     * @throws IOException      If an input or output exception occurs.
+     * @throws ServletException If a servlet exception occurs.
+     */
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
 
