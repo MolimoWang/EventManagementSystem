@@ -61,7 +61,6 @@ public class EventService  extends BaseServiceImpl<EventMapper, Event> {
             String name = venue.getName();
             event.setVenue(name);
 
-            //设置门票相关信息
             String availableNumber1 = venue.getAvailableNumber1();
             String ticketTypeName1 = venue.getTicketTypeName1();
             String availableNumber2 = venue.getAvailableNumber2();

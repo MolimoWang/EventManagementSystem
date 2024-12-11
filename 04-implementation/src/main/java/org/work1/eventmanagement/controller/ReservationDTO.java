@@ -14,7 +14,7 @@ public class ReservationDTO {
     private String time;
     private long tableId;
     private int covers;
-    private boolean isOverfill; // 改为 isOverfill
+    private boolean isOverfill;
 
     public boolean isOverfill() {
         return isOverfill;

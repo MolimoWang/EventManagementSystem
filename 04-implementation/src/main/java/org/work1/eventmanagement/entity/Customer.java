@@ -18,10 +18,10 @@ public class Customer {
 
 
 
-    // 默认构造函数
+
     public Customer() {}
 
-    // 带参数的构造函数
+
     public Customer(String username, String email, String password) {
         this.username = username;
         this.email = email;

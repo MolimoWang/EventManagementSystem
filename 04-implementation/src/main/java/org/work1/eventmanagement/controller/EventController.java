@@ -41,7 +41,7 @@ public class EventController {
         }else {
             model.addAttribute("organisers",  organizerRepository.findAll());
         }
-        // 列表页面
+
         model.addAttribute("venues",  venueRepository.findAll());
         model.addAttribute("events",  eventService.getAllEvents());
         model.addAttribute("eventForm", new Event());
@@ -61,40 +61,43 @@ public class EventController {
 
 
     /**
-     * 处理新增或编辑场地
+     *  Processing of added or edited sites
      */
     @PostMapping("/event")
     public String createVenue(@ModelAttribute Event event, Model model) {
         try {
-            // 打印前端传入参数的日志
-            System.out.println("传入数据: \n" + event.toString());
-            // 假设您已经有服务方法来处理 VenueDTO 的创建
+            // Log the parameters passed from the frontend
+            System.out.println("Incoming data: \n" + event.toString());
+            // Assuming you already have a service method to handle the creation of VenueDTO
             boolean isCreate = (event.getId() == null);
-            if (isCreate){
+            if (isCreate) {
                 eventService.createEvent(event);
-            }else {
+            } else {
                 eventService.updateEvent(event);
             }
+
+            // Get the role from the session
             ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
             HttpServletRequest request = servletRequestAttributes.getRequest();
             Object role1 = request.getSession().getAttribute("role");
             model.addAttribute("role", role1);
-            // 返回首页列表
-            model.addAttribute("venues",  venueRepository.findAll());
-            model.addAttribute("organisers",  organizerRepository.findAll());
-            model.addAttribute("events",  eventService.getAllEvents());
-            model.addAttribute("eventForm", new Event()); // 用于表单绑定
+
+            // Return the home list page
+            model.addAttribute("venues", venueRepository.findAll());
+            model.addAttribute("organisers", organizerRepository.findAll());
+            model.addAttribute("events", eventService.getAllEvents());
+            model.addAttribute("eventForm", new Event()); // For form binding
             model.addAttribute("errorDTO", new ErrorMessageDTO(ErrorType.NONE, ""));
             model.addAttribute("message", "Venue '" + event.getName() + "'" +
-                    (isCreate ? " created successfully!" : " update successfully!"));
+                    (isCreate ? " created successfully!" : " updated successfully!"));
         } catch (Exception e) {
-            // 捕获并处理异常，避免发生 500 错误
-            model.addAttribute("eventForm", new Venue()); // 用于表单绑定
-            model.addAttribute("events",  eventService.getAllEvents());
+            // Catch and handle exceptions to avoid a 500 error
+            model.addAttribute("eventForm", new Venue()); // For form binding
+            model.addAttribute("events", eventService.getAllEvents());
             model.addAttribute("error", "Create Failed! Reason : create venue: " + e.getMessage());
-            e.printStackTrace(); // 打印日志来帮助排查问题
+            e.printStackTrace(); // Log to help troubleshoot the issue
         }
-        // 重定向到 Thymeleaf 列表页面
+        // Redirect to the Thymeleaf list page
         return "list_my_events";
     }
 
@@ -102,78 +105,84 @@ public class EventController {
     @PostMapping("/updateTicket")
     public String updateTicket(@ModelAttribute Event event, Model model) {
         try {
-            // 打印前端传入参数的日志
-            System.out.println("传入数据: \n" + event.toString());
-            // 假设您已经有服务方法来处理 VenueDTO 的创建
-           eventService.updateTicket(event);
+            // Log the parameters passed from the frontend
+            System.out.println("Incoming data: \n" + event.toString());
+            // Assuming you already have a service method to handle the update of the ticket
+            eventService.updateTicket(event);
+
+            // Get the role from the session
             ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
             HttpServletRequest request = servletRequestAttributes.getRequest();
             Object role1 = request.getSession().getAttribute("role");
             model.addAttribute("role", role1);
 
-            // 返回首页列表
-            model.addAttribute("venues",  venueRepository.findAll());
-            model.addAttribute("organisers",  organizerRepository.findAll());
-            model.addAttribute("events",  eventService.getAllEvents());
-            model.addAttribute("eventForm", new Event()); // 用于表单绑定
+            // Return the home list page
+            model.addAttribute("venues", venueRepository.findAll());
+            model.addAttribute("organisers", organizerRepository.findAll());
+            model.addAttribute("events", eventService.getAllEvents());
+            model.addAttribute("eventForm", new Event()); // For form binding
             model.addAttribute("errorDTO", new ErrorMessageDTO(ErrorType.NONE, ""));
             model.addAttribute("message", "Venue '" + event.getName() + "'" +
-                    (" update successfully!"));
+                    (" updated successfully!"));
         } catch (Exception e) {
-            // 捕获并处理异常，避免发生 500 错误
-            model.addAttribute("eventForm", new Venue()); // 用于表单绑定
-            model.addAttribute("events",  eventService.getAllEvents());
+            // Catch and handle exceptions to avoid a 500 error
+            model.addAttribute("eventForm", new Venue()); // For form binding
+            model.addAttribute("events", eventService.getAllEvents());
             model.addAttribute("error", "Create Failed! Reason : create venue: " + e.getMessage());
-            e.printStackTrace(); // 打印日志来帮助排查问题
+            e.printStackTrace(); // Log to help troubleshoot the issue
         }
-        // 重定向到 Thymeleaf 列表页面
+        // Redirect to the Thymeleaf list page
         return "list_my_events";
     }
 
-    // 编辑表单填充
+
+    // Fill the form for editing
     @GetMapping("/venue/{id}")
     public String editVenue(@PathVariable Long id, Model model) {
         Event event = eventService.getById(id);
-        model.addAttribute("eventForm", event); // 填充表单
-        model.addAttribute("events",  eventService.getAllEvents()); // 页面列表
-        model.addAttribute("venues",  venueRepository.findAll());
-        model.addAttribute("organisers",  organizerRepository.findAll());
+        model.addAttribute("eventForm", event); // Fill the form with event data
+        model.addAttribute("events", eventService.getAllEvents()); // Event list for the page
+        model.addAttribute("venues", venueRepository.findAll());
+        model.addAttribute("organisers", organizerRepository.findAll());
         model.addAttribute("errorDTO", new ErrorMessageDTO(ErrorType.NONE, ""));
-        return "list_my_events"; // 返回同一个页面
+        return "list_my_events"; // Return to the same page
     }
 
-    // 获取特定 venue 的数据并打开编辑弹窗
+    // Get the data for a specific venue and open the edit modal
     @GetMapping("/edit/{id}")
-    @ResponseBody  // 返回 JSON 数据
+    @ResponseBody  // Return JSON data
     public Event editVenue(@PathVariable("id") Long id) {
-        // 根据 ID 获取 venue 数据
+        // Get venue data by ID
         Event event = eventService.getById(id);
 
-        //查询票据信息
-        if (event.getVenueId()!=null){
-
+        // Query ticket information
+        if (event.getVenueId() != null) {
+            // Logic for handling ticket data (if needed)
         }
 
         return eventService.getById(id);
     }
 
-    // 删除场地
+    // Delete the venue
     @GetMapping("/delete/{id}")
     public String deleteVenue(@PathVariable Long id, Model model) {
+        // Get the role from the session
         ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = servletRequestAttributes.getRequest();
         Object role1 = request.getSession().getAttribute("role");
 
-        if (!"ADMIN".equals(role1)){
+        // Check if the user has permission to delete
+        if (!"ADMIN".equals(role1)) {
             fillModel(model);
-            model.addAttribute("message", "no auth to exec this method");
+            model.addAttribute("message", "No permission to execute this method");
             return "list_my_events";
         }
 
         Event event = eventService.deleteById(id);
         fillModel(model);
-        model.addAttribute("message", "event '" + event.getName() + "' Delete successfully!");
+        model.addAttribute("message", "Event '" + event.getName() + "' deleted successfully!");
 
-        return "list_my_events"; // 删除后重定向回列表页面
+        return "list_my_events"; // Redirect back to the list page after deletion
     }
+
 }

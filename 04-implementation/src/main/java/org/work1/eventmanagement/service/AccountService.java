@@ -221,7 +221,7 @@ public class AccountService {
             admin.setEmail(accountDTO.getEmail());
             if (accountDTO.getPassword() != null && !accountDTO.getPassword().isEmpty()) {
                 BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-                String encodedPassword = encoder.encode(accountDTO.getPassword()); // 对密码加密
+                String encodedPassword = encoder.encode(accountDTO.getPassword());
                 admin.setPassword(encodedPassword);
             }
             return administratorRepository.save(admin);
@@ -238,7 +238,7 @@ public class AccountService {
             customer.setEmail(accountDTO.getEmail());
             if (accountDTO.getPassword() != null && !accountDTO.getPassword().isEmpty()) {
                 BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-                String encodedPassword = encoder.encode(accountDTO.getPassword()); // 对密码加密
+                String encodedPassword = encoder.encode(accountDTO.getPassword());
                 customer.setPassword(encodedPassword);
             }
             return customerRepository.save(customer);

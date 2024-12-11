@@ -18,7 +18,7 @@ public class SecurityConfig {
         http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/", "/login", "/register", "/static/css/**", "/js/**", "/images/**").permitAll()
-                        .requestMatchers("/process-login").permitAll() // 登录处理路径
+                        .requestMatchers("/process-login").permitAll()
                         .requestMatchers("/admin/**").hasAuthority("ADMIN")
                         .requestMatchers("/organizer/**").hasAuthority("ORGANIZER")
                         .requestMatchers("/customer/**").hasAuthority("CUSTOMER")
@@ -29,15 +29,15 @@ public class SecurityConfig {
                 .formLogin(form -> form
                         .loginPage("/login")
                         .loginProcessingUrl("/process-login")
-                        .usernameParameter("username") // 确保与表单字段一致
+                        .usernameParameter("username")
                         .passwordParameter("password")
                         .successHandler(customSuccessHandler())
                         .failureHandler(customFailureHandler())
                         .permitAll()
                 )
                 .sessionManagement(session -> session
-                        .maximumSessions(100) // 同一用户允许的最大会话数
-                        .maxSessionsPreventsLogin(false) // 如果达到最大会话数，是否阻止新登录（false 允许新登录，覆盖旧会话）
+                        .maximumSessions(100)
+                        .maxSessionsPreventsLogin(false)
                 )
                 .logout(logout -> logout.permitAll())
                 .exceptionHandling(exception -> exception.accessDeniedPage("/403"));

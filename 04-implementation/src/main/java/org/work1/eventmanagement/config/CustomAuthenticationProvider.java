@@ -39,11 +39,10 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         String username = authentication.getName();
         String password = authentication.getCredentials().toString();
 
-        // 打印调试信息：用户名和密码
+
         System.out.println("Authenticating username: " + username);
         System.out.println("Password: " + password);
 
-        // 尝试从 Admin 表中验证
         Admin admin = adminRepository.findByUsername(username);
         System.out.println("Admin fetched: " + admin);
         if (admin != null) {
@@ -61,7 +60,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
             }
         }
 
-        // 尝试从 Organizer 表中验证
+
         Organizer organizer = organizerRepository.findByUsername(username);
         System.out.println("Organizer fetched: " + organizer);
         if (organizer != null) {
@@ -77,7 +76,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
             }
         }
 
-        // 尝试从 Customer 表中验证
+
         Customer customer = customerRepository.findByUsername(username);
         System.out.println("Customer fetched: " + customer);
         if (customer != null) {
@@ -93,7 +92,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
             }
         }
 
-        // 如果没有匹配任何用户，抛出异常
+
         System.out.println("Authentication failed for username: " + username);
         throw new BadCredentialsException("Invalid username or password");
     }

@@ -356,12 +356,12 @@
 
 
 <script>
-    // 返回按钮功能
+
     function goBack() {
         window.location.href = '/dashboard';
     }
 
-    //预定门票
+
     function orderTicket(type){
         let eventId;
         if(type === 1){
@@ -372,12 +372,11 @@
         }
 
         $.ajax({
-            url: '/apis/orderTicket?eventId=' + eventId + '&ticketType='+ type, // 替换为你的API端点
-            type: 'GET', // 或者 'POST'，取决于你的请求类型
-            dataType: 'text', // 指定返回数据类型为JSON
+            url: '/apis/orderTicket?eventId=' + eventId + '&ticketType='+ type,
+            type: 'GET',
+            dataType: 'text',
             success: function(data) {
-                // 请求成功时的回调函数
-                // 'data' 是从服务器返回的JSON对象
+
                 if('order success' === data){
                     alert(data);
                     setTimeout(function(){
@@ -397,14 +396,13 @@
 
 
 
-    //打开预定票窗口
     function openOrderTicketModel(button){
 
-    // 获取 eventId 从按钮的 data-id 属性中
+
         const eventId = button.getAttribute('data-id');
         console.log(eventId);
          if (eventId) {
-            // 根据活动查询对应场馆的门票信息
+
             $.get('/apis/edit/' + eventId, function (response) {
                $('#orderEventId2').val(response.id);
                $('#orderTicket1But').val(eventId);
@@ -440,13 +438,12 @@
       })
     }
 
-    // 打开编辑门票
+
     function openEditTicketModal(button){
-     // 获取 eventId 从按钮的 data-id 属性中
         const eventId = button.getAttribute('data-id');
         console.log(eventId);
          if (eventId) {
-            // 根据活动查询对应场馆的门票信息
+
             $.get('/apis/edit/' + eventId, function (response) {
                $('#eventId2').val(response.id);
                 if(response.t1Exist === 1){
@@ -472,16 +469,14 @@
 
     }
 
-    // 打开编辑窗口
     function openEditModal(button) {
-        // 获取 eventId 从按钮的 data-id 属性中
+
         const eventId = button.getAttribute('data-id');
         console.log(eventId);
         if (eventId) {
-            // 使用 jQuery 发送 GET 请求获取 venue 数据
+
             $.get('/apis/edit/' + eventId, function (response) {
 
-                // 将数据填充到 modal 表单中
                 $('#eventId').val(response.id);
                 $('#eventName').val(response.name);
                 $('#description').val(response.description);
@@ -491,7 +486,7 @@
                 $('#organiser').val(response.organizerId);
                 $('#picture').val(response.picture);
 
-                //todo  门票信息
+
                  $('#create-event').modal('show');
 
 
@@ -500,42 +495,42 @@
             const form = document.getElementById('createEventForm');
             form.reset();
         }
-        // 打开窗口
+
         $('#create-event').modal('show');
     }
 
-    // 打开创建窗口
+
     function openModal() {
-        // 数据清空
+
         const form = document.getElementById('createEventForm');
         form.reset();
         $('#venueId').val();
-        // 打开窗口
+
         $('#create-event').modal('show');
     }
 
-    // 关闭窗口
+
     function closeModal() {
         $('#create-event').modal('hide');
     }
 
-     // 关闭窗口
+
     function closeModal2() {
         $('#edit-ticket-event').modal('hide');
     }
 
-      // 关闭窗口
+
     function closeModal3() {
         $('#order-ticket-event').modal('hide');
     }
 
     // View venue details in a modal
     function viewDetails(button) {
-        // 获取 venueId 从按钮的 data-id 属性中
+
         const eventId = button.getAttribute('data-id');
         console.log(eventId);
         $.get('/apis/edit/' + eventId, function (response) {
-            // 将数据填充到 modal 表单中
+
                 $('#eventId').text(response.id);
                 $('#detailName').text(response.name);
                 $('#detailDescription').text(response.description);
@@ -558,7 +553,7 @@
          $('#viewDetailsModal').modal('show');
     }
 
-    // 关闭窗口
+
     function closeViewModal() {
         $('#viewDetailsModal').modal('hide');
     }
@@ -571,10 +566,10 @@
         font-size: 16px;
         color: #fff;
         background-color: #007bff;
-        /* 默认蓝色按钮 */
+
         text-decoration: none;
         border-radius: 5px;
-        /* 圆角效果 */
+
         border: none;
         cursor: pointer;
         text-align: center;
@@ -582,37 +577,37 @@
 
     .button-style:hover {
         background-color: #0056b3;
-        /* 深蓝色，鼠标悬浮效果 */
+
     }
 
     .button-style-danger {
         background-color: #dc3545;
-        /* 红色按钮，表示危险操作 */
+
     }
 
     .button-style-danger:hover {
         background-color: #c82333;
-        /* 深红色，鼠标悬浮效果 */
+
     }
 
     .button-style-success {
         background-color: #28a745;
-        /* 绿色按钮，表示成功操作 */
+
     }
 
     .button-style-success:hover {
         background-color: #218838;
-        /* 深绿色，鼠标悬浮效果 */
+
     }
 
     .button-style-secondary {
         background-color: #6c757d;
-        /* 灰色按钮，次要操作 */
+
     }
 
     .button-style-secondary:hover {
         background-color: #5a6268;
-        /* 深灰色，鼠标悬浮效果 */
+
     }
 
     .success-message,
@@ -650,7 +645,7 @@
         border-radius: 8px;
         cursor: pointer;
         margin-right: 15px;
-        /* 给标题和按钮之间加间距 */
+
     }
 
     .back-button:hover {

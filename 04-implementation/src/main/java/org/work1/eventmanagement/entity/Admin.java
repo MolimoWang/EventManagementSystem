@@ -17,7 +17,6 @@ public class Admin {
 
     public Admin() {}
 
-    // 带参数的构造函数
     public Admin(String username, String email, String password) {
         this.username = username;
         this.email = email;
@@ -25,7 +24,7 @@ public class Admin {
         this.is_active=true;
     }
 
-    // Getter 和 Setter 方法
+
     public Long getId() {
         return id;
     }

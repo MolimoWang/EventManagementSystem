@@ -7,6 +7,6 @@ import lombok.Getter;
 @Data
 public class TicketQuantityDTO {
     private Long id;
-    // 其他属性
-    private Long eventId; // 假设需要映射 event 的 ID
+
+    private Long eventId;
 }

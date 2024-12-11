@@ -15,12 +15,12 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-        // 获取用户的权限信息
+
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         HttpSession session = request.getSession();
         session.setAttribute("username",authentication.getPrincipal());
 
-        // 根据用户的权限跳转到对应的页面
+
         if (authorities.stream().anyMatch(a -> a.getAuthority().equals("ADMIN"))) {
             session.setAttribute("role","ADMIN");
             response.sendRedirect("/dashboard?role=1");

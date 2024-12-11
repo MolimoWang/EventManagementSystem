@@ -11,12 +11,12 @@ import java.util.Date;
 @NoArgsConstructor
 public class TicketDTO {
 
-    private String type; // 票的唯一标识
-    private String eventName; // 票的名称
-    private String eventId; // 票的描述
-    private Double price; // 票的价格
+    private String type;
+    private String eventName;
+    private String eventId;
+    private Double price;
 
-    // 构造方法
+
     public TicketDTO(String type, String eventName, Double price, String eventId) {
         this.eventId = eventId;
         this.eventName = eventName;
