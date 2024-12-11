@@ -38,12 +38,12 @@ public class LoginController {
 
     @GetMapping("/")
     public String showHomePage() {
-        return "index";
+        return "index"; // 返回首页
     }
 
     @GetMapping("/login")
     public String showLoginForm() {
-        return "login";
+        return "login"; // 返回登录页面
     }
 
     @GetMapping(value = "/getOverView")
@@ -63,7 +63,7 @@ public class LoginController {
         LambdaQueryWrapper<Event> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(Event::getDate, date);
 
-
+        //查询某一天的所有活动
         List<Event> events = eventMapper.selectList(wrapper);
         if (CollectionUtils.isEmpty(events)) {
             return ResponseEntity.ok(new ArrayList<>());
@@ -71,17 +71,17 @@ public class LoginController {
 
         Map<String, List<Event>> eventVenueMap = events.stream().collect(Collectors.groupingBy(Event::getVenueId));
 
-
+        //当天有活动的场馆
         List<Venue> venues = allVenues.stream().filter(o -> eventVenueMap.containsKey(o.getId() + "")).toList();
 
-
+        //设置活动的时间
         for (Venue venue : venues) {
-
+            //得到当天在该场馆举办的活动列表
             List<Event> events1 = eventVenueMap.get(venue.getId() + "");
 
             for (Event event : events1) {
                 String time = event.getTime();
-
+                //把时间转化为秒，然后计算刻度
                 int scale = convertTimeToScale(time);
                 event.setScale(scale);
             }
@@ -117,7 +117,7 @@ public class LoginController {
         LambdaQueryWrapper<Event> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(Event::getDate, date);
 
-
+        //查询某一天的所有活动
         List<Event> events = eventMapper.selectList(wrapper);
         if (CollectionUtils.isEmpty(events)) {
             m.addAttribute("venues",new ArrayList<>());
@@ -127,17 +127,17 @@ public class LoginController {
 
         Map<String, List<Event>> eventVenueMap = events.stream().collect(Collectors.groupingBy(Event::getVenueId));
 
-
+        //当天有活动的场馆
         List<Venue> venues = allVenues.stream().filter(o -> eventVenueMap.containsKey(o.getId() + "")).toList();
 
-
+        //设置活动的时间
         for (Venue venue : venues) {
-
+            //得到当天在该场馆举办的活动列表
             List<Event> events1 = eventVenueMap.get(venue.getId() + "");
 
             for (Event event : events1) {
                 String time = event.getTime();
-
+                //把时间转化为秒，然后计算刻度
                 int scale = convertTimeToScale(time);
                 event.setScale(scale);
             }

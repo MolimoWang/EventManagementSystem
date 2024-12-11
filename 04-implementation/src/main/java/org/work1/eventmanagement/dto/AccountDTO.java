@@ -1,4 +1,4 @@
-package org.work1.eventmanagement.controller;
+package org.work1.eventmanagement.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

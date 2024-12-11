@@ -275,10 +275,11 @@
 
     });
 
+    // 生成一个随机的RGB颜色代码
     function generateRandomColor() {
-        var r = Math.floor(Math.random() * 256);
-        var g = Math.floor(Math.random() * 256);
-        var b = Math.floor(Math.random() * 256);
+        var r = Math.floor(Math.random() * 256); // 0到255之间的随机整数
+        var g = Math.floor(Math.random() * 256); // 0到255之间的随机整数
+        var b = Math.floor(Math.random() * 256); // 0到255之间的随机整数
 
         var colorCode = "rgb(" + r + ", " + g + ", " + b + ")";
         return colorCode;

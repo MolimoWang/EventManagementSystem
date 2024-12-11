@@ -2,16 +2,14 @@ package org.work1.eventmanagement.service;
 
 import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.work1.eventmanagement.controller.VenueDTO;
+import org.work1.eventmanagement.dto.VenueDTO;
 import org.work1.eventmanagement.entity.Organizer;
 import org.work1.eventmanagement.entity.Venue;
 import org.work1.eventmanagement.exception.ServiceException;
-import org.work1.eventmanagement.repository.OrganizerRepository;
 import org.work1.eventmanagement.repository.VenueRepository;
 
 import java.util.Date;

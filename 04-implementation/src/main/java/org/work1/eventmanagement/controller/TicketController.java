@@ -1,6 +1,5 @@
 package org.work1.eventmanagement.controller;
 
-import com.baomidou.mybatisplus.core.toolkit.ObjectUtils;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
@@ -10,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.work1.eventmanagement.dto.ErrorMessageDTO;
 import org.work1.eventmanagement.entity.Event;
 import org.work1.eventmanagement.entity.Organizer;
 import org.work1.eventmanagement.entity.Ticket;

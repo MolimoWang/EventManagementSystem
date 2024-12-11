@@ -13,6 +13,7 @@ public class Organizer {
     private String username;
     private String email;
     private String password;
+    // 在 Customer 和 Organizer 实体类中
     private String phoneNumber;
     private String address;
     private String companyName;
@@ -36,10 +37,11 @@ public class Organizer {
 
     }
 
-
+    // 默认构造函数
     public Organizer() {}
 
 
+    // Getter 和 Setter 方法
     public Long getId() {
         return id;
     }

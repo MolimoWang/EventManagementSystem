@@ -1,11 +1,5 @@
 package org.work1.eventmanagement.controller;
 
-import java.sql.Time;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -16,6 +10,8 @@ import org.springframework.util.NumberUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.work1.eventmanagement.dto.ErrorMessageDTO;
+import org.work1.eventmanagement.dto.VenueDTO;
 import org.work1.eventmanagement.entity.Venue;
 import org.work1.eventmanagement.entity.VenueVO;
 import org.work1.eventmanagement.service.VenueService;

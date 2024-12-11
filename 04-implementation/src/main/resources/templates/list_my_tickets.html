@@ -132,22 +132,23 @@
 <script>
 
     const typeVal = [[${type}]];
-
+    // 返回按钮功能
     function goBack() {
         window.location.href = '/dashboard';
     }
 
-
+    // 取消门票
     function refundTicket(button){
-
+        // 获取 venueId 从按钮的 data-id 属性中
         const ticketId = button.getAttribute('data-id');
         if(confirm("Are you sure you want to refund this ticket ?")) {
         $.ajax({
-            url: '/apis/deleteTicket?ticketId=' + ticketId,
+            url: '/apis/deleteTicket?ticketId=' + ticketId, // 替换为你的API端点
             type: 'DELETE', //
-            dataType: 'text',
+            dataType: 'text', // 指定返回数据类型为JSON
             success: function(data) {
-
+                // 请求成功时的回调函数
+                // 'data' 是从服务器返回的JSON对象
                 if('refund success' === data){
                     alert(data);
                     console.log(typeVal);
@@ -180,37 +181,38 @@
 
 
 
-
+    // 打开创建窗口
     function openModal() {
-
+        // 数据清空
         const form = document.getElementById('createEventForm');
         form.reset();
         $('#venueId').val();
+        // 打开窗口
         $('#create-event').modal('show');
     }
 
-
+    // 关闭窗口
     function closeModal() {
         $('#create-event').modal('hide');
     }
 
-
+     // 关闭窗口
     function closeModal2() {
         $('#edit-ticket-event').modal('hide');
     }
 
-
+      // 关闭窗口
     function closeModal3() {
         $('#order-ticket-event').modal('hide');
     }
 
     // View venue details in a modal
     function viewDetails(button) {
-
+        // 获取 venueId 从按钮的 data-id 属性中
         const eventId = button.getAttribute('data-id');
         console.log(eventId);
         $.get('/apis/ticket/edit/' + eventId, function (response) {
-
+            // 将数据填充到 modal 表单中
                 $('#eventId').text(response.id);
                 $('#detailName').text(response.eventName);
                 $('#detailDescription').text(response.description);
@@ -233,7 +235,7 @@
          $('#viewDetailsModal').modal('show');
     }
 
-
+    // 关闭窗口
     function closeViewModal() {
         $('#viewDetailsModal').modal('hide');
     }
@@ -246,10 +248,10 @@
         font-size: 16px;
         color: #fff;
         background-color: #007bff;
-
+        /* 默认蓝色按钮 */
         text-decoration: none;
         border-radius: 5px;
-
+        /* 圆角效果 */
         border: none;
         cursor: pointer;
         text-align: center;
@@ -257,37 +259,37 @@
 
     .button-style:hover {
         background-color: #0056b3;
-
+        /* 深蓝色，鼠标悬浮效果 */
     }
 
     .button-style-danger {
         background-color: #dc3545;
-
+        /* 红色按钮，表示危险操作 */
     }
 
     .button-style-danger:hover {
         background-color: #c82333;
-
+        /* 深红色，鼠标悬浮效果 */
     }
 
     .button-style-success {
         background-color: #28a745;
-
+        /* 绿色按钮，表示成功操作 */
     }
 
     .button-style-success:hover {
         background-color: #218838;
-
+        /* 深绿色，鼠标悬浮效果 */
     }
 
     .button-style-secondary {
         background-color: #6c757d;
-
+        /* 灰色按钮，次要操作 */
     }
 
     .button-style-secondary:hover {
         background-color: #5a6268;
-
+        /* 深灰色，鼠标悬浮效果 */
     }
 
     .success-message,
@@ -325,7 +327,7 @@
         border-radius: 8px;
         cursor: pointer;
         margin-right: 15px;
-
+        /* 给标题和按钮之间加间距 */
     }
 
     .back-button:hover {

@@ -7,14 +7,12 @@ import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.ModelAndView;
+import org.work1.eventmanagement.dto.AccountDTO;
 import org.work1.eventmanagement.entity.Admin;
 import org.work1.eventmanagement.entity.Customer;
 import org.work1.eventmanagement.entity.Organizer;
 import org.work1.eventmanagement.service.AccountService;
-import org.work1.eventmanagement.service.VenueService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.Authentication;
 
@@ -26,13 +24,12 @@ public class AccountController {
     @Autowired
     private AccountService accountService;
 
-    // Create account
+
     @GetMapping("/createAccount")
     public String createAccountPage() {
         return "createAccount";
     }
 
-    // Edit account
     @GetMapping("/editAccount/{role}/{id}")
     public ModelAndView editAccountPage(@PathVariable String role, @PathVariable Long id, Model model) {
         if (role == null || role.equals("undefined")) {
@@ -56,7 +53,7 @@ public class AccountController {
         return new ModelAndView("editAccount");
     }
 
-    // Create customer account
+
     @PostMapping("/customers")
     public ResponseEntity<String> createCustomer(@RequestBody Customer customer) {
         if (accountService.isUsernameTaken(customer.getUsername())) {
@@ -70,7 +67,6 @@ public class AccountController {
         return ResponseEntity.ok("Account created successfully!");
     }
 
-    // Create organizer account
     @PostMapping("/organizers")
     public ResponseEntity<String> createOrganizer(@RequestBody Organizer organizer) {
         if (accountService.isUsernameTaken(organizer.getUsername())) {
@@ -87,7 +83,6 @@ public class AccountController {
         return ResponseEntity.ok("Account created successfully!");
     }
 
-    // Create admin account
     @PostMapping("/admins")
     public ResponseEntity<String> createAdmin(@RequestBody Admin admin) {
         if (accountService.isUsernameTaken(admin.getUsername())) {
@@ -101,7 +96,7 @@ public class AccountController {
         return ResponseEntity.ok("Account created successfully!");
     }
 
-    // View all admin account in account management page
+
     @GetMapping("/viewAllAdmins")
     public String viewAllAccounts(Model model) {
 
@@ -110,7 +105,6 @@ public class AccountController {
         return "accountManagement";
     }
 
-    // View all account in account management page
     @GetMapping("/{role}")
     public ResponseEntity<List<?>> getAccounts(@PathVariable String role) {
         switch (role.toLowerCase()) {
@@ -201,15 +195,17 @@ public class AccountController {
     @GetMapping("/myAccount")
     public String getMyAccount(@RequestParam(value = "type", required = false) String type, Model model, HttpServletRequest request) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        // 获取当前用户名
 
+        // 从 session 获取角色信息
         Object role = request.getSession().getAttribute("role");
         model.addAttribute("role", role);
 
         if (type != null) {
-            type = type.trim().replaceAll("/$", "").toLowerCase();
+            type = type.trim().replaceAll("/$", "").toLowerCase();  // 去除尾部斜杠并转为小写
         }
-        System.out.println("role: " + role);
-        System.out.println("type: " + type);
+        System.out.println("role: " + role);  // 打印出 role 的值，检查是否为期望的角色值
+        System.out.println("type: " + type);  // 打印出 type 的值，检查是否为 "organizer" 或 "customer"
 
         if (role != null) {
             System.out.println("role not null");
@@ -222,7 +218,7 @@ public class AccountController {
                     System.out.println("UserName: "+organizer.getUsername());
                     System.out.println("AccountDTO: " + accountDTO);
                     System.out.println("AccountID: " + accountId);
-                    model.addAttribute("account", accountDTO);
+                    model.addAttribute("account", accountDTO);  // Make sure this line is called
                     model.addAttribute("accountId", accountId);
                     model.addAttribute("role", "organizer");
                     return "myAccountOrganizer";

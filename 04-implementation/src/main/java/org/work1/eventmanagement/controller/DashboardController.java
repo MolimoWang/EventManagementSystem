@@ -1,15 +1,16 @@
 package org.work1.eventmanagement.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
+import org.work1.eventmanagement.dto.AlterDTO;
+import org.work1.eventmanagement.dto.ErrorMessageDTO;
+import org.work1.eventmanagement.dto.ReservationDTO;
+import org.work1.eventmanagement.dto.WalkInDTO;
 import org.work1.eventmanagement.entity.Booking;
 import org.work1.eventmanagement.entity.DinnerTable;
 import org.work1.eventmanagement.service.RestaurantService;

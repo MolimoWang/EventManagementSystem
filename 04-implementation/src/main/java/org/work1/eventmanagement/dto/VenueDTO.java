@@ -1,11 +1,11 @@
-package org.work1.eventmanagement.controller;
+package org.work1.eventmanagement.dto;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 
 import java.sql.Time;
 import java.util.Date;
-import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -8,6 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.work1.eventmanagement.dto.AlterDTO;
+import org.work1.eventmanagement.dto.ErrorMessageDTO;
+import org.work1.eventmanagement.dto.ReservationDTO;
+import org.work1.eventmanagement.dto.WalkInDTO;
 import org.work1.eventmanagement.entity.Booking;
 import org.work1.eventmanagement.entity.DinnerTable;
 import org.work1.eventmanagement.entity.Venue;
@@ -24,9 +28,10 @@ public class CustomerController {
     private final RestaurantService restaurantService;
     public final VenueService venueService;
 
+    // 构造方法，添加调试信息
     @Autowired
     public CustomerController(RestaurantService restaurantService, VenueService venueService) {
-        System.out.println("UserController has been created");
+        System.out.println("UserController 被创建");
         this.restaurantService = restaurantService;
         this.venueService = venueService;
     }
@@ -49,17 +54,17 @@ public class CustomerController {
 
     @GetMapping("/dashboard")
     public String userDashboard(@RequestParam(name="date", required=false, defaultValue="") String date, Model model) {
-
-        System.out.println("into /user/dashboard method");
+        // 添加调试信息，确保方法被调用
+        System.out.println("进入 /user/dashboard 方法");
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null) {
-            System.out.println("no current user");
+            System.out.println("当前没有用户登录");
             return "redirect:/login";
         }
 
-        System.out.println("current user: " + authentication.getName());
-        System.out.println("user INFO: " + authentication.getAuthorities());
+        System.out.println("当前登录用户: " + authentication.getName());
+        System.out.println("用户角色信息: " + authentication.getAuthorities());
 
         LocalDate date1;
         try  {

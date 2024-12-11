@@ -106,7 +106,9 @@ public class Event {
     private String price2;
 
 
-
+    /**
+     * 时间对应的刻度
+     */
     @TableField(exist = false)
     @Transient
     private int scale;

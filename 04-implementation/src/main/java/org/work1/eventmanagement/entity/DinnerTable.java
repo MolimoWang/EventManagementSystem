@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
-@Entity
+@Entity  // 这是必须的，标记为实体类
 @Table(name = "dinner_tables") 
 public class DinnerTable {
     @Id

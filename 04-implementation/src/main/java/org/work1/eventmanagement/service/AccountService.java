@@ -4,14 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.work1.eventmanagement.entity.Admin;
 import org.work1.eventmanagement.entity.Customer;
 import org.work1.eventmanagement.entity.Organizer;
 import org.work1.eventmanagement.repository.AdminRepository;
 import org.work1.eventmanagement.repository.CustomerRepository;
 import org.work1.eventmanagement.repository.OrganizerRepository;
-import org.work1.eventmanagement.controller.AccountDTO;
+import org.work1.eventmanagement.dto.AccountDTO;
 
 import java.util.List;
 import java.util.Optional;
@@ -221,7 +220,7 @@ public class AccountService {
             admin.setEmail(accountDTO.getEmail());
             if (accountDTO.getPassword() != null && !accountDTO.getPassword().isEmpty()) {
                 BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-                String encodedPassword = encoder.encode(accountDTO.getPassword());
+                String encodedPassword = encoder.encode(accountDTO.getPassword()); // 对密码加密
                 admin.setPassword(encodedPassword);
             }
             return administratorRepository.save(admin);
@@ -238,7 +237,7 @@ public class AccountService {
             customer.setEmail(accountDTO.getEmail());
             if (accountDTO.getPassword() != null && !accountDTO.getPassword().isEmpty()) {
                 BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-                String encodedPassword = encoder.encode(accountDTO.getPassword());
+                String encodedPassword = encoder.encode(accountDTO.getPassword()); // 对密码加密
                 customer.setPassword(encodedPassword);
             }
             return customerRepository.save(customer);
