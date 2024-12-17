@@ -9,6 +9,7 @@ services:
       MYSQL_PASSWORD: 123456
     volumes:
       - db_data:/var/lib/mysql
+      - ./src/main/resources/event_management.sql:/docker-entrypoint-initdb.d/event_management.sql # ?? SQL ??
 
   app:
     build: .
